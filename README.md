@@ -1,1 +1,1 @@
-# Neural Network for Virtual Reality
+# Neural Networks for Virtual Reality
