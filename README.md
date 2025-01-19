@@ -1,1 +1,1 @@
-# VR-ready Neural Network Verifier
+# VR-Ready Neural Network Verifier
