@@ -1,0 +1,1202 @@
+[
+    {
+        "prompt": "Build an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an model for recognizing images including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an image recognition model including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an image recognition model with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an model for recognizing images using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an neural network for image classification using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an image recognition model including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an image recognition model with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an image recognition model with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an image recognition model including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an AI model for image detection including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an neural network for image classification with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an AI model for image detection using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an AI model for image detection with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an image recognition model using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification with a structure that includes five convolutional layers with varying filter sizes, followed by max-pooling, dropout, and three fully connected layers. Use ReLU activation and softmax for the output layer.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using convolutional and pooling layers to process images. Implement dropout for regularization and fully connected layers for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition with five convolutional layers, interspersed with max-pooling layers, ReLU activations, and dropout. The final layers should be fully connected, leading to a softmax output for classification.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification including various convolutional and fully connected layers. Use ReLU for activation and include dropout and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection including five convolutional layers with different filter sizes and strides, max-pooling layers, ReLU activations, dropout layers, and three fully connected layers. Ensure the model ends with a softmax classifier.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an image recognition model with an architecture consisting of multiple convolutional layers, activation functions, pooling layers, and fully connected layers. Include dropout for regularization and use ReLU activation functions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection using convolutional layers with ReLU activation, max-pooling layers, and fully connected layers. The model should include five convolutional layers followed by three fully connected layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    }
+]

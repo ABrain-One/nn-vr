@@ -1,0 +1,1202 @@
+[
+    {
+        "prompt": "Build an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an neural network for image classification with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an image recognition model with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an image recognition model including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an neural network for image classification using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an neural network for image classification with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an image recognition model using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an AI model for image detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an image recognition model using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an image recognition model using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an image recognition model using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an AI model for image detection including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an image recognition model with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an AI model for image detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an image recognition model with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an model for recognizing images including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an image recognition model with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an AI model for image detection with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an neural network for image classification with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using inception modules to capture multi-scale features. Include auxiliary classifiers, batch normalization, and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using inception modules that concatenate multiple convolutional filters of different sizes. Include auxiliary classifiers for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection including inception modules with 1x1, 3x3, and 5x5 convolutions, along with max-pooling. Use auxiliary classifiers and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection with an architecture that includes inception modules, which combine multiple convolutions and pooling operations. Implement auxiliary classifiers to improve training.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis with a deep architecture that uses inception modules and auxiliary classifiers. Implement various convolutional filters and pooling operations to capture spatial hierarchies.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    }
+]

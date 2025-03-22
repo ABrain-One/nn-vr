@@ -1,0 +1,1202 @@
+[
+    {
+        "prompt": "Build an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an AI model for image detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an image recognition model with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an neural network for image classification using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an neural network for image classification using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an image recognition model using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an image recognition model with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an AI model for image detection using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an AI model for image detection with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an image recognition model with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an AI model for image detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an image recognition model with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an neural network for image classification including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an model for recognizing images including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images using a combination of hard swish activations and lightweight blocks. Include squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an neural network for image classification including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an model for recognizing images using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images with a compact structure using hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules and depthwise separable convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model including hard swish activations, squeeze-and-excitation modules, and depthwise separable convolutions. Use batch normalization and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model using mobile blocks optimized with hard swish activations and squeeze-and-excitation. Include depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images with an architecture that combines efficient hard swish activations and lightweight mobile blocks. Implement squeeze-and-excitation modules for channel attention.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model.",
+        "classification": "main"
+    }
+]

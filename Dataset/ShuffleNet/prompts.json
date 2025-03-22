@@ -1,0 +1,1202 @@
+[
+    {
+        "prompt": "Build an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an AI model for image detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an image recognition model with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an image recognition model using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an image recognition model using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an model for recognizing images with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an model for recognizing images including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an image recognition model using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an image recognition model with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an neural network for image classification with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an image recognition model with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an image recognition model including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an image recognition model with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an image recognition model with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an model for recognizing images using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an neural network for image classification including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an model for recognizing images using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an neural network for image classification using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an neural network for image classification with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using channel split and shuffle operations to improve efficiency. Include depthwise separable convolutions and pointwise group convolutions.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an image recognition model including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an image recognition model with an architecture that employs channel shuffling and splitting for better computational efficiency. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using a lightweight structure with channel shuffling and splitting techniques. Include depthwise separable convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection with a design that incorporates channel split and shuffle operations to optimize computation. Implement depthwise separable convolutions and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection including operations that shuffle and split channels to enhance performance. Use depthwise separable convolutions, pointwise group convolutions, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an image recognition model.",
+        "classification": "main"
+    }
+]

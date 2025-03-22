@@ -1,0 +1,1202 @@
+[
+    {
+        "prompt": "Build an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an image recognition model including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an model for recognizing images including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an AI model for image detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an model for recognizing images including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an neural network for image classification with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an model for recognizing images with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an AI model for image detection with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an image recognition model including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an image recognition model using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an AI model for image detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an neural network for image classification using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an neural network for image classification using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an image recognition model with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an image recognition model with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an CNN for visual recognition including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an AI model for image detection including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an model for recognizing images with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an image recognition model using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an convolutional neural network for object detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an image recognition model including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an AI model for image detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an neural network for image classification with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an AI model for image detection using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an convolutional neural network for object detection including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Create an AI model for image detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an CNN for visual recognition using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an neural network for image classification with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an deep learning model for image analysis using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an AI model for image detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an image recognition model using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an image recognition model using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an deep learning model for image analysis using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Build an AI model for image detection including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an image recognition model with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an image recognition model.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Design an neural network for image classification with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Build an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Generate an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an CNN for visual recognition.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Create an image recognition model using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an neural network for image classification with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an model for recognizing images using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an deep learning model for image analysis with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Build an image recognition model using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an AI model for image detection with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Create an CNN for visual recognition using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Generate an CNN for visual recognition with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an neural network for image classification using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an image recognition model using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Generate an model for recognizing images using a lightweight structure with fire modules to achieve high efficiency. Include ReLU activations, batch normalization, and dropout layers.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an convolutional neural network for object detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Design an model for recognizing images.",
+        "classification": "main"
+    },
+    {
+        "prompt": "Develop an deep learning model for image analysis using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an deep learning model for image analysis using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an model for recognizing images with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an convolutional neural network for object detection with an architecture that employs fire modules to reduce the number of parameters. Implement squeeze-and-expand layers, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Construct an image recognition model with a compact design using fire modules for parameter reduction. Implement 1x1 and 3x3 convolutions, batch normalization, and ReLU activations.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Develop an neural network for image classification using fire modules that squeeze and expand the input channels to achieve efficiency. Include ReLU activations and batch normalization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an model for recognizing images using convolutional layers.",
+        "classification": "implicit"
+    },
+    {
+        "prompt": "Formulate an image recognition model including fire modules with 1x1 and 3x3 convolutions to compress and expand feature maps. Use ReLU activations and dropout for regularization.",
+        "classification": "explicit"
+    },
+    {
+        "prompt": "Formulate an neural network for image classification using convolutional layers.",
+        "classification": "implicit"
+    }
+]
