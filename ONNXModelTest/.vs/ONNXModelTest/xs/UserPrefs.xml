@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{FAFC4239-F141-4E28-FD09-7AD014A8894C}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ONNXLoader.cs">
+    <Files>
+      <File FileName="Assets/Scripts/ONNXLoader.cs" Line="25" Column="29" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ONNXModelTest" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="ONNXLoader.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a0246bf3-cfc7-4fca-807e-5881d5e571a7" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

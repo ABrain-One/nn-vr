@@ -1,1 +1,0 @@
-{"[[CNBlockConfig(input_channels=96, out_channels=192, num_layers=3), CNBlockConfig(input_channels=192, out_channels=384, num_layers=3), CNBlockConfig(input_channels=384, out_channels=768, num_layers=27), CNBlockConfig(input_channels=768, out_channels=None, num_layers=3)]]": [0.28, 2, "image classification"]}

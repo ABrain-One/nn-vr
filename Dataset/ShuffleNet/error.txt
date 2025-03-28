@@ -1,1 +1,0 @@
-Parent directory ../Trained_models does not exist.

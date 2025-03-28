@@ -1,2 +1,0 @@
-Input size (75, 75) of block 0 is not divisible by partition size 7. Consider changing the partition size or the input size.
-Current configuration yields the following block input sizes: [(75, 75), (38, 38), (19, 19), (10, 10)].
