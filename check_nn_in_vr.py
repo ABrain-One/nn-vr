@@ -1,23 +1,25 @@
 import os
-import sys
-import torch
-import shutil
 import platform
+import shutil
+import sys
+from os.path import expanduser, expandvars, join, basename, exists
+
 from ab.nn.api import check_nn, data
+from ab.nn.util.Const import onnx_file
 
 
 def get_unity_log_path():
     if platform.system() == "Windows":
-        return os.path.expandvars(r"%USERPROFILE%\AppData\Local\Unity\Editor\Editor.log")
+        return expandvars(r"%USERPROFILE%\AppData\Local\Unity\Editor\Editor.log")
     elif platform.system() == "Darwin":
-        return os.path.expanduser("~/Library/Logs/Unity/Editor.log")
+        return expanduser("~/Library/Logs/Unity/Editor.log")
     else:
         raise RuntimeError("Unsupported OS")
 
 
-def copy_model_to_unity(onnx_file, unity_model_dir="Barracuda-Image-Classification/Assets/NN/Models"):
+def copy_model_to_unity(onnx_file, unity_model_dir="unity_nn/Assets/NN/Models"):
     os.makedirs(unity_model_dir, exist_ok=True)
-    dest_path = os.path.join(unity_model_dir, os.path.basename(onnx_file))
+    dest_path = join(unity_model_dir, basename(onnx_file))
     shutil.copy2(onnx_file, dest_path)
     print(f"Model copied to Unity: {dest_path}")
     return dest_path
@@ -25,7 +27,7 @@ def copy_model_to_unity(onnx_file, unity_model_dir="Barracuda-Image-Classificati
 
 def check_onnx_log_messages():
     log_path = get_unity_log_path()
-    if not os.path.exists(log_path):
+    if not exists(log_path):
         print(f"Unity log file not found at: {log_path}")
         return
 
@@ -55,7 +57,7 @@ def check_onnx_log_messages():
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python validate_onnx.py <model_name>")
+        print("Usage: python check_nn_in_vr.py <model_name>")
         sys.exit(1)
 
     model_name = sys.argv[1]
@@ -65,26 +67,23 @@ def main():
     last_row = df_sorted.iloc[-1]
 
     prm = last_row["prm"]
-    prm["epoch"] = 50
-    prm["device"] = "cuda" if torch.cuda.is_available() else "cpu"
+    prm["epoch"] = 1
 
-    check_nn(
-        nn_code=last_row["nn_code"],
-        task=last_row["task"],
-        dataset=last_row["dataset"],
-        metric=last_row["metric"],
-        prm=prm,
-        save_to_db=False,
-        export_onnx=True
-    )
+    check_nn(nn_code=last_row["nn_code"],
+             task=last_row["task"],
+             dataset=last_row["dataset"],
+             metric=last_row["metric"],
+             prm=prm,
+             prefix=model_name,
+             save_to_db=False,
+             export_onnx=True,
+             epoch_duration_limit_sec=5 * 60 * 60)
 
-    onnx_path = f" ./onnx/{model_name}.onnx"
-
-    if not os.path.exists(onnx_path):
-        print("File not found:", onnx_path)
+    if not exists(onnx_file):
+        print("File not found:", onnx_file)
         sys.exit(1)
 
-    copy_model_to_unity(onnx_path)
+    copy_model_to_unity(onnx_file)
     check_onnx_log_messages()
 
 
