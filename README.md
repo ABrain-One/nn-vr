@@ -9,10 +9,10 @@ pip install git+https://github.com/ABrain-One/nn-dataset --upgrade --force --ext
 
 ## Usage
 
-`python check_nn_in_vr.py <model_name>`
+`python port.py <model_name>`
 
 for example:
  
 ```bash
-python check_nn_in_vr.py AirNet
+python port.py AirNet
 ```
