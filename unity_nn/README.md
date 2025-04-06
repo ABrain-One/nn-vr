@@ -57,6 +57,6 @@ Feel free to submit issues, feature requests, or pull requests to improve the pr
 - Mahta Moosavi, Zofia Antonina Bentyn, Arash Torabi Goodarzi
 
 ## License
-This project is free for public use.
+<a href='https://github.com/ABrain-One/nn-vr/blob/main/LICENSE'>MIT license</a> 
 
 

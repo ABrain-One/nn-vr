@@ -29,7 +29,7 @@ def check_onnx_log_messages():
     log_path = get_unity_log_path()
     if not exists(log_path):
         print(f"Unity log file not found at: {log_path}")
-        return
+        return False
 
     success_message = "Model loaded and worker created successfully."
     error_prefix = "Failed to load ONNX model:"
@@ -49,22 +49,31 @@ def check_onnx_log_messages():
     print("\n=== ONNX Loader Status ===")
     if found_success:
         print("Success: ONNX model loaded and worker created.")
+        return True
     if found_error:
         print("Error detected:", error_detail)
     if not found_success and not found_error:
         print("No ONNX loader messages found in the log.")
+    return False
 
 
 def main():
+    """
+        Check if NN model correctly ported to Unity
+        :return: True if model ported to virtual reality, otherwise False
+        """
     if len(sys.argv) < 2:
         print("Usage: python port.py <model_name>")
         sys.exit(1)
+    log_f = get_unity_log_path()
+    if os.path.exists(log_f):
+        os.remove(log_f)
 
     model_name = sys.argv[1]
 
     df = data(nn=model_name)
-    df_sorted = df.sort_values("epoch")
-    last_row = df_sorted.iloc[-1]
+    df_sorted = df.sort_values("duration")
+    last_row = df_sorted.iloc[0]
 
     prm = last_row["prm"]
     prm["epoch"] = 1
@@ -81,10 +90,10 @@ def main():
 
     if not exists(onnx_file):
         print("File not found:", onnx_file)
-        sys.exit(1)
+        return False
 
     copy_model_to_unity(onnx_file)
-    check_onnx_log_messages()
+    return check_onnx_log_messages()
 
 
 if __name__ == "__main__":
