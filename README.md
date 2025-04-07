@@ -1,4 +1,5 @@
 # VR-Ready Neural Network Verifier
+The original version of the NN VR project was created by [Contributor Names] at the Computer Vision Laboratory, University of Würzburg, Germany.
 
 Installing/Updating NN Dataset from GitHub:
 ```bash
