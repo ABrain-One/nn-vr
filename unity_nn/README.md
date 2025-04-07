@@ -20,7 +20,7 @@ Welcome to the Unity Image Classification project! This project includes three i
 
 1. Clone the repository:
    ```sh
-   git clone <repository-url>
+   git clone <[repository-url](https://github.com/ABrain-One/nn-vr.git)>
    ```
 2. Open the project in Unity (tested with Unity 2021+).
 3. Ensure you have the **Barracuda** package installed for ONNX model inference.
