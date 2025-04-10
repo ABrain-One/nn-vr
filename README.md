@@ -1,5 +1,5 @@
 # VR-Ready Neural Network Verifier
-The original version of the NN VR project was created by [Arash Torabi Goodarzi, Mahta Moosavi, Zofia Antonina Bentyn] at the Computer Vision Laboratory, University of Würzburg, Germany.
+The original version of the NN VR project was created by <strong>Arash Torabi Goodarzi, Mahta Moosavi and Zofia Antonina Bentyn</strong> at the Computer Vision Laboratory, University of Würzburg, Germany.
 
 Installing/Updating NN Dataset from GitHub:
 ```bash
