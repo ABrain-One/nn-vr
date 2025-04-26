@@ -16,7 +16,7 @@ def copy_nn_to_verify(onnx_file, unity_model_dir=model_verifier_dir):
     os.makedirs(unity_model_dir, exist_ok=True)
     dest_path = join(unity_model_dir, basename(onnx_file))
     shutil.copy2(onnx_file, dest_path)
-    print(f"Model copied to Unity: {dest_path}")
+    print(f"Model copied to the Unity Verifier: {dest_path}")
     return dest_path
 
 
@@ -24,7 +24,7 @@ def copy_nn_to_unity(onnx_file, unity_model_dir='unity_nn/Assets/NN/Models'):
     os.makedirs(unity_model_dir, exist_ok=True)
     dest_path = join(unity_model_dir, basename(onnx_file))
     shutil.copy2(onnx_file, dest_path)
-    print(f"Model copied to Unity: {dest_path}")
+    print(f"Model copied to the unity_nn project: {dest_path}")
     return dest_path
 
 
@@ -41,7 +41,7 @@ def check_onnx_log_messages():
 
 
 def train_save_nn(model_name, model_onnx_file):
-    shutil.rmtree(onnx_dir)
+    shutil.rmtree(onnx_dir, ignore_errors=True)
     df = data(nn=model_name)
     df_sorted = df.sort_values("duration")
     last_row = df_sorted.iloc[0]
@@ -94,7 +94,7 @@ def main():
     unity_ready = None
     if len(sys.argv) > 2:
         unity_version = sys.argv[2]
-        verify_nn(nn_onnx_file, unity_version)
+        unity_ready = verify_nn(nn_onnx_file, unity_version)
 
     if unity_ready:
         copy_nn_to_unity(nn_onnx_file)
