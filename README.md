@@ -29,4 +29,5 @@ for example:
 ```bash
 python port.py AirNet
 ```
-    
+
+#### The idea and leadership of Dr. Ignatov
