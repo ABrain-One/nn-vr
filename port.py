@@ -1,6 +1,8 @@
-import os, platform, shutil, sys
-from os.path import expanduser, expandvars, join, basename, exists
+import os
+import shutil
+import sys
 from os import remove
+from os.path import join, basename, exists
 from pathlib import Path
 
 from ab.nn.api import check_nn, data
