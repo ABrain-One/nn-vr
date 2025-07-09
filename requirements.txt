@@ -1,1 +1,1 @@
-nn-dataset>=1.2.0
+nn-dataset>=1.2.2
