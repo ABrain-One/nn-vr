@@ -57,7 +57,7 @@ def train_save_nn(model_name, model_onnx_file):
              prefix=model_name,
              save_to_db=False,
              export_onnx=True,
-             epoch_duration_limit_sec=5 * 60 * 60)
+             epoch_limit_minutes=5 * 60)
 
     if not exists(onnx_file):
         print("File not found:", onnx_file)
