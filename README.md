@@ -7,7 +7,7 @@ The original version of the NN VR project was created by <strong>Arash Torabi Go
 Installing/Updating NN Dataset from GitHub:
 ```bash
 rm -rf db
-pip install git+https://github.com/ABrain-One/nn-dataset --upgrade --force --extra-index-url https://download.pytorch.org/whl/cu126
+pip install --no-cache-dir git+https://github.com/ABrain-One/nn-dataset --upgrade --force --extra-index-url https://download.pytorch.org/whl/cu126
 ```
 
 ## Usage in Windows
