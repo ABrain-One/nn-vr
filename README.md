@@ -6,15 +6,15 @@ The original version of the NN VR project was created by <strong>Arash Torabi Go
 
 ## Create and Activate a Virtual Environment (recommended)
 For Linux/Mac:
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   ```
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 For Windows:
-   ```bash
-   python3 -m venv .venv
-   .venv\Scripts\activate
-   ```
+```bash
+python3 -m venv .venv
+.venv\Scripts\activate
+```
 
 It is assumed that CUDA 12.6 is installed. If you have a different version, please replace 'cu126' with the appropriate version number.
 
