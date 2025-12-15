@@ -144,11 +144,18 @@ def main():
     print("🔄 Importing to Unity...")
     copy_nn_to_unity(nn_onnx_file)
     
-    # 4. Build APK (Optional - handled by build_and_deploy)
-    # If the user wants to force a build every time, uncomment below:
-    # unity_exe = build_and_deploy.find_unity_executable()
-    # if unity_exe:
-    #     build_and_deploy.build_android(unity_exe, str(UNITY_PROJECT_DIR))
+    # 4. Build APK (Auto-build if missing)
+    apk_path = UNITY_PROJECT_DIR / 'build' / 'nnvr.apk'
+    if not exists(apk_path):
+        print(f"⚠️ APK not found at {apk_path}. Building now (this may take a while)...")
+        unity_exe = build_and_deploy.find_unity_executable()
+        if unity_exe:
+            build_and_deploy.build_android(unity_exe, str(UNITY_PROJECT_DIR))
+        else:
+            print("❌ Unity executable not found. Cannot build APK.")
+            sys.exit(1)
+    else:
+        print(f"✅ APK found at {apk_path}. Skipping build.")
     
     # Check if we should deploy/run
     print("🚀 Initiating VR Processing...")

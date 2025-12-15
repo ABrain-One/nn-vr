@@ -1,57 +1,79 @@
-# VR-Ready Neural Network Verifier
+# Neural Network VR Pipeline (NN-VR)
 
-<img src='https://abrain.one/img/nn-vr-tr.png' width='25%'/>
+This repository contains the end-to-end pipeline for porting, verifying, and deploying Neural Network (NN) models from the `nn-dataset` to VR/Android devices using Unity and Barracuda.
 
-The original version of the NN VR project was created by <strong>Arash Torabi Goodarzi, Mahta Moosavi and Zofia Antonina Bentyn</strong> at the Computer Vision Laboratory, University of Würzburg, Germany.
+## Prerequisites
 
-## Create and Activate a Virtual Environment (recommended)
-For Linux/Mac:
+- **Python 3.8+**
+- **Unity 2022.3+** (with Android Build Support & IL2CPP)
+- **Android Studio** (for SDK/ADB)
+- **VR Headset** (Meta Quest 2/3/Pro) in Developer Mode
+
+## Setup Instructions
+
+### 1. Create and Activate a Virtual Environment (Recommended)
+
+**For Linux/Mac:**
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+python -m pip install --upgrade pip
 ```
-For Windows:
+
+**For Windows:**
 ```bash
 python3 -m venv .venv
 .venv\Scripts\activate
+python -m pip install --upgrade pip
 ```
 
-It is assumed that CUDA 12.6 is installed. If you have a different version, please replace 'cu126' with the appropriate version number.
+### 2. Install Requirements
 
-## Environment for NN Stat Contributors
-
-Run the following command to install all the project dependencies:
+Install the project dependencies and PyTorch (CUDA 12.6):
 ```bash
-python -m pip install --upgrade pip
 pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu126
 ```
 
-Installing/Updating NN Dataset from GitHub:
+### 3. Install/Update NN Dataset
+
+This installs the core dataset and logic required to fetch/train models. Warning: This clears the local `db` folder.
 ```bash
 rm -rf db
 pip install --no-cache-dir git+https://github.com/ABrain-One/nn-dataset --upgrade --force --extra-index-url https://download.pytorch.org/whl/cu126
 ```
 
-## Usage in Windows
+### 4. Install Android Studio (Linux)
 
-Performing verification of the neural network model for the specific version of Unity installed in the operating system:
-
-`python port.py <model_name> <unity_version>`
-
-for example:
-
+If you need a fresh Android Studio installation:
 ```bash
-python port.py AirNet 6000.0.42f1
+chmod +x install-android-studio.sh
+./install-android-studio.sh
 ```
 
-If the Unity version is not specified, the neural network model will be ported to the 'unity_nn' project without verification:
+---
 
-`python port.py <model_name>`
+## Usage Pipeline
 
-for example:
- 
+The main entry point is `port.py`. It handles:
+1.  **Fetching/Training**: Gets the model from `nn-dataset`.
+2.  **Validation**: Checks VR compatibility (Size, Ops).
+3.  **Import**: Copies model to Unity project (`unity_nn`).
+4.  **Build**: Auto-builds APK if missing.
+5.  **Deploy & Run**: Pushes to connected Android/VR device and runs inference.
+
+**Single Model Run:**
 ```bash
 python port.py AirNet
 ```
 
-#### The idea and leadership of Dr. Ignatov
+**Batch Run (All Supported Models):**
+```bash
+python port_all.py
+```
+
+## Project Structure
+
+- `port.py`: Main orchestration script.
+- `unity_nn/`: The Unity project (VR App).
+- `vr_processor.py`: Handles ADB communication and stats collection.
+- `build_and_deploy.py`: Handles Unity command-line building.
