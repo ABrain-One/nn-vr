@@ -1,17 +1,35 @@
-# Unity generated
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+# Unity generated (match in any directory)
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Unity temporary/test files
+**/Assets/**/_Temp.*
+**/Assets/**/*_Temp.*
+
+# Unity auto-generated project files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# Unity TextMesh Pro (if imported as package)
+**/Assets/TextMesh?Pro/
+
+# Unity packages lock file (optional - can track for reproducibility)
+**/Packages/packages-lock.json
 
 # Visual Studio / Code
 .vscode/
 .idea/
-*.sln
-*.csproj
 *.slnx
 
 # Python
