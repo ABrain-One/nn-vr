@@ -17,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2D-camera-classification.unity
     guid: 5251c28e83f8d4eb7a2ac75ff07a17ca
-  m_configObjects: {}
-  m_UseUCBPForAssetBundles: 0
+  - enabled: 1
+    path: Assets/Scenes/InferenceScene.unity
+    guid: 38957f65ed6861f43840651385b7e5f5
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ca511e426b72b82418c54c17447d56c4,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9d3fa9a6bfbc496458bce5ce99b961e4,
+      type: 2}

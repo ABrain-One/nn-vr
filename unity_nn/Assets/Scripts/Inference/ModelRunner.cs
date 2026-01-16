@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using Unity.Barracuda;
+using System.IO;
 
 public static class ModelRunner
 {
@@ -11,28 +11,35 @@ public static class ModelRunner
     )
     {
         backendUsed = backend;
-        // var model = ModelLoader.Load(modelPath);
-        byte[] modelData = System.IO.File.ReadAllBytes(modelPath);
+
+        Debug.Log($"[ModelRunner] Loading model from: {modelPath}");
+        Debug.Log($"[ModelRunner] File exists: {File.Exists(modelPath)}");
+
+        byte[] modelData = File.ReadAllBytes(modelPath);
+        Debug.Log($"[ModelRunner] Model bytes length: {modelData.Length}");
+
         var model = ModelLoader.Load(modelData);
+        Debug.Log("[ModelRunner] Model loaded successfully");
 
         WorkerFactory.Type workerType =
             backend == "gpu"
-            ? WorkerFactory.Type.Compute
-            : WorkerFactory.Type.CSharp;
+                ? WorkerFactory.Type.Compute
+                : WorkerFactory.Type.CSharp;
 
         IWorker worker;
 
         try
         {
             worker = WorkerFactory.CreateWorker(workerType, model);
+            Debug.Log($"[ModelRunner] Worker created with backend: {workerType}");
         }
-        catch
+        catch (System.Exception e)
         {
+            Debug.LogWarning($"[ModelRunner] GPU worker failed, falling back to CPU. Error: {e}");
             worker = WorkerFactory.CreateWorker(WorkerFactory.Type.CSharp, model);
             backendUsed = "cpu_fallback";
         }
 
-        // Dummy input – shape can be refined later
         using var input = new Tensor(1, 224, 224, 3);
 
         var sw = System.Diagnostics.Stopwatch.StartNew();
@@ -41,10 +48,12 @@ public static class ModelRunner
 
         worker.Dispose();
         Resources.UnloadUnusedAssets();
-        GC.Collect();
+        System.GC.Collect();
 
         long durationNs =
             sw.ElapsedTicks * (1_000_000_000L / System.Diagnostics.Stopwatch.Frequency);
+
+        Debug.Log($"[ModelRunner] Inference finished in {durationNs} ns");
 
         return durationNs;
     }

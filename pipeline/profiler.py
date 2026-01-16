@@ -1,3 +1,7 @@
+"""
+Standalone host-side profiling utility.
+Not part of the VR execution pipeline.
+"""
 import time
 import json
 import os
