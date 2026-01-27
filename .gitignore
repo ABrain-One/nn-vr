@@ -1,0 +1,38 @@
+# Unity generated
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Visual Studio / Code
+.vscode/
+.idea/
+*.sln
+*.csproj
+*.slnx
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+
+# Stats & Data
+*.json
+!nn-dataset/*.json
+*.log
+onnx_validation.txt
+
+# OS
+Thumbs.db
+.DS_Store
+
+# User specific
+.gemini/

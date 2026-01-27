@@ -54,6 +54,7 @@ public class CamClassifier : MonoBehaviour
 
     void OpenFilePicker()
     {
+ #if UNITY_EDITOR
         Debug.Log("Opening file picker...");
         string path = UnityEditor.EditorUtility.OpenFilePanel("Select an image", "", "png,jpg,jpeg");
         if (!string.IsNullOrEmpty(path))
@@ -65,6 +66,9 @@ public class CamClassifier : MonoBehaviour
         {
             Debug.Log("No file selected.");
         }
+#else
+        Debug.Log("File picker not supported on this platform.");
+#endif
     }
 
     void LoadImage(string path)
