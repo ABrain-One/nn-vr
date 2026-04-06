@@ -26,9 +26,14 @@ venv/
 
 # Stats & Data
 *.json
+*.jsonl
 !nn-dataset/*.json
+/models/
+/results/
+/db/
 *.log
 onnx_validation.txt
+latest_changes.patch
 
 # OS
 Thumbs.db
@@ -36,3 +41,4 @@ Thumbs.db
 
 # User specific
 .gemini/
+data/
