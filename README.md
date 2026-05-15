@@ -65,6 +65,10 @@ UserSettings/
 *.sln
 ```
 
+### Rebuilding Unity State
+
+If `Library/`, `Temp/`, or generated project files are deleted, simply reopen the project in Unity and they will be regenerated automatically.
+
 ---
 
 ## Prerequisites
@@ -174,6 +178,8 @@ The export pipeline is resumable. If an ONNX model already exists, export is ski
 ## Benchmark Output
 
 Results are appended to `results.jsonl` (JSON Lines format).
+
+*Note: Benchmark outputs (`results.jsonl`, `unity_benchmarks.json`) are intentionally gitignored to prevent committing volatile runtime data.*
 
 Each entry contains:
 
