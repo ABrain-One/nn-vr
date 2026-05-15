@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import pandas as pd
 from ab.nn.api import data
+# from ab.nn.api import data
 
 
 def load_models(
@@ -15,3 +16,5 @@ def load_models(
     `nn` filters by model name; `limit` maps to max_rows.
     """
     return data(nn=nn, max_rows=limit)
+    # need to use this for the full dataset
+    # return data_withnonnullvalue(nn=nn, max_rows=limit) 

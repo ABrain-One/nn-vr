@@ -2,3 +2,7 @@ nn-dataset>=2.1.0
 onnx>=1.14.0
 pandas
 torch
+torchvision
+huggingface_hub
+pytest
+onnxruntime

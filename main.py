@@ -1,136 +1,113 @@
 #!/usr/bin/env python3
 """
-Linear pipeline: nn-dataset row → ONNX → headset → Barracuda → JSON log.
+NN-VR: End-to-end ONNX pipeline — from HuggingFace model fetch to Unity inference.
+
+Stages
+------
+1. ONNX Export   — fetch architectures + weights from HF, export to ONNX, evaluate
+                   CIFAR-10 accuracy.  (process_models.py)
+2. Unity Bench   — run each ONNX through Unity Barracuda batchmode, persist timing
+                   + shape results to unity_benchmarks.json.  (benchmark_models.py)
+
+Usage
+-----
+Full pipeline (export then benchmark):
+    python main.py
+
+Export only (no Unity):
+    python main.py --skip-device
+
+Benchmark only (skip export, use existing ONNX files in _work/onnx_temp/):
+    python main.py --benchmark-only
+
+Resume export where it stopped, then benchmark:
+    python main.py                   # state file keeps track automatically
+
+Force re-export everything then benchmark:
+    python main.py --force
+
+Specific models only:
+    python main.py ResNet,VGG --benchmark-only
+    python main.py ResNet,VGG --skip-device
 """
 
-from __future__ import annotations
-
 import argparse
-import hashlib
 import sys
-from pathlib import Path
-
-from logger import log
-from model_loader import load_models
-from onnx_exporter import export_onnx
-from vr_runner import (
-    DEFAULT_PACKAGE,
-    device_ready,
-    fetch_results,
-    push_model,
-    run_benchmark,
-    wait_for_done,
-)
 
 
-def _file_sha256(path: Path) -> str:
-    h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for chunk in iter(lambda: f.read(1 << 20), b""):
-            h.update(chunk)
-    return h.hexdigest()
-
-
-def main() -> None:
-    p = argparse.ArgumentParser(description="NN-VR ONNX → Barracuda benchmark pipeline")
-    p.add_argument("--limit", type=int, default=None, help="Max rows from nn-dataset")
-    p.add_argument("--nn", type=str, default=None, help="Filter by model name")
-    p.add_argument(
-        "--export-timeout",
-        type=float,
-        default=60.0,
-        help="Kill ONNX export subprocess after this many seconds",
+def main():
+    ap = argparse.ArgumentParser(
+        description="NN-VR end-to-end pipeline: HF fetch → ONNX export → Unity benchmark",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
-    p.add_argument(
+
+    # ── Positional (optional) ────────────────────────────────────────────────
+    ap.add_argument(
+        "models",
+        nargs="?",
+        default=None,
+        help="Comma-separated model names to process (default: all)",
+    )
+
+    # ── Stage control ────────────────────────────────────────────────────────
+    stage = ap.add_mutually_exclusive_group()
+    stage.add_argument(
         "--skip-device",
         action="store_true",
-        help="Only export ONNX; do not use ADB",
+        help="Export ONNX + evaluate accuracy only; skip Unity benchmarking",
     )
-    p.add_argument(
-        "--package",
-        type=str,
-        default=DEFAULT_PACKAGE,
-        help="Android applicationId for am start",
+    stage.add_argument(
+        "--benchmark-only",
+        action="store_true",
+        help="Skip ONNX export; run Unity benchmarking on existing _work/onnx_temp/*.onnx files",
     )
-    p.add_argument(
-        "--log-file",
-        type=str,
-        default="results.jsonl",
-        help="Append-only JSON lines benchmark log",
-    )
-    p.add_argument(
-        "--models-dir",
-        type=str,
-        default="models",
-        help="Directory for exported .onnx files",
-    )
-    args = p.parse_args()
 
-    df = load_models(limit=args.limit, nn=args.nn)
-    if df.empty:
-        print("No models matched.", file=sys.stderr)
-        sys.exit(1)
+    # ── Export options ───────────────────────────────────────────────────────
+    ap.add_argument("--limit", type=int, default=None, help="Max models to export")
+    ap.add_argument("--dataset", default="cifar-10")
+    ap.add_argument("--export-timeout", type=float, default=120.0)
+    ap.add_argument("--android-runs", type=int, default=20)
+    ap.add_argument("--force", action="store_true", help="Reset export state, reprocess all")
+    ap.add_argument("--push-hf", action="store_true", help="Upload results to HuggingFace Hub")
 
-    models_dir = Path(args.models_dir)
-    models_dir.mkdir(parents=True, exist_ok=True)
+    args = ap.parse_args()
 
-    if not args.skip_device and not device_ready():
-        print("No ADB device; use --skip-device to export ONNX only.", file=sys.stderr)
-        sys.exit(1)
+    # ── Stage 1: ONNX Export ─────────────────────────────────────────────────
+    if not args.benchmark_only:
+        # Forward all relevant flags to process_models.main() by rebuilding sys.argv
+        # so its own argparse parser sees the right arguments.
+        export_argv = [sys.argv[0]]
+        if args.models:
+            export_argv.append(args.models)
+        if args.skip_device:
+            export_argv.append("--skip-device")
+        if args.force:
+            export_argv.append("--force")
+        if args.push_hf:
+            export_argv.append("--push-hf")
+        if args.limit:
+            export_argv += ["--limit", str(args.limit)]
+        if args.dataset != "cifar-10":
+            export_argv += ["--dataset", args.dataset]
+        if args.export_timeout != 120.0:
+            export_argv += ["--export-timeout", str(args.export_timeout)]
+        if args.android_runs != 20:
+            export_argv += ["--android-runs", str(args.android_runs)]
 
-    df = df[df["task"] == "img-classification"]
-    df = df[df["dataset"].isin(["cifar-10","mnist","svhn","imagenette"])]
+        # Temporarily replace sys.argv so process_models.main() parses correctly
+        original_argv = sys.argv
+        sys.argv = export_argv
 
-    for _, row in df.iterrows():
-        if row["task"] != "img-classification":
-            continue
+        from process_models import main as export_main
+        export_main()
 
-        if row["dataset"] not in ["cifar-10", "cifar-100", "mnist", "svhn", "imagenette"]:
-            continue
-        # name = row["nn"]
-        # onnx_path = models_dir / f"{name}.onnx"
-        name = row["nn"]
-        uid = row["id"] if "id" in row else _
-        onnx_path = models_dir / f"{name}_{uid}.onnx"
-        entry: dict = {"model": name, "status": "failed"}
+        sys.argv = original_argv
 
-        try:
-            print("EXPORTING:", name)
-            if onnx_path.exists():
-                print("ALREADY EXISTS:", name)
-                continue
-            export_onnx(row, onnx_path, timeout_sec=args.export_timeout)
-            entry["onnx_path"] = str(onnx_path.resolve())
-
-            if args.skip_device:
-                entry["status"] = "exported"
-                log(entry, args.log_file)
-                continue
-
-            h = _file_sha256(onnx_path)
-            push_model(onnx_path, name)
-            run_benchmark(name, h, package=args.package)
-            if not wait_for_done(name):
-                entry["error"] = "logcat completion timeout"
-                log(entry, args.log_file)
-                continue
-
-            bench = fetch_results()
-            entry["status"] = "success"
-            entry["benchmark"] = bench
-            entry["model_hash"] = h
-            log(entry, args.log_file)
-
-        except Exception as e:
-            entry["error"] = repr(e)
-            log(entry, args.log_file)
+    # ── Stage 2: Unity Benchmark ─────────────────────────────────────────────
+    if not args.skip_device:
+        from benchmark_models import run_benchmarks
+        run_benchmarks()
 
 
 if __name__ == "__main__":
     main()
-    # from model_loader import load_models
-
-    # df = load_models(limit=None)
-    # print(df["task"].value_counts())
-    # print(df["dataset"].value_counts())
-    # main()

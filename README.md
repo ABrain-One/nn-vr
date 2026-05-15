@@ -4,66 +4,231 @@
 
 End-to-end benchmark pipeline: **nn-dataset** → PyTorch export (via direct module import) → **ONNX** → **ADB** → **Unity Barracuda** on the headset → **JSON** logs.
 
+---
+
+## Repository Structure
+
+The Unity benchmark project is embedded directly inside the main repository:
+
+```text
+nn-vr/
+├── data/
+├── db/
+├── logs/
+├── nn-dataset/
+├── NNVRBenchmark/
+│   ├── Assets/
+│   ├── Packages/
+│   └── ProjectSettings/
+├── main.py
+├── vr_runner.py
+└── README.md
+```
+
+The Unity project is used as the runtime execution layer for Barracuda inference benchmarking.
+
+---
+
+## Unity Project Management
+
+When embedding Unity inside a Git repository, Unity generates thousands of temporary/cache files.
+Most of these should **NOT** be committed.
+
+### Commit These
+
+These folders should remain under version control:
+
+```text
+Assets/
+Packages/
+ProjectSettings/
+```
+
+These contain source code, scenes, scripts, package dependencies, and reproducible project configuration.
+
+### Do NOT Commit These
+
+These are generated automatically and can always be rebuilt locally:
+
+```text
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+MemoryCaptures/
+UserSettings/
+.vscode/
+.idea/
+*.csproj
+*.sln
+```
+
+---
+
 ## Prerequisites
 
 - Python 3.10+
 - Unity 2022.3+ with Android / VR build support (IL2CPP)
 - Android platform-tools (`adb` on `PATH`)
 - VR device (e.g., Meta Quest) in developer mode with USB debugging
+- Barracuda package installed inside Unity
+
+---
 
 ## Setup
 
+### 1. Python Environment
+
 ```bash
 python -m venv .venv
-.venv\Scripts\activate   # Windows
+.venv\Scripts\activate
+```
 
-# Install PyTorch and ONNX dependencies
-pip install -r requirements.txt --extra-index-url [https://download.pytorch.org/whl/cu126](https://download.pytorch.org/whl/cu126)
+Install dependencies:
+
+```bash
+pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu126
 pip install onnx onnxscript onnxruntime
+```
 
-# Install nn-dataset
-pip install --no-cache-dir git+[https://github.com/ABrain-One/nn-dataset](https://github.com/ABrain-One/nn-dataset) --upgrade
+Install `nn-dataset`:
 
-Install the Unity project under `unity_runner/`, add Barracuda from the Package Manager, build an APK to `unity_runner/Build/` (or your preferred output), and install it on the device once.
+```bash
+pip install --no-cache-dir git+https://github.com/ABrain-One/nn-dataset --upgrade
+```
+
+---
+
+### 2. Unity Setup
+
+Open `NNVRBenchmark/` inside Unity Hub.
+
+Unity version:
+
+```text
+2022.3.62f3
+```
+
+Required packages:
+
+- Barracuda
+- Burst
+- Mathematics
+
+Switch platform:
+
+```text
+File → Build Settings → Android
+```
+
+Enable:
+
+- IL2CPP
+- ARM64
+- Development Build (optional for debugging)
+
+---
+
+### 3. Device Setup
+
+Enable Developer Mode and USB Debugging, then verify ADB:
+
+```bash
+adb devices
+```
+
+Build and install the APK once:
+
+```text
+Build Settings → Build And Run
+```
+
+---
 
 ## Usage
 
-Export ONNX and run the full device pipeline (requires a connected device):
+### Full Pipeline
 
 ```bash
 python main.py --nn AirNet --limit 1
 ```
 
-Export only (no `adb`):
+```text
+PyTorch → ONNX → adb push → Unity Barracuda → JSON result pull
+```
+
+### Export Only
 
 ```bash
 python main.py --nn AirNet --skip-device
 ```
-Note: The export pipeline is fully resumable. If an .onnx file already exists in the `models/` directory, 
-the script will skip the export phase for that model.
 
-Tunable timeouts:
+### Resume Support
 
-- `--export-timeout` (default 60): kills stuck ONNX export subprocesses.
-- Logcat wait uses the same order of magnitude inside `vr_runner.wait_for_done`.
+The export pipeline is resumable. If an ONNX model already exists, export is skipped automatically.
 
-Benchmark lines append to `results.jsonl` (JSON Lines).
+---
+
+## Benchmark Output
+
+Results are appended to `results.jsonl` (JSON Lines format).
+
+Each entry contains:
+
+- model metadata
+- runtime/backend info
+- CPU/GPU/NPU timing
+- tensor dimensions
+- Unity version
+- device analytics
+- crash/failure information
+
+On device, models are read from `/sdcard/nn_models/{name}.onnx` and results written to `/sdcard/nn_results/output.json`.
+
+---
+
+## Benchmark Status Types
+
+| Status          | Meaning                                  |
+| --------------- | ---------------------------------------- |
+| `success`       | Inference completed successfully         |
+| `partial`       | Model loaded but timings failed          |
+| `runtime_error` | Unity/Barracuda crashed                  |
+| `unsupported`   | Unsupported ONNX/Barracuda operation     |
+| `timeout`       | Benchmark exceeded timeout               |
+
+---
 
 ## Layout
 
-| Path | Role |
-|------|------|
-| `main.py` | Orchestrator |
-| `model_loader.py` | `ab.nn.api.data` |
-| `onnx_exporter.py` | `importlib` dynamic loading + `torch.onnx.export` (opset 14, static shapes) + subprocess timeout |
-| `vr_runner.py` | `adb` push/pull, `am start`, logcat `DONE` |
-| `logger.py` | Append JSON lines |
-| `unity_runner/` | Unity + `Assets/Scripts/BarracudaRunner.cs` |
+| Path                | Role                                                      |
+| ------------------- | --------------------------------------------------------- |
+| `main.py`           | Pipeline orchestrator                                     |
+| `model_loader.py`   | nn-dataset integration                                    |
+| `onnx_exporter.py`  | Dynamic import + ONNX export (opset 14, static shapes)    |
+| `vr_runner.py`      | ADB push/pull + Unity launcher                            |
+| `unity_runner.py`   | Unity benchmark runner interface                          |
+| `logger.py`         | JSON logging                                              |
+| `NNVRBenchmark/`    | Unity benchmark runtime (Barracuda inference)             |
 
-On device, models are read from `/sdcard/nn_models/{name}.onnx` and results written to `/sdcard/nn_results/output.json` (`latency_ms`, `memory_mb`, …).
+---
 
-## Pipeline
+## Pipeline Diagram
 
-```
-nn-dataset row → ONNX → adb push → Unity Barracuda → pull output.json → results.jsonl
+```text
+nn-dataset row
+    ↓
+PyTorch model
+    ↓
+ONNX export
+    ↓
+adb push
+    ↓
+Unity Barracuda inference
+    ↓
+JSON benchmark output
+    ↓
+results.jsonl
 ```

@@ -1,44 +1,86 @@
-# Unity generated
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+# =========================
+# Unity Generated Folders
+# =========================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Uu]ser[Ss]ettings/
 
-# Visual Studio / Code
+# =========================
+# IDE
+# =========================
 .vscode/
 .idea/
-*.sln
-*.csproj
-*.slnx
+.gradle/
 
+# =========================
+# Auto-generated Unity solution/project files
+# =========================
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# =========================
 # Python
+# =========================
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
+.venv/
 env/
 venv/
 .env
+.pytest_cache/
 
+# =========================
 # Stats & Data
+# =========================
 *.json
 *.jsonl
 !nn-dataset/*.json
-/models/
-/results/
-/db/
 *.log
 onnx_validation.txt
 latest_changes.patch
 
+# =========================
+# Benchmark Outputs & Runtime Dirs
+# =========================
+/models/
+/results/
+/db/
+/data/
+/out/
+/_work/
+/unity_results/
+/logs/
+benchmark_results/
+exported_models/
+results.jsonl
+
+# =========================
 # OS
+# =========================
 Thumbs.db
 .DS_Store
 
+# =========================
 # User specific
+# =========================
 .gemini/
-data/
