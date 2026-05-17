@@ -63,6 +63,7 @@ latest_changes.patch
 # Benchmark Outputs & Runtime Dirs
 # =========================
 /models/
+NNVRBenchmark/Assets/Models/
 /results/
 /db/
 /data/

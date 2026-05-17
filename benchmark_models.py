@@ -48,6 +48,25 @@ UNITY_VERSION = "2022.3.62f3"
 
 ITERATIONS = 20
 
+SAVE_INTERVAL = 10
+
+def classify_failure(error: str):
+
+    error = error.lower()
+
+    if "3221225477" in error:
+        return "unity_native_crash"
+
+    if "timeout" in error:
+        return "timeout"
+
+    if "no unity results json found" in error:
+        return "missing_results"
+
+    if "unsupported" in error:
+        return "unsupported_operator"
+
+    return "unknown"
 
 # --------------------------------------------------
 # CORE FUNCTION
@@ -61,6 +80,8 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, benchmark_json: Path = BENCHMARK_J
     Already-benchmarked models (valid=True) are skipped automatically,
     so this function is safe to call repeatedly for resume behaviour.
     """
+
+    processed_since_save = 0
 
     # Load existing results for resume (handles empty / corrupt file safely)
     benchmark_results = {}
@@ -241,19 +262,48 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, benchmark_json: Path = BENCHMARK_J
                 "runtime": "Barracuda",
                 "model_format": "onnx",
                 "error": str(e),
+                "failure_type": classify_failure(str(e)),
                 "device_analytics": {
                     "timestamp": time.time()
                 }
             }
 
-        # --------------------------------------------------
-        # SAVE AFTER EVERY MODEL
-        # --------------------------------------------------
+        # # --------------------------------------------------
+        # # SAVE AFTER EVERY MODEL
+        # # --------------------------------------------------
 
-        with open(benchmark_json, "w") as f:
-            json.dump(benchmark_results, f, indent=2)
+        # with open(benchmark_json, "w") as f:
+        #     json.dump(benchmark_results, f, indent=2)
 
-        print(f"SAVED: {benchmark_json}")
+        # print(f"SAVED: {benchmark_json}")
+
+        # --------------------------------------------------
+        # PERIODIC SAVE
+        # --------------------------------------------------
+        processed_since_save += 1
+
+        if processed_since_save >= SAVE_INTERVAL:
+            with open(benchmark_json, "w") as f:
+                json.dump(
+                    benchmark_results,
+                    f,
+                    indent=2
+                )
+            print(f"SAVED: {benchmark_json}")
+            processed_since_save = 0
+        
+    # --------------------------------------------------
+    # FINAL SAVE
+    # --------------------------------------------------
+
+    with open(benchmark_json, "w") as f:
+        json.dump(
+            benchmark_results,
+            f,
+            indent=2
+        )
+
+    print(f"FINAL SAVE: {benchmark_json}")
 
     # --------------------------------------------------
     # FINAL SUMMARY
