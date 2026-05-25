@@ -1,12 +1,16 @@
-import json
 import time
 import platform
-import socket
 from pathlib import Path
+import json
 
 import psutil
 
-from unity_runner import run_unity_benchmark
+from unity_runner import (
+    get_device_type,
+    is_model_benchmarked,
+    run_unity_benchmark,
+    save_model_record,
+)
 
 
 # --------------------------------------------------
@@ -15,14 +19,12 @@ from unity_runner import run_unity_benchmark
 
 ONNX_DIR = Path("_work/onnx_temp")
 
-BENCHMARK_JSON = Path("unity_benchmarks.json")
-
 
 # --------------------------------------------------
 # SYSTEM INFO
 # --------------------------------------------------
 
-WORKSTATION_NAME = socket.gethostname()
+DEVICE_TYPE = get_device_type()
 
 OS_VERSION = platform.platform()
 
@@ -48,8 +50,6 @@ UNITY_VERSION = "2022.3.62f3"
 
 ITERATIONS = 20
 
-SAVE_INTERVAL = 10
-
 def classify_failure(error: str):
 
     error = error.lower()
@@ -72,27 +72,21 @@ def classify_failure(error: str):
 # CORE FUNCTION
 # --------------------------------------------------
 
-def run_benchmarks(onnx_dir: Path = ONNX_DIR, benchmark_json: Path = BENCHMARK_JSON):
+def run_benchmarks(onnx_dir: Path = ONNX_DIR):
     """
     Iterate over all ONNX files in onnx_dir, run each through Unity
-    Barracuda batchmode, and persist results to benchmark_json.
+    Barracuda batchmode, and persist one JSON per model under
+    out/nn/stat/run/onnx/fp32/img-classification_cifar-10_acc_{model}/.
 
     Already-benchmarked models (valid=True) are skipped automatically,
     so this function is safe to call repeatedly for resume behaviour.
     """
 
-    processed_since_save = 0
-
-    # Load existing results for resume (handles empty / corrupt file safely)
     benchmark_results = {}
-    if benchmark_json.exists() and benchmark_json.stat().st_size > 0:
-        try:
-            with open(benchmark_json, "r") as f:
-                benchmark_results = json.load(f)
-        except json.JSONDecodeError:
-            print(f"WARNING: {benchmark_json} is corrupt or empty — starting fresh.")
 
     onnx_files = sorted(onnx_dir.glob("*.onnx"))
+    # lets only benchmark the first 5 models
+    # onnx_files = sorted(onnx_dir.glob("*.onnx"))[:500]
 
     print(f"FOUND {len(onnx_files)} ONNX MODELS")
 
@@ -104,10 +98,7 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, benchmark_json: Path = BENCHMARK_J
         # SKIP ALREADY BENCHMARKED
         # --------------------------------------------------
 
-        if (
-            model_name in benchmark_results
-            and benchmark_results[model_name].get("valid") is True
-        ):
+        if is_model_benchmarked(model_name, device_type=DEVICE_TYPE):
             print(f"SKIPPING {model_name} (already benchmarked)")
             continue
 
@@ -120,6 +111,13 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, benchmark_json: Path = BENCHMARK_J
             benchmark_start = time.time()
 
             result = run_unity_benchmark(onnx_path)
+            print("\nRAW UNITY RESULT:")
+            print(json.dumps(result, indent=2))
+
+            if not result.get("success", False):
+                raise RuntimeError(
+                    result.get("error", "Unity benchmark failed")
+                )
 
             benchmark_duration_sec = round(
                 time.time() - benchmark_start,
@@ -140,9 +138,26 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, benchmark_json: Path = BENCHMARK_J
             # Unity returns milliseconds → convert to nanoseconds
             # --------------------------------------------------
 
-            inference_time_ms = result.get("inference_time_ms", 0)
+            cpu_stats = result.get("cpu", {})
+            gpu_stats = result.get("gpu", {})
 
-            duration_ns = int(inference_time_ms * 1_000_000)
+            cpu_avg_ms = cpu_stats.get("avg_ms", 0)
+            cpu_min_ms = cpu_stats.get("min_ms", 0)
+            cpu_max_ms = cpu_stats.get("max_ms", 0)
+            cpu_std_ms = cpu_stats.get("std_dev_ms", 0)
+
+            gpu_avg_ms = gpu_stats.get("avg_ms", 0)
+            gpu_min_ms = gpu_stats.get("min_ms", 0)
+            gpu_max_ms = gpu_stats.get("max_ms", 0)
+            gpu_std_ms = gpu_stats.get("std_dev_ms", 0)
+
+            cpu_duration_ns = int(cpu_avg_ms * 1_000_000)
+            cpu_min_ns = int(cpu_min_ms * 1_000_000)
+            cpu_max_ns = int(cpu_max_ms * 1_000_000)
+
+            gpu_duration_ns = int(gpu_avg_ms * 1_000_000)
+            gpu_min_ns = int(gpu_min_ms * 1_000_000)
+            gpu_max_ns = int(gpu_max_ms * 1_000_000)
 
             # --------------------------------------------------
             # INPUT SHAPE
@@ -166,11 +181,11 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, benchmark_json: Path = BENCHMARK_J
             # SAVE SUCCESS RESULT
             # --------------------------------------------------
 
-            benchmark_results[model_name] = {
+            record = {
 
                 "model_name": model_name,
 
-                "device_type": WORKSTATION_NAME,
+                "device_type": DEVICE_TYPE,
 
                 "os_version": OS_VERSION,
 
@@ -182,27 +197,28 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, benchmark_json: Path = BENCHMARK_J
 
                 "iterations": ITERATIONS,
 
-                "duration": duration_ns,
+                "duration": gpu_duration_ns,
 
-                "unit": "Barracuda",
+                "unit": "gpu",
 
                 # CPU timings — Barracuda exposes one timing value
-                "cpu_duration": duration_ns,
-                "cpu_min_duration": duration_ns,
-                "cpu_max_duration": duration_ns,
-                "cpu_std_dev": 0.0,
+                "cpu_duration": cpu_duration_ns,
+                "cpu_min_duration": cpu_min_ns,
+                "cpu_max_duration": cpu_max_ns,
+                "cpu_std_dev": cpu_std_ms,
 
                 # GPU timings — placeholder compatibility values
-                "gpu_duration": duration_ns,
-                "gpu_min_duration": duration_ns,
-                "gpu_max_duration": duration_ns,
-                "gpu_std_dev": 0.0,
+                "gpu_duration": gpu_duration_ns,
+                "gpu_min_duration": gpu_min_ns,
+                "gpu_max_duration": gpu_max_ns,
+                "gpu_std_dev": gpu_std_ms,
 
                 # NPU timings — desktop Barracuda has no NPU
-                "npu_duration": 0,
-                "npu_min_duration": 0,
-                "npu_max_duration": 0,
-                "npu_std_dev": 0.0,
+                "npu_duration": None,
+                "npu_min_duration": None,
+                "npu_max_duration": None,
+                "npu_std_dev": None,
+                "npu_backend": "unsupported",
 
                 # Memory
                 "total_ram_kb": TOTAL_RAM_KB,
@@ -236,6 +252,10 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, benchmark_json: Path = BENCHMARK_J
                         "cpu_cores": CPU_CORES,
                         "processor": CPU_NAME
                     },
+                    "gpu_info": {
+                        "gpu_name": result.get("gpu_name", ""),
+                        "gpu_api": result.get("gpu_api", "")
+                    },
                     "memory_info": {
                         "total_ram_gb": round(
                             TOTAL_RAM_KB / (1024 * 1024),
@@ -245,17 +265,20 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, benchmark_json: Path = BENCHMARK_J
                 }
             }
 
+            out_path = save_model_record(record)
+            benchmark_results[model_name] = record
             print(f"SUCCESS: {model_name}")
+            print(f"SAVED: {out_path}")
 
         except Exception as e:
 
             print(f"FAILED: {model_name}")
             print(str(e))
 
-            benchmark_results[model_name] = {
+            record = {
 
                 "model_name": model_name,
-                "device_type": WORKSTATION_NAME,
+                "device_type": DEVICE_TYPE,
                 "os_version": OS_VERSION,
                 "valid": False,
                 "emulator": False,
@@ -268,42 +291,9 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, benchmark_json: Path = BENCHMARK_J
                 }
             }
 
-        # # --------------------------------------------------
-        # # SAVE AFTER EVERY MODEL
-        # # --------------------------------------------------
-
-        # with open(benchmark_json, "w") as f:
-        #     json.dump(benchmark_results, f, indent=2)
-
-        # print(f"SAVED: {benchmark_json}")
-
-        # --------------------------------------------------
-        # PERIODIC SAVE
-        # --------------------------------------------------
-        processed_since_save += 1
-
-        if processed_since_save >= SAVE_INTERVAL:
-            with open(benchmark_json, "w") as f:
-                json.dump(
-                    benchmark_results,
-                    f,
-                    indent=2
-                )
-            print(f"SAVED: {benchmark_json}")
-            processed_since_save = 0
-        
-    # --------------------------------------------------
-    # FINAL SAVE
-    # --------------------------------------------------
-
-    with open(benchmark_json, "w") as f:
-        json.dump(
-            benchmark_results,
-            f,
-            indent=2
-        )
-
-    print(f"FINAL SAVE: {benchmark_json}")
+            out_path = save_model_record(record)
+            benchmark_results[model_name] = record
+            print(f"SAVED: {out_path}")
 
     # --------------------------------------------------
     # FINAL SUMMARY

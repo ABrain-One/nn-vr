@@ -7,7 +7,8 @@ Stages
 1. ONNX Export   — fetch architectures + weights from HF, export to ONNX, evaluate
                    CIFAR-10 accuracy.  (process_models.py)
 2. Unity Bench   — run each ONNX through Unity Barracuda batchmode, persist timing
-                   + shape results to unity_benchmarks.json.  (benchmark_models.py)
+                   + shape results under out/nn/stat/run/onnx/fp32/ (per-model JSON).
+                   (benchmark_models.py)
 
 Usage
 -----

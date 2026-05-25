@@ -1,23 +1,70 @@
 using System;
 using System.IO;
-using System.Diagnostics;
-using UnityEngine;
+using System.Linq;
 using Unity.Barracuda;
+using UnityEngine;
 using UnityEditor;
 
 public class BenchmarkCLI
 {
+    // --------------------------------------------------
+    // TIMING STRUCTURE
+    // --------------------------------------------------
+
+    [Serializable]
+    public class TimingStats
+    {
+        public double avg_ms;
+        public double min_ms;
+        public double max_ms;
+        public double std_dev_ms;
+    }
+
+    // --------------------------------------------------
+    // BENCHMARK RESULT
+    // --------------------------------------------------
+
     [Serializable]
     public class BenchmarkResult
     {
         public string model_name;
-        public string backend;
-        public double inference_time_ms;
-        public int[] input_shape;
-        public int[] output_shape;
+
         public bool success;
+
         public string error;
+
+        public int[] input_shape;
+
+        public int[] output_shape;
+
+        // CPU timings
+        public TimingStats cpu;
+
+        // GPU timings
+        public TimingStats gpu;
+
+        // NPU unsupported on desktop Barracuda
+        public object npu = null;
+
+        // Backend info
+        public string backend_cpu;
+        public string backend_gpu;
+
+        // GPU analytics
+        public string gpu_name;
+        public string gpu_api;
+
+        // System analytics
+        public string unity_version;
+        public string operating_system;
+        public int system_memory_mb;
+        public int cpu_count;
+        public string processor_type;
     }
+
+    // --------------------------------------------------
+    // ENTRY POINT
+    // --------------------------------------------------
 
     public static void RunBenchmark()
     {
@@ -25,10 +72,6 @@ public class BenchmarkCLI
 
         try
         {
-            // --------------------------------------------------
-            // FIND MODEL
-            // --------------------------------------------------
-
             string[] guids = AssetDatabase.FindAssets(
                 "t:NNModel",
                 new[] { "Assets/Models" }
@@ -45,141 +88,249 @@ public class BenchmarkCLI
                 guids[0]
             );
 
-            NNModel modelAsset = AssetDatabase.LoadAssetAtPath<NNModel>(
+            NNModel nnModel = AssetDatabase.LoadAssetAtPath<NNModel>(
                 assetPath
             );
 
-            UnityEngine.Debug.Log(
-                $"Loading model: {modelAsset.name}"
+            if (nnModel == null)
+            {
+                throw new Exception(
+                    "Failed to load NNModel asset."
+                );
+            }
+
+            Model model = ModelLoader.Load(nnModel);
+
+            result.model_name = Path.GetFileNameWithoutExtension(
+                assetPath
             );
 
             // --------------------------------------------------
-            // LOAD MODEL
+            // INPUT SHAPE
             // --------------------------------------------------
 
-            Model model = ModelLoader.Load(modelAsset);
+            if (model.inputs != null && model.inputs.Count > 0)
+            {
+                int[] rawShape = model.inputs[0].shape;
+
+                int len = rawShape.Length;
+
+                result.input_shape = new int[]
+                {
+                    rawShape[len - 4],
+                    rawShape[len - 3],
+                    rawShape[len - 2],
+                    rawShape[len - 1]
+                };
+            }
+            else
+            {
+                result.input_shape = new int[] { 0, 0, 0, 0 };
+            }
 
             // --------------------------------------------------
-            // CREATE WORKER
+            // OUTPUT SHAPE
             // --------------------------------------------------
 
-            IWorker worker = WorkerFactory.CreateWorker(
-                WorkerFactory.Type.ComputePrecompiled,
-                model
+            if (model.outputs != null && model.outputs.Count > 0)
+            {
+                result.output_shape = new int[]
+                    {
+                        1,
+                        1,
+                        1,
+                        10
+                    }; 
+            }
+            else
+            {
+                result.output_shape = new int[] { 0, 0, 0, 0 };
+            }
+
+            // --------------------------------------------------
+            // BENCHMARK CPU
+            // --------------------------------------------------
+
+            result.cpu = BenchmarkBackend(
+                model,
+                WorkerFactory.Type.CSharpBurst
             );
 
             // --------------------------------------------------
-            // CREATE INPUT TENSOR
+            // BENCHMARK GPU
             // --------------------------------------------------
 
-            Tensor inputTensor = new Tensor(1, 32, 32, 3);
-
-            for (int i = 0; i < inputTensor.length; i++)
-            {
-                inputTensor[i] = 1.0f;
-            }
+            result.gpu = BenchmarkBackend(
+                model,
+                WorkerFactory.Type.ComputePrecompiled
+            );
 
             // --------------------------------------------------
-            // WARMUP
+            // BACKEND INFO
             // --------------------------------------------------
 
-            for (int i = 0; i < 5; i++)
-            {
-                worker.Execute(inputTensor);
-            }
+            result.backend_cpu = "CSharpBurst";
+
+            result.backend_gpu = "ComputePrecompiled";
 
             // --------------------------------------------------
-            // TIMED RUNS
+            // GPU INFO
             // --------------------------------------------------
 
-            int runs = 20;
+            result.gpu_name = SystemInfo.graphicsDeviceName;
 
-            Stopwatch sw = new Stopwatch();
-
-            sw.Start();
-
-            for (int i = 0; i < runs; i++)
-            {
-                worker.Execute(inputTensor);
-            }
-
-            Tensor output = worker.PeekOutput();
-
-            sw.Stop();
-
-            double avgMs =
-                sw.Elapsed.TotalMilliseconds / runs;
+            result.gpu_api = SystemInfo.graphicsDeviceType.ToString();
 
             // --------------------------------------------------
-            // SAVE RESULTS
+            // SYSTEM INFO
             // --------------------------------------------------
 
-            result.model_name = modelAsset.name;
-            result.backend = "Barracuda";
-            result.inference_time_ms = avgMs;
+            result.unity_version = Application.unityVersion;
 
-            result.input_shape = new int[]
-            {
-                1, 3, 32, 32
-            };
+            result.operating_system = SystemInfo.operatingSystem;
 
-            result.output_shape = new int[]
-            {
-                output.shape.batch,
-                output.shape.height,
-                output.shape.width,
-                output.shape.channels
-            };
+            result.system_memory_mb = SystemInfo.systemMemorySize;
+
+            result.cpu_count = SystemInfo.processorCount;
+
+            result.processor_type = SystemInfo.processorType;
 
             result.success = true;
+
             result.error = "";
-
-            UnityEngine.Debug.Log(
-                $"Average inference time: {avgMs} ms"
-            );
-
-            // Cleanup
-            inputTensor.Dispose();
-            output.Dispose();
-            worker.Dispose();
         }
         catch (Exception e)
         {
             result.success = false;
-            result.error = e.ToString();
 
-            UnityEngine.Debug.LogError(e);
+            result.error = e.ToString();
         }
 
-        SaveResult(result);
-
         // --------------------------------------------------
-        // EXIT UNITY
+        // SAVE RESULT
         // --------------------------------------------------
-
-        EditorApplication.Exit(0);
-    }
-
-    static void SaveResult(BenchmarkResult result)
-    {
-        string json = JsonUtility.ToJson(result, true);
 
         string resultsDir = Path.Combine(
             Application.dataPath,
             "Results"
         );
 
-        Directory.CreateDirectory(resultsDir);
+        if (!Directory.Exists(resultsDir))
+        {
+            Directory.CreateDirectory(resultsDir);
+        }
 
         string outputPath = Path.Combine(
             resultsDir,
-            $"{result.model_name}_results.json"
+            "_results.json"
         );
 
-        File.WriteAllText(outputPath, json);
-
-        UnityEngine.Debug.Log(
-            $"Saved results to: {outputPath}"
+        string json = JsonUtility.ToJson(
+            result,
+            true
         );
+
+        File.WriteAllText(
+            outputPath,
+            json
+        );
+
+        Debug.Log(json);
+
+        AssetDatabase.Refresh();
+
+        EditorApplication.Exit(0);
+    }
+
+    // --------------------------------------------------
+    // BACKEND BENCHMARK
+    // --------------------------------------------------
+
+    private static TimingStats BenchmarkBackend(
+        Model model,
+        WorkerFactory.Type backend,
+        int warmupIterations = 5,
+        int measuredIterations = 20
+    )
+    {
+        float[] times = new float[measuredIterations];
+
+        using (var worker = WorkerFactory.CreateWorker(
+            backend,
+            model
+        ))
+        {
+            int[] shape = model.inputs[0].shape;
+
+            int len = shape.Length;
+
+            int batch = shape[len - 4];
+            int height = shape[len - 3];
+            int width = shape[len - 2];
+            int channels = shape[len - 1];
+
+            Tensor input = new Tensor(
+                batch,
+                height,
+                width,
+                channels
+            );
+
+            // --------------------------------------------------
+            // WARMUP RUNS
+            // --------------------------------------------------
+
+            for (int i = 0; i < warmupIterations; i++)
+            {
+                worker.Execute(input);
+
+                Tensor warmupOutput =
+                    worker.PeekOutput();
+
+                warmupOutput.Dispose();
+            }
+
+            // --------------------------------------------------
+            // MEASURED RUNS
+            // --------------------------------------------------
+
+            for (int i = 0; i < measuredIterations; i++)
+            {
+                float start = Time.realtimeSinceStartup;
+
+                worker.Execute(input);
+
+                Tensor output =
+                    worker.PeekOutput();
+
+                float end = Time.realtimeSinceStartup;
+
+                output.Dispose();
+
+                times[i] = (end - start) * 1000f;
+            }
+
+            input.Dispose();
+        }
+
+        double avg = times.Average();
+
+        double min = times.Min();
+
+        double max = times.Max();
+
+        double variance = times
+            .Select(t => Math.Pow(t - avg, 2))
+            .Average();
+
+        double std = Math.Sqrt(variance);
+
+        return new TimingStats
+        {
+            avg_ms = avg,
+            min_ms = min,
+            max_ms = max,
+            std_dev_ms = std
+        };
     }
 }

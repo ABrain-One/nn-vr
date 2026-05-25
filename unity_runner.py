@@ -1,9 +1,97 @@
 import json
+import platform
+import re
 import shutil
+import socket
 import subprocess
 import time
 import traceback
 from pathlib import Path
+
+
+# --------------------------------------------------
+# BENCHMARK OUTPUT LAYOUT (matches nn-dataset stat/run)
+# --------------------------------------------------
+
+OUTPUT_ROOT = Path(__file__).resolve().parent / "out" / "nn" / "stat" / "run" / "onnx" / "fp32"
+CONFIG_PREFIX = "img-classification_cifar-10_acc"
+
+
+def sanitize_filename(s: str) -> str:
+    return "".join(c if (c.isalnum() or c in ("-", "_")) else "_" for c in s)
+
+
+def get_device_type() -> str:
+    """Human-readable device label (prefers product + CPU over hostname)."""
+    if platform.system() != "Windows":
+        return socket.gethostname()
+    try:
+        ps = subprocess.run(
+            [
+                "powershell",
+                "-NoProfile",
+                "-Command",
+                "$cs = Get-CimInstance Win32_ComputerSystem; "
+                "$cpu = (Get-CimInstance Win32_Processor | Select-Object -First 1).Name; "
+                "Write-Output $cs.Manufacturer; Write-Output $cs.Model; Write-Output $cpu",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=15,
+            check=True,
+        )
+        lines = [ln.strip() for ln in ps.stdout.strip().splitlines() if ln.strip()]
+        if len(lines) >= 3:
+            _manufacturer, model, cpu = lines[0], lines[1], lines[2]
+            cpu_match = re.search(r"i7-(\d+\w*)", cpu, re.I)
+            if "omen" in model.lower() and cpu_match:
+                return f"HP Omen 16 i7-{cpu_match.group(1)}"
+            return f"{lines[0]} {model}".strip()
+    except Exception:
+        pass
+    return socket.gethostname()
+
+
+def device_result_filename(device_type: str | None = None) -> str:
+    device_type = device_type or get_device_type()
+    os_prefix = "windows" if platform.system() == "Windows" else "linux"
+    return f"{os_prefix}_{sanitize_filename(device_type)}.json"
+
+
+def model_result_path(model_name: str, device_type: str | None = None) -> Path:
+    device_type = device_type or get_device_type()
+    folder = OUTPUT_ROOT / f"{CONFIG_PREFIX}_{model_name}"
+    return folder / device_result_filename(device_type)
+
+
+def save_model_record(record: dict, model_name: str | None = None) -> Path:
+    model_name = model_name or record.get("model_name")
+    if not model_name:
+        raise ValueError("model_name is required to save a benchmark record")
+    device_type = record.get("device_type") or get_device_type()
+    record["device_type"] = device_type
+    path = model_result_path(model_name, device_type)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(record, f, indent=2)
+        f.write("\n")
+    return path
+
+
+def load_model_record(model_name: str, device_type: str | None = None) -> dict | None:
+    path = model_result_path(model_name, device_type)
+    if not path.exists() or path.stat().st_size == 0:
+        return None
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        return None
+
+
+def is_model_benchmarked(model_name: str, device_type: str | None = None) -> bool:
+    record = load_model_record(model_name, device_type)
+    return bool(record and record.get("valid") is True)
 
 
 UNITY_EXE = Path(
@@ -76,6 +164,8 @@ def run_unity_benchmark(onnx_path: Path):
                 data_file,
                 target_data
             )
+        
+        time.sleep(1.5)
     
         # --------------------------------------------------
         # CLEAR OLD JSON RESULTS
