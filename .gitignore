@@ -52,7 +52,7 @@ venv/
 # =========================
 # Stats & Data
 # =========================
-*.json
+# *.json
 *.jsonl
 !nn-dataset/*.json
 *.log
@@ -67,7 +67,7 @@ NNVRBenchmark/Assets/Models/
 /results/
 /db/
 /data/
-/out/
+# /out/
 /_work/
 /unity_results/
 /logs/
