@@ -2,7 +2,7 @@
 
 <img src='https://abrain.one/img/nn-vr-tr.png' width='25%'/>
 
-End-to-end benchmark pipeline: **nn-dataset** → PyTorch export (via direct module import) → **ONNX** → **ADB** → **Unity Barracuda** on the headset → **JSON** logs.
+End-to-end benchmark pipeline: **nn-dataset** → PyTorch export (via direct module import) → **ONNX** → **Unity Barracuda** (Desktop Headless Batchmode) → **JSON** logs.
 
 ---
 
@@ -153,25 +153,41 @@ Build Settings → Build And Run
 
 ## Usage
 
-### Full Pipeline
+The `main.py` orchestrator supports running the entire pipeline for all models, a single model, or a selective list of models.
 
+### 1. Run Pipeline for All Models
+To process every model available in the dataset (Export + Unity Benchmark):
 ```bash
-python main.py --nn AirNet --limit 1
+python main.py
 ```
 
-```text
-PyTorch → ONNX → adb push → Unity Barracuda → JSON result pull
+### 2. Run Pipeline for a Single Model
+Pass the model name as a positional argument:
+```bash
+python main.py AirNet
 ```
 
-### Export Only
-
+### 3. Run Pipeline for Selective Models
+Pass a comma-separated list of model names:
 ```bash
-python main.py --nn AirNet --skip-device
+python main.py ResNet,UNet2D,GoogLeNet
+```
+
+### 4. Stage-Specific Execution
+If you only want to run **Stage 1 (ONNX Export)** and skip the Unity benchmarking:
+```bash
+python main.py AirNet --skip-device
+```
+
+If you only want to run **Stage 2 (Unity Benchmark)** on already exported ONNX files:
+```bash
+python main.py AirNet --benchmark-only
 ```
 
 ### Resume Support
 
-The export pipeline is resumable. If an ONNX model already exists, export is skipped automatically.
+The export pipeline is resumable. If an ONNX model already exists in `_work/onnx_temp/`, export is skipped automatically.
+You can force a re-export of all models by adding the `--force` flag.
 
 ---
 
@@ -212,10 +228,12 @@ On device, models are read from `/sdcard/nn_models/{name}.onnx` and results writ
 | Path                | Role                                                      |
 | ------------------- | --------------------------------------------------------- |
 | `main.py`           | Pipeline orchestrator                                     |
+| `process_models.py` | Stage 1: ONNX exporter & evaluator                        |
+| `benchmark_models.py`| Stage 2: Unity benchmark orchestrator                     |
 | `model_loader.py`   | nn-dataset integration                                    |
 | `onnx_exporter.py`  | Dynamic import + ONNX export (opset 14, static shapes)    |
-| `vr_runner.py`      | ADB push/pull + Unity launcher                            |
-| `unity_runner.py`   | Unity benchmark runner interface                          |
+| `vr_runner.py`      | (Legacy) ADB push/pull + Unity launcher                   |
+| `unity_runner.py`   | Unity desktop batchmode benchmark runner interface        |
 | `logger.py`         | JSON logging                                              |
 | `NNVRBenchmark/`    | Unity benchmark runtime (Barracuda inference)             |
 
@@ -228,13 +246,11 @@ nn-dataset row
     ↓
 PyTorch model
     ↓
-ONNX export
+ONNX export (opset 12, IR 7)
     ↓
-adb push
-    ↓
-Unity Barracuda inference
+Unity Barracuda inference (Desktop Headless Batchmode)
     ↓
 JSON benchmark output
     ↓
-results.jsonl
+out/nn/stat/run/onnx/fp32/ (per-model JSON artifacts)
 ```
