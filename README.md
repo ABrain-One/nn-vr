@@ -74,9 +74,7 @@ If `Library/`, `Temp/`, or generated project files are deleted, simply reopen th
 ## Prerequisites
 
 - Python 3.10+
-- Unity 2022.3+ with Android / VR build support (IL2CPP)
-- Android platform-tools (`adb` on `PATH`)
-- VR device (e.g., Meta Quest) in developer mode with USB debugging
+- Unity 2022.3+ (for desktop batchmode inference)
 - Barracuda package installed inside Unity
 
 ---
@@ -121,33 +119,7 @@ Required packages:
 - Burst
 - Mathematics
 
-Switch platform:
-
-```text
-File → Build Settings → Android
-```
-
-Enable:
-
-- IL2CPP
-- ARM64
-- Development Build (optional for debugging)
-
----
-
-### 3. Device Setup
-
-Enable Developer Mode and USB Debugging, then verify ADB:
-
-```bash
-adb devices
-```
-
-Build and install the APK once:
-
-```text
-Build Settings → Build And Run
-```
+Ensure your Unity target platform is set to your local desktop OS (e.g., Windows/PC, Mac, Linux Standalone) so that `ComputePrecompiled` shaders can be built locally for the desktop GPU.
 
 ---
 
@@ -189,6 +161,12 @@ python main.py AirNet --benchmark-only
 The export pipeline is resumable. If an ONNX model already exists in `_work/onnx_temp/`, export is skipped automatically.
 You can force a re-export of all models by adding the `--force` flag.
 
+### 5. Automated Data Persistence
+To automatically clone the `nn-dataset` repository, push your local generated telemetry from `out/` to GitHub, and clean up the local disk space when the pipeline finishes, append the `--push-dataset` flag:
+```bash
+python main.py --push-dataset
+```
+
 ---
 
 ## Benchmark Output
@@ -207,7 +185,7 @@ Each entry contains:
 - device analytics
 - crash/failure information
 
-On device, models are read from `/sdcard/nn_models/{name}.onnx` and results written to `/sdcard/nn_results/output.json`.
+Models are processed locally and results are routed directly into the dataset output directories.
 
 ---
 

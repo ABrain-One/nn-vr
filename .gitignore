@@ -54,7 +54,6 @@ venv/
 # =========================
 # *.json
 *.jsonl
-!nn-dataset/*.json
 *.log
 onnx_validation.txt
 latest_changes.patch
@@ -67,10 +66,11 @@ NNVRBenchmark/Assets/Models/
 /results/
 /db/
 /data/
-# /out/
+/out/
 /_work/
 /unity_results/
 /logs/
+/nn-dataset/
 benchmark_results/
 exported_models/
 results.jsonl
