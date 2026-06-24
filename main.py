@@ -38,7 +38,7 @@ import sys
 
 def main():
     ap = argparse.ArgumentParser(
-        description="NN-VR end-to-end pipeline: HF fetch → ONNX export → Unity benchmark",
+        description="NN-VR end-to-end pipeline: HF fetch -> ONNX export -> Unity benchmark",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
 
@@ -80,8 +80,9 @@ def main():
         export_argv = [sys.argv[0]]
         if args.models:
             export_argv.append(args.models)
-        if args.skip_device:
-            export_argv.append("--skip-device")
+        # Always pass --skip-device to process_models: Stage 1 is ONNX export only.
+        # Unity benchmarking is handled exclusively by Stage 2 (benchmark_models.py).
+        export_argv.append("--skip-device")
         if args.force:
             export_argv.append("--force")
         if args.push_hf:

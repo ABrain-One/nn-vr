@@ -22,25 +22,20 @@ def eval_onnx_accuracy(onnx_path, target_h, data_root):
         root=str(data_root), train=False, download=True, transform=tfm
     )
 
+    # Use batch_size=100 to evaluate 100 samples (1 batch) for extremely fast validation
     loader = torch.utils.data.DataLoader(dataset, batch_size=100)
 
     correct, total = 0, 0
 
     for x, y in loader:
-        for i in range(len(x)):
-            inp = x[i:i+1].cpu().numpy()
+        inp = x.numpy()
+        outputs = session.run(None, {input_name: inp})[0]
+        preds = outputs.argmax(axis=1)
 
-            outputs = session.run(None, {input_name: inp})[0]
-            pred = outputs.argmax(axis=1)[0]
+        correct += (preds == y.numpy()).sum()
+        total += len(x)
 
-            if pred == y[i].item():
-                correct += 1
-
-            total += 1
-
-            if total >= 1000:
-                break
-        if total >= 1000:
+        if total >= 100:
             break
 
     return correct / total

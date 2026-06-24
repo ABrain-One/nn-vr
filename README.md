@@ -84,8 +84,15 @@ If `Library/`, `Temp/`, or generated project files are deleted, simply reopen th
 ### 1. Python Environment
 
 ```bash
+# Create virtual environment
 python -m venv .venv
-.venv\Scripts\activate
+
+# Activate on Linux/macOS
+source .venv/bin/activate
+
+# Activate on Windows (PowerShell)
+# If blocked by execution policy, run first: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+.venv\Scripts\Activate.ps1
 ```
 
 Install dependencies:
@@ -95,31 +102,73 @@ pip install -r requirements.txt --extra-index-url https://download.pytorch.org/w
 pip install onnx onnxscript onnxruntime
 ```
 
-Install `nn-dataset`:
+Install `nn-dataset` (GitHub source required — PyPI version lacks `ab.nn.nn`):
+
+> **⚠️ Do NOT use `pip install nn-dataset`** — the PyPI release ships a different `ab` namespace
+> that does not include `ab.nn.nn`, causing a `ModuleNotFoundError` at startup.
+> The `pip install git+...` form also **hangs for 20+ minutes** building a wheel over 307 000 files.
+> Use the clone + `.pth` approach below instead.
 
 ```bash
-pip install --no-cache-dir git+https://github.com/ABrain-One/nn-dataset --upgrade
+# Clone source (blob-less, fast)
+git clone --filter=blob:none https://github.com/ABrain-One/nn-dataset _work/nn-dataset-src
+
+# Register it on the venv path (no wheel build needed)
+python -c "open(r'.venv/Lib/site-packages/nn-dataset-src.pth','w').write(r'$(pwd)/_work/nn-dataset-src')"
+```
+
+On **Windows (PowerShell)** use:
+
+```powershell
+git clone --filter=blob:none https://github.com/ABrain-One/nn-dataset _work\nn-dataset-src
+
+$src = (Resolve-Path _work\nn-dataset-src).Path
+[IO.File]::WriteAllText((Resolve-Path .venv\Lib\site-packages).Path + '\nn-dataset-src.pth', $src)
+```
+
+Verify:
+
+```bash
+python -c "import ab.nn.nn; print('OK')"
 ```
 
 ---
 
 ### 2. Unity Setup
 
-Open `NNVRBenchmark/` inside Unity Hub.
+Unity `2022.3.62f3` (changeset `96770f904ca7`) must be installed via Unity Hub.
+Use the provided install scripts to automate this — they install Unity Hub if absent, then pull the exact editor version:
 
-Unity version:
+**Windows (PowerShell — run from repo root):**
 
-```text
-2022.3.62f3
+```powershell
+# If blocked by execution policy, run first:
+# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+.\scripts\install-unity.ps1
 ```
 
-Required packages:
+**Linux (Ubuntu / Debian):**
+
+```bash
+bash install-unity.sh
+```
+
+**macOS (Intel + Apple Silicon):**
+
+```bash
+bash scripts/install-unity-macos.sh
+```
+
+> All three scripts skip installation if the correct Unity version is already present.
+> The macOS script tries Homebrew first, falls back to direct DMG download.
+
+After installation, open `NNVRBenchmark/` in Unity Hub and ensure the target platform is set to your local desktop OS (Windows/PC, Mac, or Linux Standalone) so that `ComputePrecompiled` shaders are built for the local GPU.
+
+Required Unity packages (installed via Package Manager inside Unity):
 
 - Barracuda
 - Burst
 - Mathematics
-
-Ensure your Unity target platform is set to your local desktop OS (e.g., Windows/PC, Mac, Linux Standalone) so that `ComputePrecompiled` shaders can be built locally for the desktop GPU.
 
 ---
 

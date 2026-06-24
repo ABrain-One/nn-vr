@@ -63,6 +63,7 @@ latest_changes.patch
 # =========================
 /models/
 NNVRBenchmark/Assets/Models/
+NNVRBenchmark/Assets/Results/
 /results/
 /db/
 /data/
