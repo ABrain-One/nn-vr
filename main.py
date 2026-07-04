@@ -100,14 +100,14 @@ def main():
         original_argv = sys.argv
         sys.argv = export_argv
 
-        from process_models import main as export_main
+        from ab.vr.process_models import main as export_main
         export_main()
 
         sys.argv = original_argv
 
     # ── Stage 2: Unity Benchmark ─────────────────────────────────────────────
     if not args.skip_device:
-        from benchmark_models import run_benchmarks
+        from ab.vr.benchmark_models import run_benchmarks
         run_benchmarks()
 
 

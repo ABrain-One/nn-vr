@@ -5,7 +5,7 @@ import json
 
 import psutil
 
-from unity_runner import (
+from ab.vr.unity_runner import (
     get_device_type,
     is_model_benchmarked,
     run_unity_benchmark,

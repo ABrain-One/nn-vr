@@ -26,9 +26,9 @@ import logging
 import traceback
 from pathlib import Path
 
-from model_loader import load_models
-from onnx_exporter import export_onnx
-from shape_utils import infer_image_resolution
+from ab.vr.model_loader import load_models
+from ab.vr.onnx_exporter import export_onnx
+from scripts.shape_utils import infer_image_resolution
 import importlib
 import pkgutil
 
@@ -484,7 +484,7 @@ def main():
             acc = 0.0
             if name not in results or "accuracy" not in results[name]:
                 try:
-                    from onnx_validator import eval_onnx_accuracy
+                    from ab.vr.onnx_validator import eval_onnx_accuracy
                     logger.info(f"   Evaluating ONNX accuracy...")
                     data_root = WORK_DIR / "data"
                     data_root.mkdir(parents=True, exist_ok=True)

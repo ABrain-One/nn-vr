@@ -10,7 +10,7 @@ import importlib
 
 import onnx
 
-from shape_utils import infer_in_out_shapes
+from scripts.shape_utils import infer_in_out_shapes
 
 
 def _row_to_job_dict(row) -> dict:
