@@ -34,8 +34,9 @@ import pkgutil
 
 # ── Configuration ────────────────────────────────────────────────────────────
 SCRIPT_DIR = Path(__file__).resolve().parent
-STAT_DIR = SCRIPT_DIR / "out" / "nn" / "stat" / "run" / "onnx" / "fp32"
-WORK_DIR = SCRIPT_DIR / "_work"
+ROOT_DIR = SCRIPT_DIR.parent.parent
+STAT_DIR = ROOT_DIR / "out" / "nn" / "stat" / "run" / "onnx" / "fp32"
+WORK_DIR = ROOT_DIR / "_work"
 STATE_FILE = WORK_DIR / "processing_state.json"
 ONNX_TEMP = WORK_DIR / "onnx_temp"
 
@@ -379,7 +380,11 @@ def main():
         model_names = [m.strip() for m in args.models.split(",")]
         for name in model_names:
             df = load_models(nn=name)
-            df = df[df["task"] == "img-classification"]
+            if not df.empty and "task" in df.columns:
+                df = df[df["task"] == "img-classification"]
+            else:
+                df = df.iloc[0:0]  # empty it out if no task column
+
             if not df.empty:
                 best = df.loc[df["accuracy"].idxmax()].copy()
                 best["nn"] = name

@@ -108,7 +108,8 @@ def main():
     # ── Stage 2: Unity Benchmark ─────────────────────────────────────────────
     if not args.skip_device:
         from ab.vr.benchmark_models import run_benchmarks
-        run_benchmarks()
+        models_list = [m.strip() for m in args.models.split(",")] if args.models else None
+        run_benchmarks(models=models_list)
 
 
 if __name__ == "__main__":

@@ -17,7 +17,8 @@ from ab.vr.unity_runner import (
 # PATHS
 # --------------------------------------------------
 
-ONNX_DIR = Path("_work/onnx_temp")
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+ONNX_DIR = ROOT_DIR / "_work" / "onnx_temp"
 
 
 # --------------------------------------------------
@@ -72,7 +73,7 @@ def classify_failure(error: str):
 # CORE FUNCTION
 # --------------------------------------------------
 
-def run_benchmarks(onnx_dir: Path = ONNX_DIR):
+def run_benchmarks(onnx_dir: Path = ONNX_DIR, models: list[str] = None):
     """
     Iterate over all ONNX files in onnx_dir, run each through Unity
     Barracuda batchmode, and persist one JSON per model under
@@ -85,6 +86,9 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR):
     benchmark_results = {}
 
     onnx_files = sorted(onnx_dir.glob("*.onnx"))
+    if models:
+        models_set = set(models)
+        onnx_files = [f for f in onnx_files if f.stem in models_set]
     # lets only benchmark the first 5 models
     # onnx_files = sorted(onnx_dir.glob("*.onnx"))[:500]
 

@@ -22,9 +22,9 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from onnx_exporter import export_onnx
-from process_models import get_input_size
-from onnx_validator import eval_onnx_accuracy
+from ab.vr.onnx_exporter import export_onnx
+from ab.vr.process_models import get_input_size
+from ab.vr.onnx_validator import eval_onnx_accuracy
 
 
 def exporter_in_shape(dataset: str, transform_str: str) -> tuple[int, int, int, int]:
@@ -75,7 +75,7 @@ def main():
     # img-classification/cifar-10 in this environment, fall back to HF metadata.
     rows: list[pd.Series] = []
     try:
-        from model_loader import load_models  # optional dependency path
+        from ab.vr.model_loader import load_models  # optional dependency path
 
         d = load_models(limit=20000)
         if d is not None and not d.empty:

@@ -13,7 +13,8 @@ from pathlib import Path
 # BENCHMARK OUTPUT LAYOUT (matches nn-dataset stat/run)
 # --------------------------------------------------
 
-OUTPUT_ROOT = Path(__file__).resolve().parent / "out" / "nn" / "stat" / "run" / "onnx" / "fp32"
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+OUTPUT_ROOT = ROOT_DIR / "out" / "nn" / "stat" / "run" / "onnx" / "fp32"
 CONFIG_PREFIX = "img-classification_cifar-10_acc"
 
 
