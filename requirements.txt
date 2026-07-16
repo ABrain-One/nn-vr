@@ -1,4 +1,4 @@
-nn-dataset>=2.1.0
+nn-dataset>=2.2.11
 onnx>=1.14.0
 pandas
 torch
