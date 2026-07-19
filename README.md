@@ -15,7 +15,6 @@ nn-vr/
 ├── data/
 ├── db/
 ├── logs/
-├── nn-dataset/
 ├── NNVRBenchmark/
 │   ├── Assets/
 │   ├── Packages/
@@ -99,31 +98,13 @@ Install dependencies:
 
 ```bash
 pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu126
-pip install onnx onnxscript onnxruntime
+# pip install onnx onnxscript onnxruntime
 ```
 
-Install `nn-dataset` (GitHub source required — PyPI version lacks `ab.nn.nn`):
-
-> **⚠️ Do NOT use `pip install nn-dataset`** — the PyPI release ships a different `ab` namespace
-> that does not include `ab.nn.nn`, causing a `ModuleNotFoundError` at startup.
-> The `pip install git+...` form also **hangs for 20+ minutes** building a wheel over 307 000 files.
-> Use the clone + `.pth` approach below instead.
+Install `nn-dataset` (GitHub source required):
 
 ```bash
-# Clone source (blob-less, fast)
-git clone --filter=blob:none https://github.com/ABrain-One/nn-dataset _work/nn-dataset-src
-
-# Register it on the venv path (no wheel build needed)
-python -c "open(r'.venv/Lib/site-packages/nn-dataset-src.pth','w').write(r'$(pwd)/_work/nn-dataset-src')"
-```
-
-On **Windows (PowerShell)** use:
-
-```powershell
-git clone --filter=blob:none https://github.com/ABrain-One/nn-dataset _work\nn-dataset-src
-
-$src = (Resolve-Path _work\nn-dataset-src).Path
-[IO.File]::WriteAllText((Resolve-Path .venv\Lib\site-packages).Path + '\nn-dataset-src.pth', $src)
+pip install --no-cache-dir --upgrade --force git+https://github.com/ABrain-One/nn-dataset --extra-index-url https://download.pytorch.org/whl/cu126
 ```
 
 Verify:

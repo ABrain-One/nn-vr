@@ -3,9 +3,8 @@
 from __future__ import annotations
 
 import pandas as pd
+# pyrefly: ignore [missing-import]
 from ab.nn.api import data
-# from ab.nn.api import data
-
 
 def load_models(
     limit: int | None = None,
@@ -15,6 +14,4 @@ def load_models(
     Return rows with nn_code, task, dataset, metric, prm, etc.
     `nn` filters by model name; `limit` maps to max_rows.
     """
-    return data(nn=nn, max_rows=limit)
-    # need to use this for the full dataset
-    # return data_withnonnullvalue(nn=nn, max_rows=limit) 
+    return data(nn=nn, max_rows=limit) 
