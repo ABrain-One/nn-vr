@@ -22,8 +22,8 @@ def eval_onnx_accuracy(onnx_path, target_h, data_root):
         root=str(data_root), train=False, download=True, transform=tfm
     )
 
-    # Use batch_size=100 to evaluate 100 samples (1 batch) for extremely fast validation
-    loader = torch.utils.data.DataLoader(dataset, batch_size=100)
+    # Use batch_size=1 to avoid reshape errors on models with hardcoded batch sizes
+    loader = torch.utils.data.DataLoader(dataset, batch_size=1)
 
     correct, total = 0, 0
 

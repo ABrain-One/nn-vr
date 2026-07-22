@@ -355,6 +355,7 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--android-runs", type=int, default=DEFAULT_RUNS)
     ap.add_argument("--skip-device", action="store_true", help="Export ONNX only")
+    ap.add_argument("--unity-benchmark", action="store_true", help="Run Unity benchmark after export and delete ONNX file to save space")
     ap.add_argument("--force", action="store_true", help="Reset state")
     ap.add_argument("--dataset", default="cifar-10")
     ap.add_argument("--export-timeout", type=float, default=EXPORT_TIMEOUT)
@@ -509,6 +510,18 @@ def main():
                 json.dump(results, f, indent=2)
 
             if args.skip_device:
+                if getattr(args, "unity_benchmark", False):
+                    try:
+                        from ab.vr.benchmark_models import run_benchmarks
+                        logger.info(f"   🎮 Running Unity Benchmark for {name}...")
+                        run_benchmarks(models=[name])
+                        # Delete the file
+                        if onnx_file.exists():
+                            logger.info(f"   🗑️ Deleting {onnx_file.name} to save space...")
+                            onnx_file.unlink()
+                    except Exception as e:
+                        logger.error(f"   ❌ Unity Benchmark failed: {e}")
+                
                 state["processed"].append(name)
                 save_state(state)
                 session_count += 1
@@ -596,6 +609,13 @@ def main():
         except Exception as e:
             logger.error(f"   ❌ Failed: {e}")
             logger.debug(traceback.format_exc())
+            if getattr(args, "unity_benchmark", False):
+                try:
+                    _onnx = ONNX_TEMP / f"{name}.onnx"
+                    if _onnx.exists():
+                        _onnx.unlink()
+                except:
+                    pass
             state["failed"].append(name)
             save_state(state)
             skipped[name] = str(e)

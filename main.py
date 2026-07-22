@@ -62,6 +62,13 @@ def main():
         action="store_true",
         help="Skip ONNX export; run Unity benchmarking on existing _work/onnx_temp/*.onnx files",
     )
+    
+    # ── Storage options ──────────────────────────────────────────────────────
+    ap.add_argument(
+        "--low-storage",
+        action="store_true",
+        help="Interleave ONNX export and benchmarking, deleting each ONNX file after it's benchmarked.",
+    )
 
     # ── Export options ───────────────────────────────────────────────────────
     ap.add_argument("--limit", type=int, default=None, help="Max models to export")
@@ -73,6 +80,21 @@ def main():
 
     args = ap.parse_args()
 
+    # ── Pre-Cleanup / Benchmark Leftovers (Low Storage Mode) ─────────────────
+    if getattr(args, "low_storage", False) and not args.skip_device and not args.benchmark_only:
+        from pathlib import Path
+        onnx_temp = Path("_work/onnx_temp")
+        if onnx_temp.exists() and any(onnx_temp.glob("*.onnx")):
+            print("Found leftover ONNX files. Benchmarking and cleaning them up before resuming export...")
+            from ab.vr.benchmark_models import run_benchmarks
+            models_list = [m.strip() for m in args.models.split(",")] if args.models else None
+            run_benchmarks(models=models_list)
+            for f in onnx_temp.glob("*.onnx"):
+                try:
+                    f.unlink()
+                except Exception:
+                    pass
+
     # ── Stage 1: ONNX Export ─────────────────────────────────────────────────
     if not args.benchmark_only:
         # Forward all relevant flags to process_models.main() by rebuilding sys.argv
@@ -83,6 +105,11 @@ def main():
         # Always pass --skip-device to process_models: Stage 1 is ONNX export only.
         # Unity benchmarking is handled exclusively by Stage 2 (benchmark_models.py).
         export_argv.append("--skip-device")
+        
+        # Interleave Unity benchmark to save disk space
+        if getattr(args, "low_storage", False) and not args.skip_device:
+            export_argv.append("--unity-benchmark")
+            
         if args.force:
             export_argv.append("--force")
         if args.push_hf:
@@ -110,6 +137,17 @@ def main():
         from ab.vr.benchmark_models import run_benchmarks
         models_list = [m.strip() for m in args.models.split(",")] if args.models else None
         run_benchmarks(models=models_list)
+        
+        # Cleanup
+        if getattr(args, "low_storage", False):
+            from pathlib import Path
+            onnx_temp = Path("_work/onnx_temp")
+            if onnx_temp.exists():
+                for f in onnx_temp.glob("*.onnx"):
+                    try:
+                        f.unlink()
+                    except Exception:
+                        pass
 
 
 if __name__ == "__main__":

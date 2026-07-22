@@ -22,6 +22,15 @@ def sanitize_filename(s: str) -> str:
     return "".join(c if (c.isalnum() or c in ("-", "_")) else "_" for c in s)
 
 
+def get_unity_editor_log_path() -> Path:
+    if platform.system() == "Windows":
+        return Path.home() / "AppData" / "Local" / "Unity" / "Editor" / "Editor.log"
+    elif platform.system() == "Darwin":
+        return Path.home() / "Library" / "Logs" / "Unity" / "Editor.log"
+    else:
+        return Path.home() / ".config" / "unity3d" / "Editor.log"
+
+
 def get_device_type() -> str:
     """Human-readable device label (prefers product + CPU over hostname)."""
     if platform.system() != "Windows":
@@ -95,21 +104,18 @@ def is_model_benchmarked(model_name: str, device_type: str | None = None) -> boo
     return bool(record and record.get("valid") is True)
 
 
-UNITY_EXE = Path(
-    r"C:\Program Files\Unity\Hub\Editor\2022.3.62f3\Editor\Unity.exe"
-).resolve()
+if platform.system() == "Windows":
+    UNITY_EXE = Path(r"C:\Program Files\Unity\Hub\Editor\2022.3.62f3\Editor\Unity.exe").resolve()
+else:
+    UNITY_EXE = Path.home() / "Unity" / "Hub" / "Editor" / "2022.3.62f3" / "Editor" / "Unity"
 
-UNITY_PROJECT = Path(
-    r"D:\nn-vr\NNVRBenchmark"
-).resolve()
+UNITY_PROJECT = (ROOT_DIR / "NNVRBenchmark").resolve()
 
-UNITY_MODELS_DIR = (
-    UNITY_PROJECT / "Assets" / "Models"
-).resolve()
+UNITY_MODELS_DIR = (UNITY_PROJECT / "Assets" / "Models").resolve()
+UNITY_MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
-UNITY_RESULTS_DIR = (
-    UNITY_PROJECT / "Assets" / "Results"
-).resolve()
+UNITY_RESULTS_DIR = (UNITY_PROJECT / "Assets" / "Results").resolve()
+UNITY_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def run_unity_benchmark(onnx_path: Path):
@@ -129,9 +135,6 @@ def run_unity_benchmark(onnx_path: Path):
         for f in UNITY_MODELS_DIR.glob("*"):
             try:
                 if not f.is_file():
-                    continue
-                # Skip Unity meta files
-                if f.suffix == ".meta":
                     continue
                 f.unlink()
 
@@ -189,8 +192,16 @@ def run_unity_benchmark(onnx_path: Path):
             str(UNITY_PROJECT),
             "-executeMethod",
             "BenchmarkCLI.RunBenchmark",
+            # "-logFile", "-",
             "-quit"
         ]
+
+        if platform.system() != "Windows":
+            cmd = [
+                "xvfb-run",
+                "--auto-servernum",
+                "--server-args=-screen 0 1024x768x24"
+            ] + cmd
 
         print("RUNNING UNITY BENCHMARK...")
         print(" ".join(cmd))
@@ -235,6 +246,22 @@ def run_unity_benchmark(onnx_path: Path):
 
         with open(latest, "r") as f:
             benchmark = json.load(f)
+
+        if not benchmark.get("success"):
+            log_path = get_unity_editor_log_path()
+            if log_path.exists():
+                try:
+                    with open(log_path, "r", encoding="utf-8", errors="replace") as lf:
+                        lines = lf.readlines()
+                    recent_log = "".join(lines[-200:])
+                    if "Asset import failed" in recent_log or "Exception" in recent_log:
+                        import_errors = [ln.strip() for ln in lines[-200:] if "Asset import failed" in ln or "Exception" in ln]
+                        if import_errors:
+                            benchmark["error"] += "\n\nUNITY EDITOR LOG ERRORS:\n" + "\n".join(import_errors)
+                        else:
+                            benchmark["error"] += "\n\nCHECK EDITOR LOG: " + str(log_path)
+                except Exception as e:
+                    pass
 
         return benchmark
 

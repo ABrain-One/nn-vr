@@ -72,6 +72,7 @@ public class BenchmarkCLI
 
         try
         {
+            AssetDatabase.Refresh();
             string[] guids = AssetDatabase.FindAssets(
                 "t:NNModel",
                 new[] { "Assets/Models" }
