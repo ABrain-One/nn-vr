@@ -99,9 +99,13 @@ def load_model_record(model_name: str, device_type: str | None = None) -> dict |
         return None
 
 
-def is_model_benchmarked(model_name: str, device_type: str | None = None) -> bool:
+def is_model_benchmarked(model_name: str, device_type: str | None = None, retry_failed: bool = False) -> bool:
     record = load_model_record(model_name, device_type)
-    return bool(record and record.get("valid") is True)
+    if not record:
+        return False
+    if retry_failed:
+        return bool(record.get("valid") is True)
+    return True
 
 
 if platform.system() == "Windows":

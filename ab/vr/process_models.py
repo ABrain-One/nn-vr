@@ -356,6 +356,7 @@ def main():
     ap.add_argument("--android-runs", type=int, default=DEFAULT_RUNS)
     ap.add_argument("--skip-device", action="store_true", help="Export ONNX only")
     ap.add_argument("--unity-benchmark", action="store_true", help="Run Unity benchmark after export and delete ONNX file to save space")
+    ap.add_argument("--retry-failed", action="store_true", help="Retry models that previously failed to benchmark")
     ap.add_argument("--force", action="store_true", help="Reset state")
     ap.add_argument("--dataset", default="cifar-10")
     ap.add_argument("--export-timeout", type=float, default=EXPORT_TIMEOUT)
@@ -514,7 +515,7 @@ def main():
                     try:
                         from ab.vr.benchmark_models import run_benchmarks
                         logger.info(f"   🎮 Running Unity Benchmark for {name}...")
-                        run_benchmarks(models=[name])
+                        run_benchmarks(models=[name], retry_failed=getattr(args, "retry_failed", False))
                         # Delete the file
                         if onnx_file.exists():
                             logger.info(f"   🗑️ Deleting {onnx_file.name} to save space...")

@@ -186,12 +186,18 @@ If you only want to run **Stage 2 (Unity Benchmark)** on already exported ONNX f
 python main.py AirNet --benchmark-only
 ```
 
-### Resume Support
+### 5. Low Storage Mode
+If you are processing many models and want to save disk space, use the `--low-storage` flag. This will interleave ONNX exporting and Unity benchmarking, automatically deleting each `.onnx` file immediately after it's benchmarked:
+```bash
+python main.py --low-storage
+```
+
+### 6. Resume Support
 
 The export pipeline is resumable. If an ONNX model already exists in `_work/onnx_temp/`, export is skipped automatically.
 You can force a re-export of all models by adding the `--force` flag.
 
-### 5. Automated Data Persistence
+### 7. Automated Data Persistence
 To automatically clone the `nn-dataset` repository, push your local generated telemetry from `out/` to GitHub, and clean up the local disk space when the pipeline finishes, append the `--push-dataset` flag:
 ```bash
 python main.py --push-dataset

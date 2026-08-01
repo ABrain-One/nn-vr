@@ -69,6 +69,11 @@ def main():
         action="store_true",
         help="Interleave ONNX export and benchmarking, deleting each ONNX file after it's benchmarked.",
     )
+    ap.add_argument(
+        "--retry-failed",
+        action="store_true",
+        help="Retry models that previously failed to benchmark",
+    )
 
     # ── Export options ───────────────────────────────────────────────────────
     ap.add_argument("--limit", type=int, default=None, help="Max models to export")
@@ -88,7 +93,7 @@ def main():
             print("Found leftover ONNX files. Benchmarking and cleaning them up before resuming export...")
             from ab.vr.benchmark_models import run_benchmarks
             models_list = [m.strip() for m in args.models.split(",")] if args.models else None
-            run_benchmarks(models=models_list)
+            run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
             for f in onnx_temp.glob("*.onnx"):
                 try:
                     f.unlink()
@@ -109,6 +114,9 @@ def main():
         # Interleave Unity benchmark to save disk space
         if getattr(args, "low_storage", False) and not args.skip_device:
             export_argv.append("--unity-benchmark")
+            
+        if getattr(args, "retry_failed", False):
+            export_argv.append("--retry-failed")
             
         if args.force:
             export_argv.append("--force")
@@ -136,7 +144,7 @@ def main():
     if not args.skip_device:
         from ab.vr.benchmark_models import run_benchmarks
         models_list = [m.strip() for m in args.models.split(",")] if args.models else None
-        run_benchmarks(models=models_list)
+        run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
         
         # Cleanup
         if getattr(args, "low_storage", False):

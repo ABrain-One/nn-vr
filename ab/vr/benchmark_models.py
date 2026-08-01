@@ -73,7 +73,7 @@ def classify_failure(error: str):
 # CORE FUNCTION
 # --------------------------------------------------
 
-def run_benchmarks(onnx_dir: Path = ONNX_DIR, models: list[str] = None):
+def run_benchmarks(onnx_dir: Path = ONNX_DIR, models: list[str] = None, retry_failed: bool = False):
     """
     Iterate over all ONNX files in onnx_dir, run each through Unity
     Barracuda batchmode, and persist one JSON per model under
@@ -102,7 +102,7 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, models: list[str] = None):
         # SKIP ALREADY BENCHMARKED
         # --------------------------------------------------
 
-        if is_model_benchmarked(model_name, device_type=DEVICE_TYPE):
+        if is_model_benchmarked(model_name, device_type=DEVICE_TYPE, retry_failed=retry_failed):
             print(f"SKIPPING {model_name} (already benchmarked)")
             continue
 
