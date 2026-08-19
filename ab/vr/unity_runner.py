@@ -14,8 +14,13 @@ from pathlib import Path
 # --------------------------------------------------
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
-OUTPUT_ROOT = ROOT_DIR / "out" / "nn" / "stat" / "run" / "onnx" / "fp32"
+RUN_VERSION = "run"
+
+def get_output_root() -> Path:
+    return ROOT_DIR / "out" / "nn" / "stat" / RUN_VERSION / "onnx" / "fp32"
+
 CONFIG_PREFIX = "img-classification_cifar-10_acc"
+
 
 
 def sanitize_filename(s: str) -> str:
@@ -70,7 +75,7 @@ def device_result_filename(device_type: str | None = None) -> str:
 
 def model_result_path(model_name: str, device_type: str | None = None) -> Path:
     device_type = device_type or get_device_type()
-    folder = OUTPUT_ROOT / f"{CONFIG_PREFIX}_{model_name}"
+    folder = get_output_root() / f"{CONFIG_PREFIX}_{model_name}"
     return folder / device_result_filename(device_type)
 
 

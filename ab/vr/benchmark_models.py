@@ -1,4 +1,5 @@
 import time
+import subprocess
 import platform
 from pathlib import Path
 import json
@@ -114,7 +115,26 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, models: list[str] = None, retry_fa
 
             benchmark_start = time.time()
 
-            result = run_unity_benchmark(onnx_path)
+            result = None
+            for retry_attempt in range(3):
+                try:
+                    result = run_unity_benchmark(onnx_path)
+                    break
+                except Exception as ex:
+                    err_str = str(ex).lower()
+                    if "code 134" in err_str or "another unity instance is running" in err_str:
+                        print(f"⚠️ Unity locked (Code 134). Killing all Unity instances and retrying (Attempt {retry_attempt+1}/3)...")
+                        subprocess.run("pkill -f -9 Unity", shell=True)
+                        subprocess.run("pkill -f -9 unity", shell=True)
+                        subprocess.run("rm -rf NNVRBenchmark/Library/UnityLockfile", shell=True)
+                        subprocess.run("rm -rf NNVRBenchmark/Temp/*", shell=True)
+                        time.sleep(3)
+                        continue
+                    else:
+                        raise ex
+            else:
+                raise RuntimeError("Failed to run Unity benchmark after 3 attempts due to lock errors")
+
             print("\nRAW UNITY RESULT:")
             print(json.dumps(result, indent=2))
 
@@ -279,6 +299,8 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, models: list[str] = None, retry_fa
             print(f"FAILED: {model_name}")
             print(str(e))
 
+
+
             record = {
 
                 "model_name": model_name,
@@ -320,6 +342,7 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, models: list[str] = None, retry_fa
     print(f"FAILED : {failure_count}")
 
     return benchmark_results
+
 
 
 # --------------------------------------------------

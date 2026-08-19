@@ -62,6 +62,11 @@ def main():
         action="store_true",
         help="Skip ONNX export; run Unity benchmarking on existing _work/onnx_temp/*.onnx files",
     )
+    ap.add_argument(
+        "--unity-benchmark",
+        action="store_true",
+        help=argparse.SUPPRESS,
+    )
     
     # ── Storage options ──────────────────────────────────────────────────────
     ap.add_argument(
@@ -73,6 +78,12 @@ def main():
         "--retry-failed",
         action="store_true",
         help="Retry models that previously failed to benchmark",
+    )
+    ap.add_argument(
+        "--num-runs",
+        type=int,
+        default=1,
+        help="Number of benchmarking runs to perform (creates versioned outputs).",
     )
 
     # ── Export options ───────────────────────────────────────────────────────
@@ -92,14 +103,20 @@ def main():
         if onnx_temp.exists() and any(onnx_temp.glob("*.onnx")):
             print("Found leftover ONNX files. Benchmarking and cleaning them up before resuming export...")
             from ab.vr.benchmark_models import run_benchmarks
+            import ab.vr.unity_runner as ur
             models_list = [m.strip() for m in args.models.split(",")] if args.models else None
-            run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
-            for f in onnx_temp.glob("*.onnx"):
-                try:
-                    f.unlink()
-                except Exception:
-                    pass
-
+            num_runs = getattr(args, "num_runs", 1)
+            if num_runs > 1:
+                for i in range(1, num_runs + 1):
+                    ur.RUN_VERSION = f"version{i}"
+                    print(f"▶️ RUNNING BENCHMARK ITERATION {i}/{num_runs} (Version: {ur.RUN_VERSION})...")
+                    run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
+            else:
+                ur.RUN_VERSION = "run"
+                run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
+            # We intentionally DO NOT delete leftover ONNX files here anymore.
+            # process_models.py needs them to exist so it can reconstruct their missing accuracy stats.
+            # process_models.py will delete them after reconstruction.
     # ── Stage 1: ONNX Export ─────────────────────────────────────────────────
     if not args.benchmark_only:
         # Forward all relevant flags to process_models.main() by rebuilding sys.argv
@@ -112,11 +129,14 @@ def main():
         export_argv.append("--skip-device")
         
         # Interleave Unity benchmark to save disk space
-        if getattr(args, "low_storage", False) and not args.skip_device:
+        if getattr(args, "unity_benchmark", False) or (getattr(args, "low_storage", False) and not getattr(args, "skip_device", False)):
             export_argv.append("--unity-benchmark")
             
         if getattr(args, "retry_failed", False):
             export_argv.append("--retry-failed")
+            
+        if getattr(args, "num_runs", 1) != 1:
+            export_argv += ["--num-runs", str(args.num_runs)]
             
         if args.force:
             export_argv.append("--force")
@@ -143,8 +163,17 @@ def main():
     # ── Stage 2: Unity Benchmark ─────────────────────────────────────────────
     if not args.skip_device:
         from ab.vr.benchmark_models import run_benchmarks
+        import ab.vr.unity_runner as ur
         models_list = [m.strip() for m in args.models.split(",")] if args.models else None
-        run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
+        num_runs = getattr(args, "num_runs", 1)
+        if num_runs > 1:
+            for i in range(1, num_runs + 1):
+                ur.RUN_VERSION = f"version{i}"
+                print(f"▶️ RUNNING BENCHMARK ITERATION {i}/{num_runs} (Version: {ur.RUN_VERSION})...")
+                run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
+        else:
+            ur.RUN_VERSION = "run"
+            run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
         
         # Cleanup
         if getattr(args, "low_storage", False):
@@ -152,6 +181,11 @@ def main():
             onnx_temp = Path("_work/onnx_temp")
             if onnx_temp.exists():
                 for f in onnx_temp.glob("*.onnx"):
+                    try:
+                        f.unlink()
+                    except Exception:
+                        pass
+                for f in onnx_temp.glob("*.onnx.data"):
                     try:
                         f.unlink()
                     except Exception:

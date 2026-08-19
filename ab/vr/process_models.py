@@ -357,6 +357,7 @@ def main():
     ap.add_argument("--skip-device", action="store_true", help="Export ONNX only")
     ap.add_argument("--unity-benchmark", action="store_true", help="Run Unity benchmark after export and delete ONNX file to save space")
     ap.add_argument("--retry-failed", action="store_true", help="Retry models that previously failed to benchmark")
+    ap.add_argument("--num-runs", type=int, default=1, help="Number of benchmarking runs to perform")
     ap.add_argument("--force", action="store_true", help="Reset state")
     ap.add_argument("--dataset", default="cifar-10")
     ap.add_argument("--export-timeout", type=float, default=EXPORT_TIMEOUT)
@@ -414,6 +415,55 @@ def main():
         model_names = list(model_configs.keys())
         logger.info(f"Found {len(model_names)} models to process")
 
+    # Re-evaluate accuracy for already processed models if missing from results
+    reconstructed = False
+    for name in state["processed"]:
+        if name not in results:
+            onnx_file = ONNX_TEMP / f"{name}.onnx"
+            if onnx_file.exists():
+                try:
+                    logger.info(f"🔍 Re-evaluating missing accuracy for already processed model {name}...")
+                    row = model_configs.get(name)
+                    if row is not None:
+                        prm = row.get("prm", {})
+                        if isinstance(prm, str):
+                            import ast
+                            prm = ast.literal_eval(prm)
+                        transform = prm.get("transform", "")
+                        target_h = get_input_size(transform)
+                        from ab.vr.onnx_validator import eval_onnx_accuracy
+                        data_root = WORK_DIR / "data"
+                        data_root.mkdir(parents=True, exist_ok=True)
+                        acc = eval_onnx_accuracy(onnx_file, target_h, data_root)
+                        results[name] = {
+                            "accuracy": acc,
+                            "transform": transform
+                        }
+                        logger.info(f"   🎯 Restored Accuracy: {acc:.4f}")
+                        reconstructed = True
+                except Exception as e:
+                    logger.warning(f"   ⚠️ Could not evaluate accuracy for {name}: {e}")
+        if reconstructed:
+            with open(all_models_json, "w") as f:
+                json.dump(results, f, indent=2)
+
+        # In low-storage mode, clean up these preexisting ONNX files now that we have their accuracy
+        if getattr(args, "unity_benchmark", False):
+            for name in state["processed"]:
+                onnx_file = ONNX_TEMP / f"{name}.onnx"
+                if onnx_file.exists():
+                    try:
+                        logger.info(f"   🗑️ Deleting leftover {onnx_file.name} after accuracy reconstruction...")
+                        onnx_file.unlink()
+                        
+                        # Also delete external data if it exists
+                        data_file = onnx_file.with_suffix(".onnx.data")
+                        if data_file.exists():
+                            data_file.unlink()
+                    except Exception:
+                        pass
+
+
     remaining = [m for m in model_names if m not in state["processed"] and m not in state["failed"]]
     if not remaining:
         logger.info("✅ All models already processed!")
@@ -457,7 +507,8 @@ def main():
             logger.info("🔄 Restarting process for memory cleanup...")
             save_state(state)
             time.sleep(5)
-            os.execv(sys.executable, [sys.executable] + sys.argv)
+            new_argv = [arg for arg in sys.argv if arg != "--force"]
+            os.execv(sys.executable, [sys.executable] + new_argv)
 
         logger.info(f"\n{'='*55}")
         logger.info(f"  [{idx}/{len(remaining)}] {name}")
@@ -482,8 +533,12 @@ def main():
                 logger.info(f"   Exporting ONNX ({target_h}x{target_h})...")
                 row_copy = row.copy()
                 row_copy["nn"] = name
-                export_onnx(row_copy, onnx_file, timeout_sec=args.export_timeout)
-                logger.info(f"   ✅ Exported: {onnx_file.name}")
+                try:
+                    export_onnx(row_copy, onnx_file, timeout_sec=args.export_timeout)
+                    logger.info(f"   ✅ Exported: {onnx_file.name}")
+                except Exception as export_err:
+
+                    raise export_err
             else:
                 logger.info(f"   ⏭️  ONNX already exists")
 
@@ -514,17 +569,40 @@ def main():
                 if getattr(args, "unity_benchmark", False):
                     try:
                         from ab.vr.benchmark_models import run_benchmarks
-                        logger.info(f"   🎮 Running Unity Benchmark for {name}...")
-                        run_benchmarks(models=[name], retry_failed=getattr(args, "retry_failed", False))
-                        # Delete the file
-                        if onnx_file.exists():
-                            logger.info(f"   🗑️ Deleting {onnx_file.name} to save space...")
-                            onnx_file.unlink()
+                        import ab.vr.unity_runner as ur
+                        num_runs = getattr(args, "num_runs", 1)
+                        if num_runs > 1:
+                            for i in range(1, num_runs + 1):
+                                ur.RUN_VERSION = f"version{i}"
+                                logger.info(f"   🎮 Running Unity Benchmark iteration {i}/{num_runs} for {name} (Version: {ur.RUN_VERSION})...")
+                                run_benchmarks(models=[name], retry_failed=getattr(args, "retry_failed", False))
+                        else:
+                            ur.RUN_VERSION = "run"
+                            logger.info(f"   🎮 Running Unity Benchmark for {name}...")
+                            run_benchmarks(models=[name], retry_failed=getattr(args, "retry_failed", False))
+                        # Delete the file and its external data
                     except Exception as e:
                         logger.error(f"   ❌ Unity Benchmark failed: {e}")
+                    finally:
+                        if onnx_file.exists():
+                            logger.info(f"   🗑️ Deleting {onnx_file.name} to save space...")
+                            try:
+                                onnx_file.unlink()
+                            except:
+                                pass
+                            
+                        data_file = onnx_file.with_suffix(".onnx.data")
+                        if data_file.exists():
+                            try:
+                                data_file.unlink()
+                            except:
+                                pass
                 
                 state["processed"].append(name)
                 save_state(state)
+                
+                print_pipeline_summary(len(model_names), state)
+                
                 session_count += 1
                 gc.collect()
                 continue
@@ -615,6 +693,9 @@ def main():
                     _onnx = ONNX_TEMP / f"{name}.onnx"
                     if _onnx.exists():
                         _onnx.unlink()
+                    _onnx_data = _onnx.with_suffix(".onnx.data")
+                    if _onnx_data.exists():
+                        _onnx_data.unlink()
                 except:
                     pass
             state["failed"].append(name)
@@ -646,6 +727,39 @@ def main():
             logger.error(f"❌ HF Upload failed: {e}")
 
     # ── Summary ──────────────────────────────────────────────────────────
+    logger.info(f"💾 State saved: {len(state['processed'])} processed, {len(state['failed'])} failed")
+
+def print_pipeline_summary(total_models, state):
+    import glob
+    from pathlib import Path
+    import json
+    
+    stat_dir = Path("out/nn/stat")
+    all_models_file = stat_dir / "run" / "onnx" / "fp32" / "all_models.json"
+    local_count = 0
+    if all_models_file.exists():
+        try:
+            with open(all_models_file, "r") as f:
+                acc_data = json.load(f)
+                local_count = len(acc_data)
+        except:
+            pass
+            
+    failed_exports = len(glob.glob("out/nn/stat/failed_exports/*.json"))
+    failed_benchmarks = len(glob.glob("out/nn/stat/*/failed_benchmarks/*.json"))
+    succeeded_benchmarks = len(glob.glob("out/nn/stat/*/onnx/fp32/*/*.json")) - (1 if all_models_file.exists() else 0)
+    
+    print("\n" + "="*60)
+    print("PIPELINE SUMMARY")
+    print("="*60)
+    print(f"Total Models in Dataset  : {total_models}")
+    print(f"Locally Processed        : {local_count} (Accuracy Evaluated)")
+    print(f"Failed Exports           : {failed_exports}")
+    print(f"Failed Benchmarks        : {failed_benchmarks}")
+    print(f"Successful Benchmarks    : {succeeded_benchmarks} (Total iterations across versions)")
+    print(f"Remaining to Process     : {total_models - local_count - failed_exports}")
+    print("="*60 + "\n")
+
     ok, fail = len(state["processed"]), len(state["failed"])
     logger.info(f"\n{'='*55}")
     logger.info(f"  SUMMARY: ✅ {ok} succeeded, ❌ {fail} failed")
@@ -656,5 +770,7 @@ def main():
     logger.info(f"  Reports: {STAT_DIR.resolve()}")
 
 
+
 if __name__ == "__main__":
     main()
+
