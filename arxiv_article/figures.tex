@@ -1,0 +1,62 @@
+% Data-driven schematic figures. Values trace to report/evidence_summary.md.
+\newcommand{\PipelineFigure}{%
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[font=\small,node distance=8mm,every node/.style={align=center}]
+\node[draw=paperblue,fill=paperblue!8,rounded corners,minimum width=3.0cm,minimum height=1.15cm] (a) {Model population\\\textbf{1,762} vision models};
+\node[draw=papergreen,fill=papergreen!8,rounded corners,minimum width=3.0cm,minimum height=1.15cm,right=of a] (b) {PyTorch $\rightarrow$ ONNX\\\textbf{1,732} exported (98.3\%)};
+\node[draw=paperorange,fill=paperorange!10,rounded corners,minimum width=3.0cm,minimum height=1.15cm,right=of b] (c) {Unity Barracuda\\\textbf{814} execute (46.2\%)};
+\node[draw=paperred,fill=paperred!8,rounded corners,minimum width=2.5cm,minimum height=1.15cm,right=of c] (d) {Deployment gap\\\textbf{918} Unity-stage failures};
+\draw[-{Latex[length=2mm]},thick] (a)--(b); \draw[-{Latex[length=2mm]},thick] (b)--(c); \draw[-{Latex[length=2mm]},thick,paperred] (c)--(d);
+\node[below=3mm of b,text width=5.2cm] {Export validation: ONNX checker, FP32, opset 12, IR 7};
+\node[below=3mm of c,text width=4.2cm] {Execution validation: Barracuda CPU and GPU backends};
+\end{tikzpicture}
+\caption{The measured deployment pipeline. The dominant observed attrition occurs after successful ONNX export, at the Unity Barracuda stage. Execution success denotes a valid benchmark result, not numerical output equivalence.}
+\label{fig:pipeline}
+\end{figure*}%
+}
+
+\newcommand{\CompatibilityFigure}{%
+\begin{figure}[t]\centering
+\begin{tikzpicture}\begin{axis}[xbar,width=.92\columnwidth,height=5.1cm,xmin=0,xmax=100,xlabel={Post-export non-completion (\%)},ytick=data,yticklabels={MobileNet-like (76),VGG-like (18),ResNet-like (630),Transformer-like (146),Attention (10)},bar width=6pt,nodes near coords,nodes near coords align={horizontal},tick label style={font=\scriptsize},label style={font=\scriptsize},symbolic y coords={mobilenet,vgg,resnet,transformer,attention}]
+\addplot[fill=paperorange!80,draw=paperorange!80] coordinates {(32.9,mobilenet) (33.3,vgg) (51.6,resnet) (74.0,transformer) (90.0,attention)};
+\end{axis}\end{tikzpicture}
+\caption{Post-export non-completion by architecture flag. Denominators are export-successful models carrying each non-exclusive flag; the attention estimate is based on only 10 models. These are associations, not causal diagnoses.}
+\label{fig:compatibility}\end{figure}%
+}
+
+\newcommand{\ReproducibilityFigure}{%
+\begin{figure}[t]\centering
+\begin{tikzpicture}\begin{axis}[ybar,width=\columnwidth,height=4.7cm,ymin=0,ymax=200,ylabel={Across-campaign CV (\%)},symbolic x coords={Mean,Median,P95},xtick=data,bar width=8pt,legend style={font=\scriptsize,at={(0.5,1.02)},anchor=south,legend columns=2},tick label style={font=\scriptsize},label style={font=\scriptsize},nodes near coords,every node near coord/.append style={font=\scriptsize}]
+\addplot[fill=paperblue!75] coordinates {(Mean,25.6) (Median,8.8) (P95,121.3)};
+\addplot[fill=paperorange!80] coordinates {(Mean,29.3) (Median,5.4) (P95,180.2)};
+\legend{CPU,GPU dispatch window}\end{axis}\end{tikzpicture}
+\caption{Per-model timing-CV summaries across six RTX~4090 campaigns. Low medians coexist with very high 95th percentiles; aggregate completion stability does not imply uniform timing stability.}
+\label{fig:reproducibility}\end{figure}%
+}
+
+\newcommand{\TimingFigure}{%
+\begin{figure*}[t]\centering
+\begin{tikzpicture}[font=\small,node distance=3mm]
+\node[draw,rounded corners,fill=paperblue!8,minimum width=2.4cm,minimum height=8mm] (start) {start timer};
+\node[draw,rounded corners,fill=paperblue!8,minimum width=2.8cm,minimum height=8mm,right=of start] (execute) {\texttt{worker.Execute(input)}};
+\node[draw,rounded corners,fill=paperblue!8,minimum width=2.8cm,minimum height=8mm,right=of execute] (peek) {\texttt{worker.PeekOutput()}};
+\node[draw,rounded corners,fill=paperorange!18,minimum width=2.3cm,minimum height=8mm,right=of peek] (stop) {stop timer};
+\node[draw,rounded corners,fill=paperred!12,minimum width=2.7cm,minimum height=8mm,right=of stop] (dispose) {\texttt{output.Dispose()}};
+\draw[-{Latex[length=2mm]},thick] (start)--(execute); \draw[-{Latex[length=2mm]},thick] (execute)--(peek); \draw[-{Latex[length=2mm]},thick] (peek)--(stop); \draw[-{Latex[length=2mm]},thick] (stop)--(dispose);
+\draw[decorate,decoration={brace,amplitude=5pt},paperorange,thick] ($(start.south west)+(0,-.16)$) -- ($(stop.south east)+(0,-.16)$) node[midway,below=6pt,text=paperorange] {recorded GPU dispatch window};
+\node[below=16mm of execute,align=center,text width=11.8cm] {No explicit synchronization, output download, or output materialization occurs inside the measured interval. In Barracuda 3.0.2, \texttt{PeekOutput()} is non-blocking; CSharpBurst schedules Burst jobs. Thus neither backend window demonstrates completed inference before the timer stops.};
+\end{tikzpicture}
+\caption{Timing-semantics audit of the Unity benchmark implementation. The placement of the timer bounds is central to interpreting every backend result in this article.}
+\label{fig:timing-semantics}\end{figure*}%
+}
+
+\newcommand{\CorrelationFigure}{%
+\begin{figure}[t]\centering
+\begin{tikzpicture}\begin{axis}[ybar,width=\columnwidth,height=4.7cm,ymin=0,ymax=.55,ylabel={Pearson $r$},symbolic x coords={FLOPs,Parameters,Layers},xtick=data,bar width=8pt,legend style={font=\scriptsize,at={(0.5,1.02)},anchor=south,legend columns=2},tick label style={font=\scriptsize},label style={font=\scriptsize},nodes near coords,every node near coord/.append style={font=\scriptsize,rotate=90,anchor=west}]
+\addplot[fill=paperblue!75] coordinates {(FLOPs,.173) (Parameters,.111) (Layers,.146)};
+\addplot[fill=papergreen!75] coordinates {(FLOPs,.245) (Parameters,.425) (Layers,.493)};
+\legend{CPU,GPU dispatch window}\end{axis}\end{tikzpicture}
+\caption{Raw Pearson associations for 811 models with metadata. Conventional complexity descriptors are at most moderate correlates of the recorded measurements.}
+\label{fig:correlations}\end{figure}%
+}

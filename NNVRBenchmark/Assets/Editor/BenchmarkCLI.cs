@@ -154,7 +154,8 @@ public class BenchmarkCLI
 
             result.cpu = BenchmarkBackend(
                 model,
-                WorkerFactory.Type.CSharpBurst
+                WorkerFactory.Type.CSharpBurst,
+                out result.backend_cpu
             );
 
             // --------------------------------------------------
@@ -163,16 +164,15 @@ public class BenchmarkCLI
 
             result.gpu = BenchmarkBackend(
                 model,
-                WorkerFactory.Type.ComputePrecompiled
+                WorkerFactory.Type.ComputePrecompiled,
+                out result.backend_gpu
             );
 
             // --------------------------------------------------
             // BACKEND INFO
             // --------------------------------------------------
 
-            result.backend_cpu = "CSharpBurst";
-
-            result.backend_gpu = "ComputePrecompiled";
+            // Actual backend info is now populated by BenchmarkBackend
 
             // --------------------------------------------------
             // GPU INFO
@@ -250,6 +250,7 @@ public class BenchmarkCLI
     private static TimingStats BenchmarkBackend(
         Model model,
         WorkerFactory.Type backend,
+        out string actualBackendName,
         int warmupIterations = 5,
         int measuredIterations = 20
     )
@@ -261,6 +262,7 @@ public class BenchmarkCLI
             model
         ))
         {
+            actualBackendName = worker.GetType().Name;
             int[] shape = model.inputs[0].shape;
 
             int len = shape.Length;

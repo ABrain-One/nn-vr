@@ -1,0 +1,30 @@
+{
+  "hardware": "Actual GPU (NVIDIA, Vulkan, -force-vulkan, VK_ICD_FILENAMES=nvidia_icd.json)",
+  "note": "6 independent benchmark runs on the same ONNX exports.",
+  "versions": {
+    "version1": {
+      "benchmark_passed": 813,
+      "benchmark_failed": 919
+    },
+    "version2": {
+      "benchmark_passed": 812,
+      "benchmark_failed": 920
+    },
+    "version3": {
+      "benchmark_passed": 814,
+      "benchmark_failed": 918
+    },
+    "version4": {
+      "benchmark_passed": 811,
+      "benchmark_failed": 921
+    },
+    "version5": {
+      "benchmark_passed": 814,
+      "benchmark_failed": 918
+    },
+    "version6": {
+      "benchmark_passed": 812,
+      "benchmark_failed": 920
+    }
+  }
+}

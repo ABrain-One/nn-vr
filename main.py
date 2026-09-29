@@ -112,7 +112,7 @@ def main():
                     print(f"▶️ RUNNING BENCHMARK ITERATION {i}/{num_runs} (Version: {ur.RUN_VERSION})...")
                     run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
             else:
-                ur.RUN_VERSION = "run"
+                ur.RUN_VERSION = "version1"
                 run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
             # We intentionally DO NOT delete leftover ONNX files here anymore.
             # process_models.py needs them to exist so it can reconstruct their missing accuracy stats.
@@ -172,7 +172,7 @@ def main():
                 print(f"▶️ RUNNING BENCHMARK ITERATION {i}/{num_runs} (Version: {ur.RUN_VERSION})...")
                 run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
         else:
-            ur.RUN_VERSION = "run"
+            ur.RUN_VERSION = "version1"
             run_benchmarks(models=models_list, retry_failed=getattr(args, "retry_failed", False))
         
         # Cleanup

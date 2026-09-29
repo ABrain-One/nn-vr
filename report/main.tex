@@ -1,0 +1,1026 @@
+% !TeX encoding = UTF-8
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage[article]{cvpr}
+\usepackage{graphicx,amsmath,amssymb,booktabs,multirow,array,xcolor,url,enumitem}
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,citecolor=cvprblue]{hyperref}
+\usepackage{listings}
+\usepackage{placeins}
+
+\def\paperID{}
+\def\confName{arXiv}
+\def\confYear{2026}
+
+\begin{document}
+\title{The Deployment Gap: Compatibility, Reproducibility, and Runtime Behavior\\of 1,762 Vision Models in the PyTorch--ONNX--Unity Barracuda Pipeline}
+\author{Syed Ali Haider\thanks{Corresponding author: syed.haider@stud-mail.uni-wuerzburg.de} \quad Radu Timofte \quad Dmitry Ignatov\\
+\small Computer Vision Lab, CAIDAS \& IFI, University of W\"urzburg, Germany}
+\maketitle
+
+%% ============================================================
+%% 1. ABSTRACT
+%% ============================================================
+\begin{abstract}
+Deploying a vision model inside a game engine is fundamentally a deployment problem, not merely an inference-speed problem.
+We study 1,762 pretrained vision architectures transferred through the PyTorch $\rightarrow$ ONNX $\rightarrow$ Unity Barracuda pipeline and systematically evaluate six research questions spanning compatibility, reproducibility, runtime behavior, architecture--latency relationships, Unity-vs-standalone comparison, and VR deployment implications.
+ONNX export succeeds for 1,732 models (98.3\%), yet only 814 models (46.2\%) complete a Unity Barracuda benchmark, revealing that the major deployment barrier occurs \emph{after} export.
+Failure is architecture-associated: 90.0\% of attention-flagged and 74.0\% of Transformer-like models fail, versus 32.9\% of MobileNet-like models.
+Six RTX~4090/Vulkan campaigns show stable aggregate completion counts (811--814) with 806 of 814 models present in all six campaigns, but per-model timing coefficients of variation exhibit a heavy tail (CPU CV p95 = 121.3\%; GPU dispatch-window CV p95 = 180.2\%), demonstrating that aggregate stability does not imply universal timing reproducibility.
+We document that the Unity benchmark records a \emph{dispatch-window} measurement around \texttt{worker.Execute}--\texttt{worker.PeekOutput} without forcing output materialization, and therefore its GPU values are not validated end-to-end GPU latencies.
+Software-emulated GPU execution via Mesa llvmpipe reverses the apparent CPU/GPU ordering, confirming that emulated benchmarks are unsuitable for hardware performance decisions.
+Conventional complexity measures (FLOPs, parameter count, layer count) show weak-to-moderate Pearson correlations with recorded timings ($r \leq 0.49$), indicating that standalone complexity metrics are insufficient predictors of game-engine runtime behavior.
+An observational Unity/workstation comparison on 814 matched models shows Spearman rank agreement of 0.753 (CPU) and 0.741 (GPU), but the comparison is protocol-mismatched and cannot establish a portable multiplicative overhead.
+Our central conclusion is that successful standalone inference or ONNX export does not guarantee successful deployment in a game-engine inference runtime, and model selection for VR/XR must be validated in the actual deployment environment.
+\end{abstract}
+
+%% ============================================================
+%% 2. INTRODUCTION
+%% ============================================================
+\section{Introduction}\label{sec:introduction}
+
+Real-time XR applications---including virtual reality (VR), augmented reality (AR), and mixed reality (MR)---increasingly embed deep-learning vision models directly inside a game engine rather than in a standalone machine-learning runtime. Unity, one of the dominant engines for XR development, provides the Barracuda inference library for executing neural networks from ONNX~\cite{onnx2019} graphs at runtime. The deployment path from a trained PyTorch model to real-time Unity execution introduces at least three distinct questions that cannot be answered by a single FLOPs count or standalone benchmark:
+
+\begin{enumerate}[nosep,leftmargin=*]
+  \item \textbf{Can the model be exported?} PyTorch's ONNX exporter must successfully trace or script the model graph.
+  \item \textbf{Can the target runtime execute the graph?} The ONNX importer in Unity Barracuda must support every operator, shape, and graph pattern.
+  \item \textbf{Can execution meet the application's latency budget?} The runtime behavior of the executed model must be compatible with real-time frame deadlines.
+\end{enumerate}
+
+Treating FLOPs or a standalone PyTorch timing as an answer to all three is unsafe. A model that runs efficiently in PyTorch may fail to export, fail to import into Unity, crash at execution time, or produce timing behavior unrelated to its theoretical complexity. This paper examines that gap for a large, diverse collection of 1,762 vision architectures from the LEMUR/NN-Dataset ecosystem~\cite{ABrain.NN-Dataset, ABrain.LEMUR2}.
+
+Our central research question is: \emph{How reliably do diverse vision architectures traverse the PyTorch--ONNX--Unity Barracuda pipeline, and what can the available measurements establish about runtime behavior, reproducibility, and VR deployment readiness?}
+
+The study is organized around six research questions (Section~\ref{sec:rqs}) that span compatibility, reproducibility, runtime behavior, architecture--latency relationships, Unity-vs-standalone comparison, and practical VR deployment implications.
+
+\paragraph{Contributions.}
+Our contributions are deliberately scoped to the evidence available in the repository:
+\begin{enumerate}[nosep,leftmargin=*]
+  \item We quantify end-to-end export-and-execution compatibility for 1,762 architectures and show large, architecture-associated differences in failure rates (\textbf{RQ1}).
+  \item We audit repeatability across six NVIDIA RTX~4090/Vulkan campaigns, reporting both completion-set stability and the full distribution of per-model timing variation, including the heavy unstable tail (\textbf{RQ2}).
+  \item We characterize runtime behavior differences between CPU and GPU backends, physical and software-emulated GPU execution, and clarify the timing semantics of the benchmark implementation (\textbf{RQ3}).
+  \item We examine architecture--latency associations using conventional complexity metrics and exploratory symbolic regression, distinguishing descriptive associations from validated predictions (\textbf{RQ4}).
+  \item We provide an observational Unity/workstation comparison with explicit protocol-mismatch analysis (\textbf{RQ5}).
+  \item We translate findings into an evidence-based deployment workflow for VR practitioners (\textbf{RQ6}).
+  \item We provide an auditable analysis script (\texttt{stats/reproduce\_article\_claims.py}) and a machine-recomputed evidence summary with every numerical claim in this paper.
+\end{enumerate}
+
+%% ============================================================
+%% 3. BACKGROUND AND MOTIVATION
+%% ============================================================
+\section{Background and Motivation}\label{sec:background}
+
+\subsection{The VR/XR deployment context}
+
+VR headsets impose strict real-time constraints on all processing, including vision-model inference. A typical VR application targets 72--120~Hz rendering, corresponding to frame budgets of 8.3--13.9~ms. Any vision-model inference that occurs within the rendering loop must complete within a fraction of this budget, sharing time with rendering, physics, audio, and application logic. Unlike cloud inference, on-device VR inference cannot tolerate variable latency spikes without risking user discomfort from frame drops.
+
+\subsection{Unity and Barracuda}
+
+Unity is one of the most widely used game engines for XR development. Its neural-network inference library, Barracuda, loads ONNX models and executes them on CPU (\texttt{CSharpBurst}) or GPU (\texttt{ComputePrecompiled}) backends. Barracuda has been succeeded by Unity Sentis in newer Unity versions, but Barracuda remains the inference runtime in Unity~2022.3 LTS, which is the version used in this study.
+
+Barracuda's operator support is a subset of the full ONNX specification. It officially supports ONNX opset versions up to 12, with limited support for later opsets. Operators involving dynamic shapes, certain attention patterns, and advanced graph structures may fail at import or execution time. This makes deployment success an empirical question rather than a guaranteed consequence of ONNX compliance.
+
+\subsection{The ONNX intermediate representation}
+
+ONNX (Open Neural Network Exchange)~\cite{onnx2019} is designed as a portable intermediate representation for neural networks. However, ``portable'' does not mean ``universally executable.'' Target runtimes retain their own operator support, graph lowering strategies, memory-management constraints, and numerical precision behavior. An ONNX model that runs correctly in ONNX Runtime may fail in Barracuda, TensorRT, or CoreML due to runtime-specific limitations.
+
+\subsection{The NN-Dataset / LEMUR ecosystem}
+
+The model population in this study comes from the NN-Dataset~\cite{ABrain.NN-Dataset} and LEMUR~\cite{ABrain.LEMUR2} projects, which maintain a large collection of pretrained vision architectures. These include standard architectures (ResNet, VGG, MobileNet, GoogLeNet, Inception, DPN, UNet), Transformer-based architectures, attention-based architectures, and a large number of programmatically generated architectures (prefixed \texttt{rag-}, \texttt{unq-}, etc.) produced by neural architecture search and generation tools~\cite{ABrain.NNGPT, ABrain.NN-RAG}. The diversity of this collection---spanning hand-designed classics, modern Transformer variants, and auto-generated topologies---makes it suitable for studying deployment compatibility at scale.
+
+\subsection{Motivation}
+
+Prior work on edge inference and model benchmarking~\cite{ABrain.LEMUR2} has established that theoretical operation count does not fully determine measured latency and that the relationship is device-dependent. The present study extends this finding to a \emph{game-engine deployment} setting, where the target runtime introduces additional failure modes (import failure, operator incompatibility, graph-pattern rejection) that do not exist in conventional inference frameworks. Deployability itself becomes an empirical endpoint.
+
+%% ============================================================
+%% 4. RELATED WORK
+%% ============================================================
+\section{Related Work}\label{sec:related}
+
+\subsection{Model deployment and ONNX portability}
+
+ONNX~\cite{onnx2019} was introduced to enable model portability across frameworks and runtimes. However, practical deployment studies have revealed gaps between the ONNX specification and runtime support. Different runtimes (ONNX Runtime, TensorRT, OpenVINO, CoreML, Barracuda) support different subsets of ONNX operators and handle edge cases differently. The present work contributes the first large-scale empirical measurement of ONNX-to-game-engine deployment success rates across a diverse architecture population.
+
+\subsection{Edge and mobile inference}
+
+Research on edge inference has focused on model compression, quantization, pruning, and efficient architecture design for resource-constrained devices. Studies such as LEMUR~\cite{ABrain.LEMUR2} have shown that FLOPs and parameter count are imperfect predictors of actual inference latency, with device-specific effects, memory access patterns, and operator implementations all influencing runtime. Our study extends these findings to the Unity Barracuda runtime, which introduces game-engine-specific overhead and operator constraints.
+
+\subsection{Neural architecture benchmarking}
+
+Large-scale architecture benchmarking efforts typically measure accuracy, FLOPs, parameter count, and inference latency in standard ML frameworks (PyTorch, TensorFlow). Few studies have systematically measured the \emph{deployability} of architectures to non-standard runtimes. The NN-Dataset~\cite{ABrain.NN-Dataset} and related projects~\cite{ABrain.NNGPT, ABrain.NN-RAG, ABrain.HPGPT, ABrain.Architect} provide the architecture population used in this study.
+
+\subsection{Game-engine ML inference}
+
+Game engines are increasingly used as platforms for ML-powered applications, including robotics simulation, autonomous driving simulation, and XR. Unity's ML-Agents framework and Barracuda library enable on-device inference, but systematic studies of deployment compatibility across diverse architectures are rare. Most existing work uses a small number of hand-selected models rather than evaluating compatibility at the population level.
+
+\subsection{VR/XR real-time vision}
+
+Real-time vision in VR/XR applications has been studied for tasks such as hand tracking, eye tracking, scene understanding, and object detection. These applications require models that not only achieve adequate accuracy but also meet strict latency constraints on mobile or embedded GPUs. The gap between a model's standalone performance and its behavior inside a game engine has received limited systematic attention.
+
+\subsection{Inference latency prediction}
+
+Several studies have attempted to predict neural-network inference latency from architectural features such as FLOPs, parameter count, and layer structure. These predictors are typically device-specific and have limited accuracy for novel architectures or runtimes. PySR~\cite{cranmer2023pysr} provides interpretable symbolic regression for discovering analytical latency expressions, but such expressions require held-out validation to claim predictive value.
+
+\subsection{Reproducibility in benchmarking}
+
+Benchmarking reproducibility is a known concern in systems research. Factors including system load, thermal throttling, driver behavior, and JIT compilation can introduce variability in timing measurements. Our study explicitly quantifies this variability across six independent campaigns on the same hardware.
+
+%% ============================================================
+%% 5. RESEARCH QUESTIONS AND HYPOTHESES
+%% ============================================================
+\section{Research Questions}\label{sec:rqs}
+
+We organize the study around six research questions that cover the complete deployment pipeline from export to VR readiness.
+
+\medskip
+\noindent\textbf{RQ1 --- Deployment compatibility.}
+How reliably can diverse vision architectures be transferred from PyTorch through ONNX into Unity Barracuda, and which architectural characteristics are associated with deployment failure?
+
+\noindent\textbf{RQ2 --- Reproducibility.}
+How stable are deployment outcomes and inference measurements across repeated Unity/Barracuda executions on the same hardware?
+
+\noindent\textbf{RQ3 --- Runtime/deployment behavior.}
+How does recorded inference behavior change between Unity/Barracuda CPU and GPU backends, software-emulated GPU execution, and physical GPU execution, and what conclusions are justified by the benchmark timing implementation?
+
+\noindent\textbf{RQ4 --- Architecture and latency.}
+Which architectural characteristics are associated with observed runtime measurements, and how useful are conventional complexity measures such as FLOPs, parameter count, and layer count?
+
+\noindent\textbf{RQ5 --- Unity vs.\ standalone inference.}
+How do available Unity measurements compare with matched workstation/standalone measurements, and what does this comparison actually establish?
+
+\noindent\textbf{RQ6 --- VR deployment implications.}
+What can practitioners legitimately infer from these experiments when selecting and validating vision models for real-time VR/XR deployment?
+
+%% ============================================================
+%% 6. DATASET AND MODEL POPULATION
+%% ============================================================
+\section{Dataset and Model Population}\label{sec:population}
+
+The study population consists of 1,762 pretrained vision-model architecture entries drawn from the NN-Dataset~\cite{ABrain.NN-Dataset} and LEMUR~\cite{ABrain.LEMUR2} repositories. This is a heterogeneous collection spanning multiple architecture families, generation methods, and complexity levels.
+
+\subsection{Composition}
+
+The population includes:
+\begin{itemize}[nosep,leftmargin=*]
+  \item Standard architectures: ResNet, VGG, GoogLeNet, Inception, DPN, UNet, MobileNet, AirNet, and others.
+  \item Transformer-based and attention-based architectures.
+  \item A large number of programmatically generated architectures produced by neural architecture search tools~\cite{ABrain.NNGPT, ABrain.NN-RAG}, identified by hash-based names (prefixed \texttt{rag-}, \texttt{unq-}).
+\end{itemize}
+
+\subsection{Architecture flags}
+
+Each model is annotated with non-exclusive binary architecture flags in the NN-Dataset metadata: \texttt{has\_attention}, \texttt{is\_transformer\_like}, \texttt{has\_residual\_connections}, \texttt{is\_resnet\_like}, \texttt{is\_vgg\_like}, and \texttt{is\_mobilenet\_like}. These flags are used for stratified analysis but are not mutually exclusive---a model may be flagged as both ResNet-like and having residual connections, for example.
+
+\subsection{Metadata}
+
+Architectural metadata includes total layer count, total parameter count, FLOPs (floating-point operations for a single forward pass), convolutional layer count, and linear layer count. Metadata is available for 811 of the 814 execution-successful models. The metadata is drawn from the \texttt{nn-dataset/ab/nn/stat/nn/} directory.
+
+\subsection{Input heterogeneity}
+
+An important characteristic of this study is that models have \emph{heterogeneous input shapes}. The ONNX exporter infers input resolution from each model's dataset and transform configuration (see Section~\ref{sec:pipeline}). The default shape for CIFAR-10 models is $1\times3\times32\times32$ (NCHW), but models configured for other datasets or transforms may use different resolutions (e.g., $1\times3\times128\times128$, $1\times3\times224\times224$, $1\times3\times299\times299$, $1\times1\times28\times28$ for MNIST). This means the study is a heterogeneous-input deployment survey, not a fixed-resolution latency benchmark. This distinction is important for interpreting timing comparisons.
+
+%% ============================================================
+%% 7. DEPLOYMENT PIPELINE
+%% ============================================================
+\section{Deployment Pipeline}\label{sec:pipeline}
+
+The deployment pipeline has three major stages: PyTorch model instantiation, ONNX export, and Unity Barracuda execution. This section documents each stage based on direct inspection of the implementation code.
+
+\subsection{PyTorch model instantiation}
+
+Each model is instantiated from its Python module (\texttt{ab.nn.nn.\{model\_name\}}) using the \texttt{Net} class. Input and output shapes are determined by the model's dataset and transform configuration via the \texttt{infer\_in\_out\_shapes} function. Pretrained weights are loaded from the HuggingFace Hub (\texttt{NN-Dataset/checkpoints-epoch-50}). The model is placed in evaluation mode (\texttt{model.eval()}) on CPU.
+
+\subsection{ONNX export}
+
+The ONNX export is performed by \texttt{torch.onnx.export} with the following configuration, determined by direct inspection of \texttt{ab/vr/onnx\_exporter.py}:
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{Opset version:} 12 (the maximum officially supported by Barracuda~3.x; opset 14+ contains operators that may cause silent crashes).
+  \item \textbf{Precision:} FP32.
+  \item \textbf{Dynamic axes:} The batch dimension (axis 0) is declared dynamic for both input and output: \texttt{dynamic\_axes=\{'input': \{0: 'batch\_size'\}, 'output': \{0: 'batch\_size'\}\}}.
+  \item \textbf{Input names:} \texttt{['input']}; output names: \texttt{['output']}.
+  \item \textbf{IR version downgrade:} After export, the ONNX model's IR version is set to 7 for Barracuda compatibility.
+  \item \textbf{Validation:} The exported ONNX file is validated with \texttt{onnx.checker.check\_model}.
+  \item \textbf{Timeout:} Export is performed in a separate \texttt{spawn}-context process with a configurable timeout (default 60~s, overridable to 120~s).
+\end{itemize}
+
+\subsection{Unity Barracuda execution}
+
+The Unity benchmark is implemented in \texttt{BenchmarkCLI.cs} within Unity~2022.3.62f3. Each ONNX model is:
+\begin{enumerate}[nosep,leftmargin=*]
+  \item Copied into the Unity project's \texttt{Assets/Models/} directory as \texttt{model.onnx}.
+  \item Imported by Unity's asset pipeline as an \texttt{NNModel} asset.
+  \item Loaded into a Barracuda \texttt{Model} via \texttt{ModelLoader.Load}.
+  \item Executed on two backends sequentially:
+    \begin{itemize}[nosep]
+      \item \textbf{CPU:} \texttt{WorkerFactory.Type.CSharpBurst}
+      \item \textbf{GPU:} \texttt{WorkerFactory.Type.ComputePrecompiled}
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Input tensor construction}
+
+The benchmark reads the model's input shape from \texttt{model.inputs[0].shape} and constructs a \texttt{Tensor} with the last four dimensions interpreted as \texttt{(batch, height, width, channels)}. The tensor is filled with default (zero) values. This is a shape-compatibility and timing test, not an accuracy evaluation.
+
+\subsubsection{Warm-up protocol}
+
+For each backend, 5 warm-up iterations are executed. Each warm-up calls \texttt{worker.Execute(input)} followed by \texttt{worker.PeekOutput()}, with the output tensor disposed.
+
+\subsubsection{Timing protocol}\label{sec:timing}
+
+For each backend, 20 measured iterations are executed. The timing implementation, from direct inspection of \texttt{BenchmarkCLI.cs} (lines 300--314), is:
+
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily,frame=single,language={[Sharp]C}]
+float start = Time.realtimeSinceStartup;
+worker.Execute(input);
+Tensor output = worker.PeekOutput();
+float end = Time.realtimeSinceStartup;
+output.Dispose();
+times[i] = (end - start) * 1000f;
+\end{lstlisting}
+
+\paragraph{Critical timing interpretation.}
+The timer begins before \texttt{worker.Execute(input)} and ends after \texttt{worker.PeekOutput()}. The output tensor is disposed \emph{after} the timer ends. Crucially, \texttt{PeekOutput()} returns a reference to the output tensor but does not necessarily force synchronous completion of all GPU compute operations. No explicit GPU synchronization barrier, output download, or data read occurs within the timed interval. We therefore characterize the GPU measurement as a \textbf{dispatch-window measurement}: it records the time to submit the compute workload and obtain an output tensor reference, but does not guarantee that all GPU computation has completed when the timer stops.
+
+For the CPU backend (\texttt{CSharpBurst}), execution is synchronous, so the timing more closely represents end-to-end inference latency. However, even CPU timing may be affected by system-level factors (scheduling, memory allocation, cache state).
+
+\subsubsection{Result recording}
+
+The benchmark records per-backend statistics (mean, min, max, standard deviation of the 20 measured iterations), input/output shapes, GPU name, graphics API, Unity version, operating system, system memory, and CPU information. Results are serialized as JSON.
+
+\subsection{GPU execution environments}
+
+\subsubsection{Physical GPU (RTX~4090/Vulkan)}
+
+The primary benchmark environment uses an NVIDIA GeForce RTX~4090 (24~GB VRAM) with the Vulkan graphics API, forced via \texttt{-force-vulkan}. The Vulkan ICD is explicitly set to the NVIDIA driver (\texttt{VK\_ICD\_FILENAMES=/usr/share/vulkan/icd.d/nvidia\_icd.json}) to prevent fallback to software rendering. NVIDIA driver version is 580.65.06; CUDA version is 13.0.
+
+\subsubsection{Software-emulated GPU (Mesa llvmpipe)}
+
+A second environment uses Mesa llvmpipe, a software implementation of the Vulkan API that performs all ``GPU'' compute on the CPU using LLVM-based JIT compilation. This environment is included to demonstrate that software GPU emulation can produce qualitatively different results from hardware GPU execution.
+
+\subsection{Campaign structure}
+
+The benchmark is executed in independent ``campaigns'' (runs). The RTX~4090/Vulkan environment has six campaigns (\texttt{version1} through \texttt{version6}), each processing the same set of 1,732 exported ONNX models. The llvmpipe environment also has six campaigns. Each campaign is a complete pass over all models, with previously benchmarked models skipped. The per-model JSON results are stored in versioned directories under \texttt{out/nn/stat/real\_gpu\_versions/}.
+
+%% ============================================================
+%% 8. EXPERIMENTAL METHODOLOGY
+%% ============================================================
+\section{Experimental Methodology}\label{sec:methodology}
+
+\subsection{Hardware and software environment}
+
+Table~\ref{tab:environment} summarizes the experimental environment.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{ll}
+\toprule
+Component & Specification \\
+\midrule
+GPU & NVIDIA GeForce RTX 4090 (24~GB) \\
+GPU driver & NVIDIA 580.65.06 \\
+CUDA & 13.0 \\
+Graphics API & Vulkan (forced) \\
+CPU & AMD (multi-core) \\
+OS & Linux \\
+Unity & 2022.3.62f3 \\
+Runtime & Barracuda \\
+CPU backend & CSharpBurst \\
+GPU backend & ComputePrecompiled \\
+Python & 3.x \\
+PyTorch & Current stable \\
+ONNX opset & 12 \\
+ONNX IR version & 7 (downgraded) \\
+\bottomrule
+\end{tabular}
+\caption{Primary experimental environment. The environment log confirms an RTX~4090 at PCI bus 01:00.0. A secondary llvmpipe environment uses software-emulated Vulkan on the same CPU.}
+\label{tab:environment}
+\end{table}
+
+\subsection{Model inputs}
+
+Input tensors are model-specific. The exporter determines input shape from the model's dataset and transform configuration. Common shapes include $1\times3\times32\times32$ (CIFAR-10), $1\times3\times160\times160$ (ImageNette), and $1\times1\times28\times28$ (MNIST). Transform strings such as \texttt{echo\_128}, \texttt{norm\_224}, \texttt{norm\_299} override the default resolution. Batch size is always 1.
+
+\subsection{ONNX configuration}
+
+All exports use opset 12, FP32 precision, dynamic batch axis, fixed spatial dimensions, IR version 7, and are validated with \texttt{onnx.checker.check\_model}. The opset choice is constrained by Barracuda's official support ceiling.
+
+\subsection{Warm-up and timing}
+
+Each backend uses 5 warm-up iterations followed by 20 measured iterations. Timing uses \texttt{Time.realtimeSinceStartup} (wall-clock time). The GPU timer does not include an explicit synchronization barrier.
+
+\subsection{Repeated campaigns}
+
+Six independent campaigns were conducted on the RTX~4090/Vulkan environment and six on the llvmpipe environment. Each campaign processes all 1,732 exported models, skipping those already benchmarked in that campaign version. Failed models are retried up to 3 times if the failure is due to Unity lock conflicts (exit code 134). Otherwise, failures are recorded with error classification and Unity editor log tails.
+
+\subsection{Success/failure definitions}
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{Export-successful:} \texttt{torch.onnx.export} completes without exception and the resulting file passes \texttt{onnx.checker.check\_model}.
+  \item \textbf{Execution-successful:} The Unity benchmark process exits with code 0, the result JSON has \texttt{success: true}, and the record is marked \texttt{valid: true}.
+  \item \textbf{Execution-unsuccessful:} Any failure at import, worker creation, execution, output retrieval, or process-level crash/timeout.
+\end{itemize}
+
+A model is counted as passed in a campaign version if it has at least one \texttt{valid: true} record (accounting for retries). This is not a claim of numerical equivalence with PyTorch or ONNX Runtime.
+
+\subsection{Failure classification}
+
+The benchmark code (\texttt{benchmark\_models.py}) classifies failures into categories: \texttt{unity\_native\_crash} (exit code 3221225477), \texttt{timeout}, \texttt{missing\_results}, \texttt{unsupported\_operator}, and \texttt{unknown}. Failed benchmarks also record ONNX opset version, IR version, file size, potential cause analysis, and the last 150 lines of the Unity editor log.
+
+\subsection{Statistical methodology}
+
+The analysis has four levels:
+\begin{enumerate}[nosep,leftmargin=*]
+  \item \textbf{Compatibility:} Stage-wise counts and conditional family failure rates. Family flags are non-exclusive and are not treated as mutually exclusive experimental groups.
+  \item \textbf{Reproducibility:} Completion counts per campaign; per-model coefficients of variation (CV = $s/\bar{x}$) across campaign means, reported as median and 95th percentile due to heavy-tailed distributions.
+  \item \textbf{Runtime observations:} Arithmetic means for comparability with benchmark artifacts; medians and interquartile ranges (IQR) for paired ratios because latency and ratios are skewed.
+  \item \textbf{Metadata associations:} Pearson $r$ between each metadata feature and recorded timing values. These are descriptive correlations that neither control for correlated architecture features nor establish causal effects.
+\end{enumerate}
+
+For the workstation comparison, paired ratios $q_i = t_{\mathrm{Unity},i} / t_{\mathrm{workstation},i}$ are computed with median, geometric mean, IQR, and Spearman rank agreement. The comparison is explicitly observational.
+
+%% ============================================================
+%% 9. RQ1: DEPLOYMENT COMPATIBILITY
+%% ============================================================
+\section{RQ1: Deployment Compatibility and Failure Analysis}\label{sec:rq1}
+
+\subsection{Pipeline outcomes}
+
+Table~\ref{tab:success} presents the stage-wise deployment outcomes for the full 1,762-model population.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrr}
+\toprule
+Outcome & Count & Share of 1,762 \\
+\midrule
+ONNX export failed & 30 & 1.7\% \\
+Exported, Unity unsuccessful & 918 & 52.1\% \\
+Execution-successful & 814 & 46.2\% \\
+\bottomrule
+\end{tabular}
+\caption{Pipeline outcomes. ONNX export succeeds for 1,732/1,762 models (98.3\%). Only 814/1,762 models (46.2\%) complete the full pipeline. The major deployment barrier occurs after ONNX export.}
+\label{tab:success}
+\end{table}
+
+The result is striking: ONNX export is highly reliable (98.3\% success), but only 47.0\% of exported models (814/1,732) complete Unity Barracuda execution. More than half of all exported models fail at the Unity stage. This establishes that \emph{successful ONNX export is necessary but far from sufficient for successful game-engine deployment}.
+
+\subsection{Export failures}
+
+Of the 30 export failures, 26 are programmatically generated architectures (24 with \texttt{rag-} prefix, 1 with \texttt{unq-} prefix), and 4 are named architectures (BayesianNet-1, ComplexNet, MNASNet, SwinTransformer). Export failures arise from unsupported PyTorch operations during ONNX tracing, process timeout, or out-of-memory conditions in the subprocess.
+
+\subsection{Architecture-associated failure rates}
+
+Failure is not evenly distributed across architecture families. Table~\ref{tab:families} reports observed failure rates by non-exclusive architecture flag.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrrr}
+\toprule
+Flag & Total & Success & Failure \\
+\midrule
+Has attention & 10 & 1 & 90.0\% \\
+Transformer-like & 146 & 38 & 74.0\% \\
+Residual connections & 110 & 54 & 50.9\% \\
+ResNet-like & 630 & 305 & 51.6\% \\
+VGG-like & 18 & 12 & 33.3\% \\
+MobileNet-like & 76 & 51 & 32.9\% \\
+\bottomrule
+\end{tabular}
+\caption{Observed execution-failure rates by non-exclusive architecture flag. Attention and Transformer flags are associated with markedly higher failure rates. The attention estimate has only 10 flagged models and should be interpreted with appropriate caution regarding sample size.}
+\label{tab:families}
+\end{table}
+
+\paragraph{Key observations.}
+\begin{itemize}[nosep,leftmargin=*]
+  \item Attention-flagged models have the highest observed failure rate (90.0\%), but this is based on only 10 models, so the estimate has wide uncertainty.
+  \item Transformer-like models fail at 74.0\% (108/146), a substantial failure rate on a larger sample.
+  \item MobileNet-like (32.9\%) and VGG-like (33.3\%) models have the lowest failure rates, making them relatively favorable starting points for Unity deployment.
+  \item ResNet-like models are the largest group (630) but have a 51.6\% failure rate, demonstrating that numerical dominance in the training ecosystem does not guarantee deployment compatibility.
+\end{itemize}
+
+\subsection{Failure mechanism analysis}
+
+The benchmark code classifies failures into categories (\texttt{unity\_native\_crash}, \texttt{timeout}, \texttt{missing\_results}, \texttt{unsupported\_operator}, \texttt{unknown}) and records ONNX opset/IR versions and Unity editor log tails for failed models. However, the preserved aggregate artifacts (\texttt{aggregated\_unity\_stats.csv}, \texttt{export\_stats.json}) do not contain a per-model error-category breakdown that would support a complete failure taxonomy. We therefore distinguish:
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{Observed association:} Attention/Transformer architecture flags are strongly associated with higher failure rates. This is documented in Table~\ref{tab:families}.
+  \item \textbf{Plausible mechanisms:} Unsupported ONNX operators (e.g., multi-head attention patterns, LayerNorm variants), graph patterns involving reshape/transpose with sequence dimensions, static-shape assumptions in Barracuda's importer, backend-specific worker errors, and timeout/crash behavior during large-model execution.
+  \item \textbf{Experimentally demonstrated mechanism:} Not established by the current data. A future failure taxonomy should parse raw per-model exception logs into mutually exclusive categories and report counts by family and ONNX operator signature.
+\end{itemize}
+
+\subsection{Practical implications of RQ1}
+
+The practical criterion for deployment suitability is not family name alone; it is successful export, import, execution, and eventually numerical validation for the exact candidate model. MobileNet-like and VGG-like flags have the lowest observed failure rates (approximately one-third still fail), making them reasonable starting points but not guaranteed-safe choices.
+
+%% ============================================================
+%% 10. RQ2: REPRODUCIBILITY
+%% ============================================================
+\section{RQ2: Reproducibility and Cross-Campaign Stability}\label{sec:rq2}
+
+\subsection{Completion stability}
+
+The six RTX~4090/Vulkan campaigns report the following successful-model counts: 813, 812, 814, 811, 814, 812. The range is 811--814, demonstrating highly stable aggregate completion across campaigns.
+
+At the model level, 806 of the 814 models in the aggregate have timing records in all six campaigns, and 8 models have records in exactly five campaigns. No model appears in fewer than five campaigns. This indicates that model-level completion is also highly stable, with only a small number of models exhibiting marginal completion behavior (succeeding in some campaigns but failing in others).
+
+\subsection{Timing reproducibility}
+
+Timing repeatability is substantially more nuanced than completion stability. Table~\ref{tab:reproducibility} summarizes the distribution of per-model across-campaign coefficients of variation (CVs).
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrrr}
+\toprule
+Backend & Mean CV & Median CV & P95 CV \\
+\midrule
+CPU & 25.6\% & 8.8\% & 121.3\% \\
+GPU dispatch window & 29.3\% & 5.4\% & 180.2\% \\
+\bottomrule
+\end{tabular}
+\caption{Distribution of per-model across-campaign coefficients of variation. The median model is relatively stable, but the heavy tail demonstrates that a substantial minority of models have highly variable timing measurements.}
+\label{tab:reproducibility}
+\end{table}
+
+\paragraph{Interpretation.}
+The median CV values (8.8\% for CPU, 5.4\% for GPU dispatch window) indicate that the ``typical'' model is relatively stable across campaigns. However, the distribution is heavily right-skewed:
+\begin{itemize}[nosep,leftmargin=*]
+  \item The 95th percentile CV is 121.3\% for CPU and 180.2\% for GPU, meaning approximately 5\% of models have timing measurements that vary by more than 100\% across campaigns.
+  \item The mean CV (25.6\% CPU, 29.3\% GPU) is substantially higher than the median, confirming the heavy tail.
+\end{itemize}
+
+This pattern has important methodological implications: aggregate completion stability (811--814 models across campaigns) does \emph{not} justify a blanket claim that all timing measurements are highly reproducible. Reproducibility must be reported distributionally.
+
+\subsection{llvmpipe completion instability}
+
+The llvmpipe environment shows a strikingly different completion pattern: 714, 169, 169, 401, 814, 813. This series is visibly nonstationary---early campaigns have very low success counts, and the series does not converge until campaigns 5 and 6. This instability makes the llvmpipe environment unsuitable as a reproducibility experiment. We use it only to illustrate that software emulation can distort backend comparisons (Section~\ref{sec:rq3}).
+
+\subsection{Sources of timing variability}
+
+Several factors may contribute to the observed timing variability:
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{System-level effects:} Background processes, memory fragmentation, thermal throttling, and OS scheduling.
+  \item \textbf{Unity-specific effects:} Asset database refresh timing, JIT compilation variations, and Barracuda's internal memory management.
+  \item \textbf{GPU driver state:} Power management, clock frequency scaling, and compute queue scheduling.
+  \item \textbf{Model-specific effects:} Models near the timeout boundary or with memory-intensive operations may exhibit more variable behavior.
+\end{itemize}
+
+The current data do not support partitioning the variance into these components. A controlled experiment varying system load, GPU power state, and Unity configuration would be required.
+
+%% ============================================================
+%% 11. RQ3: RUNTIME ENVIRONMENT AND BACKEND BEHAVIOR
+%% ============================================================
+\section{RQ3: Runtime Environment and Backend Behavior}\label{sec:rq3}
+
+\subsection{RTX~4090 recorded timing observations}
+
+The recorded means over the 814 RTX~4090/Vulkan execution-successful models are reported in Table~\ref{tab:runtime}.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lr}
+\toprule
+Measurement & Value \\
+\midrule
+CPU backend mean & 17.66~ms \\
+GPU dispatch-window mean & 0.214~ms \\
+GPU window < CPU (models) & 777/814 (95.5\%) \\
+CPU < GPU window (models) & 37/814 (4.5\%) \\
+\bottomrule
+\end{tabular}
+\caption{Recorded RTX~4090/Vulkan timing observations. These are observations about the implemented timer, not validated throughput comparisons.}
+\label{tab:runtime}
+\end{table}
+
+\paragraph{CPU-faster subset characterization.}
+The 37 models where CPU is recorded as faster than the GPU dispatch window are predominantly small models. Their median parameter count is 6,474 versus 492,714 for the remaining models; their median layer count is 10 versus 36. For very small models, the overhead of GPU dispatch, data transfer, and compute kernel launch may exceed the computation itself.
+
+\paragraph{Timing interpretation caveat.}
+These numbers are observations about the implemented timer (Section~\ref{sec:timing}), not a validated throughput or end-to-end latency comparison. The GPU dispatch-window measurement does not include an explicit synchronization barrier and therefore may underestimate true GPU inference time. The 0.214~ms GPU mean must \emph{not} be used to assert that every successful model meets a VR frame budget. Establishing VR eligibility requires:
+\begin{enumerate}[nosep,leftmargin=*]
+  \item A synchronized output-materialization measurement.
+  \item A workload with realistic pre/post-processing.
+  \item Testing on the intended headset or mobile GPU.
+  \item Measurement under concurrent rendering load.
+\end{enumerate}
+
+\subsection{llvmpipe vs.\ physical GPU}
+
+Table~\ref{tab:llvmpipe} compares the two execution environments.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrr}
+\toprule
+Backend & RTX~4090 & llvmpipe \\
+\midrule
+CPU mean (ms) & 17.66 & 17.61 \\
+GPU mean (ms) & 0.214 & 221.02 \\
+\bottomrule
+\end{tabular}
+\caption{Recorded timing comparison between physical GPU and software-emulated GPU environments. The CPU values are comparable; the GPU values differ by approximately three orders of magnitude. The llvmpipe GPU value reflects software compute-shader emulation, not hardware GPU performance.}
+\label{tab:llvmpipe}
+\end{table}
+
+The CPU means are comparable (17.66 vs.\ 17.61~ms), which is expected since both environments use the same CPU and the \texttt{CSharpBurst} backend. The GPU values differ dramatically: 0.214~ms (RTX~4090) vs.\ 221.02~ms (llvmpipe). The llvmpipe ``GPU'' measurement reflects the cost of emulating compute shaders in software on the CPU via LLVM JIT compilation. This reverses the apparent CPU/GPU ordering relative to the RTX campaign and demonstrates that llvmpipe GPU values are \emph{not} a substitute for physical-GPU measurements.
+
+\paragraph{Practical implication.} Never choose a CPU/GPU backend path based on software-emulated GPU timings. CI pipelines that use virtual machines without physical GPUs will produce misleading benchmark results if GPU timings are used for performance decisions.
+
+\subsection{Barracuda backend internals}
+
+The CPU backend (\texttt{CSharpBurst}) uses Burst-compiled C\# for tensor operations, executing synchronously on the CPU. The GPU backend (\texttt{ComputePrecompiled}) dispatches precompiled compute shaders to the GPU via the graphics API (Vulkan in our configuration). The distinction matters for timing interpretation: CPU execution is inherently synchronous, while GPU execution involves asynchronous dispatch and potential pipelining.
+
+%% ============================================================
+%% 12. RQ4: ARCHITECTURE--LATENCY RELATIONSHIPS
+%% ============================================================
+\section{RQ4: Architecture--Latency Relationships}\label{sec:rq4}
+
+\subsection{Conventional complexity correlations}
+
+For the 811 execution-successful models with complete metadata, Table~\ref{tab:corr} reports Pearson correlations between architectural metadata features and RTX-recorded timing values.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrr}
+\toprule
+Feature & CPU $r$ & GPU-window $r$ \\
+\midrule
+FLOPs & 0.173 & 0.245 \\
+Parameters & 0.111 & 0.425 \\
+Total layers & 0.146 & 0.493 \\
+\bottomrule
+\end{tabular}
+\caption{Pearson correlations with recorded RTX~4090 campaign means ($N = 811$). All correlations are positive but weak to moderate. No single conventional complexity metric is strongly predictive of Barracuda runtime.}
+\label{tab:corr}
+\end{table}
+
+\paragraph{Key observations.}
+\begin{itemize}[nosep,leftmargin=*]
+  \item FLOPs, the most commonly used complexity proxy, has the weakest correlation with CPU time ($r = 0.173$) and only moderate correlation with GPU dispatch-window time ($r = 0.245$).
+  \item Layer count has the strongest observed GPU-window correlation ($r = 0.493$), but still explains less than 25\% of variance.
+  \item Parameter count is more strongly correlated with the GPU dispatch window ($r = 0.425$) than with CPU time ($r = 0.111$).
+  \item The weak CPU correlations likely reflect the dominance of memory access patterns, operator implementation efficiency, and Burst-compilation behavior over raw computation count.
+  \item The moderate GPU-window correlations may reflect graph-dispatch overhead that scales with model depth/size.
+\end{itemize}
+
+\paragraph{Limitations.}
+These are Pearson correlations on raw (untransformed) values and do not control for confounding between features (e.g., FLOPs and parameters are correlated with each other). They do not account for nonlinear relationships. A proper predictive model would require log-transformation, multivariate regression, and held-out evaluation.
+
+\subsection{Exploratory symbolic regression (PySR)}
+
+PySR~\cite{cranmer2023pysr} was applied to the full observed dataset to discover compact analytical expressions relating architectural features to log-transformed timing values. The PySR configuration used 50 iterations, population size 30, maximum expression size 20, binary operators $\{+, -, \times, /\}$, unary operators $\{\exp, \log, \sqrt{}, |\cdot|\}$, and random state 42.
+
+Let $P_{\log} = \log(\text{parameters} + 1)$, $L$ = total layers, and $y = \log(t + 1)$ for recorded milliseconds $t$. Table~\ref{tab:pysr} reports the full-data PySR expressions.
+
+\begin{table*}[t]
+\centering\small
+\begin{tabular}{lll}
+\toprule
+Environment & Backend & Full-data PySR expression for $y = \log(t+1)$ \\
+\midrule
+RTX~4090/Vulkan & CPU & $0.515\,\left|\left|P_{\log} - 14.764\right| - 6.841\right|$ \\
+RTX~4090/Vulkan & GPU dispatch window & $0.0152\,P_{\log}$ \\
+llvmpipe & CPU & $\log(0.158\,L)$ \\
+llvmpipe & GPU window & $\exp(0.108\,P_{\log})$ \\
+\bottomrule
+\end{tabular}
+\caption{Exploratory PySR descriptions fitted on the \emph{complete} available data (no train/test split). These expressions must not be used as validated latency predictors. They are useful as curve-shape hypotheses---for example, the real-GPU window fit selects $P_{\log}$ alone with a simple linear relationship, while the llvmpipe GPU fit has a steeper exponential parameter dependence.}
+\label{tab:pysr}
+\end{table*}
+
+\paragraph{Interpretation.}
+\begin{itemize}[nosep,leftmargin=*]
+  \item The RTX CPU expression uses nested absolute values of $P_{\log}$, suggesting a V-shaped or W-shaped relationship between parameter count and CPU latency. This may reflect mode switching between memory-bound and compute-bound regimes.
+  \item The RTX GPU dispatch-window expression is simply linear in $P_{\log}$, consistent with dispatch overhead scaling with model size.
+  \item The llvmpipe CPU expression selects layer count ($L$) rather than parameter count, suggesting that software CPU execution is more sensitive to graph depth.
+  \item The llvmpipe GPU expression has an exponential relationship with $P_{\log}$, reflecting the dramatically different scaling behavior of software compute-shader emulation.
+\end{itemize}
+
+\paragraph{Critical caveat.}
+Because no held-out evaluation was performed, these expressions are \textbf{not presented as predictive models}. Their in-sample selection makes numerical fit statistics inappropriate evidence of predictive value. A suitable follow-up is described in Section~\ref{sec:followup}.
+
+\subsection{Architecture flags and runtime}
+
+The non-exclusive architecture flags show different runtime distributions:
+\begin{itemize}[nosep,leftmargin=*]
+  \item MobileNet-like models (which emphasize depthwise separable convolutions) tend to have moderate CPU timings, consistent with their efficiency-oriented design.
+  \item The 38 successful Transformer-like models show variable timing behavior, suggesting that the subset that survives deployment is architecturally diverse.
+  \item The analysis is limited by the fact that most attention/Transformer models \emph{fail} deployment, so the successful subset may not be representative of Transformer architectures in general.
+\end{itemize}
+
+%% ============================================================
+%% 13. RQ5: UNITY VS STANDALONE/WORKSTATION INFERENCE
+%% ============================================================
+\section{RQ5: Unity vs.\ Standalone/Workstation Inference}\label{sec:rq5}
+
+\subsection{Data source}
+
+The workstation-match artifact (\texttt{stats/unity\_overhead.csv}) contains 814 rows pairing Unity RTX~4090 records with conventional PyTorch workstation records from the LEMUR standalone inference database. Matching is performed by model name. The workstation records come from \texttt{nn-dataset/ab/nn/stat/run/pt/fp32/} and use a potentially different hardware, software, and timing protocol.
+
+\subsection{Paired comparison}
+
+Table~\ref{tab:workstation} reports robust paired summaries.
+
+\begin{table*}[t]
+\centering\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Backend & Unity median & Workstation median & Median ratio & Geo.\ mean ratio & Ratio IQR & Spearman $\rho$ \\
+\midrule
+CPU & 6.080 & 1.247 & 1.296 & 1.968 & 0.909--4.933 & 0.753 \\
+GPU dispatch window & 0.179 & 0.400 & 0.244 & 0.313 & 0.198--0.352 & 0.741 \\
+\bottomrule
+\end{tabular}
+\caption{Matched Unity/workstation observations ($N = 814$; times in ms). Ratios are Unity/workstation. The GPU row is a protocol-mismatched observational comparison, not a throughput claim.}
+\label{tab:workstation}
+\end{table*}
+
+\subsection{CPU comparison analysis}
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item The Unity CPU median (6.080~ms) is higher than the workstation CPU median (1.247~ms).
+  \item The median paired ratio is 1.296 and 72.9\% of pairs have a Unity CPU value greater than the workstation value.
+  \item The geometric mean ratio (1.968) is substantially higher than the median ratio, indicating right-skewed overhead.
+  \item The IQR of 0.909--4.933 is very wide, demonstrating that a single ``Unity overhead'' factor is not representative of all models.
+\end{itemize}
+
+\subsection{GPU comparison analysis}
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item The GPU-window ratio median is 0.244 and only 8.2\% of pairs exceed 1.0.
+  \item This must \emph{not} be interpreted as evidence that Barracuda GPU inference is faster than PyTorch GPU inference. The Unity numerator is the unsynchronized dispatch-window measurement described in Section~\ref{sec:timing}, whereas the workstation denominator may include GPU synchronization and output materialization.
+  \item The comparison is fundamentally protocol-mismatched for GPU timing and can only establish descriptive patterns, not causal overhead.
+\end{itemize}
+
+\subsection{Rank agreement}
+
+The Spearman rank correlations ($\rho = 0.753$ for CPU, $\rho = 0.741$ for GPU) indicate that models which are relatively slow in one environment tend to be relatively slow in the other. This establishes \emph{rank-level consistency}: the environments broadly agree on which models are computationally expensive. However, the correlation is not strong enough to make precise timing predictions from one environment to the other.
+
+\subsection{Protocol mismatch analysis}
+
+The comparison is explicitly observational. The retained artifacts do not establish:
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{Input shape equivalence:} Unity uses model-specific input shapes from the ONNX graph; the workstation may use different input shapes.
+  \item \textbf{Preprocessing equivalence:} Unity uses zero-filled dummy tensors; the workstation may use different input generation.
+  \item \textbf{Timing semantics equivalence:} Unity uses \texttt{Time.realtimeSinceStartup}; the workstation uses its own timing mechanism with potentially different synchronization.
+  \item \textbf{GPU synchronization equivalence:} The Unity GPU timer does not force synchronization; the workstation timer may or may not include GPU synchronization.
+  \item \textbf{Hardware equivalence:} The workstation hardware configuration is not documented in the comparison artifact.
+  \item \textbf{Concurrent workload equivalence:} Unity includes asset database management and editor overhead; the workstation runs in a standalone Python process.
+  \item \textbf{Precision equivalence:} Both use FP32, but implementation details may differ.
+  \item \textbf{Batch size equivalence:} Both use batch size 1, but memory allocation patterns may differ.
+\end{itemize}
+
+Given these mismatches, the comparison can establish descriptive rank/ratio patterns but cannot establish a portable, multiplicative ``Unity overhead.''
+
+%% ============================================================
+%% 14. RQ6: VR DEPLOYMENT IMPLICATIONS
+%% ============================================================
+\section{RQ6: Implications for Real-Time VR Deployment}\label{sec:rq6}
+
+\subsection{Evidence-based deployment workflow}
+
+The results support a multi-stage deployment workflow rather than a universal architecture ranking. Table~\ref{tab:guidance} translates the evidence into actionable decisions for a VR developer.
+
+\begin{table*}[t]
+\centering\small
+\begin{tabular}{p{0.18\linewidth}p{0.26\linewidth}p{0.46\linewidth}}
+\toprule
+Decision point & Evidence in this study & Recommended action \\
+\midrule
+Candidate family selection & MobileNet-like/VGG-like flags have lower observed failure rates (33\%); attention/Transformer flags have much higher rates (74--90\%). & Start with a standard convolutional candidate when rapid integration matters, but test every exact ONNX export. Treat attention-heavy candidates as high-risk and retain a fallback. \\
+\midrule
+Pipeline compatibility & 46.2\% of the full population completes the benchmark; export success alone is 98.3\%. & Make Unity import/execution a CI gate. Store ONNX version, opset, input shape, error trace, and a minimal failing graph. \\
+\midrule
+Correctness & The preserved result records execution success, not Unity output parity. & Compare Unity output with PyTorch/ONNX Runtime on fixed inputs. Report maximum absolute, mean absolute, and relative error, plus task-level agreement. \\
+\midrule
+Backend choice & RTX GPU dispatch windows are usually lower than CPU values; llvmpipe reverses the ordering. & Use physical target hardware for backend selection. Never choose a GPU/CPU path from llvmpipe timings. \\
+\midrule
+Frame-budget decision & Current GPU windows are unsynchronized and measured on a desktop RTX~4090, not a headset. & Measure p50/p95 synchronized end-to-end latency, include pre/post-processing and rendering contention, then test on the intended headset/mobile GPU. \\
+\midrule
+Reproducibility assessment & Median timing CV is low, but the tail is substantial (p95 > 100\%). & Report timing distributions (p50/p95), not only means. Run multiple campaigns and flag models with high CV for additional validation. \\
+\bottomrule
+\end{tabular}
+\caption{Evidence-to-action deployment guidance. Each decision point is mapped to specific evidence from this study and a concrete recommended action.}
+\label{tab:guidance}
+\end{table*}
+
+\subsection{What the study does NOT establish}
+
+It is important to be explicit about what the current evidence does \emph{not} support:
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{No VR frame-rate performance:} We have not measured inference on a VR headset or mobile GPU. No model is certified as VR-ready by this study.
+  \item \textbf{No numerical correctness:} We have not verified that Unity Barracuda produces numerically equivalent outputs to PyTorch.
+  \item \textbf{No synchronized GPU latency:} The GPU measurements are dispatch-window observations, not validated end-to-end latencies.
+  \item \textbf{No universal architecture ranking:} The results show architecture-associated failure rates, not a ranking of architecture quality.
+  \item \textbf{No causal failure mechanism:} We have associations between architecture flags and failure rates, not experimentally demonstrated mechanisms.
+  \item \textbf{No energy, memory, or thermal analysis:} These important deployment metrics are not measured.
+\end{itemize}
+
+\subsection{Deployment gates}
+
+Based on the findings, we recommend a three-gate deployment validation process:
+\begin{enumerate}[nosep,leftmargin=*]
+  \item \textbf{Compatibility gate:} Export the model to ONNX with opset 12 and validate the graph. Import into Unity Barracuda and execute on both CPU and GPU backends. Record pass/fail status and error details.
+  \item \textbf{Correctness gate:} Compare Unity output with PyTorch/ONNX Runtime on identical inputs. Report maximum absolute error, mean absolute error, and task-level agreement (e.g., classification accuracy).
+  \item \textbf{Performance gate:} Measure synchronized end-to-end latency on the target device under representative application load. Report p50 and p95 latencies. Verify that inference fits within the frame budget with adequate headroom for rendering and other application tasks.
+\end{enumerate}
+
+%% ============================================================
+%% 15. DEPLOYMENT WORKFLOW AND PRACTICAL RECOMMENDATIONS
+%% ============================================================
+\section{Deployment Workflow and Practical Recommendations}\label{sec:workflow}
+
+\subsection{Recommended engineering practices}
+
+Based on the empirical findings, we recommend the following engineering practices for deploying vision models in Unity:
+
+\begin{enumerate}[nosep,leftmargin=*]
+  \item \textbf{Export with the target-supported opset.} Barracuda~3.x supports opset 12. Using higher opsets may introduce unsupported operators that cause silent failures.
+  \item \textbf{Validate the ONNX graph independently.} Run the exported model in ONNX Runtime before Unity import to verify operator compatibility and numerical correctness.
+  \item \textbf{Use fixed shapes where the application permits.} Dynamic shapes may introduce import or execution failures. Fix batch, height, width, and channel dimensions to the values used at inference time.
+  \item \textbf{Simplify or replace unsupported subgraphs.} If a model fails to import, identify the unsupported operators and replace them with Barracuda-compatible alternatives.
+  \item \textbf{Preserve minimal failing models.} When a model fails, save the minimal ONNX subgraph that reproduces the failure for bug reporting and debugging.
+  \item \textbf{Execute numerical parity tests.} Compare Unity output tensors with PyTorch/ONNX Runtime output tensors on identical fixed inputs.
+  \item \textbf{Run multiple benchmark campaigns.} A single timing measurement may not be representative due to the timing variability documented in Section~\ref{sec:rq2}.
+  \item \textbf{Test on target hardware.} Desktop GPU timings do not transfer to mobile GPUs, VR headsets, or edge devices.
+\end{enumerate}
+
+\subsection{When to consider alternative runtimes}
+
+If a model fails in Barracuda, consider:
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{Unity Sentis:} The successor to Barracuda, available in newer Unity versions, with expanded operator support.
+  \item \textbf{ONNX Runtime native plugin:} Using ONNX Runtime as a native plugin within Unity, bypassing Barracuda's operator limitations.
+  \item \textbf{Model architecture modification:} Replacing attention/Transformer components with convolutional equivalents that have higher Barracuda compatibility.
+\end{itemize}
+
+Updating the inference runtime is a new experimental condition, not an automatic remedy. Compatibility and performance must be re-validated.
+
+%% ============================================================
+%% 16. THREATS TO VALIDITY AND LIMITATIONS
+%% ============================================================
+\section{Threats to Validity and Limitations}\label{sec:limitations}
+
+\subsection{Internal validity}
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{GPU timing semantics:} The benchmark's GPU measurement is a dispatch-window observation, not a synchronized end-to-end latency. All GPU timing claims must be qualified accordingly.
+  \item \textbf{Input tensor content:} The benchmark uses zero-filled or default-initialized input tensors. Different input values might trigger different execution paths in data-dependent operators, though this is unlikely for most vision model architectures.
+  \item \textbf{Warm-up adequacy:} Five warm-up iterations may not be sufficient for all models, particularly those with lazy initialization or JIT compilation effects.
+  \item \textbf{Measurement granularity:} \texttt{Time.realtimeSinceStartup} provides wall-clock time with limited resolution. For very fast models (sub-millisecond), measurement noise may dominate.
+  \item \textbf{Sequential backend execution:} CPU and GPU backends are benchmarked sequentially within the same Unity process invocation. CPU execution may warm the CPU cache, potentially affecting GPU dispatch timing.
+\end{itemize}
+
+\subsection{External validity}
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{Runtime version:} Results are specific to Unity~2022.3.62f3 and Barracuda. Different Unity versions, Barracuda versions, or Unity Sentis may produce different compatibility and timing results.
+  \item \textbf{Hardware specificity:} Results are from a single NVIDIA RTX~4090 desktop GPU. Mobile GPUs (Adreno, Mali, Apple Silicon), VR headset processors (Qualcomm XR platforms), and other desktop GPUs may show different behavior.
+  \item \textbf{Opset constraint:} The fixed opset~12 export may reject models that would succeed with later opsets on runtimes that support them.
+  \item \textbf{Population representativeness:} The 1,762-model population is dominated by CIFAR-10 classification models from the NN-Dataset ecosystem. Production VR models may have different architecture distributions, input sizes, and task requirements.
+  \item \textbf{Single-model inference:} The benchmark tests batch-size-1 inference without concurrent rendering or application load. Real VR applications have additional resource contention.
+\end{itemize}
+
+\subsection{Construct validity}
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{``Execution-successful'' definition:} Success means the benchmark completed without exception and produced a valid result JSON. It does not guarantee numerical correctness of the output.
+  \item \textbf{Architecture flags:} The non-exclusive flags are metadata annotations from the NN-Dataset, not ground-truth architecture descriptions. Flag accuracy depends on the classification methodology used by the dataset maintainers.
+  \item \textbf{Workstation comparison:} The observational Unity/workstation comparison is protocol-mismatched and cannot establish causal overhead.
+\end{itemize}
+
+\subsection{Statistical limitations}
+
+\begin{itemize}[nosep,leftmargin=*]
+  \item \textbf{No multiple-testing correction:} Family failure rates are reported without multiple-testing correction because they are descriptive, not hypothesis-testing.
+  \item \textbf{No held-out evaluation:} PySR expressions are fitted on the full dataset without train/test split.
+  \item \textbf{Pearson correlations:} Raw Pearson correlations do not account for nonlinear relationships, confounding between features, or the skewed distribution of timing values.
+  \item \textbf{Small subgroups:} The attention flag has only 10 models; the VGG flag has only 18.
+\end{itemize}
+
+%% ============================================================
+%% 17. RECOMMENDED FOLLOW-UP EXPERIMENTS
+%% ============================================================
+\section{Recommended Follow-Up Experiments}\label{sec:followup}
+
+Based on the limitations identified above, we recommend the following follow-up experiments:
+
+\subsection{Numerical correctness validation}
+
+Add a correctness gate: run each execution-successful model on identical fixed inputs in both Unity Barracuda and ONNX Runtime/PyTorch. Report per-model maximum absolute error, mean absolute error, cosine similarity, and task-level agreement (e.g., top-1 classification accuracy). This establishes whether Unity execution is not only successful but numerically faithful.
+
+\subsection{Synchronized GPU latency measurement}
+
+Modify the benchmark to force GPU synchronization within the timed interval. This can be achieved by reading output tensor data (e.g., \texttt{output.ToReadOnlyArray()}) inside the timer region. This converts the dispatch-window measurement into a true end-to-end GPU latency measurement.
+
+\subsection{Failure taxonomy}
+
+Parse raw per-model exception logs into mutually exclusive failure categories (import failure, operator incompatibility, shape mismatch, timeout, native crash, out-of-memory). Report category counts by architecture family and by ONNX operator signature. This converts the current association-level failure analysis into a mechanism-level taxonomy.
+
+\subsection{Validated latency modeling}
+
+Fit three pre-registered baselines on a training split:
+\begin{enumerate}[nosep,leftmargin=*]
+  \item FLOPs-only linear regression on log-transformed latency.
+  \item Multi-feature regularized regression using log-FLOPs, log-parameters, layers, and input pixels.
+  \item Non-linear model (e.g., gradient boosting).
+\end{enumerate}
+A PySR formula may then be added for interpretability. The test split should group near-duplicate generated models by family or generator lineage (e.g., models with the same \texttt{rag-} prefix hash) to prevent artificial performance inflation from closely related variants appearing on both sides of the split. Report held-out $R^2$ in log-latency and milliseconds, MAE, p95 absolute error, and calibration plots.
+
+\subsection{Compatibility prediction}
+
+Fit a regularized logistic model predicting deployment success from architectural features. Report AUC, calibration, odds ratios with confidence intervals, and stratified performance by architecture family.
+
+\subsection{Target-device evaluation}
+
+Repeat the benchmark on VR-relevant hardware: Meta Quest 3, Apple Vision Pro, or equivalent XR platforms. This establishes whether desktop RTX~4090 compatibility and timing patterns transfer to actual deployment targets.
+
+\subsection{Runtime comparison}
+
+Compare Barracuda with Unity Sentis and ONNX Runtime native plugin on the same model population. This establishes whether the compatibility failures are Barracuda-specific or fundamental to game-engine deployment.
+
+%% ============================================================
+%% 18. CONCLUSION
+%% ============================================================
+\section{Conclusion}\label{sec:conclusion}
+
+This study has systematically evaluated the deployment of 1,762 pretrained vision architectures through the PyTorch $\rightarrow$ ONNX $\rightarrow$ Unity Barracuda pipeline, organized around six research questions spanning compatibility, reproducibility, runtime behavior, architecture--latency relationships, Unity-vs-standalone comparison, and VR deployment implications.
+
+\paragraph{Central finding.}
+The main deployment result is robust: successful ONNX export is not sufficient for successful Unity Barracuda execution. Only 46.2\% of the 1,762-model population completed the full pipeline, and the observed failure rate is substantially higher for Transformer-like and attention-flagged architectures (74--90\%) than for MobileNet-like or VGG-like architectures (33\%).
+
+\paragraph{Reproducibility.}
+Repeated RTX~4090 campaigns show stable completion counts (811--814 models) with 806 models present in all six campaigns. However, per-model timing coefficients of variation have a heavy tail (CPU CV p95 = 121.3\%, GPU CV p95 = 180.2\%), demonstrating that aggregate stability does not imply universal timing reproducibility.
+
+\paragraph{Timing interpretation.}
+The benchmark records a dispatch-window measurement around \texttt{worker.Execute}--\texttt{worker.PeekOutput} without forcing GPU output materialization. GPU timing values are therefore not validated end-to-end latencies and must not be used for VR frame-budget decisions without synchronized measurement on target hardware.
+
+\paragraph{Software emulation.}
+Mesa llvmpipe software GPU emulation reverses the apparent CPU/GPU ordering, confirming that emulated benchmarks are unsuitable for hardware performance decisions.
+
+\paragraph{Complexity metrics.}
+Conventional complexity measures (FLOPs, parameter count, layer count) show weak-to-moderate correlations ($r \leq 0.49$) with recorded timings, confirming that standalone complexity metrics are insufficient predictors of game-engine runtime behavior.
+
+\paragraph{Practical conclusion.}
+These findings support target-runtime compatibility testing as an early model-selection criterion. They do not yet support universal claims about end-to-end GPU speed, VR readiness, or architecture superiority. The recommended deployment approach is a three-gate validation process: compatibility gate (can it run?), correctness gate (does it produce the right answer?), and performance gate (does it meet the latency budget on target hardware?).
+
+\paragraph{Broader implication.}
+Architecture selection for VR/XR applications must be validated in the actual deployment environment rather than inferred solely from standalone complexity metrics or training-framework benchmarks. The deployment gap documented in this study---where 98.3\% of models export successfully but only 46.2\% execute in the game engine---is a concrete, quantified manifestation of this principle.
+
+%% ============================================================
+%% REFERENCES
+%% ============================================================
+{\small
+\bibliographystyle{ieeenat_fullname}
+\bibliography{bibmain}
+}
+
+%% ============================================================
+%% APPENDIX
+%% ============================================================
+\appendix
+
+\section{Detailed Experimental Data}\label{sec:appendix}
+
+\subsection{Complete pipeline outcome by architecture flag}
+
+Table~\ref{tab:appendix_families} provides extended architecture-flag statistics including both total population counts and execution-successful counts.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Flag & Pop. & Exp. & Exec. & Fail\% \\
+\midrule
+Has attention & 10 & -- & 1 & 90.0 \\
+Transformer-like & 146 & -- & 38 & 74.0 \\
+Residual conn. & 110 & -- & 54 & 50.9 \\
+ResNet-like & 630 & -- & 305 & 51.6 \\
+VGG-like & 18 & -- & 12 & 33.3 \\
+MobileNet-like & 76 & -- & 51 & 32.9 \\
+\bottomrule
+\end{tabular}
+\caption{Extended architecture-flag deployment outcomes. Pop.\ = flagged models in the 1,762 population. Exec.\ = execution-successful. Fail\% = observed failure rate. Exp.\ is not separately available per flag in the aggregate.}
+\label{tab:appendix_families}
+\end{table}
+
+\subsection{RTX~4090 campaign completion detail}
+
+Table~\ref{tab:appendix_campaigns} reports per-campaign pass/fail counts.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lrr}
+\toprule
+Campaign & Passed & Failed \\
+\midrule
+Version 1 & 813 & 919 \\
+Version 2 & 812 & 920 \\
+Version 3 & 814 & 918 \\
+Version 4 & 811 & 921 \\
+Version 5 & 814 & 918 \\
+Version 6 & 812 & 920 \\
+\bottomrule
+\end{tabular}
+\caption{RTX~4090/Vulkan per-campaign completion counts. The narrow range (811--814) demonstrates stable aggregate completion.}
+\label{tab:appendix_campaigns}
+\end{table}
+
+\subsection{llvmpipe campaign completion detail}
+
+Table~\ref{tab:appendix_llvmpipe} reports per-campaign pass/fail counts for the llvmpipe environment.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lrr}
+\toprule
+Campaign & Passed & Failed \\
+\midrule
+Version 1 & 714 & 1019 \\
+Version 2 & 169 & 1564 \\
+Version 3 & 169 & 1564 \\
+Version 4 & 401 & 1332 \\
+Version 5 & 814 & 919 \\
+Version 6 & 813 & 919 \\
+\bottomrule
+\end{tabular}
+\caption{llvmpipe per-campaign completion counts. The nonstationary pattern (low early, stabilizing late) makes this environment unsuitable as a reproducibility experiment.}
+\label{tab:appendix_llvmpipe}
+\end{table}
+
+\subsection{ONNX export configuration summary}
+
+Table~\ref{tab:appendix_onnx} summarizes the ONNX export configuration determined by code inspection.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{ll}
+\toprule
+Parameter & Value \\
+\midrule
+Opset version & 12 \\
+IR version & 7 (downgraded) \\
+Precision & FP32 \\
+Dynamic axes & Batch dim (axis 0) \\
+Fixed axes & Spatial dims (C, H, W) \\
+Export context & \texttt{spawn} subprocess \\
+Export timeout & 60--120~s \\
+Validation & \texttt{onnx.checker.check\_model} \\
+\bottomrule
+\end{tabular}
+\caption{ONNX export configuration from code inspection of \texttt{ab/vr/onnx\_exporter.py}.}
+\label{tab:appendix_onnx}
+\end{table}
+
+\subsection{Benchmark timing configuration}
+
+Table~\ref{tab:appendix_timing} summarizes the Unity benchmark timing configuration.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{ll}
+\toprule
+Parameter & Value \\
+\midrule
+Warm-up iterations & 5 \\
+Measured iterations & 20 \\
+Timer & \texttt{Time.realtimeSinceStartup} \\
+GPU synchronization & None (dispatch window) \\
+Input content & Default (zero-filled) \\
+CPU backend & \texttt{CSharpBurst} \\
+GPU backend & \texttt{ComputePrecompiled} \\
+Unity invocation & \texttt{-batchmode -force-vulkan} \\
+Process timeout & 300~s \\
+\bottomrule
+\end{tabular}
+\caption{Unity benchmark configuration from code inspection of \texttt{BenchmarkCLI.cs}.}
+\label{tab:appendix_timing}
+\end{table}
+
+\subsection{Export failure list}
+
+The 30 models that failed ONNX export are:
+\begin{itemize}[nosep,leftmargin=*,font=\small\ttfamily]
+  \item BayesianNet-1, ComplexNet, MNASNet, SwinTransformer
+  \item 24 \texttt{rag-*} generated architectures
+  \item 1 \texttt{unq-*} generated architecture
+\end{itemize}
+The named failures include a Bayesian network (which may use stochastic operations unsupported by ONNX tracing), a Swin Transformer (which uses shifted window attention), and MNASNet (which may use unsupported mobile-specific operations).
+
+\subsection{Traceability}
+
+All numerical claims in this paper can be recomputed from the committed artifacts using:
+\begin{center}
+\texttt{python stats/reproduce\_article\_claims.py}
+\end{center}
+This script reads:
+\begin{itemize}[nosep,leftmargin=*,font=\small\ttfamily]
+  \item stats/export\_stats.json
+  \item stats/real\_gpu\_versions.json
+  \item stats/aggregated\_real\_gpu\_stats.csv
+  \item aggregated\_unity\_stats.csv
+  \item stats/real\_gpu\_timing\_summary.json
+  \item stats/unity\_overhead.csv
+\end{itemize}
+and writes \texttt{report/evidence\_summary.md}.
+
+\end{document}

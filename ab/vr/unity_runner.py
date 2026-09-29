@@ -10,14 +10,20 @@ from pathlib import Path
 
 
 # --------------------------------------------------
-# BENCHMARK OUTPUT LAYOUT (matches nn-dataset stat/run)
+# BENCHMARK OUTPUT LAYOUT
 # --------------------------------------------------
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
-RUN_VERSION = "run"
+
+# Set by main.py to "version1" … "version6" for each GPU run.
+# Real GPU results  → out/nn/stat/real_gpu_versions/{RUN_VERSION}/
+# Legacy/default    → out/nn/stat/run/
+RUN_VERSION = "version1"
+
+GPU_STAT_ROOT = ROOT_DIR / "out" / "nn" / "stat" / "real_gpu_versions"
 
 def get_output_root() -> Path:
-    return ROOT_DIR / "out" / "nn" / "stat" / RUN_VERSION / "onnx" / "fp32"
+    return GPU_STAT_ROOT / RUN_VERSION / "onnx" / "fp32"
 
 CONFIG_PREFIX = "img-classification_cifar-10_acc"
 
@@ -197,6 +203,7 @@ def run_unity_benchmark(onnx_path: Path):
         cmd = [
             str(UNITY_EXE),
             "-batchmode",
+            "-force-vulkan",
             "-projectPath",
             str(UNITY_PROJECT),
             "-executeMethod",
@@ -205,21 +212,24 @@ def run_unity_benchmark(onnx_path: Path):
             "-quit"
         ]
 
-        if platform.system() != "Windows":
-            cmd = [
-                "xvfb-run",
-                "--auto-servernum",
-                "--server-args=-screen 0 1024x768x24"
-            ] + cmd
-
+        # if platform.system() != "Windows":
+        #     cmd = [
+        #         "xvfb-run",
+        #         "--auto-servernum",
+        #         "--server-args=-screen 0 1024x768x24"
+        #     ] + cmd
         print("RUNNING UNITY BENCHMARK...")
         print(" ".join(cmd))
+        import os
+        env = os.environ.copy()
+        env["VK_ICD_FILENAMES"] = "/usr/share/vulkan/icd.d/nvidia_icd.json"
 
         result = subprocess.run(
             cmd,
             capture_output=True,
             text=True,
-            timeout=300
+            timeout=300,
+            env=env
         )
 
         print("UNITY STDOUT:")

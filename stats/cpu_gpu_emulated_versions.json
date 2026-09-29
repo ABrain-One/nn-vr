@@ -1,0 +1,30 @@
+{
+  "hardware": "CPU + Software-emulated GPU (Mesa llvmpipe, -force-vulkan)",
+  "note": "6 independent benchmark runs restricted to the 1,732 canonical ONNX-export-successful models.",
+  "versions": {
+    "version1": {
+      "benchmark_passed": 714,
+      "benchmark_failed": 1018
+    },
+    "version2": {
+      "benchmark_passed": 169,
+      "benchmark_failed": 1563
+    },
+    "version3": {
+      "benchmark_passed": 169,
+      "benchmark_failed": 1563
+    },
+    "version4": {
+      "benchmark_passed": 401,
+      "benchmark_failed": 1331
+    },
+    "version5": {
+      "benchmark_passed": 814,
+      "benchmark_failed": 918
+    },
+    "version6": {
+      "benchmark_passed": 813,
+      "benchmark_failed": 919
+    }
+  }
+}

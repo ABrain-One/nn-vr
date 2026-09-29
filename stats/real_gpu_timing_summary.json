@@ -1,0 +1,31 @@
+{
+  "hardware": "Actual GPU (NVIDIA, Vulkan, -force-vulkan, VK_ICD_FILENAMES=nvidia_icd.json)",
+  "total_models_with_timings": 814,
+  "cpu_mean_ms": 17.6583,
+  "cpu_ci_ms": 4.7088,
+  "gpu_mean_ms": 0.2137,
+  "gpu_ci_ms": 0.0132,
+  "cpu_gpu_ratio_mean": 131.9612,
+  "cpu_gpu_ratio_ci": 65.0126,
+  "gpu_faster_count": 777,
+  "cpu_faster_count": 37,
+  "gpu_faster_pct": 95.5,
+  "cpu_faster_pct": 4.5,
+  "duration_unit": "milliseconds",
+  "source_unit": "nanoseconds (Unity ms \u00d7 1,000,000)",
+  "correlations": {
+    "FLOPs": {
+      "cpu": 0.1729,
+      "gpu": 0.2453
+    },
+    "Params": {
+      "cpu": 0.1112,
+      "gpu": 0.4253
+    },
+    "Layers": {
+      "cpu": 0.1462,
+      "gpu": 0.4934
+    }
+  },
+  "models_with_metadata": 811
+}

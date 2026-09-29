@@ -537,7 +537,10 @@ def main():
                     export_onnx(row_copy, onnx_file, timeout_sec=args.export_timeout)
                     logger.info(f"   ✅ Exported: {onnx_file.name}")
                 except Exception as export_err:
-
+                    try:
+                        handle_export_failure(name, row, str(export_err), traceback.format_exc(), target_h, dataset)
+                    except Exception as details_err:
+                        logger.warning(f"   ⚠️ Failed to write export failure details for {name}: {details_err}")
                     raise export_err
             else:
                 logger.info(f"   ⏭️  ONNX already exists")
@@ -769,6 +772,101 @@ def print_pipeline_summary(total_models, state):
         logger.info("  Re-run to retry failed models.")
     logger.info(f"  Reports: {STAT_DIR.resolve()}")
 
+
+def handle_export_failure(name: str, row, error_msg: str, traceback_str: str, target_h: int, dataset: str):
+    import torch
+    import torch.nn as nn
+    import importlib
+    
+    failed_dir = ROOT_DIR / "out" / "nn" / "stat" / "failed_exports"
+    failed_dir.mkdir(parents=True, exist_ok=True)
+    
+    details = {
+        "model_name": name,
+        "error_message": error_msg,
+        "traceback": traceback_str,
+        "opset_version": 12,
+        "input_shape": None,
+        "output_shape": None,
+        "total_parameters": 0,
+        "trainable_parameters": 0,
+        "layers": {},
+        "potential_cause": None
+    }
+    
+    try:
+        prm = row.get("prm", {})
+        if isinstance(prm, str):
+            import ast
+            prm = ast.literal_eval(prm)
+        transform_str = prm.get("transform", "")
+        from scripts.shape_utils import infer_in_out_shapes
+        in_shape, out_shape = infer_in_out_shapes(dataset=dataset, transform_str=transform_str)
+        details["input_shape"] = list(in_shape)
+        details["output_shape"] = list(out_shape)
+    except Exception:
+        pass
+        
+    error_lower = error_msg.lower()
+    if "opset" in error_lower or "operator" in error_lower or "support" in error_lower:
+        details["potential_cause"] = "Possible incompatibility with ONNX opset 12 or unsupported PyTorch operator/structure under this opset."
+    
+    try:
+        module = importlib.import_module(f"ab.nn.nn.{name}")
+        if hasattr(module, "Net"):
+            Net = module.Net
+            prm = row.get("prm", {})
+            if isinstance(prm, str):
+                import ast
+                prm = ast.literal_eval(prm)
+            transform_str = prm.get("transform", "")
+            from scripts.shape_utils import infer_in_out_shapes
+            in_shape, out_shape = infer_in_out_shapes(dataset=dataset, transform_str=transform_str)
+            
+            model = Net(in_shape, out_shape, prm, torch.device("cpu"))
+            
+            details["total_parameters"] = sum(p.numel() for p in model.parameters())
+            details["trainable_parameters"] = sum(p.numel() for p in model.parameters() if p.requires_grad)
+            
+            conv_count = 0
+            linear_count = 0
+            activation_count = 0
+            batchnorm_count = 0
+            pooling_count = 0
+            other_layers = []
+            
+            for m_name, m_val in model.named_modules():
+                if m_val == model:
+                    continue
+                class_name = m_val.__class__.__name__
+                if isinstance(m_val, (nn.Conv1d, nn.Conv2d, nn.Conv3d)):
+                    conv_count += 1
+                elif isinstance(m_val, nn.Linear):
+                    linear_count += 1
+                elif isinstance(m_val, (nn.ReLU, nn.LeakyReLU, nn.GELU, nn.SiLU, nn.Sigmoid, nn.Tanh, nn.ELU, nn.PReLU)):
+                    activation_count += 1
+                elif isinstance(m_val, (nn.BatchNorm1d, nn.BatchNorm2d, nn.BatchNorm3d)):
+                    batchnorm_count += 1
+                elif isinstance(m_val, (nn.MaxPool1d, nn.MaxPool2d, nn.MaxPool3d, nn.AvgPool1d, nn.AvgPool2d, nn.AvgPool3d, nn.AdaptiveAvgPool1d, nn.AdaptiveAvgPool2d, nn.AdaptiveAvgPool3d)):
+                    pooling_count += 1
+                else:
+                    if len(list(m_val.children())) == 0:
+                        other_layers.append(class_name)
+                        
+            details["layers"] = {
+                "convolution_layers": conv_count,
+                "linear_layers": linear_count,
+                "activation_layers": activation_count,
+                "batchnorm_layers": batchnorm_count,
+                "pooling_layers": pooling_count,
+                "other_layers_summary": {k: other_layers.count(k) for k in set(other_layers)}
+            }
+    except Exception as e_arch:
+        details["architecture_error"] = f"Failed to instantiate model for detailed inspection: {repr(e_arch)}"
+
+    dest_file = failed_dir / f"{name}.json"
+    with open(dest_file, "w", encoding="utf-8") as f:
+        json.dump(details, f, indent=2)
 
 
 if __name__ == "__main__":

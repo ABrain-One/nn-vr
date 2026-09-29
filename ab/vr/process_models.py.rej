@@ -1,0 +1,61 @@
+--- ab/vr/process_models.py
++++ ab/vr/process_models.py
+@@ -414,38 +413,6 @@ def main():
+         model_names = list(model_configs.keys())
+         logger.info(f"Found {len(model_names)} models to process")
+ 
+-    # Re-evaluate accuracy for already processed models if missing from results
+-    reconstructed = False
+-    for name in state["processed"]:
+-        if name not in results:
+-            onnx_file = ONNX_TEMP / f"{name}.onnx"
+-            if onnx_file.exists():
+-                try:
+-                    logger.info(f"🔍 Re-evaluating missing accuracy for already processed model {name}...")
+-                    row = model_configs.get(name)
+-                    if row is not None:
+-                        prm = row.get("prm", {})
+-                        if isinstance(prm, str):
+-                            import ast
+-                            prm = ast.literal_eval(prm)
+-                        transform = prm.get("transform", "")
+-                        target_h = get_input_size(transform)
+-                        from ab.vr.onnx_validator import eval_onnx_accuracy
+-                        data_root = WORK_DIR / "data"
+-                        data_root.mkdir(parents=True, exist_ok=True)
+-                        acc = eval_onnx_accuracy(onnx_file, target_h, data_root)
+-                        results[name] = {
+-                            "accuracy": acc,
+-                            "transform": transform
+-                        }
+-                        logger.info(f"   🎯 Restored Accuracy: {acc:.4f}")
+-                        reconstructed = True
+-                except Exception as e:
+-                    logger.warning(f"   ⚠️ Could not evaluate accuracy for {name}: {e}")
+-    if reconstructed:
+-        with open(all_models_json, "w") as f:
+-            json.dump(results, f, indent=2)
+-
+     remaining = [m for m in model_names if m not in state["processed"] and m not in state["failed"]]
+     if not remaining:
+         logger.info("✅ All models already processed!")
+@@ -546,17 +506,8 @@ def main():
+                 if getattr(args, "unity_benchmark", False):
+                     try:
+                         from ab.vr.benchmark_models import run_benchmarks
+-                        import ab.vr.unity_runner as ur
+-                        num_runs = getattr(args, "num_runs", 1)
+-                        if num_runs > 1:
+-                            for i in range(1, num_runs + 1):
+-                                ur.RUN_VERSION = f"version{i}"
+-                                logger.info(f"   🎮 Running Unity Benchmark iteration {i}/{num_runs} for {name} (Version: {ur.RUN_VERSION})...")
+-                                run_benchmarks(models=[name], retry_failed=getattr(args, "retry_failed", False))
+-                        else:
+-                            ur.RUN_VERSION = "run"
+-                            logger.info(f"   🎮 Running Unity Benchmark for {name}...")
+-                            run_benchmarks(models=[name], retry_failed=getattr(args, "retry_failed", False))
++                        logger.info(f"   🎮 Running Unity Benchmark for {name}...")
++                        run_benchmarks(models=[name], retry_failed=getattr(args, "retry_failed", False))
+                         # Delete the file
+                         if onnx_file.exists():
+                             logger.info(f"   🗑️ Deleting {onnx_file.name} to save space...")
