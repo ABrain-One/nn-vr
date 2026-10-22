@@ -58,6 +58,31 @@ venv/
 onnx_validation.txt
 latest_changes.patch
 
+# Local research artifacts; preserve them locally but do not version them here.
+/analysis/
+/arxiv_article/
+/practicum_report/
+/report/
+/shared/
+/stats/
+/nn-stat/
+/aggregate_data.py
+/aggregated_unity_stats.csv
+/analyze_data.py
+/clean_disk.py
+/fix_state.py
+/generate_appendix.py
+/pysr_results.md
+/query_api.py
+/query_stat.py
+/run_pysr.py
+/scratch_analyze.py
+/statistical_summary.md
+/test_flops.py
+/Unity_v*.alf
+/ab/vr/*.orig
+/ab/vr/*.rej
+
 # =========================
 # Benchmark Outputs & Runtime Dirs
 # =========================

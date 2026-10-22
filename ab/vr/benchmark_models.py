@@ -1,4 +1,5 @@
 import time
+import subprocess
 import platform
 from pathlib import Path
 import json
@@ -114,7 +115,26 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, models: list[str] = None, retry_fa
 
             benchmark_start = time.time()
 
-            result = run_unity_benchmark(onnx_path)
+            result = None
+            for retry_attempt in range(3):
+                try:
+                    result = run_unity_benchmark(onnx_path)
+                    break
+                except Exception as ex:
+                    err_str = str(ex).lower()
+                    if "code 134" in err_str or "another unity instance is running" in err_str:
+                        print(f"⚠️ Unity locked (Code 134). Killing all Unity instances and retrying (Attempt {retry_attempt+1}/3)...")
+                        subprocess.run("pkill -f -9 Unity", shell=True)
+                        subprocess.run("pkill -f -9 unity", shell=True)
+                        subprocess.run("rm -rf NNVRBenchmark/Library/UnityLockfile", shell=True)
+                        subprocess.run("rm -rf NNVRBenchmark/Temp/*", shell=True)
+                        time.sleep(3)
+                        continue
+                    else:
+                        raise ex
+            else:
+                raise RuntimeError("Failed to run Unity benchmark after 3 attempts due to lock errors")
+
             print("\nRAW UNITY RESULT:")
             print(json.dumps(result, indent=2))
 
@@ -279,6 +299,11 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, models: list[str] = None, retry_fa
             print(f"FAILED: {model_name}")
             print(str(e))
 
+            try:
+                handle_benchmark_failure(model_name, onnx_path, str(e))
+            except Exception as failure_log_err:
+                print(f"WARNING: Could not write benchmark failure log for {model_name}: {failure_log_err}")
+
             record = {
 
                 "model_name": model_name,
@@ -320,6 +345,71 @@ def run_benchmarks(onnx_dir: Path = ONNX_DIR, models: list[str] = None, retry_fa
     print(f"FAILED : {failure_count}")
 
     return benchmark_results
+
+
+def handle_benchmark_failure(model_name: str, onnx_path: Path, error_msg: str):
+    import onnx
+    from ab.vr.unity_runner import RUN_VERSION, GPU_STAT_ROOT, get_unity_editor_log_path
+    
+    failed_benchmarks_dir = GPU_STAT_ROOT / RUN_VERSION / "failed_benchmarks"
+    failed_benchmarks_dir.mkdir(parents=True, exist_ok=True)
+    
+    opset_version = None
+    ir_version = None
+    if onnx_path.exists():
+        try:
+            onnx_model = onnx.load(str(onnx_path))
+            ir_version = onnx_model.ir_version
+            for opset in onnx_model.opset_import:
+                if opset.domain == "" or opset.domain == "ai.onnx":
+                    opset_version = opset.version
+        except Exception:
+            pass
+
+    file_size_mb = round(onnx_path.stat().st_size / (1024 * 1024), 2) if onnx_path.exists() else None
+    
+    log_tail = ""
+    log_path = get_unity_editor_log_path()
+    if log_path.exists():
+        try:
+            with open(log_path, "r", encoding="utf-8", errors="replace") as lf:
+                lines = lf.readlines()
+            log_tail = "".join(lines[-150:])
+        except Exception:
+            pass
+
+    potential_cause = None
+    error_lower = error_msg.lower()
+    if "unsupported" in error_lower or "not supported" in error_lower:
+        potential_cause = "Barracuda does not support one or more ONNX operators or shapes in this model."
+    elif "3221225477" in error_lower or "crash" in error_lower:
+        potential_cause = "Unity native crash (possibly segmentation fault, out of memory, or invalid memory access in Barracuda)."
+    elif "timeout" in error_lower:
+        potential_cause = "Benchmark execution timed out."
+    
+    report = {
+        "model_name": model_name,
+        "error_message": error_msg,
+        "error_classification": classify_failure(error_msg),
+        "onnx_opset_version": opset_version,
+        "onnx_ir_version": ir_version,
+        "onnx_file_size_mb": file_size_mb,
+        "unity_editor_log_tail": log_tail,
+        "system_info": {
+            "device_type": DEVICE_TYPE,
+            "os_version": OS_VERSION,
+            "python_version": PYTHON_VERSION,
+            "total_ram_kb": TOTAL_RAM_KB,
+            "cpu_cores": CPU_CORES,
+            "cpu_name": CPU_NAME,
+            "unity_version": UNITY_VERSION
+        },
+        "potential_cause": potential_cause
+    }
+    
+    dest_path = failed_benchmarks_dir / f"{model_name}.json"
+    with open(dest_path, "w", encoding="utf-8") as f:
+        json.dump(report, f, indent=2)
 
 
 # --------------------------------------------------

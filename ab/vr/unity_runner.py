@@ -1,6 +1,8 @@
 import json
+import os
 import platform
 import re
+import signal
 import shutil
 import socket
 import subprocess
@@ -10,12 +12,23 @@ from pathlib import Path
 
 
 # --------------------------------------------------
-# BENCHMARK OUTPUT LAYOUT (matches nn-dataset stat/run)
+# BENCHMARK OUTPUT LAYOUT
 # --------------------------------------------------
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
-OUTPUT_ROOT = ROOT_DIR / "out" / "nn" / "stat" / "run" / "onnx" / "fp32"
+
+# Set by main.py to "version1" … "version6" for each GPU run.
+# Real GPU results  → out/nn/stat/real_gpu_versions/{RUN_VERSION}/
+# Legacy/default    → out/nn/stat/run/
+RUN_VERSION = "version1"
+
+GPU_STAT_ROOT = ROOT_DIR / "out" / "nn" / "stat" / "real_gpu_versions"
+
+def get_output_root() -> Path:
+    return GPU_STAT_ROOT / RUN_VERSION / "onnx" / "fp32"
+
 CONFIG_PREFIX = "img-classification_cifar-10_acc"
+
 
 
 def sanitize_filename(s: str) -> str:
@@ -70,7 +83,7 @@ def device_result_filename(device_type: str | None = None) -> str:
 
 def model_result_path(model_name: str, device_type: str | None = None) -> Path:
     device_type = device_type or get_device_type()
-    folder = OUTPUT_ROOT / f"{CONFIG_PREFIX}_{model_name}"
+    folder = get_output_root() / f"{CONFIG_PREFIX}_{model_name}"
     return folder / device_result_filename(device_type)
 
 
@@ -126,6 +139,9 @@ def run_unity_benchmark(onnx_path: Path):
     """
     Copy ONNX into Unity project and run benchmark.
     """
+    target_onnx = None
+    target_data = None
+    latest = None
     try:
         onnx_path = Path(onnx_path)
         onnx_path = onnx_path.resolve()
@@ -192,6 +208,7 @@ def run_unity_benchmark(onnx_path: Path):
         cmd = [
             str(UNITY_EXE),
             "-batchmode",
+            "-force-vulkan",
             "-projectPath",
             str(UNITY_PROJECT),
             "-executeMethod",
@@ -200,22 +217,53 @@ def run_unity_benchmark(onnx_path: Path):
             "-quit"
         ]
 
-        if platform.system() != "Windows":
-            cmd = [
-                "xvfb-run",
-                "--auto-servernum",
-                "--server-args=-screen 0 1024x768x24"
-            ] + cmd
-
+        # if platform.system() != "Windows":
+        #     cmd = [
+        #         "xvfb-run",
+        #         "--auto-servernum",
+        #         "--server-args=-screen 0 1024x768x24"
+        #     ] + cmd
         print("RUNNING UNITY BENCHMARK...")
         print(" ".join(cmd))
+        env = os.environ.copy()
+        env["VK_ICD_FILENAMES"] = "/usr/share/vulkan/icd.d/nvidia_icd.json"
 
-        result = subprocess.run(
+        # Unity can spawn helper processes.  A dedicated process group lets a
+        # timeout terminate that benchmark invocation as a unit instead of
+        # leaving Unity children behind for the next model.
+        process = subprocess.Popen(
             cmd,
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True,
-            timeout=300
+            env=env,
+            start_new_session=(platform.system() != "Windows"),
         )
+        try:
+            stdout, stderr = process.communicate(timeout=300)
+        except subprocess.TimeoutExpired as exc:
+            try:
+                if platform.system() != "Windows":
+                    os.killpg(process.pid, signal.SIGTERM)
+                else:
+                    process.terminate()
+            except ProcessLookupError:
+                pass
+            try:
+                stdout, stderr = process.communicate(timeout=15)
+            except subprocess.TimeoutExpired:
+                try:
+                    if platform.system() != "Windows":
+                        os.killpg(process.pid, signal.SIGKILL)
+                    else:
+                        process.kill()
+                except ProcessLookupError:
+                    pass
+                stdout, stderr = process.communicate()
+            raise RuntimeError(
+                "Unity benchmark timed out after 300 seconds; its process group was terminated"
+            ) from exc
+        result = subprocess.CompletedProcess(cmd, process.returncode, stdout, stderr)
 
         print("UNITY STDOUT:")
         print(result.stdout)
@@ -267,9 +315,28 @@ def run_unity_benchmark(onnx_path: Path):
                 except Exception as e:
                     pass
 
+        # Persist enough of the batchmode process evidence for an Experiment A
+        # audit without retaining unbounded Unity console output in every JSON.
+        benchmark["unity_process"] = {
+            "command": cmd,
+            "returncode": result.returncode,
+            "vk_icd_filenames": env["VK_ICD_FILENAMES"],
+            "stdout_tail": result.stdout[-20000:],
+            "stderr_tail": result.stderr[-20000:],
+        }
+
         return benchmark
 
     except Exception as e:
         print("\nFULL TRACEBACK:")
         traceback.print_exc()
         raise
+    finally:
+        # These are transient Unity copies of the per-model temporary ONNX.
+        # Permanent Experiment A records have already been read into Python.
+        for artifact in (target_onnx, target_data, latest):
+            if artifact is not None:
+                try:
+                    artifact.unlink(missing_ok=True)
+                except OSError:
+                    pass

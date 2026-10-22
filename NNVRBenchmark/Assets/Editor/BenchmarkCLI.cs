@@ -18,6 +18,10 @@ public class BenchmarkCLI
         public double min_ms;
         public double max_ms;
         public double std_dev_ms;
+        public double[] samples_ms;
+        public int warmup_iterations;
+        public int measured_iterations;
+        public string completion_operation;
     }
 
     // --------------------------------------------------
@@ -60,6 +64,12 @@ public class BenchmarkCLI
         public int system_memory_mb;
         public int cpu_count;
         public string processor_type;
+
+        // Experiment A provenance.  These fields deliberately distinguish this
+        // result from the historical Execute()+PeekOutput() timing window.
+        public string timing_protocol;
+        public string output_materialization;
+        public string graphics_device_version;
     }
 
     // --------------------------------------------------
@@ -101,6 +111,17 @@ public class BenchmarkCLI
             }
 
             Model model = ModelLoader.Load(nnModel);
+
+            // Experiment A is a physical RTX 4090 / Vulkan experiment.  Fail
+            // closed rather than creating a result that could be mistaken for a
+            // hardware result after a Mesa/llvmpipe fallback.
+            if (SystemInfo.graphicsDeviceType != UnityEngine.Rendering.GraphicsDeviceType.Vulkan)
+                throw new Exception("Experiment A requires Vulkan; detected " + SystemInfo.graphicsDeviceType + ".");
+            if (string.IsNullOrEmpty(SystemInfo.graphicsDeviceName) ||
+                !SystemInfo.graphicsDeviceName.ToLowerInvariant().Contains("nvidia") ||
+                !SystemInfo.graphicsDeviceName.Contains("RTX 4090") ||
+                SystemInfo.graphicsDeviceName.ToLowerInvariant().Contains("llvmpipe"))
+                throw new Exception("Experiment A requires the physical NVIDIA RTX 4090; detected " + SystemInfo.graphicsDeviceName + ".");
 
             result.model_name = Path.GetFileNameWithoutExtension(
                 assetPath
@@ -154,7 +175,8 @@ public class BenchmarkCLI
 
             result.cpu = BenchmarkBackend(
                 model,
-                WorkerFactory.Type.CSharpBurst
+                WorkerFactory.Type.CSharpBurst,
+                out result.backend_cpu
             );
 
             // --------------------------------------------------
@@ -163,16 +185,15 @@ public class BenchmarkCLI
 
             result.gpu = BenchmarkBackend(
                 model,
-                WorkerFactory.Type.ComputePrecompiled
+                WorkerFactory.Type.ComputePrecompiled,
+                out result.backend_gpu
             );
 
             // --------------------------------------------------
             // BACKEND INFO
             // --------------------------------------------------
 
-            result.backend_cpu = "CSharpBurst";
-
-            result.backend_gpu = "ComputePrecompiled";
+            // Actual backend info is now populated by BenchmarkBackend
 
             // --------------------------------------------------
             // GPU INFO
@@ -195,6 +216,10 @@ public class BenchmarkCLI
             result.cpu_count = SystemInfo.processorCount;
 
             result.processor_type = SystemInfo.processorType;
+
+            result.timing_protocol = "completion_aware_v1";
+            result.output_materialization = "Tensor.ToReadOnlyArray blocking host readback inside every warm-up and timed iteration";
+            result.graphics_device_version = SystemInfo.graphicsDeviceVersion;
 
             result.success = true;
 
@@ -250,6 +275,7 @@ public class BenchmarkCLI
     private static TimingStats BenchmarkBackend(
         Model model,
         WorkerFactory.Type backend,
+        out string actualBackendName,
         int warmupIterations = 5,
         int measuredIterations = 20
     )
@@ -261,6 +287,10 @@ public class BenchmarkCLI
             model
         ))
         {
+            // Record the requested WorkerFactory backend, not GenericWorker's
+            // wrapper class name.  The factory maps this enum to the concrete
+            // Barracuda backend implementation.
+            actualBackendName = backend.ToString();
             int[] shape = model.inputs[0].shape;
 
             int len = shape.Length;
@@ -288,7 +318,11 @@ public class BenchmarkCLI
                 Tensor warmupOutput =
                     worker.PeekOutput();
 
-                warmupOutput.Dispose();
+                // ToReadOnlyArray() calls PrepareCacheForAccess() with its
+                // default blocking=true.  This completes Burst CPU jobs and
+                // blocks for ComputePrecompiled GPU completion/readback.
+                // Do not use PeekOutput() alone: it is explicitly non-blocking.
+                warmupOutput.ToReadOnlyArray();
             }
 
             // --------------------------------------------------
@@ -304,9 +338,12 @@ public class BenchmarkCLI
                 Tensor output =
                     worker.PeekOutput();
 
-                float end = Time.realtimeSinceStartup;
+                // Keep completion and host output materialization inside the
+                // stopwatch.  This makes each iteration a completion boundary,
+                // so no work can spill into the following iteration.
+                output.ToReadOnlyArray();
 
-                output.Dispose();
+                float end = Time.realtimeSinceStartup;
 
                 times[i] = (end - start) * 1000f;
             }
@@ -331,7 +368,11 @@ public class BenchmarkCLI
             avg_ms = avg,
             min_ms = min,
             max_ms = max,
-            std_dev_ms = std
+            std_dev_ms = std,
+            samples_ms = times.Select(t => (double)t).ToArray(),
+            warmup_iterations = warmupIterations,
+            measured_iterations = measuredIterations,
+            completion_operation = "Tensor.ToReadOnlyArray()"
         };
     }
 }

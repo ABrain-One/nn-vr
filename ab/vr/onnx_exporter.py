@@ -90,11 +90,20 @@ def _export_worker(row_dict, dest_str, queue):
             input_names=["input"],
             output_names=["output"],
             # Dynamic axes allow Unity Barracuda to handle different batch sizes if needed later
-            dynamic_axes={'input': {0: 'batch_size'}, 'output': {0: 'batch_size'}} 
+            dynamic_axes={'input': {0: 'batch_size'}, 'output': {0: 'batch_size'}},
+            # PyTorch's newer Dynamo exporter may emit opset 18 and then try
+            # (and fail) to downgrade it.  The historical Barracuda experiment
+            # used the legacy exporter semantics and requires opset 12.
+            dynamo=False,
         )
 
         # Downgrade ONNX IR version for Barracuda compatibility
         model_onnx = onnx.load(dest)
+        main_opsets = [entry.version for entry in model_onnx.opset_import if entry.domain in ("", "ai.onnx")]
+        if main_opsets != [12]:
+            raise RuntimeError(
+                f"Barracuda-compatible export requires ONNX opset 12; got {main_opsets or 'none'}"
+            )
         model_onnx.ir_version = 7
         onnx.save(model_onnx, dest)
 
