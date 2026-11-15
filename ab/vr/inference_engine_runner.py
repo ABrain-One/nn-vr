@@ -5,17 +5,33 @@ from __future__ import annotations
 import json
 import os
 import platform
-import re
 import shutil
 import signal
 import socket
 import subprocess
-import time
 from pathlib import Path
 
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
-UNITY_EXE = Path("/home/syedalihaider/Unity/Hub/Editor/6000.6.5f1/Unity")
+
+
+def _resolve_unity_executable() -> Path:
+    """Honor an explicit editor path and preserve the recorded Linux setup."""
+    override = os.environ.get("UNITY_EDITOR_PATH")
+    if override:
+        return Path(override).expanduser()
+    version = "6000.6.5f1"
+    system = platform.system()
+    if system == "Windows":
+        return Path(r"C:\Program Files\Unity\Hub\Editor") / version / "Editor" / "Unity.exe"
+    if system == "Darwin":
+        return Path("/Applications/Unity/Hub/Editor") / version / "Unity.app" / "Contents" / "MacOS" / "Unity"
+    editor_root = Path.home() / "Unity" / "Hub" / "Editor" / version
+    candidates = (editor_root / "Unity", editor_root / "Editor" / "Unity")
+    return next((path for path in candidates if path.is_file()), candidates[0])
+
+
+UNITY_EXE = _resolve_unity_executable()
 UNITY_PROJECT = ROOT_DIR / "NNVRBenchmark"
 UNITY_MODELS_DIR = UNITY_PROJECT / "Assets" / "Models"
 UNITY_RESULTS_DIR = UNITY_PROJECT / "Assets" / "Results"
@@ -23,8 +39,6 @@ UNITY_RESULTS_DIR = UNITY_PROJECT / "Assets" / "Results"
 
 def get_device_type() -> str:
     """Use the same Linux hostname result-key convention as Experiment A."""
-    if platform.system() != "Windows":
-        return socket.gethostname()
     return socket.gethostname()
 
 

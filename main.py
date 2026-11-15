@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """
-NN-VR: End-to-end ONNX pipeline — from HuggingFace model fetch to Unity inference.
+Legacy NN-VR export/Barracuda workflow.
+
+The checked-in Unity project now uses Unity 6 Inference Engine. Use
+``python -m ab.vr.experiment_b`` for that protocol, or the historical Barracuda
+checkout documented in README.md for this legacy orchestrator.
 
 Stages
 ------
@@ -38,7 +42,7 @@ import sys
 
 def main():
     ap = argparse.ArgumentParser(
-        description="NN-VR end-to-end pipeline: HF fetch -> ONNX export -> Unity benchmark",
+        description="Legacy NN-VR export/Barracuda workflow; use ab.vr.experiment_b for Unity 6",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
 

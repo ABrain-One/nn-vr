@@ -1,270 +1,141 @@
-# Neural Network VR Pipeline (NN-VR)
+# NN-VR: vision-model deployment in Unity
 
-<img src='https://abrain.one/img/nn-vr-tr.png' width='25%'/>
+NN-VR studies the deployment path from NN-Dataset/PyTorch through ONNX to Unity inference. The checked-in Unity project uses **Unity 6000.6.5f1** and **Unity Inference Engine 2.6.1**, the Sentis successor, for Experiment B. The completion-aware Barracuda baseline is preserved in Git history.
 
-End-to-end benchmark pipeline: **nn-dataset** → PyTorch export (via direct module import) → **ONNX** → **Unity Barracuda** (Desktop Headless Batchmode) → **JSON** logs.
+## Start here for project review
 
----
+The finalized retained-evidence artifact is in [paper_artifact/](paper_artifact/README.md). It supports the paper **From Barracuda to Sentis: Completion-Aware Compatibility Across 1,762 Vision Models in Unity**.
 
-## Repository Structure
+- [Public artifact release v1.0.0](https://github.com/ABrain-One/nn-vr/releases/tag/paper-v1-arxiv)
+- [Claim-to-evidence manifest](paper_artifact/RESULTS_MANIFEST.md)
+- [Paper figure/table map](paper_artifact/PAPER_OUTPUT_MAP.md)
+- [Experiment environment and limitations](paper_artifact/environment/EXPERIMENT_ENVIRONMENT.md)
 
-The Unity benchmark project is embedded directly inside the main repository:
+Reviewing the published results does not require Unity, model weights, PyTorch inference, or a GPU. From the repository root:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r paper_artifact/analysis/scripts/requirements.txt
+cd paper_artifact
+sha256sum -c SHA256SUMS
+python analysis/scripts/verify_canonical_results.py --check-only
+```
+
+Expected: **347/347 PASS** and zero input-integrity failures. The `--check-only` flag leaves the checkout unchanged. These commands verify existing retained evidence; they do not rerun the original experiments.
+
+The artifact README documents optional table/figure reproduction, the pinned reference environment, and the distinction between immutable input hashes, scientific verification, and reference-output byte hashes.
+
+## Repository layout
 
 ```text
 nn-vr/
-├── data/
-├── db/
-├── logs/
-├── NNVRBenchmark/
-│   ├── Assets/
-│   ├── Packages/
-│   └── ProjectSettings/
-├── main.py
-├── vr_runner.py
-└── README.md
+├── ab/vr/                       # Python exporters, runners and experiment protocols
+│   ├── experiment_a.py          # Completion-aware Barracuda protocol
+│   ├── experiment_b.py          # Primary Unity 6 Inference Engine protocol
+│   ├── inference_engine_runner.py
+│   ├── onnx_exporter.py
+│   └── onnx_validator.py
+├── NNVRBenchmark/              # Unity Assets, Packages and ProjectSettings
+├── paper_artifact/             # Published, bounded reproducibility evidence
+├── scripts/                    # Shape helpers and historical setup/diagnostics
+├── main.py                     # Legacy general pipeline CLI
+├── requirements.txt            # Pipeline Python dependencies
+└── EXPERIMENT_B_PROTOCOL.md    # Experiment B contract and campaign namespace
 ```
 
-The Unity project is used as the runtime execution layer for Barracuda inference benchmarking.
+Private manuscript drafts, practicum sources, raw campaign statistics, model caches, generated Unity state, temporary files and local ZIP bundles are intentionally ignored. The published `paper_artifact/` is a deliberate versioned exception; it contains the reviewed evidence, not the full raw campaign archive.
 
----
+## Experiment protocols
 
-## Unity Project Management
+| Protocol | Unity/runtime | Completion endpoint | Source configuration |
+|---|---|---|---|
+| Experiment A | Unity 2022.3.62f3, Barracuda 3.0.2 | `Execute` → `PeekOutput` → `ToReadOnlyArray` | [Barracuda baseline commit](https://github.com/ABrain-One/nn-vr/tree/27cd3c2) |
+| Experiment B | Unity 6000.6.5f1, Inference Engine 2.6.1 | `Schedule` → `PeekOutput` → `DownloadToArray` | Current `NNVRBenchmark/` and `ab/vr/experiment_b.py` |
 
-When embedding Unity inside a Git repository, Unity generates thousands of temporary/cache files.
-Most of these should **NOT** be committed.
+Both protocols use five completed warm-ups and 20 completed measurements per backend, model-specific input shapes, FP32, and the opset-12/IR-7 export contract. Six runtime campaigns reuse one temporary export per model within an experiment. A retained export/validation outcome can propagate into the six records; these are not six independent exports.
 
-### Commit These
+Timing includes blocking host-output materialization. It is not isolated kernel timing or an application/XR frame-time measurement. Temporary ONNX artifacts were removed by the low-storage workflow, so byte-identical reuse between A and B cannot be verified. The standalone PyTorch comparison remains contextual because its measurement semantics differ.
 
-These folders should remain under version control:
+See [Experiment B protocol](EXPERIMENT_B_PROTOCOL.md), [Experiment A timing notes](EXPERIMENT_A_TIMING_FIX.md), and the artifact provenance for the recorded controls and limitations.
+
+## Running new pipeline work
+
+The following setup and commands perform real downloads, exports and benchmarks. They are separate from the retained-evidence review workflow above.
+
+### Python and model metadata
+
+Use Python 3.10 or newer in a virtual environment:
+
+```bash
+python -m pip install -r requirements.txt
+python -m pip install 'git+https://github.com/ABrain-One/nn-dataset.git'
+python -c 'import ab.nn.nn; print("NN-Dataset import OK")'
+```
+
+`ab` is a namespace package shared with NN-Dataset. Model/checkpoint access and dataset downloads require the corresponding network access and storage. Select a PyTorch build appropriate for the intended hardware; these general pipeline dependencies are not a reconstruction of historically unrecorded framework versions.
+
+### Unity 6 configuration
+
+Install the exact editor recorded in [ProjectVersion.txt](NNVRBenchmark/ProjectSettings/ProjectVersion.txt), then open `NNVRBenchmark/` and resolve the packages declared in [manifest.json](NNVRBenchmark/Packages/manifest.json). The inference package is `com.unity.ai.inference@2.6.1`, accessed through `Unity.InferenceEngine`.
+
+Set `UNITY_EDITOR_PATH` when the editor is installed outside the standard locations:
+
+```bash
+export UNITY_EDITOR_PATH=/absolute/path/to/Unity
+```
+
+The Experiment B runner supports an explicit editor path and standard platform installation paths. Its recorded benchmark environment remains Linux, forced Vulkan and a physical NVIDIA RTX 4090. The Unity benchmark intentionally checks that GPU/API contract. Configuring a different editor location does not make this a portable CPU-only benchmark or a new scientifically equivalent hardware setup.
+
+The existing Unity installation scripts target the historical Unity 2022.3.62f3 Barracuda setup. They do not install the current Unity 6 project. Legacy Android tooling and shape-export diagnostics remain available for historical development, but are not required for offline paper verification.
+
+### Experiment B commands
+
+Inspect options without running a model:
+
+```bash
+python -m ab.vr.experiment_b --help
+```
+
+Run one model in the separate validation namespace:
+
+```bash
+python -m ab.vr.experiment_b InceptionV3-1 --campaign inference_engine_opset12_completion_aware_validation
+```
+
+Run the established population across all six primary runtime campaigns:
+
+```bash
+python -m ab.vr.experiment_b --all --all-versions
+```
+
+Completed success and classified failure records are retained for resume. `--rerun` explicitly retries requested models. Use a separate checkout/output tree when preserving an existing campaign; do not overwrite the finalized evidence merely to inspect this project.
+
+### Recreating the Barracuda configuration
+
+Use the historical baseline in a separate worktree instead of running Experiment A against the current Unity 6 project:
+
+```bash
+git worktree add ../nn-vr-barracuda 27cd3c2
+```
+
+That checkout retains the Unity 2022/Barracuda project and its corresponding runner. The current `main.py`, `unity_runner.py`, and Android helpers belong to the legacy workflow; they are not substitutes for the explicit Experiment B entry point.
+
+## Result storage and repository hygiene
+
+Experiment B writes primary per-model JSON records to:
 
 ```text
-Assets/
-Packages/
-ProjectSettings/
+out/nn/stat/inference_engine_opset12_completion_aware_v1/ ... v6/
+├── manifest.json
+├── onnx/fp32/<model-configuration>/<host>.json
+└── failed_benchmarks/<model>.json
 ```
 
-These contain source code, scenes, scripts, package dependencies, and reproducible project configuration.
+The validation pilot uses its own `_validation` campaign. Export and validation failures are retained in the per-model records and failure copies, not treated as successful Unity invocations. The runner writes permanent results before removing each temporary ONNX artifact and sidecar.
 
-### Do NOT Commit These
+Keep `Assets/`, `Packages/` and `ProjectSettings/` under version control. Unity `Library/`, generated IDE files, `_work/`, local environments and raw output trees are ignored. `.gitignore` preserves these local files; it does not delete them.
 
-These are generated automatically and can always be rebuilt locally:
+## Licensing
 
-```text
-Library/
-Temp/
-Obj/
-Build/
-Builds/
-Logs/
-MemoryCaptures/
-UserSettings/
-.vscode/
-.idea/
-*.csproj
-*.sln
-```
-
-### Rebuilding Unity State
-
-If `Library/`, `Temp/`, or generated project files are deleted, simply reopen the project in Unity and they will be regenerated automatically.
-
----
-
-## Prerequisites
-
-- Python 3.10+
-- Unity 2022.3+ (for desktop batchmode inference)
-- Barracuda package installed inside Unity
-
----
-
-## Setup
-
-### 1. Python Environment
-
-```bash
-# Create virtual environment
-python -m venv .venv
-
-# Activate on Linux/macOS
-source .venv/bin/activate
-
-# Activate on Windows (PowerShell)
-# If blocked by execution policy, run first: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-.venv\Scripts\Activate.ps1
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu126
-# pip install onnx onnxscript onnxruntime
-```
-
-Install `nn-dataset` (GitHub source required):
-
-```bash
-pip install --no-cache-dir --upgrade --force git+https://github.com/ABrain-One/nn-dataset --extra-index-url https://download.pytorch.org/whl/cu126
-```
-
-Verify:
-
-```bash
-python -c "import ab.nn.nn; print('OK')"
-```
-
----
-
-### 2. Unity Setup
-
-Unity `2022.3.62f3` (changeset `96770f904ca7`) must be installed via Unity Hub.
-Use the provided install scripts to automate this — they install Unity Hub if absent, then pull the exact editor version:
-
-**Windows (PowerShell — run from repo root):**
-
-```powershell
-# If blocked by execution policy, run first:
-# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-.\scripts\install-unity.ps1
-```
-
-**Linux (Ubuntu / Debian):**
-
-```bash
-bash install-unity.sh
-```
-
-**macOS (Intel + Apple Silicon):**
-
-```bash
-bash scripts/install-unity-macos.sh
-```
-
-> All three scripts skip installation if the correct Unity version is already present.
-> The macOS script tries Homebrew first, falls back to direct DMG download.
-
-After installation, open `NNVRBenchmark/` in Unity Hub and ensure the target platform is set to your local desktop OS (Windows/PC, Mac, or Linux Standalone) so that `ComputePrecompiled` shaders are built for the local GPU.
-
-Required Unity packages (installed via Package Manager inside Unity):
-
-- Barracuda
-- Burst
-- Mathematics
-
----
-
-## Usage
-
-The `main.py` orchestrator supports running the entire pipeline for all models, a single model, or a selective list of models.
-
-### 1. Run Pipeline for All Models
-To process every model available in the dataset (Export + Unity Benchmark):
-```bash
-python main.py
-```
-
-### 2. Run Pipeline for a Single Model
-Pass the model name as a positional argument:
-```bash
-python main.py AirNet
-```
-
-### 3. Run Pipeline for Selective Models
-Pass a comma-separated list of model names:
-```bash
-python main.py ResNet,UNet2D,GoogLeNet
-```
-
-### 4. Stage-Specific Execution
-If you only want to run **Stage 1 (ONNX Export)** and skip the Unity benchmarking:
-```bash
-python main.py AirNet --skip-device
-```
-
-If you only want to run **Stage 2 (Unity Benchmark)** on already exported ONNX files:
-```bash
-python main.py AirNet --benchmark-only
-```
-
-### 5. Low Storage Mode
-If you are processing many models and want to save disk space, use the `--low-storage` flag. This will interleave ONNX exporting and Unity benchmarking, automatically deleting each `.onnx` file immediately after it's benchmarked:
-```bash
-python main.py --low-storage
-```
-
-### 6. Resume Support
-
-The export pipeline is resumable. If an ONNX model already exists in `_work/onnx_temp/`, export is skipped automatically.
-You can force a re-export of all models by adding the `--force` flag.
-
-### 7. Automated Data Persistence
-To automatically clone the `nn-dataset` repository, push your local generated telemetry from `out/` to GitHub, and clean up the local disk space when the pipeline finishes, append the `--push-dataset` flag:
-```bash
-python main.py --push-dataset
-```
-
----
-
-## Benchmark Output
-
-Results are appended to `results.jsonl` (JSON Lines format).
-
-*Note: Benchmark outputs (`results.jsonl`, `unity_benchmarks.json`) are intentionally gitignored to prevent committing volatile runtime data.*
-
-Each entry contains:
-
-- model metadata
-- runtime/backend info
-- CPU/GPU/NPU timing
-- tensor dimensions
-- Unity version
-- device analytics
-- crash/failure information
-
-Models are processed locally and results are routed directly into the dataset output directories.
-
----
-
-## Benchmark Status Types
-
-| Status          | Meaning                                  |
-| --------------- | ---------------------------------------- |
-| `success`       | Inference completed successfully         |
-| `partial`       | Model loaded but timings failed          |
-| `runtime_error` | Unity/Barracuda crashed                  |
-| `unsupported`   | Unsupported ONNX/Barracuda operation     |
-| `timeout`       | Benchmark exceeded timeout               |
-
----
-
-## Layout
-
-| Path                | Role                                                      |
-| ------------------- | --------------------------------------------------------- |
-| `main.py`           | Pipeline orchestrator                                     |
-| `process_models.py` | Stage 1: ONNX exporter & evaluator                        |
-| `benchmark_models.py`| Stage 2: Unity benchmark orchestrator                     |
-| `model_loader.py`   | nn-dataset integration                                    |
-| `onnx_exporter.py`  | Dynamic import + ONNX export (opset 14, static shapes)    |
-| `vr_runner.py`      | (Legacy) ADB push/pull + Unity launcher                   |
-| `unity_runner.py`   | Unity desktop batchmode benchmark runner interface        |
-| `logger.py`         | JSON logging                                              |
-| `NNVRBenchmark/`    | Unity benchmark runtime (Barracuda inference)             |
-
----
-
-## Pipeline Diagram
-
-```text
-nn-dataset row
-    ↓
-PyTorch model
-    ↓
-ONNX export (opset 12, IR 7)
-    ↓
-Unity Barracuda inference (Desktop Headless Batchmode)
-    ↓
-JSON benchmark output
-    ↓
-out/nn/stat/run/onnx/fp32/ (per-model JSON artifacts)
-```
+The repository code uses the [MIT License](LICENSE). The published artifact has an explicit [license mapping](paper_artifact/LICENSE_NOTES.md): artifact-authored code is MIT, derived evidence/documentation is CC BY 4.0, and copied project-source snapshots retain their original notices. See [CITATION.cff](paper_artifact/CITATION.cff) for the three-author paper/artifact citation metadata.
