@@ -1,0 +1,307 @@
+[
+  {
+    "artifact_sha256": "e7d1bf7d082965fff5f2b5733888dc484a43e6562800f44c0900e909cae1f533",
+    "destination": "analysis/inputs/summary.json",
+    "repository": "nn-vr",
+    "sanitized": true,
+    "source": "analysis/experiment_ab/summary.json",
+    "source_sha256": "94102e70de81ef4302f82a7e2e00b98bfeee06be8deec34e17dc291e86dfada6"
+  },
+  {
+    "artifact_sha256": "f13d92420f9de0696ac01b52e30941c3099d00648edeae2fa28ac9c9c8e52003",
+    "destination": "analysis/inputs/statistical_tests.json",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/statistical_tests.json",
+    "source_sha256": "f13d92420f9de0696ac01b52e30941c3099d00648edeae2fa28ac9c9c8e52003"
+  },
+  {
+    "artifact_sha256": "10cc4eb6132d49058409b2e02826d8c2d3297b95dbf6edb2d1eda47b957aeed1",
+    "destination": "analysis/inputs/per_model_comparison.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/per_model_comparison.csv",
+    "source_sha256": "d3f0392945a13ba2a518ab74e0524f72434be31782cca751f3605de7189f178b"
+  },
+  {
+    "artifact_sha256": "fba016d968e1d479f4d47ed108a48d33be87928a9cdb9925f0b1e70f74056b2b",
+    "destination": "campaign_audit/campaign_audit.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/campaign_audit.csv",
+    "source_sha256": "2965a311a9c8fdce779c3f6ba92d21b04660967fe9cdd1e5a58b5dd62bfec0ce"
+  },
+  {
+    "artifact_sha256": "b93890c87a71ac95ead5b6c27bda3e8d3998b52f783187049c2866837556f518",
+    "destination": "campaign_audit/export_contract_audit.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/export_contract_audit.csv",
+    "source_sha256": "574fd5ac5692b5249a42fc97ef59601011c186b2df5fb53f7473501736824432"
+  },
+  {
+    "artifact_sha256": "91022da478a1d43b9106485bd527aaa7d4123dffa132acdf343395573dc6fdfd",
+    "destination": "compatibility/compatibility_transition.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/compatibility_transition.csv",
+    "source_sha256": "524de6d8de30b36604cf85b48be03d9c25e83727851062466556cede3b08bbde"
+  },
+  {
+    "artifact_sha256": "f0bf319a0176fc1b0cecf2428ad393cbdf00ed0d66b05698d0bc522124b3c316",
+    "destination": "compatibility/post_export_runtime_transition.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/post_export_runtime_transition.csv",
+    "source_sha256": "ddcb58b9ecd02e7aab0f03238187d710507074dc118de9441f127dbe82cb255e"
+  },
+  {
+    "artifact_sha256": "0392deae1353fd301faea5fa4f8b75cfd779fa2dee255ec153640422b943a1cd",
+    "destination": "failures/transition_failure_evidence.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/transition_failure_evidence.csv",
+    "source_sha256": "74df4ceb342ce296883cea571c987b58c86add03cdef9cddb0e25dfe3101a672"
+  },
+  {
+    "artifact_sha256": "63a39558e7c05b305e750905e3e42d53a205ab79e9fc1c603721f39456b627e0",
+    "destination": "timing/paired_latency_comparison.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/paired_latency_comparison.csv",
+    "source_sha256": "38a790532fbd8d031cc17a31e9795110c1e5c401a21748596754bb00dbfe032c"
+  },
+  {
+    "artifact_sha256": "454384cc88715f6ea1bc2bb75227fb7d2c0ecfe2f984e94ff2816735df0d93d1",
+    "destination": "timing/runtime_latency_summary.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/runtime_latency_summary.csv",
+    "source_sha256": "3d6331f90e68d18f64754bc18a50fa791459e4b323ef88f1a9f501049d57c865"
+  },
+  {
+    "artifact_sha256": "30c8f3d61f139bc4d1f444056b9cf0296978adb9b91f1b8cb9e1546719bb0dfa",
+    "destination": "architecture/architecture_comparison.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/architecture_comparison.csv",
+    "source_sha256": "53997e4f82400da48c220c9e82518fae3e7442a82e7d465b3050ca9686b49fda"
+  },
+  {
+    "artifact_sha256": "0252d9bf3b11e64243c8be7b715aab38d5457e21740f4e385223afc25caddb8b",
+    "destination": "reproducibility/reproducibility_summary.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/reproducibility_summary.csv",
+    "source_sha256": "11a98398b9afe9de3affd8a4110c4257904d2a6a079455b21b68ecf398d42ed5"
+  },
+  {
+    "artifact_sha256": "63bb9fd982b9aa0604f4007fd10d402bf2ab14b4fb057f87741007bd5b8926d8",
+    "destination": "reproducibility/per_model_reproducibility.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/per_model_reproducibility.csv",
+    "source_sha256": "fc7b9082ec791f7a5e6eaa7f68f1cadd85ad93d0b2f3e1680a5e5733bfa54632"
+  },
+  {
+    "artifact_sha256": "f3d0ef0ca80c6c04237260f140b0147f0d5ba98ebe4377438f6589fcf5b9d1a1",
+    "destination": "reproducibility/timing_reproducibility_outliers.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/timing_reproducibility_outliers.csv",
+    "source_sha256": "c69b2e438d27cf8a0427d8ed1332d6ece45fa383b8b46c82c6df0842f08cea09"
+  },
+  {
+    "artifact_sha256": "7b593772bdf7f3dc0a35092eb1f869e5f845d6de1f9478b0558cd9d4e19c155a",
+    "destination": "failures/failure_category_summary.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/failure_category_summary.csv",
+    "source_sha256": "4e5c1ad1e5406a0ebec82725bcea1117adbd8527b30a907027f4d4be2b143026"
+  },
+  {
+    "artifact_sha256": "9f348f741e44a86c67f32f8d2e5e73be9317997672a33b4d724320ac1a2f23ee",
+    "destination": "failures/failure_message_summary.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/failure_message_summary.csv",
+    "source_sha256": "e3c2525c344caa58d15925aec777763bc3f2d02bb2b0c0ed6557b6a1cc43e7fd"
+  },
+  {
+    "artifact_sha256": "a322ff9898755ef2f1776ff38f5312e835e612e00c00fbac81d5e2a42bb74c99",
+    "destination": "complexity/complexity_correlations.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/complexity_correlations.csv",
+    "source_sha256": "cad8b6d46ad94e9d74d87357366846c93e9e6734edeb0357b624af494323b6c5"
+  },
+  {
+    "artifact_sha256": "1783e556c7f3a2f2d4b0b3bb053ddd4f309cb287652571e9c57ff28c6e43ab3b",
+    "destination": "pt_context/comparison_summary.json",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/nn_dataset_comparison/comparison_summary.json",
+    "source_sha256": "d37759bb3d2857c09399d6be1823f763e73956f0c9ed4afbc405f6a4d4411617"
+  },
+  {
+    "artifact_sha256": "273c7d2a0c8485ed277842c391776243b8e674e115280c3064ba84b29d5f6e73",
+    "destination": "pt_context/model_overlap.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/nn_dataset_comparison/model_overlap.csv",
+    "source_sha256": "a68ec27752e8bf82714e9a7dfede99f74e5ac82f200e42306b4002bdcb96b6b8"
+  },
+  {
+    "artifact_sha256": "96cec4b4dc3880f1072bb314dbb356cd3c9a5897cd38943903885fc85e38de08",
+    "destination": "pt_context/matched_pt_a_b.csv",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/nn_dataset_comparison/matched_pt_a_b.csv",
+    "source_sha256": "f429b9ac072bc30740c36814da45ed91c62c1ca90695f567bf53f0f55bce421c"
+  },
+  {
+    "artifact_sha256": "d365d3ef6d0d6efc799fe53171b29cab0dadb0240efec9f28d6b3e3bcb2b67bc",
+    "destination": "pt_context/SOURCE_SELECTION.md",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/nn_dataset_comparison/SOURCE_SELECTION.md",
+    "source_sha256": "2d8b983f38b12512a8318ae1dc2dac6b202846d956a90ddd14279cdc7b3d0d8c"
+  },
+  {
+    "artifact_sha256": "4cc833c5e95364bdaca85ad120b187ac83331f6efa3235b7e76679c05ccff431",
+    "destination": "provenance/analysis_source/analyze_experiment_ab.py.txt",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/analyze_experiment_ab.py",
+    "source_sha256": "4cc833c5e95364bdaca85ad120b187ac83331f6efa3235b7e76679c05ccff431"
+  },
+  {
+    "artifact_sha256": "4feb127cd4323179b3b6ddf14934ad0bcc3cd09312883f2d124154dad8ee2880",
+    "destination": "provenance/analysis_source/compare_nn_dataset.py.txt",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "analysis/experiment_ab/nn_dataset_comparison/compare_nn_dataset.py",
+    "source_sha256": "b973bd3aa096cef537f51d9e721b2fbc7c3e4528017d46ff30677d8527b7cc60"
+  },
+  {
+    "artifact_sha256": "4f3ca2f6c41826f0d880bf6cda242969c28f12ba5a127b2f5bbe485d1998d2b1",
+    "destination": "provenance/manuscript/CLAIM_MATRIX.md",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "ARTICLE_V3_CLAIM_MATRIX.md",
+    "source_sha256": "4f3ca2f6c41826f0d880bf6cda242969c28f12ba5a127b2f5bbe485d1998d2b1"
+  },
+  {
+    "artifact_sha256": "2595fc271886665ee4b657e2a41478b9b06a1ad308cf5ffccd50a8cfa0befe1a",
+    "destination": "provenance/manuscript/V3_2_CONSISTENCY_REPORT.md",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "arxiv_article_v3_2/audit/ARTICLE_V3_2_CONSISTENCY_REPORT.md",
+    "source_sha256": "2595fc271886665ee4b657e2a41478b9b06a1ad308cf5ffccd50a8cfa0befe1a"
+  },
+  {
+    "artifact_sha256": "e788dd7c7b3fa3fd329829d5503074da6897e9c5af2b83129255522d9604549b",
+    "destination": "provenance/manuscript/figures.tex",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "arxiv_article_v3_2/figures/figures.tex",
+    "source_sha256": "e788dd7c7b3fa3fd329829d5503074da6897e9c5af2b83129255522d9604549b"
+  },
+  {
+    "artifact_sha256": "5762fb197c138b73ce286a32c7c0229a5692bfc9e2a9fdcef1c836a1cd3f1d58",
+    "destination": "provenance/manuscript/results.tex",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "arxiv_article_v3_2/sections/results.tex",
+    "source_sha256": "5762fb197c138b73ce286a32c7c0229a5692bfc9e2a9fdcef1c836a1cd3f1d58"
+  },
+  {
+    "artifact_sha256": "ffe266c3c610365a009e43a3a12b8c5c0c11c95d0e6c71fe6773665cbcb46c54",
+    "destination": "provenance/manuscript/appendix.tex",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "arxiv_article_v3_2/sections/appendix.tex",
+    "source_sha256": "ffe266c3c610365a009e43a3a12b8c5c0c11c95d0e6c71fe6773665cbcb46c54"
+  },
+  {
+    "artifact_sha256": "7e8f600b731464ba760174c6c6a111dc8cd56e1dbf1b9700d991f9a68e3a1ff0",
+    "destination": "provenance/manuscript/experimental_setup.tex",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "arxiv_article_v3_2/sections/experimental_setup.tex",
+    "source_sha256": "7e8f600b731464ba760174c6c6a111dc8cd56e1dbf1b9700d991f9a68e3a1ff0"
+  },
+  {
+    "artifact_sha256": "436ed84c6c32c4a6ac14c4b8970f62eebd8ba65e69ae2da7ac9c1ad8073e4520",
+    "destination": "provenance/manuscript/study_design.tex",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "arxiv_article_v3_2/sections/study_design.tex",
+    "source_sha256": "436ed84c6c32c4a6ac14c4b8970f62eebd8ba65e69ae2da7ac9c1ad8073e4520"
+  },
+  {
+    "artifact_sha256": "7926f4a54f2ab2eff0a9a1889a7d5dbbe0614fc288da47e120ab604fac9b5990",
+    "destination": "provenance/licenses/nn-vr-LICENSE",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "LICENSE",
+    "source_sha256": "7926f4a54f2ab2eff0a9a1889a7d5dbbe0614fc288da47e120ab604fac9b5990"
+  },
+  {
+    "artifact_sha256": "bf081bb8c8e3f3919f9f6a3821ac7e40ef2dc36c26d746b0a783db7c6df1af22",
+    "destination": "provenance/licenses/nn-dataset-LICENSE",
+    "repository": "nn-dataset",
+    "sanitized": false,
+    "source": "nn-dataset/LICENSE",
+    "source_sha256": "bf081bb8c8e3f3919f9f6a3821ac7e40ef2dc36c26d746b0a783db7c6df1af22"
+  },
+  {
+    "artifact_sha256": "98180952920ce63d1a4e8542390c03ea5ef85a408990578d944e094c16af3e9f",
+    "destination": "provenance/analysis_source/Inference.py.txt",
+    "repository": "nn-dataset",
+    "sanitized": false,
+    "source": "nn-dataset/ab/nn/util/Inference.py",
+    "source_sha256": "d5c2480e3d0fd7a9db325570e8335329ed8e527bdfdf05018994742749d37ae3"
+  },
+  {
+    "artifact_sha256": "591cb43d377482f1ab29ceaa6408f712e556d26b082e67ade9bed44812f49652",
+    "destination": "provenance/runtime_source/Experiment_B_BenchmarkCLI.cs.txt",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "NNVRBenchmark/Assets/Editor/BenchmarkCLI.cs",
+    "source_sha256": "591cb43d377482f1ab29ceaa6408f712e556d26b082e67ade9bed44812f49652"
+  },
+  {
+    "artifact_sha256": "ec93f8080ca2d2d39e0167dcaad6de4216adb616572b34bcf20a0b240d003323",
+    "destination": "provenance/runtime_source/onnx_exporter.py.txt",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "ab/vr/onnx_exporter.py",
+    "source_sha256": "ec93f8080ca2d2d39e0167dcaad6de4216adb616572b34bcf20a0b240d003323"
+  },
+  {
+    "artifact_sha256": "049596df00692121afc0ea858715e6d83e491329c69ed862525b2a24485e36ff",
+    "destination": "provenance/historical_status.csv",
+    "repository": "nn-vr",
+    "sanitized": true,
+    "source": "aggregated_unity_stats.csv",
+    "source_sha256": "1401bb28036b1b55223f3f20e55ea34c07a140b252ace8f47e0726d30610d964",
+    "transformation": "projection onto model_name,status; no timing/error columns released"
+  },
+  {
+    "artifact_sha256": "7322d33232c1a6b9114ddf02f7fa8747bd6149c2dae15bfd0ad9aa10b3f9f3b2",
+    "destination": "provenance/runtime_source/Experiment_A_BenchmarkCLI.cs.txt",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "git:27cd3c203dd17996f963b8839848e17ae2b3bef6:NNVRBenchmark/Assets/Editor/BenchmarkCLI.cs"
+  },
+  {
+    "artifact_sha256": "84724b859ea06505bb61d39ca04b7428d255c0f7b5f7efae79710b8d03c6da4c",
+    "destination": "provenance/analysis_source/generate_paired_latency_figure.py.txt",
+    "purpose": "Authoritative original scatter-rendering formulas adapted for standalone artifact paths.",
+    "repository": "nn-vr",
+    "sanitized": false,
+    "source": "arxiv_article_v3_1/figures/generate_paired_latency_figure.py",
+    "source_sha256": "84724b859ea06505bb61d39ca04b7428d255c0f7b5f7efae79710b8d03c6da4c"
+  }
+]

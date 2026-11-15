@@ -1,0 +1,13 @@
+runtime,campaign,version,intended_population,records,attempted,valid_completed_benchmarks,valid_completed_benchmark_rate,failed_records,export_success,export_failure,validation_failure,unity_success,unity_failure,timeout_or_skipped,missing_results,unexpected_results,corrupt_or_incomplete_files,duplicate_results,cleanup_success,cleanup_failure,failure_onnx_export,failure_onnx_validation,failure_runtime_load_execution,failure_timeout
+A,barracuda_completion_aware_v1,1,1762,1762,1762,1074,0.6095346197502838,688,1195,567,4,1074,117,11,0,0,0,0,1762,0,567,4,106,11
+A,barracuda_completion_aware_v2,2,1762,1762,1762,1071,0.6078320090805902,691,1195,567,4,1071,109,14,0,0,0,0,1762,0,567,4,106,14
+A,barracuda_completion_aware_v3,3,1762,1762,1762,1070,0.6072644721906924,692,1195,567,4,1070,107,15,0,0,0,0,1762,0,567,4,106,15
+A,barracuda_completion_aware_v4,4,1762,1762,1762,1068,0.6061293984108967,694,1195,567,4,1068,108,17,0,0,0,0,1762,0,567,4,106,17
+A,barracuda_completion_aware_v5,5,1762,1762,1762,1068,0.6061293984108967,694,1195,567,4,1068,106,18,0,0,0,0,1762,0,567,4,105,18
+A,barracuda_completion_aware_v6,6,1762,1762,1762,1067,0.6055618615209989,695,1195,567,4,1067,106,19,0,0,0,0,1762,0,567,4,105,19
+B,inference_engine_opset12_completion_aware_v1,1,1762,1762,1762,1180,0.6696935300794552,582,1190,572,4,1180,6,0,0,0,0,0,1762,0,572,4,6,
+B,inference_engine_opset12_completion_aware_v2,2,1762,1762,1762,1179,0.6691259931895573,583,1190,572,4,1179,7,0,0,0,0,0,1762,0,572,4,7,
+B,inference_engine_opset12_completion_aware_v3,3,1762,1762,1762,1181,0.6702610669693531,581,1190,572,4,1181,5,0,0,0,0,0,1762,0,572,4,5,
+B,inference_engine_opset12_completion_aware_v4,4,1762,1762,1762,1180,0.6696935300794552,582,1190,572,4,1180,6,0,0,0,0,0,1762,0,572,4,6,
+B,inference_engine_opset12_completion_aware_v5,5,1762,1762,1762,1181,0.6702610669693531,581,1190,572,4,1181,5,0,0,0,0,0,1762,0,572,4,5,
+B,inference_engine_opset12_completion_aware_v6,6,1762,1762,1762,1181,0.6702610669693531,581,1190,572,4,1181,5,0,0,0,0,0,1762,0,572,4,5,

@@ -1,0 +1,25 @@
+{
+  "experiment_A_source_commit": "27cd3c203dd17996f963b8839848e17ae2b3bef6",
+  "note": "Inventory HEADs are checkout provenance; untracked analysis/manuscript and dirty B files are identified by per-file hashes, not falsely attributed to HEAD.",
+  "repositories": {
+    "nn-dataset": {
+      "branch": "main",
+      "commit": "fa7c741fbb372cb4360296ac5f508253c67a8633",
+      "remote": "https://github.com/ABrain-One/nn-dataset.git",
+      "status": ""
+    },
+    "nn-vr": {
+      "branch": "main",
+      "commit": "d103cd388e57f7ae6070bd3fb3c9d0c678337b9f",
+      "remote": "https://github.com/ABrain-One/nn-vr.git",
+      "status": "?? ARTICLE_V3_ARXIV_PACKAGING_PLAN.md\n?? ARTICLE_V3_CLAIM_MATRIX.md\n?? ARTICLE_V3_FIGURE_TABLE_PLAN.md\n?? ARTICLE_V3_FORENSIC_AUDIT.md\n?? ARTICLE_V3_RELATED_WORK_PLAN.md\n?? ARTICLE_V3_STRUCTURE_PLAN.md\n?? REFERENCE_PAPER_LESSONS.md\n?? arxiv_article_v3/\n?? arxiv_article_v3_1/\n?? arxiv_article_v3_2/\n?? practicum_report_official_template/"
+    },
+    "nn-vr-experiment-b": {
+      "branch": "experiment-b-inference-engine",
+      "commit": "642e8cd42277dbfbaad19a5fe4acaca4dd7fbe59",
+      "remote": "https://github.com/ABrain-One/nn-vr.git",
+      "status": "M NNVRBenchmark/Assets/Editor/BenchmarkCLI.cs\n M NNVRBenchmark/Assets/Scripts/BenchmarkRunner.cs\n M NNVRBenchmark/Packages/manifest.json\n M NNVRBenchmark/Packages/packages-lock.json\n M NNVRBenchmark/ProjectSettings/EditorBuildSettings.asset\n M NNVRBenchmark/ProjectSettings/ProjectSettings.asset\n M NNVRBenchmark/ProjectSettings/ProjectVersion.txt\n?? EXPERIMENT_B_PROTOCOL.md\n?? NNVRBenchmark/NNVRBenchmark.slnx\n?? NNVRBenchmark/ProjectSettings/MultiplayerManager.asset\n?? NNVRBenchmark/ProjectSettings/PhysicsCoreProjectSettings2D.asset\n?? NNVRBenchmark/ProjectSettings/ProjectAuditorSettings.asset\n?? ab/vr/experiment_b.py\n?? ab/vr/inference_engine_runner.py"
+    }
+  },
+  "timestamp_utc": "2026-11-15T22:12:10.478472+00:00"
+}

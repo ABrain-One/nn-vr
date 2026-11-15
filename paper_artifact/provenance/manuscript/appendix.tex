@@ -1,0 +1,101 @@
+\section{Supporting Retained Evidence}
+\label{app:evidence}
+
+\subsection{Compatibility detail}
+Figure~\ref{fig:transitions} is the primary paired-transition display. Table~\ref{tab:compatibility} retains the exact population-specific accounting and paired McNemar tests.
+
+\begin{table*}[t]
+\centering
+\caption{Complete paired compatibility accounting. A and B give strict successes (rate); P denotes PASS and F denotes FAIL. Exact McNemar tests are paired within each listed population.}
+\label{tab:compatibility}
+\small
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Population & A & B & P$\rightarrow$P & F$\rightarrow$P & P$\rightarrow$F & F$\rightarrow$F & $p$ \\
+\midrule
+P1 ($n=1{,}762$) & \shortstack{1067\\(60.56\%)} & \shortstack{1177\\(66.80\%)} & 1061 & 116 & 6 & 579 & $1.60\times10^{-27}$ \\
+P2 ($n=1{,}186$) & \shortstack{1064\\(89.71\%)} & \shortstack{1177\\(99.24\%)} & 1061 & 116 & 3 & 6 & $8.45\times10^{-31}$ \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Twelve-runtime-campaign audit}
+Every runtime campaign contains one primary record for each of 1,762 requested entries. Table~\ref{tab:campaign-audit} separates the explicit runtime load/execution category from timeout records. It uses runtime-campaign-record counts, not unique model counts. The identity within every runtime campaign is export success = validation failure + Unity success + runtime load/execution failure + timeout/skipped.
+
+\begin{table*}[t]
+\centering
+\caption{Completion-aware runtime-campaign audit. ``Valid'' denotes a valid completed benchmark.}
+\label{tab:campaign-audit}
+\small
+\begin{tabular}{@{}llrrrrrr@{}}
+\toprule
+Runtime & Campaign & Valid & Export fail. & Validation fail. & Runtime fail. & Timeout & Export success \\
+\midrule
+Barracuda & A1 & 1074 & 567 & 4 & 106 & 11 & 1195 \\
+& A2 & 1071 & 567 & 4 & 106 & 14 & 1195 \\
+& A3 & 1070 & 567 & 4 & 106 & 15 & 1195 \\
+& A4 & 1068 & 567 & 4 & 106 & 17 & 1195 \\
+& A5 & 1068 & 567 & 4 & 105 & 18 & 1195 \\
+& A6 & 1067 & 567 & 4 & 105 & 19 & 1195 \\
+\midrule
+Sentis & B1 & 1180 & 572 & 4 & 6 & 0 & 1190 \\
+& B2 & 1179 & 572 & 4 & 7 & 0 & 1190 \\
+& B3 & 1181 & 572 & 4 & 5 & 0 & 1190 \\
+& B4 & 1180 & 572 & 4 & 6 & 0 & 1190 \\
+& B5 & 1181 & 572 & 4 & 5 & 0 & 1190 \\
+& B6 & 1181 & 572 & 4 & 5 & 0 & 1190 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Architecture-associated strict success}
+Table~\ref{tab:architecture-full} provides the complete retained architecture summary for P2. Rows overlap; Wilson intervals are descriptive for the flagged subset and do not identify a causal runtime mechanism.
+
+\begin{table*}[t]
+\centering
+\caption{Architecture-associated P2 strict runtime success. Flags overlap; Wilson intervals are 95\% intervals.}
+\label{tab:architecture-full}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Flag & $n$ & A success [95\% Wilson CI] & B success [95\% Wilson CI] & Change (pp) & Recovered & Regressed \\
+\midrule
+Attention & 2 & 2/2, 100.00 [34.24,100.00] & 2/2, 100.00 [34.24,100.00] & 0.00 & 0 & 0 \\
+Transformer-like & 122 & 73/122, 59.84 [50.97,68.11] & 119/122, 97.54 [93.02,99.16] & +37.70 & 47 & 1 \\
+Residual connections & 103 & 72/103, 69.90 [60.46,77.91] & 102/103, 99.03 [94.70,99.83] & +29.13 & 30 & 0 \\
+ResNet-like & 409 & 383/409, 93.64 [90.85,95.63] & 408/409, 99.76 [98.63,99.96] & +6.11 & 25 & 0 \\
+VGG-like & 16 & 10/16, 62.50 [38.64,81.52] & 16/16, 100.00 [80.64,100.00] & +37.50 & 6 & 0 \\
+MobileNet-like & 73 & 59/73, 80.82 [70.34,88.22] & 73/73, 100.00 [95.00,100.00] & +19.18 & 14 & 0 \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\subsection{Failure and complexity accounting}
+Across all six runtime-campaign records, A has 3,402 export, 24 validation, 634 runtime load/execution, and 94 timeout failures. B has 3,432, 24, 34, and zero timeout failures. The retained complexity analyses require a valid timing record and complete FLOPs, parameter, and layer metadata: $n=1{,}068$ in A and $n=1{,}172$ in B. Their Spearman correlations are positive but descriptive; no held-out predictor is introduced here.
+
+\subsection{Contextual PyTorch comparison}
+Table~\ref{tab:pt-context} reproduces only the retained contextual summary. The population is 1,057 exact name matches, of which 227 have equal retained PT/A input shapes. Its differing checkpoint, input, warm-up, and timing-boundary semantics prevent a direct latency or overhead interpretation.
+
+\begin{table*}[t]
+\centering
+\caption{Secondary same-host contextual comparison, not a primary experiment. PT and Unity use different measurement semantics.}
+\label{tab:pt-context}
+\small
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+Backend & Metric & PyTorch & Barracuda A & Sentis B \\
+\midrule
+CPU & Median latency (ms) & 0.9903 & 5.4707 & 0.4828 \\
+CPU & Median Unity/PT ratio & -- & 6.2421 & 0.5916 \\
+CPU & Spearman PT $\leftrightarrow$ Unity & -- & 0.712 & 0.928 \\
+GPU & Median latency (ms) & 0.3749 & 2.9993 & 2.8340 \\
+GPU & Median Unity/PT ratio & -- & 7.4516 & 7.1882 \\
+GPU & Spearman PT $\leftrightarrow$ Unity & -- & 0.824 & 0.789 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Provenance map}
+Headline counts and tests come from the retained A/B analysis summaries, paired transition tables, paired-latency table, reproducibility summary, architecture table, failure-category summary, and NN-Dataset comparison summary. Workflow and completion semantics come from the audited Unity benchmark sources. No statistic in this appendix was recomputed for manuscript production.

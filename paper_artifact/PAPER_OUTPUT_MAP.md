@@ -1,0 +1,24 @@
+# V3.2 paper output reproduction map
+
+Figure/table numbering follows the frozen V3.2 source, not the practicum report. Numerical outputs are generated in analysis/reproduced_outputs; original hand-composed figure source is retained in provenance/manuscript/figures.tex. Optional plots are data-equivalent renderings, not promises of pixel-identical manuscript typography. They use Matplotlib's own DejaVu Serif fonts explicitly to avoid dependence on installed Latin Modern optical-size selection. No manuscript compilation is necessary for analysis verification.
+
+| Paper output | Authoritative artifact inputs | Reproduction / output | Classification and limits |
+|---|---|---|---|
+| Figure 1, audited timing boundaries | provenance/runtime_source/Experiment_A_BenchmarkCLI.cs.txt and Experiment_B_BenchmarkCLI.cs.txt | source-semantic canonical checks; provenance/manuscript/figures.tex macro StudyBoundaryFigure | Source-code diagram manually composed from audited producer semantics; original diagram source included |
+| Figure 2, analysis populations | compatibility transitions, model eligibility, timing/paired_latency_comparison.csv, pt_context/matched_pt_a_b.csv | compatibility.csv and results.json populations; figures.tex PopulationFigure | Manually composed from retained values; original source included |
+| Figure 3, paired transitions | compatibility/compatibility_transition.csv, post_export_runtime_transition.csv; per_model_comparison.csv | compatibility.csv; optional figure3_transitions.pdf | Exact cell counts regenerable; optional rendering style differs |
+| Figure 4, architecture dot/whisker | architecture/architecture_comparison.csv; per_model_comparison.csv flags | architecture.csv; optional figure4_architecture.pdf | All points and Wilson endpoints regenerated, retained intervals preserved; original TeX uses published rounded endpoints |
+| Figure 5, paired CPU/GPU scatter | timing/paired_latency_comparison.csv | optional figure5_paired_latency.pdf | Same retained 1061 point pairs and original rendering formulas; no inference or new statistics |
+| Figure 6, CV summaries | reproducibility/per_model_reproducibility.csv | reproducibility.csv; optional figure6_reproducibility.pdf | Median/p95 aggregations exactly regenerable; source CVs retained, complete raw sample vectors not packaged |
+| Table 1, environment and protocol | environment/RETAINED_ENVIRONMENT_FIELDS.json; analysis/inputs/summary.json; producer snapshots | environment/EXPERIMENT_ENVIRONMENT.md; original experimental_setup.tex | Documentation/source audit, not a new hardware query; exact historical driver/framework versions not invented |
+| Table 2, paired timing | timing/paired_latency_comparison.csv | timing.csv; paper_tables.md | All published medians, paired differences/ratios, directions, Wilcoxon and rank-biserial values regenerated |
+| Table 3, complete compatibility (Appendix A.1) | both compatibility CSVs and model eligibility | compatibility.csv | All cells, rates and exact paired McNemar p values regenerated |
+| Table 4, twelve-campaign accounting (Appendix A.2) | campaign_audit/campaign_audit.csv; failures/failure_category_summary.csv | campaigns.csv; failures.csv; accounting checks | Per-campaign rows retained; identities rechecked; record totals not independent exports |
+| Table 5, architecture summary (Appendix A.3) | architecture/architecture_comparison.csv; per_model flags | architecture.csv | All six overlapping flagged groups, counts, rates, Wilson endpoints and transitions regenerated |
+| Table 6, contextual PT comparison (Appendix A.5) | pt_context/matched_pt_a_b.csv; model_overlap.csv | pt_context.csv | All table medians, ratios and Spearman coefficients regenerated; contextual only |
+| Appendix A.4, failures and complexity | failure_category_summary.csv; campaign_audit.csv; per_model_comparison.csv complexity fields | failures.csv; complexity.csv | Totals, sample sizes and original descriptive Spearman summaries regenerated |
+| Appendix A.6, provenance map | provenance source hashes; RESULTS_MANIFEST.json; retained claim/consistency audits | this map, RESULTS_MANIFEST.md | Documentation-only mapping; no raw-experiment completeness claim |
+| Historical motivation (Sections 1/3.2) | provenance/historical_status.csv | results.json historical.* | 1762/1732/814 regenerated from retained aggregate projection; historical timing excluded |
+| Source Listing 1 / export contract | runtime source snapshots, exporter snapshot, export_contract_audit.csv | static source checks; environment notes | Documentation/source audit; opset/IR contract is not byte identity or numerical parity |
+
+The archived full-corpus analysis scripts need raw records not included here and are intentionally inert. The active adapted entry point rebuilds the paper-level summaries solely from the retained, packaged model-level tables.

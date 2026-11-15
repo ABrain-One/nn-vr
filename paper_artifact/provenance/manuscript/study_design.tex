@@ -1,0 +1,55 @@
+\section{Study Design and Measurement Contract}
+\label{sec:design}
+
+\StudyBoundaryFigure
+
+\subsection{Population and low-storage workflow}
+The original manifest contains 1,762 pretrained vision-model entries. For each entry, the recorded workflow instantiates the PyTorch model \citep{pytorch2019}, acquires its checkpoint, exports an ONNX model, applies the established validation path, and invokes Unity. Input shapes are model-specific rather than normalized to a single image size. The campaign design is low-storage: one retained model-level export/validation outcome can be propagated into six runtime campaign records, while Unity runtime executions are repeated independently. Thus, the six runtime campaigns do \emph{not} represent six independent exports. Temporary ONNX artifacts and sidecars are removed only after their permanent result records are written.
+
+The population contains conventional convolutional designs, residual and ResNet-like models, VGG-like and MobileNet-like models, Transformer-like models, a small attention-flagged subset, and generated variants. Architecture metadata is used only for descriptive stratification. Flags are not mutually exclusive, and one manifest entry has no local architecture label. The workflow constructs the model on CPU, loads the recorded checkpoint source, selects evaluation behavior, and derives the model-specific NCHW benchmark input from the retained configuration. This avoids silently redefining the corpus as a fixed-resolution microbenchmark.
+
+Each record is evaluated as a deployment entry rather than as an architecture name alone. A valid result needs the recorded model configuration, its expected input shape, a compatible exported artifact, the selected Unity environment, and completed evidence from both designated backends. This makes the study more demanding than a source-framework forward pass, but it matches the practical question of whether the recorded model can traverse the chosen deployment route. The same requirement also explains why the analysis never substitutes a maximum runtime-campaign count for an all-runtime-campaign success definition.
+
+Low storage is an operational design choice with analytical consequences. Permanent records retain stages, exporter metadata, Unity environment information, timing samples, completion protocol, and classified errors; the temporary model artifacts are not the retained scientific evidence. For a model that reaches Unity, the six runtime invocations are serial and runtime-campaign-local. A classified result in one runtime campaign does not suppress an invocation in another, and a requested rerun is a separate explicit path. The campaign audit found no missing, corrupt, or duplicate primary result files, no valid-record environment mismatch, and no cleanup failure in the final runtime campaigns.
+
+The distinction between retained evidence and transient artifacts limits one possible comparison claim. A and B follow the same recorded FP32/opset~12/IR~7 contract, but their temporary ONNX files were not retained for a byte comparison. The paper consequently describes them as deterministic re-exports under a shared contract, not as byte-identical artifacts. This is a limitation of artifact comparability, not evidence that their graphs differ semantically. It motivates the P2 conditioning rule rather than a claim that the export stage was experimentally identical in every respect.
+
+\subsection{Historical timing audit}
+The retained historical study had a different timing boundary: \texttt{Execute()} $\rightarrow$ \texttt{PeekOutput()} $\rightarrow$ timer stop. Since \texttt{PeekOutput()} was non-blocking, the historical values cannot support completed CPU or GPU latency claims. The historical counts, 1,732 exports and exactly 814 post-export Barracuda execution completions, are included only to motivate the final measurement redesign. They are neither denominators for the A/B experiment nor values to be placed beside the final latency statistics.
+
+This audit changes the interpretation rather than merely applying a correction factor. A CPU job or GPU command can remain outstanding after a non-blocking output request; a later operation may absorb the deferred work. The historical data still show that successful export did not automatically yield the recorded Barracuda execution completion, but their timing values must be described as backend timing-window or dispatch observations. The final A/B protocol was designed to answer a narrower, stronger question: what is observed when requested host output is forced before timing ends?
+
+The historical survey is not discarded because it remains useful for a separate empirical observation: export and recorded Barracuda execution completion were separated for many entries. Its role in the V3 argument is diagnostic and motivational. The corrected experiments do not attempt to ``convert'' historical timings into final latency values, and they do not use historical counts as an alternate denominator. This avoids a common threat in longitudinal systems work, where a changed measurement protocol can accidentally make a numerical trend look like a runtime effect.
+
+\subsection{Experiment A: corrected Barracuda baseline}
+Experiment \A uses Unity~2022.3.62f3, \Barracuda, the \texttt{CSharpBurst} CPU backend, and the \texttt{ComputePrecompiled} GPU backend \citep{barracudaManual}. It performs five warm-ups and 20 measured iterations per backend in each of six runtime campaigns. Every warm-up and timed iteration executes the worker, requests output, calls \texttt{Tensor.ToReadOnlyArray()}, and then records the timing endpoint. The result is a completed host-output observation, not a kernel-only measurement.
+
+The completion call is included in warm-ups as well as measurements. This avoids treating a completed sample as if it were independent when deferred work from an earlier warm-up could be observed in a later iteration. The definition also makes clear what the result does not include: it is not an XR frame budget, rendering cost, tracker cost, application logic cost, or a numerical parity test. It is the recorded Unity backend invocation plus the selected host-output materialization operation.
+
+Six runtime campaigns give the strict status rule an empirical notion of repeatability. They are not six independent model draws, nor do they sample every environmental state. For timing, each runtime campaign contains a fixed warm-up/sample protocol; for compatibility, an all-six intersection identifies entries that repeatedly meet the completed-benchmark rule. This design makes failures visible as stage records rather than allowing a single successful invocation to erase an inconsistent outcome.
+
+\subsection{Experiment B: Sentis 2.6.1}
+Experiment \B uses Unity~6000.6.5f1 and Unity \Sentis, package \texttt{com.unity.ai.inference@2.6.1}, through the \texttt{Unity.InferenceEngine} API \citep{unityInferenceEngine}. It uses \texttt{CPU} and \texttt{GPUCompute}, the same warm-up/sample counts, six runtime campaigns, and the same physical host and Vulkan graphics API. Listing~\ref{lst:sentis-boundary} is condensed from the audited benchmark source. In both warm-ups and timed iterations, \texttt{DownloadToArray()} occurs after scheduling and output access, before the stopwatch stops.
+
+The product/package/API distinction is material. The experiment uses the Sentis-lineage package \texttt{com.unity.ai.inference@2.6.1}, not the older \texttt{com.unity.sentis} package. The retained source records the completion protocol as blocking host readback inside every warm-up and measured iteration. The two experiments consequently share the scientific requirement of requested output completion while retaining their actual runtime-specific APIs and backend names.
+
+The comparison is intentionally a runtime-generation comparison rather than an attempt to isolate a single code change. Unity version, package/runtime, and backend implementation evolve together. Holding the physical host and forced Vulkan constant improves the specificity of the observation, but it does not turn the result into an ablation of a compiler pass, an importer feature, or a GPU kernel. The paper uses the phrase ``runtime-specific'' to identify the stage being compared after eligibility conditioning, not to assert one isolated causal mechanism.
+
+\begin{lstlisting}[language={[Sharp]C},caption={Condensed Experiment \B completion boundary. The helper is called during warm-ups and timed iterations.},label={lst:sentis-boundary}]
+var stopwatch = Stopwatch.StartNew();
+worker.Schedule(input);
+var output = worker.PeekOutput() as Tensor<float>;
+output.DownloadToArray(); // blocking host readback
+stopwatch.Stop();
+\end{lstlisting}
+
+\subsection{Export contract and analysis populations}
+The exporter requests ONNX opset~12, verifies that main opset after export, assigns \texttt{model.ir\_version = 7}, saves, and uses the established validation path. The IR assignment is metadata assignment after export, not a semantic graph conversion. The contract uses FP32, model-specific NCHW shapes, named input/output tensors, and a dynamic batch axis. A and B use deterministic re-exports, not retained byte-identical ONNX artifacts.
+
+The exporter uses the legacy export semantics needed by the recorded compatibility contract rather than silently accepting a newer exporter path that could emit a newer opset. Export is bounded so that a failed invocation does not contaminate later models. Export and ONNX validation outcomes are analytically distinct from the Unity stage. This is why P1 is a practitioner-facing workflow population whereas P2, which conditions on common retained eligibility, is the cleaner runtime-specific comparison.
+
+Figure~\ref{fig:populations} distinguishes the four analysis sets. P1 is the 1,762-model full-pipeline population. P2 is the 1,186-model common retained export/validation-eligible population; A eligibility is 1,191, B eligibility is 1,186, with five A-only and no B-only cases. P3 is the 1,061 shared strict-success timing population. P4 contains 1,057 exact model-name matches to a retained same-host standalone PyTorch record and is secondary contextual evidence only.
+
+The nesting is a measurement contract, not a ranking of scientific importance. P1 is the deployment question a user encounters first. P2 removes between-experiment eligibility differences before discussing the Unity stage. P3 permits direct paired latency comparison without survivor-set mismatch. P4 retains a useful external context but has weaker comparability than the final A/B pair. Each population therefore carries its own denominator in the results and captions.
+
+\PopulationFigure

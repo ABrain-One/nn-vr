@@ -1,0 +1,44 @@
+\section{Experimental Setup and Analysis}
+\label{sec:setup}
+
+Table~\ref{tab:environment} summarizes the fixed and differing elements of the A/B contract. Both experiments ran on the audited MS-7E27 desktop: AMD Ryzen~7~7800X3D, 16 logical CPUs, 31,187~MB system memory, NVIDIA GeForce RTX~4090, and forced Vulkan. Valid records contain no llvmpipe contamination. The result is therefore a comparison on one desktop configuration; it is not mobile, headset, thermal, battery, or application-frame-loop evidence.
+
+\begin{table*}[t]
+\centering
+\caption{Environment and measurement contract. ``Shared contract'' does not mean that byte-identical transient ONNX files were retained between experiments.}
+\label{tab:environment}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{.20\textwidth}p{.35\textwidth}p{.35\textwidth}@{}}
+\toprule
+Element & Experiment \A: Barracuda & Experiment \B: Sentis \\
+\midrule
+Unity / runtime & 2022.3.62f3; Barracuda 3.0.2 & 6000.6.5f1; Sentis 2.6.1 \\
+Package / API & \texttt{com.unity.barracuda} & \texttt{com.unity.ai.inference@2.6.1}; \texttt{Unity.InferenceEngine} \\
+Backends & \texttt{CSharpBurst}; \texttt{ComputePrecompiled} & \texttt{CPU}; \texttt{GPUCompute} \\
+Host / graphics & \multicolumn{2}{p{.70\textwidth}@{}}{AMD Ryzen 7 7800X3D; NVIDIA RTX 4090; forced Vulkan} \\
+Protocol & \multicolumn{2}{p{.70\textwidth}@{}}{FP32; model-specific shapes; five completed warm-ups; 20 completed samples/backend; six runtime campaigns} \\
+Completion endpoint & \texttt{Tensor.ToReadOnlyArray()} & \texttt{Tensor<float>.DownloadToArray()} \\
+Export / validation & \multicolumn{2}{p{.70\textwidth}@{}}{opset 12 verified; IR version 7 assigned; established ONNX validation path} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Success rule and integrity checks}
+A valid completed benchmark requires successful preceding stages, expected runtime and backend pair, five completed warm-ups, 20 finite timing samples per backend, and the recorded completion operation. A strict PASS requires a valid completed benchmark in all six runtime campaigns. Records were audited for one primary result per requested model and runtime campaign, missing/corrupt/duplicate results, environment consistency, and cleanup status. A model that succeeds in only some runtime campaigns is status-variable, not automatically declared permanently unsupported.
+
+The all-six rule deliberately favors repeat-stable evidence over a best-run result. For example, the maximum per-runtime-campaign valid count for A is 1,074 and for B is 1,181, while strict all-six-runtime-campaign counts are 1,067 and 1,177. Separately computed at-least-one-valid unions happen to equal those maxima, but they are set operations and are not inferred from the maximum. This distinction prevents the paper from promoting a one-off completion to a repeat-stable compatibility claim.
+
+Failure accounting follows the record schema. For each runtime campaign, export success partitions into ONNX validation failure, Unity success, runtime load/execution failure, and timeout/skipped. The raw Unity failure field alone is not an adequate A runtime-failure category because it includes timeouts. The results therefore retain the explicit runtime load/execution and timeout categories. These categories localize recorded stages; they are not a diagnosis of an individual backend, model operator, or root cause.
+
+\subsection{Planned summaries and tests}
+Paired strict-status transitions use exact binomial McNemar tests \citep{mcnemar1947}. Paired timing summaries use two-sided Wilcoxon signed-rank tests with zero differences omitted and rank-biserial effects \citep{wilcoxon1945}. Architecture-associated success proportions use Wilson intervals \citep{wilson1927}; complexity analyses use Spearman rank correlations \citep{spearman1904}; and cross-runtime-campaign stability is summarized by coefficient of variation (CV). The model entries include related architecture families and generated variants. Consequently, p-values characterize the evaluated corpus under this protocol and should not be read as unrestricted population-generalization evidence.
+
+Effect magnitude is reported before test evidence. The compatibility questions use paired transition counts and percentage-point changes. Timing questions use per-model runtime-campaign-mean medians, paired differences, B/A ratios, and directional counts. The analysis does not treat six runtime-campaign records as six independent models, and it does not turn overlapping architecture flags into mutually exclusive causal treatment groups. Complexity analyses additionally require complete FLOPs, parameter, and layer metadata, so their denominators differ from both the architecture and timing populations.
+
+The PyTorch comparison uses exact model-name matches to retained NN-Dataset records from the same physical host. However, the standalone runner differs in checkpoint handling, input shapes, warm-ups, and timing/completion boundary; only 227 of 1,057 matches retain equal input shapes. It is therefore Level-3 contextual/rank evidence, not a third campaign, direct speedup, or universal Unity-overhead estimate.
+
+\subsection{Interpretation boundaries established before analysis}
+The analysis contract precludes several tempting but invalid shortcuts. A successful ONNX validation is not counted as a Unity success. A runtime record that lacks completed samples is not treated as a timing observation. A timeout is reported separately from runtime load/execution failure. A common post-export model is not assumed to have an identical transient file in A and B. Finally, a successful Unity result is not treated as a numerical-correctness result because no output parity experiment was run. These constraints reduce the number of headline-ready claims, but they make the remaining claims traceable to a recorded endpoint.
+
+The same discipline governs terminology. ``Completion-aware'' means that requested host output materialization occurs inside the recorded warm-up and timing paths. It does not mean that every internal device operation or application-level effect has been decomposed. ``Repeat-stable'' means that the strict status rule requires all six runtime campaigns. It does not mean that the runtime is deterministic across all machines, driver states, or future releases. These definitions are used consistently in the result and discussion sections.

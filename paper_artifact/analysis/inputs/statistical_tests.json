@@ -1,0 +1,34 @@
+{
+  "paired_cpu_wilcoxon": {
+    "median_difference_b_minus_a_ms": -4.832524188550313,
+    "method": "Wilcoxon signed-rank, two-sided, zero differences omitted",
+    "n": 1061,
+    "p_value": 3.754886588745924e-175,
+    "rank_biserial_b_minus_a": -1.0,
+    "statistic": 0.0
+  },
+  "paired_gpu_wilcoxon": {
+    "median_difference_b_minus_a_ms": -0.09440464787801117,
+    "method": "Wilcoxon signed-rank, two-sided, zero differences omitted",
+    "n": 1061,
+    "p_value": 4.486913347549354e-06,
+    "rank_biserial_b_minus_a": -0.16258513181786716,
+    "statistic": 235896.0
+  },
+  "pipeline_mcnemar": {
+    "chi_square_continuity_corrected": 97.38524590163935,
+    "discordant_pairs": 122,
+    "fail_to_pass": 116,
+    "method": "exact binomial McNemar",
+    "p_value": 1.6018659814207945e-27,
+    "pass_to_fail": 6
+  },
+  "post_export_runtime_mcnemar": {
+    "chi_square_continuity_corrected": 105.41176470588235,
+    "discordant_pairs": 119,
+    "fail_to_pass": 116,
+    "method": "exact binomial McNemar",
+    "p_value": 8.454832455859965e-31,
+    "pass_to_fail": 3
+  }
+}

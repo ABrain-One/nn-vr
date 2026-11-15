@@ -1,0 +1,44 @@
+"""Render the V3.1 paired-latency figure from the approved retained CSV.
+
+This presentation helper performs no inference or statistical testing.  It only
+plots the already retained per-model campaign-mean values.
+"""
+from pathlib import Path
+import csv
+
+import matplotlib.pyplot as plt
+
+
+ROOT = Path(__file__).resolve().parents[2]
+CSV = ROOT / "analysis" / "experiment_ab" / "paired_latency_comparison.csv"
+OUTPUT = Path(__file__).with_name("paired_latency_scatter.pdf")
+
+rows = list(csv.DictReader(CSV.open(encoding="utf-8")))
+panels = (
+    ("CPU", "a_cpu_ms", "b_cpu_ms"),
+    ("GPU", "a_gpu_ms", "b_gpu_ms"),
+)
+
+plt.rcParams.update({"font.size": 8, "font.family": "Latin Modern Roman", "pdf.fonttype": 42, "ps.fonttype": 42})
+fig, axes = plt.subplots(1, 2, figsize=(7.0, 3.25), constrained_layout=True)
+
+for ax, (backend, x_key, y_key) in zip(axes, panels):
+    x = [float(row[x_key]) for row in rows]
+    y = [float(row[y_key]) for row in rows]
+    low, high = min(x + y), max(x + y)
+    lower = 10 ** (int(__import__("math").floor(__import__("math").log10(low))) - 1)
+    upper = 10 ** (int(__import__("math").ceil(__import__("math").log10(high))) + 1)
+    ax.scatter(x, y, s=8, c="#2f7b5d", alpha=0.24, linewidths=0)
+    ax.plot([lower, upper], [lower, upper], color="#535f6e", lw=1.0, ls="--", label="y = x")
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+    ax.set_xlim(lower, upper)
+    ax.set_ylim(lower, upper)
+    ax.set_aspect("equal", adjustable="box")
+    ax.grid(True, which="both", color="#d8dce1", lw=0.4)
+    ax.set_title(f"{backend} (n=1,061)", fontweight="bold")
+    ax.set_xlabel("Barracuda per-model campaign mean (ms)")
+    ax.set_ylabel("Sentis per-model campaign mean (ms)")
+    ax.legend(loc="upper left", frameon=False, handlelength=2.0)
+
+fig.savefig(OUTPUT, bbox_inches="tight")

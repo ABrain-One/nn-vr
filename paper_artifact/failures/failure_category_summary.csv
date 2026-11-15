@@ -1,0 +1,43 @@
+runtime,version,category,record_failures
+A,1,ONNX export,567
+A,1,ONNX validation,4
+A,1,Runtime load/execution,106
+A,1,Timeout,11
+A,2,ONNX export,567
+A,2,ONNX validation,4
+A,2,Runtime load/execution,106
+A,2,Timeout,14
+A,3,ONNX export,567
+A,3,ONNX validation,4
+A,3,Runtime load/execution,106
+A,3,Timeout,15
+A,4,ONNX export,567
+A,4,ONNX validation,4
+A,4,Runtime load/execution,106
+A,4,Timeout,17
+A,5,ONNX export,567
+A,5,ONNX validation,4
+A,5,Runtime load/execution,105
+A,5,Timeout,18
+A,6,ONNX export,567
+A,6,ONNX validation,4
+A,6,Runtime load/execution,105
+A,6,Timeout,19
+B,1,ONNX export,572
+B,1,ONNX validation,4
+B,1,Runtime load/execution,6
+B,2,ONNX export,572
+B,2,ONNX validation,4
+B,2,Runtime load/execution,7
+B,3,ONNX export,572
+B,3,ONNX validation,4
+B,3,Runtime load/execution,5
+B,4,ONNX export,572
+B,4,ONNX validation,4
+B,4,Runtime load/execution,6
+B,5,ONNX export,572
+B,5,ONNX validation,4
+B,5,Runtime load/execution,5
+B,6,ONNX export,572
+B,6,ONNX validation,4
+B,6,Runtime load/execution,5

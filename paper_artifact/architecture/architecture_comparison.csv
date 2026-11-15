@@ -1,0 +1,7 @@
+flag,label,analysis_population,population,a_success,a_failure,a_success_rate,a_wilson_low,a_wilson_high,b_success,b_failure,b_success_rate,b_wilson_low,b_wilson_high,absolute_change_percentage_points,recovered_fail_to_pass,regressions_pass_to_fail
+has_attention,Attention,shared all-six export-and-validation-successful models,2,2,0,1.0,0.34238022750665303,1.0,2,0,1.0,0.34238022750665303,1.0,0.0,0,0
+is_transformer_like,Transformer-like,shared all-six export-and-validation-successful models,122,73,49,0.5983606557377049,0.5096537937857946,0.6810623678425964,119,3,0.9754098360655737,0.93019240156411,0.9916023796397794,37.704918032786885,47,1
+has_residual_connections,Residual connections,shared all-six export-and-validation-successful models,103,72,31,0.6990291262135923,0.6046054631486112,0.7791407010516357,102,1,0.9902912621359223,0.9470418081674632,0.99828410852095,29.12621359223301,30,0
+is_resnet_like,ResNet-like,shared all-six export-and-validation-successful models,409,383,26,0.9364303178484108,0.9084863122608097,0.9562524206653636,408,1,0.9975550122249389,0.9862823311223912,0.9995682691603891,6.112469437652812,25,0
+is_vgg_like,VGG-like,shared all-six export-and-validation-successful models,16,10,6,0.625,0.38641040545502714,0.8151876744113636,16,0,1.0,0.8063923194655637,1.0000000000000002,37.5,6,0
+is_mobilenet_like,MobileNet-like,shared all-six export-and-validation-successful models,73,59,14,0.8082191780821918,0.7034449738686679,0.8821763910901279,73,0,1.0,0.9500079920442688,0.9999999999999998,19.17808219178082,14,0

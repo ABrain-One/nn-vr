@@ -1,0 +1,2782 @@
+{
+  "checks": [
+    {
+      "expected": 1762,
+      "id": "C001",
+      "metric": "p1.n",
+      "reproduced": 1762,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1067,
+      "id": "C002",
+      "metric": "p1.a_success",
+      "reproduced": 1067,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1177,
+      "id": "C003",
+      "metric": "p1.b_success",
+      "reproduced": 1177,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1061,
+      "id": "C004",
+      "metric": "p1.pp",
+      "reproduced": 1061,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 116,
+      "id": "C005",
+      "metric": "p1.fp",
+      "reproduced": 116,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 6,
+      "id": "C006",
+      "metric": "p1.pf",
+      "reproduced": 6,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 579,
+      "id": "C007",
+      "metric": "p1.ff",
+      "reproduced": 579,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 60.56,
+      "id": "C008",
+      "metric": "p1.a_rate_percent",
+      "reproduced": 60.55618615209988,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 66.8,
+      "id": "C009",
+      "metric": "p1.b_rate_percent",
+      "reproduced": 66.79909194097617,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 110,
+      "id": "C010",
+      "metric": "p1.net_gain",
+      "reproduced": 110,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 6.24,
+      "id": "C011",
+      "metric": "p1.change_pp",
+      "reproduced": 6.242905788876277,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1.6e-27,
+      "id": "C012",
+      "metric": "p1.mcnemar_p",
+      "reproduced": 1.6018659814207945e-27,
+      "source": "compatibility/compatibility_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1186,
+      "id": "C013",
+      "metric": "p2.n",
+      "reproduced": 1186,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1064,
+      "id": "C014",
+      "metric": "p2.a_success",
+      "reproduced": 1064,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1177,
+      "id": "C015",
+      "metric": "p2.b_success",
+      "reproduced": 1177,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1061,
+      "id": "C016",
+      "metric": "p2.pp",
+      "reproduced": 1061,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 116,
+      "id": "C017",
+      "metric": "p2.fp",
+      "reproduced": 116,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 3,
+      "id": "C018",
+      "metric": "p2.pf",
+      "reproduced": 3,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 6,
+      "id": "C019",
+      "metric": "p2.ff",
+      "reproduced": 6,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 89.71,
+      "id": "C020",
+      "metric": "p2.a_rate_percent",
+      "reproduced": 89.7133220910624,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 99.24,
+      "id": "C021",
+      "metric": "p2.b_rate_percent",
+      "reproduced": 99.24114671163575,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 113,
+      "id": "C022",
+      "metric": "p2.net_gain",
+      "reproduced": 113,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 9.53,
+      "id": "C023",
+      "metric": "p2.change_pp",
+      "reproduced": 9.527824620573355,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 8.45e-31,
+      "id": "C024",
+      "metric": "p2.mcnemar_p",
+      "reproduced": 8.454832455859965e-31,
+      "source": "compatibility/post_export_runtime_transition.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1191,
+      "id": "C025",
+      "metric": "eligibility.a",
+      "reproduced": 1191,
+      "source": "analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1186,
+      "id": "C026",
+      "metric": "eligibility.b",
+      "reproduced": 1186,
+      "source": "analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1186,
+      "id": "C027",
+      "metric": "eligibility.common",
+      "reproduced": 1186,
+      "source": "analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 5,
+      "id": "C028",
+      "metric": "eligibility.a_only",
+      "reproduced": 5,
+      "source": "analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C029",
+      "metric": "eligibility.b_only",
+      "reproduced": 0,
+      "source": "analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1074,
+      "id": "C030",
+      "metric": "compatibility.a.union",
+      "reproduced": 1074,
+      "source": "analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1181,
+      "id": "C031",
+      "metric": "compatibility.b.union",
+      "reproduced": 1181,
+      "source": "analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1061,
+      "id": "C032",
+      "metric": "timing.n",
+      "reproduced": 1061,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 5.4707,
+      "id": "C033",
+      "metric": "timing.cpu.a_median_ms",
+      "reproduced": 5.470723191897075,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.478,
+      "id": "C034",
+      "metric": "timing.cpu.b_median_ms",
+      "reproduced": 0.4780383333333334,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": -4.8325,
+      "id": "C035",
+      "metric": "timing.cpu.difference_ms",
+      "reproduced": -4.832524188550313,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.078,
+      "id": "C036",
+      "metric": "timing.cpu.ratio",
+      "reproduced": 0.07823162800035334,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1061,
+      "id": "C037",
+      "metric": "timing.cpu.b_faster",
+      "reproduced": 1061,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 100.0,
+      "id": "C038",
+      "metric": "timing.cpu.b_faster_percent",
+      "reproduced": 100.0,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 3.75e-175,
+      "id": "C039",
+      "metric": "timing.cpu.wilcoxon_p",
+      "reproduced": 3.754886588745924e-175,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": -1.0,
+      "id": "C040",
+      "metric": "timing.cpu.rank_biserial",
+      "reproduced": -1.0,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 2.9733,
+      "id": "C041",
+      "metric": "timing.gpu.a_median_ms",
+      "reproduced": 2.9732850790023804,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 2.8315,
+      "id": "C042",
+      "metric": "timing.gpu.b_median_ms",
+      "reproduced": 2.8315083333333333,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": -0.0944,
+      "id": "C043",
+      "metric": "timing.gpu.difference_ms",
+      "reproduced": -0.09440464787801117,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.982,
+      "id": "C044",
+      "metric": "timing.gpu.ratio",
+      "reproduced": 0.9823430670797145,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 604,
+      "id": "C045",
+      "metric": "timing.gpu.b_faster",
+      "reproduced": 604,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 56.92742695570217,
+      "id": "C046",
+      "metric": "timing.gpu.b_faster_percent",
+      "reproduced": 56.92742695570217,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4.49e-06,
+      "id": "C047",
+      "metric": "timing.gpu.wilcoxon_p",
+      "reproduced": 4.486913347549354e-06,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": -0.163,
+      "id": "C048",
+      "metric": "timing.gpu.rank_biserial",
+      "reproduced": -0.16258513181786716,
+      "source": "timing/paired_latency_comparison.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 2,
+      "id": "C049",
+      "metric": "architecture.has_attention.n",
+      "reproduced": 2,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 2,
+      "id": "C050",
+      "metric": "architecture.has_attention.a_success",
+      "reproduced": 2,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 2,
+      "id": "C051",
+      "metric": "architecture.has_attention.b_success",
+      "reproduced": 2,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 100.0,
+      "id": "C052",
+      "metric": "architecture.has_attention.a_percent",
+      "reproduced": 100.0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 100.0,
+      "id": "C053",
+      "metric": "architecture.has_attention.b_percent",
+      "reproduced": 100.0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 34.2380227506653,
+      "id": "C054",
+      "metric": "architecture.has_attention.a_wilson_low_percent",
+      "reproduced": 34.2380227506653,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 100.0,
+      "id": "C055",
+      "metric": "architecture.has_attention.a_wilson_high_percent",
+      "reproduced": 100.0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 34.2380227506653,
+      "id": "C056",
+      "metric": "architecture.has_attention.b_wilson_low_percent",
+      "reproduced": 34.2380227506653,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 100.0,
+      "id": "C057",
+      "metric": "architecture.has_attention.b_wilson_high_percent",
+      "reproduced": 100.0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.0,
+      "id": "C058",
+      "metric": "architecture.has_attention.change_pp",
+      "reproduced": 0.0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C059",
+      "metric": "architecture.has_attention.recoveries",
+      "reproduced": 0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C060",
+      "metric": "architecture.has_attention.regressions",
+      "reproduced": 0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 122,
+      "id": "C061",
+      "metric": "architecture.is_transformer_like.n",
+      "reproduced": 122,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 73,
+      "id": "C062",
+      "metric": "architecture.is_transformer_like.a_success",
+      "reproduced": 73,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 119,
+      "id": "C063",
+      "metric": "architecture.is_transformer_like.b_success",
+      "reproduced": 119,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 59.83606557377049,
+      "id": "C064",
+      "metric": "architecture.is_transformer_like.a_percent",
+      "reproduced": 59.83606557377049,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 97.54098360655738,
+      "id": "C065",
+      "metric": "architecture.is_transformer_like.b_percent",
+      "reproduced": 97.54098360655738,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 50.965379378579456,
+      "id": "C066",
+      "metric": "architecture.is_transformer_like.a_wilson_low_percent",
+      "reproduced": 50.965379378579456,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 68.10623678425965,
+      "id": "C067",
+      "metric": "architecture.is_transformer_like.a_wilson_high_percent",
+      "reproduced": 68.10623678425965,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 93.019240156411,
+      "id": "C068",
+      "metric": "architecture.is_transformer_like.b_wilson_low_percent",
+      "reproduced": 93.019240156411,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 99.16023796397793,
+      "id": "C069",
+      "metric": "architecture.is_transformer_like.b_wilson_high_percent",
+      "reproduced": 99.16023796397793,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 37.704918032786885,
+      "id": "C070",
+      "metric": "architecture.is_transformer_like.change_pp",
+      "reproduced": 37.704918032786885,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 47,
+      "id": "C071",
+      "metric": "architecture.is_transformer_like.recoveries",
+      "reproduced": 47,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1,
+      "id": "C072",
+      "metric": "architecture.is_transformer_like.regressions",
+      "reproduced": 1,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 103,
+      "id": "C073",
+      "metric": "architecture.has_residual_connections.n",
+      "reproduced": 103,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 72,
+      "id": "C074",
+      "metric": "architecture.has_residual_connections.a_success",
+      "reproduced": 72,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 102,
+      "id": "C075",
+      "metric": "architecture.has_residual_connections.b_success",
+      "reproduced": 102,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 69.90291262135922,
+      "id": "C076",
+      "metric": "architecture.has_residual_connections.a_percent",
+      "reproduced": 69.90291262135922,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 99.02912621359224,
+      "id": "C077",
+      "metric": "architecture.has_residual_connections.b_percent",
+      "reproduced": 99.02912621359224,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 60.46054631486112,
+      "id": "C078",
+      "metric": "architecture.has_residual_connections.a_wilson_low_percent",
+      "reproduced": 60.46054631486112,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 77.91407010516357,
+      "id": "C079",
+      "metric": "architecture.has_residual_connections.a_wilson_high_percent",
+      "reproduced": 77.91407010516357,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 94.70418081674632,
+      "id": "C080",
+      "metric": "architecture.has_residual_connections.b_wilson_low_percent",
+      "reproduced": 94.70418081674632,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 99.82841085209499,
+      "id": "C081",
+      "metric": "architecture.has_residual_connections.b_wilson_high_percent",
+      "reproduced": 99.82841085209499,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 29.12621359223301,
+      "id": "C082",
+      "metric": "architecture.has_residual_connections.change_pp",
+      "reproduced": 29.12621359223301,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 30,
+      "id": "C083",
+      "metric": "architecture.has_residual_connections.recoveries",
+      "reproduced": 30,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C084",
+      "metric": "architecture.has_residual_connections.regressions",
+      "reproduced": 0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 409,
+      "id": "C085",
+      "metric": "architecture.is_resnet_like.n",
+      "reproduced": 409,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 383,
+      "id": "C086",
+      "metric": "architecture.is_resnet_like.a_success",
+      "reproduced": 383,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 408,
+      "id": "C087",
+      "metric": "architecture.is_resnet_like.b_success",
+      "reproduced": 408,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 93.64303178484109,
+      "id": "C088",
+      "metric": "architecture.is_resnet_like.a_percent",
+      "reproduced": 93.64303178484107,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 99.75550122249389,
+      "id": "C089",
+      "metric": "architecture.is_resnet_like.b_percent",
+      "reproduced": 99.75550122249389,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 90.84863122608097,
+      "id": "C090",
+      "metric": "architecture.is_resnet_like.a_wilson_low_percent",
+      "reproduced": 90.84863122608097,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 95.62524206653636,
+      "id": "C091",
+      "metric": "architecture.is_resnet_like.a_wilson_high_percent",
+      "reproduced": 95.62524206653636,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 98.62823311223912,
+      "id": "C092",
+      "metric": "architecture.is_resnet_like.b_wilson_low_percent",
+      "reproduced": 98.62823311223912,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 99.9568269160389,
+      "id": "C093",
+      "metric": "architecture.is_resnet_like.b_wilson_high_percent",
+      "reproduced": 99.9568269160389,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 6.112469437652812,
+      "id": "C094",
+      "metric": "architecture.is_resnet_like.change_pp",
+      "reproduced": 6.112469437652812,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 25,
+      "id": "C095",
+      "metric": "architecture.is_resnet_like.recoveries",
+      "reproduced": 25,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C096",
+      "metric": "architecture.is_resnet_like.regressions",
+      "reproduced": 0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 16,
+      "id": "C097",
+      "metric": "architecture.is_vgg_like.n",
+      "reproduced": 16,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 10,
+      "id": "C098",
+      "metric": "architecture.is_vgg_like.a_success",
+      "reproduced": 10,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 16,
+      "id": "C099",
+      "metric": "architecture.is_vgg_like.b_success",
+      "reproduced": 16,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 62.5,
+      "id": "C100",
+      "metric": "architecture.is_vgg_like.a_percent",
+      "reproduced": 62.5,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 100.0,
+      "id": "C101",
+      "metric": "architecture.is_vgg_like.b_percent",
+      "reproduced": 100.0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 38.64104054550271,
+      "id": "C102",
+      "metric": "architecture.is_vgg_like.a_wilson_low_percent",
+      "reproduced": 38.64104054550271,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 81.51876744113636,
+      "id": "C103",
+      "metric": "architecture.is_vgg_like.a_wilson_high_percent",
+      "reproduced": 81.51876744113636,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 80.63923194655636,
+      "id": "C104",
+      "metric": "architecture.is_vgg_like.b_wilson_low_percent",
+      "reproduced": 80.63923194655636,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 100.00000000000003,
+      "id": "C105",
+      "metric": "architecture.is_vgg_like.b_wilson_high_percent",
+      "reproduced": 100.00000000000003,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 37.5,
+      "id": "C106",
+      "metric": "architecture.is_vgg_like.change_pp",
+      "reproduced": 37.5,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 6,
+      "id": "C107",
+      "metric": "architecture.is_vgg_like.recoveries",
+      "reproduced": 6,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C108",
+      "metric": "architecture.is_vgg_like.regressions",
+      "reproduced": 0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 73,
+      "id": "C109",
+      "metric": "architecture.is_mobilenet_like.n",
+      "reproduced": 73,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 59,
+      "id": "C110",
+      "metric": "architecture.is_mobilenet_like.a_success",
+      "reproduced": 59,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 73,
+      "id": "C111",
+      "metric": "architecture.is_mobilenet_like.b_success",
+      "reproduced": 73,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 80.82191780821918,
+      "id": "C112",
+      "metric": "architecture.is_mobilenet_like.a_percent",
+      "reproduced": 80.82191780821918,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 100.0,
+      "id": "C113",
+      "metric": "architecture.is_mobilenet_like.b_percent",
+      "reproduced": 100.0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 70.34449738686679,
+      "id": "C114",
+      "metric": "architecture.is_mobilenet_like.a_wilson_low_percent",
+      "reproduced": 70.34449738686679,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 88.2176391090128,
+      "id": "C115",
+      "metric": "architecture.is_mobilenet_like.a_wilson_high_percent",
+      "reproduced": 88.2176391090128,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 95.00079920442688,
+      "id": "C116",
+      "metric": "architecture.is_mobilenet_like.b_wilson_low_percent",
+      "reproduced": 95.00079920442688,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 99.99999999999997,
+      "id": "C117",
+      "metric": "architecture.is_mobilenet_like.b_wilson_high_percent",
+      "reproduced": 99.99999999999997,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 19.17808219178082,
+      "id": "C118",
+      "metric": "architecture.is_mobilenet_like.change_pp",
+      "reproduced": 19.17808219178082,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 14,
+      "id": "C119",
+      "metric": "architecture.is_mobilenet_like.recoveries",
+      "reproduced": 14,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C120",
+      "metric": "architecture.is_mobilenet_like.regressions",
+      "reproduced": 0,
+      "source": "analysis/inputs/per_model_comparison.csv; architecture/architecture_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1071,
+      "id": "C121",
+      "metric": "repro.A.cpu.n",
+      "reproduced": 1071,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 12.58,
+      "id": "C122",
+      "metric": "repro.A.cpu.median_percent",
+      "reproduced": 12.578321433007325,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 88.08,
+      "id": "C123",
+      "metric": "repro.A.cpu.p95_percent",
+      "reproduced": 88.07889864616119,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1071,
+      "id": "C124",
+      "metric": "repro.A.gpu.n",
+      "reproduced": 1071,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 9.79,
+      "id": "C125",
+      "metric": "repro.A.gpu.median_percent",
+      "reproduced": 9.793728668002432,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 77.51,
+      "id": "C126",
+      "metric": "repro.A.gpu.p95_percent",
+      "reproduced": 77.50666947928053,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 688,
+      "id": "C127",
+      "metric": "repro.A.success_runs.0",
+      "reproduced": 688,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 3,
+      "id": "C128",
+      "metric": "repro.A.success_runs.1",
+      "reproduced": 3,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1,
+      "id": "C129",
+      "metric": "repro.A.success_runs.2",
+      "reproduced": 1,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 2,
+      "id": "C130",
+      "metric": "repro.A.success_runs.3",
+      "reproduced": 2,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C131",
+      "metric": "repro.A.success_runs.4",
+      "reproduced": 0,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1,
+      "id": "C132",
+      "metric": "repro.A.success_runs.5",
+      "reproduced": 1,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1067,
+      "id": "C133",
+      "metric": "repro.A.success_runs.6",
+      "reproduced": 1067,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1181,
+      "id": "C134",
+      "metric": "repro.B.cpu.n",
+      "reproduced": 1181,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 2.48,
+      "id": "C135",
+      "metric": "repro.B.cpu.median_percent",
+      "reproduced": 2.484854282076675,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 29.56,
+      "id": "C136",
+      "metric": "repro.B.cpu.p95_percent",
+      "reproduced": 29.560235170283043,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1181,
+      "id": "C137",
+      "metric": "repro.B.gpu.n",
+      "reproduced": 1181,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4.4,
+      "id": "C138",
+      "metric": "repro.B.gpu.median_percent",
+      "reproduced": 4.404944378492772,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 54.14,
+      "id": "C139",
+      "metric": "repro.B.gpu.p95_percent",
+      "reproduced": 54.144824899202824,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 581,
+      "id": "C140",
+      "metric": "repro.B.success_runs.0",
+      "reproduced": 581,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C141",
+      "metric": "repro.B.success_runs.1",
+      "reproduced": 0,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C142",
+      "metric": "repro.B.success_runs.2",
+      "reproduced": 0,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C143",
+      "metric": "repro.B.success_runs.3",
+      "reproduced": 0,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C144",
+      "metric": "repro.B.success_runs.4",
+      "reproduced": 0,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C145",
+      "metric": "repro.B.success_runs.5",
+      "reproduced": 4,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1177,
+      "id": "C146",
+      "metric": "repro.B.success_runs.6",
+      "reproduced": 1177,
+      "source": "reproducibility/per_model_reproducibility.csv; analysis/inputs/per_model_comparison.csv; reproducibility/reproducibility_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C147",
+      "metric": "campaign.A1.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1074,
+      "id": "C148",
+      "metric": "campaign.A1.valid_completed_benchmarks",
+      "reproduced": 1074,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1195,
+      "id": "C149",
+      "metric": "campaign.A1.export_success",
+      "reproduced": 1195,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 567,
+      "id": "C150",
+      "metric": "campaign.A1.export_failure",
+      "reproduced": 567,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C151",
+      "metric": "campaign.A1.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 106,
+      "id": "C152",
+      "metric": "campaign.A1.failure_runtime_load_execution",
+      "reproduced": 106,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 11,
+      "id": "C153",
+      "metric": "campaign.A1.failure_timeout",
+      "reproduced": 11,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C154",
+      "metric": "campaign.A1.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C155",
+      "metric": "campaign.A1.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C156",
+      "metric": "campaign.A1.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C157",
+      "metric": "campaign.A1.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C158",
+      "metric": "campaign.A1.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C159",
+      "metric": "campaign.A1.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C160",
+      "metric": "campaign.A2.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1071,
+      "id": "C161",
+      "metric": "campaign.A2.valid_completed_benchmarks",
+      "reproduced": 1071,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1195,
+      "id": "C162",
+      "metric": "campaign.A2.export_success",
+      "reproduced": 1195,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 567,
+      "id": "C163",
+      "metric": "campaign.A2.export_failure",
+      "reproduced": 567,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C164",
+      "metric": "campaign.A2.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 106,
+      "id": "C165",
+      "metric": "campaign.A2.failure_runtime_load_execution",
+      "reproduced": 106,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 14,
+      "id": "C166",
+      "metric": "campaign.A2.failure_timeout",
+      "reproduced": 14,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C167",
+      "metric": "campaign.A2.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C168",
+      "metric": "campaign.A2.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C169",
+      "metric": "campaign.A2.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C170",
+      "metric": "campaign.A2.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C171",
+      "metric": "campaign.A2.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C172",
+      "metric": "campaign.A2.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C173",
+      "metric": "campaign.A3.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1070,
+      "id": "C174",
+      "metric": "campaign.A3.valid_completed_benchmarks",
+      "reproduced": 1070,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1195,
+      "id": "C175",
+      "metric": "campaign.A3.export_success",
+      "reproduced": 1195,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 567,
+      "id": "C176",
+      "metric": "campaign.A3.export_failure",
+      "reproduced": 567,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C177",
+      "metric": "campaign.A3.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 106,
+      "id": "C178",
+      "metric": "campaign.A3.failure_runtime_load_execution",
+      "reproduced": 106,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 15,
+      "id": "C179",
+      "metric": "campaign.A3.failure_timeout",
+      "reproduced": 15,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C180",
+      "metric": "campaign.A3.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C181",
+      "metric": "campaign.A3.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C182",
+      "metric": "campaign.A3.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C183",
+      "metric": "campaign.A3.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C184",
+      "metric": "campaign.A3.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C185",
+      "metric": "campaign.A3.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C186",
+      "metric": "campaign.A4.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1068,
+      "id": "C187",
+      "metric": "campaign.A4.valid_completed_benchmarks",
+      "reproduced": 1068,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1195,
+      "id": "C188",
+      "metric": "campaign.A4.export_success",
+      "reproduced": 1195,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 567,
+      "id": "C189",
+      "metric": "campaign.A4.export_failure",
+      "reproduced": 567,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C190",
+      "metric": "campaign.A4.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 106,
+      "id": "C191",
+      "metric": "campaign.A4.failure_runtime_load_execution",
+      "reproduced": 106,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 17,
+      "id": "C192",
+      "metric": "campaign.A4.failure_timeout",
+      "reproduced": 17,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C193",
+      "metric": "campaign.A4.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C194",
+      "metric": "campaign.A4.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C195",
+      "metric": "campaign.A4.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C196",
+      "metric": "campaign.A4.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C197",
+      "metric": "campaign.A4.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C198",
+      "metric": "campaign.A4.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C199",
+      "metric": "campaign.A5.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1068,
+      "id": "C200",
+      "metric": "campaign.A5.valid_completed_benchmarks",
+      "reproduced": 1068,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1195,
+      "id": "C201",
+      "metric": "campaign.A5.export_success",
+      "reproduced": 1195,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 567,
+      "id": "C202",
+      "metric": "campaign.A5.export_failure",
+      "reproduced": 567,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C203",
+      "metric": "campaign.A5.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 105,
+      "id": "C204",
+      "metric": "campaign.A5.failure_runtime_load_execution",
+      "reproduced": 105,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 18,
+      "id": "C205",
+      "metric": "campaign.A5.failure_timeout",
+      "reproduced": 18,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C206",
+      "metric": "campaign.A5.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C207",
+      "metric": "campaign.A5.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C208",
+      "metric": "campaign.A5.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C209",
+      "metric": "campaign.A5.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C210",
+      "metric": "campaign.A5.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C211",
+      "metric": "campaign.A5.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C212",
+      "metric": "campaign.A6.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1067,
+      "id": "C213",
+      "metric": "campaign.A6.valid_completed_benchmarks",
+      "reproduced": 1067,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1195,
+      "id": "C214",
+      "metric": "campaign.A6.export_success",
+      "reproduced": 1195,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 567,
+      "id": "C215",
+      "metric": "campaign.A6.export_failure",
+      "reproduced": 567,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C216",
+      "metric": "campaign.A6.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 105,
+      "id": "C217",
+      "metric": "campaign.A6.failure_runtime_load_execution",
+      "reproduced": 105,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 19,
+      "id": "C218",
+      "metric": "campaign.A6.failure_timeout",
+      "reproduced": 19,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C219",
+      "metric": "campaign.A6.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C220",
+      "metric": "campaign.A6.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C221",
+      "metric": "campaign.A6.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C222",
+      "metric": "campaign.A6.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C223",
+      "metric": "campaign.A6.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C224",
+      "metric": "campaign.A6.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C225",
+      "metric": "campaign.B1.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1180,
+      "id": "C226",
+      "metric": "campaign.B1.valid_completed_benchmarks",
+      "reproduced": 1180,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1190,
+      "id": "C227",
+      "metric": "campaign.B1.export_success",
+      "reproduced": 1190,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 572,
+      "id": "C228",
+      "metric": "campaign.B1.export_failure",
+      "reproduced": 572,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C229",
+      "metric": "campaign.B1.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 6,
+      "id": "C230",
+      "metric": "campaign.B1.failure_runtime_load_execution",
+      "reproduced": 6,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C231",
+      "metric": "campaign.B1.failure_timeout",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C232",
+      "metric": "campaign.B1.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C233",
+      "metric": "campaign.B1.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C234",
+      "metric": "campaign.B1.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C235",
+      "metric": "campaign.B1.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C236",
+      "metric": "campaign.B1.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C237",
+      "metric": "campaign.B1.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C238",
+      "metric": "campaign.B2.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1179,
+      "id": "C239",
+      "metric": "campaign.B2.valid_completed_benchmarks",
+      "reproduced": 1179,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1190,
+      "id": "C240",
+      "metric": "campaign.B2.export_success",
+      "reproduced": 1190,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 572,
+      "id": "C241",
+      "metric": "campaign.B2.export_failure",
+      "reproduced": 572,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C242",
+      "metric": "campaign.B2.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 7,
+      "id": "C243",
+      "metric": "campaign.B2.failure_runtime_load_execution",
+      "reproduced": 7,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C244",
+      "metric": "campaign.B2.failure_timeout",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C245",
+      "metric": "campaign.B2.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C246",
+      "metric": "campaign.B2.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C247",
+      "metric": "campaign.B2.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C248",
+      "metric": "campaign.B2.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C249",
+      "metric": "campaign.B2.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C250",
+      "metric": "campaign.B2.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C251",
+      "metric": "campaign.B3.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1181,
+      "id": "C252",
+      "metric": "campaign.B3.valid_completed_benchmarks",
+      "reproduced": 1181,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1190,
+      "id": "C253",
+      "metric": "campaign.B3.export_success",
+      "reproduced": 1190,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 572,
+      "id": "C254",
+      "metric": "campaign.B3.export_failure",
+      "reproduced": 572,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C255",
+      "metric": "campaign.B3.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 5,
+      "id": "C256",
+      "metric": "campaign.B3.failure_runtime_load_execution",
+      "reproduced": 5,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C257",
+      "metric": "campaign.B3.failure_timeout",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C258",
+      "metric": "campaign.B3.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C259",
+      "metric": "campaign.B3.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C260",
+      "metric": "campaign.B3.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C261",
+      "metric": "campaign.B3.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C262",
+      "metric": "campaign.B3.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C263",
+      "metric": "campaign.B3.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C264",
+      "metric": "campaign.B4.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1180,
+      "id": "C265",
+      "metric": "campaign.B4.valid_completed_benchmarks",
+      "reproduced": 1180,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1190,
+      "id": "C266",
+      "metric": "campaign.B4.export_success",
+      "reproduced": 1190,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 572,
+      "id": "C267",
+      "metric": "campaign.B4.export_failure",
+      "reproduced": 572,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C268",
+      "metric": "campaign.B4.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 6,
+      "id": "C269",
+      "metric": "campaign.B4.failure_runtime_load_execution",
+      "reproduced": 6,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C270",
+      "metric": "campaign.B4.failure_timeout",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C271",
+      "metric": "campaign.B4.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C272",
+      "metric": "campaign.B4.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C273",
+      "metric": "campaign.B4.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C274",
+      "metric": "campaign.B4.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C275",
+      "metric": "campaign.B4.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C276",
+      "metric": "campaign.B4.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C277",
+      "metric": "campaign.B5.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1181,
+      "id": "C278",
+      "metric": "campaign.B5.valid_completed_benchmarks",
+      "reproduced": 1181,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1190,
+      "id": "C279",
+      "metric": "campaign.B5.export_success",
+      "reproduced": 1190,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 572,
+      "id": "C280",
+      "metric": "campaign.B5.export_failure",
+      "reproduced": 572,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C281",
+      "metric": "campaign.B5.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 5,
+      "id": "C282",
+      "metric": "campaign.B5.failure_runtime_load_execution",
+      "reproduced": 5,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C283",
+      "metric": "campaign.B5.failure_timeout",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C284",
+      "metric": "campaign.B5.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C285",
+      "metric": "campaign.B5.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C286",
+      "metric": "campaign.B5.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C287",
+      "metric": "campaign.B5.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C288",
+      "metric": "campaign.B5.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C289",
+      "metric": "campaign.B5.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C290",
+      "metric": "campaign.B6.records",
+      "reproduced": 1762,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1181,
+      "id": "C291",
+      "metric": "campaign.B6.valid_completed_benchmarks",
+      "reproduced": 1181,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1190,
+      "id": "C292",
+      "metric": "campaign.B6.export_success",
+      "reproduced": 1190,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 572,
+      "id": "C293",
+      "metric": "campaign.B6.export_failure",
+      "reproduced": 572,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 4,
+      "id": "C294",
+      "metric": "campaign.B6.validation_failure",
+      "reproduced": 4,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 5,
+      "id": "C295",
+      "metric": "campaign.B6.failure_runtime_load_execution",
+      "reproduced": 5,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C296",
+      "metric": "campaign.B6.failure_timeout",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C297",
+      "metric": "campaign.B6.missing_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C298",
+      "metric": "campaign.B6.unexpected_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C299",
+      "metric": "campaign.B6.corrupt_or_incomplete_files",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C300",
+      "metric": "campaign.B6.duplicate_results",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C301",
+      "metric": "campaign.B6.cleanup_failure",
+      "reproduced": 0,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C302",
+      "metric": "campaign.B6.accounting_reconciles",
+      "reproduced": true,
+      "source": "campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 3402,
+      "id": "C303",
+      "metric": "failures.A.export",
+      "reproduced": 3402,
+      "source": "failures/failure_category_summary.csv; campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 24,
+      "id": "C304",
+      "metric": "failures.A.validation",
+      "reproduced": 24,
+      "source": "failures/failure_category_summary.csv; campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 634,
+      "id": "C305",
+      "metric": "failures.A.runtime",
+      "reproduced": 634,
+      "source": "failures/failure_category_summary.csv; campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 94,
+      "id": "C306",
+      "metric": "failures.A.timeout",
+      "reproduced": 94,
+      "source": "failures/failure_category_summary.csv; campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 3432,
+      "id": "C307",
+      "metric": "failures.B.export",
+      "reproduced": 3432,
+      "source": "failures/failure_category_summary.csv; campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 24,
+      "id": "C308",
+      "metric": "failures.B.validation",
+      "reproduced": 24,
+      "source": "failures/failure_category_summary.csv; campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 34,
+      "id": "C309",
+      "metric": "failures.B.runtime",
+      "reproduced": 34,
+      "source": "failures/failure_category_summary.csv; campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0,
+      "id": "C310",
+      "metric": "failures.B.timeout",
+      "reproduced": 0,
+      "source": "failures/failure_category_summary.csv; campaign_audit/campaign_audit.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1068,
+      "id": "C311",
+      "metric": "complexity.A.n",
+      "reproduced": 1068,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1172,
+      "id": "C312",
+      "metric": "complexity.B.n",
+      "reproduced": 1172,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.6233114716779099,
+      "id": "C313",
+      "metric": "complexity.A.cpu.flops.rho",
+      "reproduced": 0.6233114716779099,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.6427019544156384,
+      "id": "C314",
+      "metric": "complexity.A.cpu.total_params.rho",
+      "reproduced": 0.6427019544156384,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.6320770146679466,
+      "id": "C315",
+      "metric": "complexity.A.cpu.total_layers.rho",
+      "reproduced": 0.6320770146679466,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.6752968286945356,
+      "id": "C316",
+      "metric": "complexity.A.gpu.flops.rho",
+      "reproduced": 0.6752968286945356,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.785499009400061,
+      "id": "C317",
+      "metric": "complexity.A.gpu.total_params.rho",
+      "reproduced": 0.785499009400061,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.8123810177217183,
+      "id": "C318",
+      "metric": "complexity.A.gpu.total_layers.rho",
+      "reproduced": 0.8123810177217183,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.8153874689904852,
+      "id": "C319",
+      "metric": "complexity.B.cpu.flops.rho",
+      "reproduced": 0.8153874689904852,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.9061828858738565,
+      "id": "C320",
+      "metric": "complexity.B.cpu.total_params.rho",
+      "reproduced": 0.9061828858738565,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.8635808009479706,
+      "id": "C321",
+      "metric": "complexity.B.cpu.total_layers.rho",
+      "reproduced": 0.8635808009479706,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.7011871829834194,
+      "id": "C322",
+      "metric": "complexity.B.gpu.flops.rho",
+      "reproduced": 0.7011871829834194,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.7873963287386384,
+      "id": "C323",
+      "metric": "complexity.B.gpu.total_params.rho",
+      "reproduced": 0.7873963287386384,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.7497598723035582,
+      "id": "C324",
+      "metric": "complexity.B.gpu.total_layers.rho",
+      "reproduced": 0.7497598723035582,
+      "source": "analysis/inputs/per_model_comparison.csv; complexity/complexity_correlations.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1057,
+      "id": "C325",
+      "metric": "pt.n",
+      "reproduced": 1057,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 227,
+      "id": "C326",
+      "metric": "pt.shape_aligned",
+      "reproduced": 227,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 830,
+      "id": "C327",
+      "metric": "pt.shape_mismatch",
+      "reproduced": 830,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.9903,
+      "id": "C328",
+      "metric": "pt.cpu.pt_median_ms",
+      "reproduced": 0.990304,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 5.4707,
+      "id": "C329",
+      "metric": "pt.cpu.a_median_ms",
+      "reproduced": 5.470723191897075,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.4828,
+      "id": "C330",
+      "metric": "pt.cpu.b_median_ms",
+      "reproduced": 0.48279250000000007,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 6.2421,
+      "id": "C331",
+      "metric": "pt.cpu.a_ratio",
+      "reproduced": 6.242106406335511,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.5916,
+      "id": "C332",
+      "metric": "pt.cpu.b_ratio",
+      "reproduced": 0.5915668786563516,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.712,
+      "id": "C333",
+      "metric": "pt.cpu.a_rho",
+      "reproduced": 0.7121326505527923,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.928,
+      "id": "C334",
+      "metric": "pt.cpu.b_rho",
+      "reproduced": 0.9278397008917546,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.3749,
+      "id": "C335",
+      "metric": "pt.gpu.pt_median_ms",
+      "reproduced": 0.374899,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 2.9993,
+      "id": "C336",
+      "metric": "pt.gpu.a_median_ms",
+      "reproduced": 2.9992763996124268,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 2.834,
+      "id": "C337",
+      "metric": "pt.gpu.b_median_ms",
+      "reproduced": 2.833964166666667,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 7.4516,
+      "id": "C338",
+      "metric": "pt.gpu.a_ratio",
+      "reproduced": 7.451590693615787,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 7.1882,
+      "id": "C339",
+      "metric": "pt.gpu.b_ratio",
+      "reproduced": 7.188193858986631,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.824,
+      "id": "C340",
+      "metric": "pt.gpu.a_rho",
+      "reproduced": 0.8239383426195226,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 0.789,
+      "id": "C341",
+      "metric": "pt.gpu.b_rho",
+      "reproduced": 0.788683764703709,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 824,
+      "id": "C342",
+      "metric": "pt.cpu.b_closer",
+      "reproduced": 824,
+      "source": "pt_context/matched_pt_a_b.csv; pt_context/model_overlap.csv; analysis/inputs/per_model_comparison.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1762,
+      "id": "C343",
+      "metric": "historical.n",
+      "reproduced": 1762,
+      "source": "provenance/historical_status.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 1732,
+      "id": "C344",
+      "metric": "historical.exports",
+      "reproduced": 1732,
+      "source": "provenance/historical_status.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": 814,
+      "id": "C345",
+      "metric": "historical.execution_completions",
+      "reproduced": 814,
+      "source": "provenance/historical_status.csv",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C346",
+      "metric": "semantics.a_materializes",
+      "reproduced": true,
+      "source": "provenance/runtime_source/Experiment_A_BenchmarkCLI.cs.txt",
+      "status": "PASS"
+    },
+    {
+      "expected": true,
+      "id": "C347",
+      "metric": "semantics.b_materializes",
+      "reproduced": true,
+      "source": "provenance/runtime_source/Experiment_B_BenchmarkCLI.cs.txt",
+      "status": "PASS"
+    }
+  ],
+  "integrity_failures": [],
+  "passed": true
+}
