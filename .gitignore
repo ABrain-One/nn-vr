@@ -23,6 +23,7 @@
 *.csproj
 *.unityproj
 *.sln
+*.slnx
 *.suo
 *.tmp
 *.user
@@ -47,6 +48,8 @@ __pycache__/
 env/
 venv/
 .env
+.env.*
+!.env.example
 .pytest_cache/
 
 # =========================
@@ -82,6 +85,31 @@ latest_changes.patch
 /Unity_v*.alf
 /ab/vr/*.orig
 /ab/vr/*.rej
+
+# Private manuscript work, preparation bundles, and local release/audit files.
+# Keep the reviewed paper_artifact/ release tracked and unchanged.
+/arxiv_article_v*/
+/practicum_report_official_template/
+/paper_artifact_candidate*/
+/ARTICLE_V3_*.md
+/REFERENCE_PAPER_LESSONS.md
+/GITHUB_RELEASE_PRECHECK.md
+/GITHUB_DRAFT_PR_AUDIT.md
+/RELEASE_NOTES.md
+/*.zip
+/*.zip.sha256
+
+# Temporary editor/patch files and downloaded model artifacts.
+*.swp
+*.swo
+*~
+*.orig
+*.rej
+*.onnx
+*.onnx.data
+*.pt
+*.pth
+*.ckpt
 
 # =========================
 # Benchmark Outputs & Runtime Dirs
