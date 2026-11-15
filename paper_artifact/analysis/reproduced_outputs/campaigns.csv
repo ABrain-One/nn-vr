@@ -1,0 +1,13 @@
+campaign,records,valid_completed_benchmarks,export_success,export_failure,validation_failure,failure_runtime_load_execution,failure_timeout,missing_results,unexpected_results,corrupt_or_incomplete_files,duplicate_results,cleanup_failure
+A1,1762,1074,1195,567,4,106,11,0,0,0,0,0
+A2,1762,1071,1195,567,4,106,14,0,0,0,0,0
+A3,1762,1070,1195,567,4,106,15,0,0,0,0,0
+A4,1762,1068,1195,567,4,106,17,0,0,0,0,0
+A5,1762,1068,1195,567,4,105,18,0,0,0,0,0
+A6,1762,1067,1195,567,4,105,19,0,0,0,0,0
+B1,1762,1180,1190,572,4,6,0,0,0,0,0,0
+B2,1762,1179,1190,572,4,7,0,0,0,0,0,0
+B3,1762,1181,1190,572,4,5,0,0,0,0,0,0
+B4,1762,1180,1190,572,4,6,0,0,0,0,0,0
+B5,1762,1181,1190,572,4,5,0,0,0,0,0,0
+B6,1762,1181,1190,572,4,5,0,0,0,0,0,0

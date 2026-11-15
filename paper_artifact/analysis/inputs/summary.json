@@ -1,0 +1,1831 @@
+{
+  "all_campaigns_match_population": true,
+  "analysis_version": "1.1",
+  "architecture_comparison": [
+    {
+      "a_failure": 0,
+      "a_success": 2,
+      "a_success_rate": 1.0,
+      "a_wilson_high": 1.0,
+      "a_wilson_low": 0.34238022750665303,
+      "absolute_change_percentage_points": 0.0,
+      "analysis_population": "shared all-six export-and-validation-successful models",
+      "b_failure": 0,
+      "b_success": 2,
+      "b_success_rate": 1.0,
+      "b_wilson_high": 1.0,
+      "b_wilson_low": 0.34238022750665303,
+      "flag": "has_attention",
+      "label": "Attention",
+      "population": 2,
+      "recovered_fail_to_pass": 0,
+      "regressions_pass_to_fail": 0
+    },
+    {
+      "a_failure": 49,
+      "a_success": 73,
+      "a_success_rate": 0.5983606557377049,
+      "a_wilson_high": 0.6810623678425964,
+      "a_wilson_low": 0.5096537937857946,
+      "absolute_change_percentage_points": 37.704918032786885,
+      "analysis_population": "shared all-six export-and-validation-successful models",
+      "b_failure": 3,
+      "b_success": 119,
+      "b_success_rate": 0.9754098360655737,
+      "b_wilson_high": 0.9916023796397794,
+      "b_wilson_low": 0.93019240156411,
+      "flag": "is_transformer_like",
+      "label": "Transformer-like",
+      "population": 122,
+      "recovered_fail_to_pass": 47,
+      "regressions_pass_to_fail": 1
+    },
+    {
+      "a_failure": 31,
+      "a_success": 72,
+      "a_success_rate": 0.6990291262135923,
+      "a_wilson_high": 0.7791407010516357,
+      "a_wilson_low": 0.6046054631486112,
+      "absolute_change_percentage_points": 29.12621359223301,
+      "analysis_population": "shared all-six export-and-validation-successful models",
+      "b_failure": 1,
+      "b_success": 102,
+      "b_success_rate": 0.9902912621359223,
+      "b_wilson_high": 0.99828410852095,
+      "b_wilson_low": 0.9470418081674632,
+      "flag": "has_residual_connections",
+      "label": "Residual connections",
+      "population": 103,
+      "recovered_fail_to_pass": 30,
+      "regressions_pass_to_fail": 0
+    },
+    {
+      "a_failure": 26,
+      "a_success": 383,
+      "a_success_rate": 0.9364303178484108,
+      "a_wilson_high": 0.9562524206653636,
+      "a_wilson_low": 0.9084863122608097,
+      "absolute_change_percentage_points": 6.112469437652812,
+      "analysis_population": "shared all-six export-and-validation-successful models",
+      "b_failure": 1,
+      "b_success": 408,
+      "b_success_rate": 0.9975550122249389,
+      "b_wilson_high": 0.9995682691603891,
+      "b_wilson_low": 0.9862823311223912,
+      "flag": "is_resnet_like",
+      "label": "ResNet-like",
+      "population": 409,
+      "recovered_fail_to_pass": 25,
+      "regressions_pass_to_fail": 0
+    },
+    {
+      "a_failure": 6,
+      "a_success": 10,
+      "a_success_rate": 0.625,
+      "a_wilson_high": 0.8151876744113636,
+      "a_wilson_low": 0.38641040545502714,
+      "absolute_change_percentage_points": 37.5,
+      "analysis_population": "shared all-six export-and-validation-successful models",
+      "b_failure": 0,
+      "b_success": 16,
+      "b_success_rate": 1.0,
+      "b_wilson_high": 1.0000000000000002,
+      "b_wilson_low": 0.8063923194655637,
+      "flag": "is_vgg_like",
+      "label": "VGG-like",
+      "population": 16,
+      "recovered_fail_to_pass": 6,
+      "regressions_pass_to_fail": 0
+    },
+    {
+      "a_failure": 14,
+      "a_success": 59,
+      "a_success_rate": 0.8082191780821918,
+      "a_wilson_high": 0.8821763910901279,
+      "a_wilson_low": 0.7034449738686679,
+      "absolute_change_percentage_points": 19.17808219178082,
+      "analysis_population": "shared all-six export-and-validation-successful models",
+      "b_failure": 0,
+      "b_success": 73,
+      "b_success_rate": 1.0,
+      "b_wilson_high": 0.9999999999999998,
+      "b_wilson_low": 0.9500079920442688,
+      "flag": "is_mobilenet_like",
+      "label": "MobileNet-like",
+      "population": 73,
+      "recovered_fail_to_pass": 14,
+      "regressions_pass_to_fail": 0
+    }
+  ],
+  "architecture_metadata": {
+    "matched_models": 1761,
+    "metadata_parse_errors": [],
+    "missing_models": [
+      "rag-cdcce1da27c1a38e8aefacaccea982a1"
+    ]
+  },
+  "campaign_audit": [
+    {
+      "attempted": 1762,
+      "campaign": "barracuda_completion_aware_v1",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 567,
+      "export_success": 1195,
+      "failed_records": 688,
+      "failure_onnx_export": 567,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 106,
+      "failure_timeout": 11,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "A",
+      "timeout_or_skipped": 11,
+      "unexpected_results": 0,
+      "unity_failure": 117,
+      "unity_success": 1074,
+      "valid_completed_benchmark_rate": 0.6095346197502838,
+      "valid_completed_benchmarks": 1074,
+      "validation_failure": 4,
+      "version": 1
+    },
+    {
+      "attempted": 1762,
+      "campaign": "barracuda_completion_aware_v2",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 567,
+      "export_success": 1195,
+      "failed_records": 691,
+      "failure_onnx_export": 567,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 106,
+      "failure_timeout": 14,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "A",
+      "timeout_or_skipped": 14,
+      "unexpected_results": 0,
+      "unity_failure": 109,
+      "unity_success": 1071,
+      "valid_completed_benchmark_rate": 0.6078320090805902,
+      "valid_completed_benchmarks": 1071,
+      "validation_failure": 4,
+      "version": 2
+    },
+    {
+      "attempted": 1762,
+      "campaign": "barracuda_completion_aware_v3",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 567,
+      "export_success": 1195,
+      "failed_records": 692,
+      "failure_onnx_export": 567,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 106,
+      "failure_timeout": 15,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "A",
+      "timeout_or_skipped": 15,
+      "unexpected_results": 0,
+      "unity_failure": 107,
+      "unity_success": 1070,
+      "valid_completed_benchmark_rate": 0.6072644721906924,
+      "valid_completed_benchmarks": 1070,
+      "validation_failure": 4,
+      "version": 3
+    },
+    {
+      "attempted": 1762,
+      "campaign": "barracuda_completion_aware_v4",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 567,
+      "export_success": 1195,
+      "failed_records": 694,
+      "failure_onnx_export": 567,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 106,
+      "failure_timeout": 17,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "A",
+      "timeout_or_skipped": 17,
+      "unexpected_results": 0,
+      "unity_failure": 108,
+      "unity_success": 1068,
+      "valid_completed_benchmark_rate": 0.6061293984108967,
+      "valid_completed_benchmarks": 1068,
+      "validation_failure": 4,
+      "version": 4
+    },
+    {
+      "attempted": 1762,
+      "campaign": "barracuda_completion_aware_v5",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 567,
+      "export_success": 1195,
+      "failed_records": 694,
+      "failure_onnx_export": 567,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 105,
+      "failure_timeout": 18,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "A",
+      "timeout_or_skipped": 18,
+      "unexpected_results": 0,
+      "unity_failure": 106,
+      "unity_success": 1068,
+      "valid_completed_benchmark_rate": 0.6061293984108967,
+      "valid_completed_benchmarks": 1068,
+      "validation_failure": 4,
+      "version": 5
+    },
+    {
+      "attempted": 1762,
+      "campaign": "barracuda_completion_aware_v6",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 567,
+      "export_success": 1195,
+      "failed_records": 695,
+      "failure_onnx_export": 567,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 105,
+      "failure_timeout": 19,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "A",
+      "timeout_or_skipped": 19,
+      "unexpected_results": 0,
+      "unity_failure": 106,
+      "unity_success": 1067,
+      "valid_completed_benchmark_rate": 0.6055618615209989,
+      "valid_completed_benchmarks": 1067,
+      "validation_failure": 4,
+      "version": 6
+    },
+    {
+      "attempted": 1762,
+      "campaign": "inference_engine_opset12_completion_aware_v1",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 572,
+      "export_success": 1190,
+      "failed_records": 582,
+      "failure_onnx_export": 572,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 6,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "B",
+      "timeout_or_skipped": 0,
+      "unexpected_results": 0,
+      "unity_failure": 6,
+      "unity_success": 1180,
+      "valid_completed_benchmark_rate": 0.6696935300794552,
+      "valid_completed_benchmarks": 1180,
+      "validation_failure": 4,
+      "version": 1
+    },
+    {
+      "attempted": 1762,
+      "campaign": "inference_engine_opset12_completion_aware_v2",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 572,
+      "export_success": 1190,
+      "failed_records": 583,
+      "failure_onnx_export": 572,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 7,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "B",
+      "timeout_or_skipped": 0,
+      "unexpected_results": 0,
+      "unity_failure": 7,
+      "unity_success": 1179,
+      "valid_completed_benchmark_rate": 0.6691259931895573,
+      "valid_completed_benchmarks": 1179,
+      "validation_failure": 4,
+      "version": 2
+    },
+    {
+      "attempted": 1762,
+      "campaign": "inference_engine_opset12_completion_aware_v3",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 572,
+      "export_success": 1190,
+      "failed_records": 581,
+      "failure_onnx_export": 572,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 5,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "B",
+      "timeout_or_skipped": 0,
+      "unexpected_results": 0,
+      "unity_failure": 5,
+      "unity_success": 1181,
+      "valid_completed_benchmark_rate": 0.6702610669693531,
+      "valid_completed_benchmarks": 1181,
+      "validation_failure": 4,
+      "version": 3
+    },
+    {
+      "attempted": 1762,
+      "campaign": "inference_engine_opset12_completion_aware_v4",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 572,
+      "export_success": 1190,
+      "failed_records": 582,
+      "failure_onnx_export": 572,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 6,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "B",
+      "timeout_or_skipped": 0,
+      "unexpected_results": 0,
+      "unity_failure": 6,
+      "unity_success": 1180,
+      "valid_completed_benchmark_rate": 0.6696935300794552,
+      "valid_completed_benchmarks": 1180,
+      "validation_failure": 4,
+      "version": 4
+    },
+    {
+      "attempted": 1762,
+      "campaign": "inference_engine_opset12_completion_aware_v5",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 572,
+      "export_success": 1190,
+      "failed_records": 581,
+      "failure_onnx_export": 572,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 5,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "B",
+      "timeout_or_skipped": 0,
+      "unexpected_results": 0,
+      "unity_failure": 5,
+      "unity_success": 1181,
+      "valid_completed_benchmark_rate": 0.6702610669693531,
+      "valid_completed_benchmarks": 1181,
+      "validation_failure": 4,
+      "version": 5
+    },
+    {
+      "attempted": 1762,
+      "campaign": "inference_engine_opset12_completion_aware_v6",
+      "cleanup_failure": 0,
+      "cleanup_success": 1762,
+      "corrupt_or_incomplete_files": 0,
+      "duplicate_results": 0,
+      "export_failure": 572,
+      "export_success": 1190,
+      "failed_records": 581,
+      "failure_onnx_export": 572,
+      "failure_onnx_validation": 4,
+      "failure_runtime_load_execution": 5,
+      "intended_population": 1762,
+      "missing_results": 0,
+      "records": 1762,
+      "runtime": "B",
+      "timeout_or_skipped": 0,
+      "unexpected_results": 0,
+      "unity_failure": 5,
+      "unity_success": 1181,
+      "valid_completed_benchmark_rate": 0.6702610669693531,
+      "valid_completed_benchmarks": 1181,
+      "validation_failure": 4,
+      "version": 6
+    }
+  ],
+  "canonical_criterion": "valid completed benchmark in all six campaigns",
+  "compatibility": {
+    "A": {
+      "campaigns_complete": 6,
+      "per_campaign_success": [
+        1074,
+        1071,
+        1070,
+        1068,
+        1068,
+        1067
+      ],
+      "population": 1762,
+      "stable_rate": 0.6055618615209989,
+      "stable_success": 1067
+    },
+    "B": {
+      "campaigns_complete": 6,
+      "per_campaign_success": [
+        1180,
+        1179,
+        1181,
+        1180,
+        1181,
+        1181
+      ],
+      "population": 1762,
+      "stable_rate": 0.6679909194097616,
+      "stable_success": 1177
+    }
+  },
+  "complexity_correlations": [
+    {
+      "backend": "cpu",
+      "feature": "flops",
+      "method": "Spearman rank correlation",
+      "n": 1068,
+      "p_value": 5.437799704846176e-116,
+      "rho": 0.6233114716779099,
+      "runtime": "A"
+    },
+    {
+      "backend": "cpu",
+      "feature": "total_params",
+      "method": "Spearman rank correlation",
+      "n": 1068,
+      "p_value": 1.7279532851385654e-125,
+      "rho": 0.6427019544156384,
+      "runtime": "A"
+    },
+    {
+      "backend": "cpu",
+      "feature": "total_layers",
+      "method": "Spearman rank correlation",
+      "n": 1068,
+      "p_value": 3.3557127801272565e-120,
+      "rho": 0.6320770146679466,
+      "runtime": "A"
+    },
+    {
+      "backend": "gpu",
+      "feature": "flops",
+      "method": "Spearman rank correlation",
+      "n": 1068,
+      "p_value": 4.180356408185585e-143,
+      "rho": 0.6752968286945356,
+      "runtime": "A"
+    },
+    {
+      "backend": "gpu",
+      "feature": "total_params",
+      "method": "Spearman rank correlation",
+      "n": 1068,
+      "p_value": 2.149087074651359e-224,
+      "rho": 0.785499009400061,
+      "runtime": "A"
+    },
+    {
+      "backend": "gpu",
+      "feature": "total_layers",
+      "method": "Spearman rank correlation",
+      "n": 1068,
+      "p_value": 6.046418416175328e-252,
+      "rho": 0.8123810177217183,
+      "runtime": "A"
+    },
+    {
+      "backend": "cpu",
+      "feature": "flops",
+      "method": "Spearman rank correlation",
+      "n": 1172,
+      "p_value": 5.200581764722139e-280,
+      "rho": 0.8153874689904852,
+      "runtime": "B"
+    },
+    {
+      "backend": "cpu",
+      "feature": "total_params",
+      "method": "Spearman rank correlation",
+      "n": 1172,
+      "p_value": 0.0,
+      "rho": 0.9061828858738565,
+      "runtime": "B"
+    },
+    {
+      "backend": "cpu",
+      "feature": "total_layers",
+      "method": "Spearman rank correlation",
+      "n": 1172,
+      "p_value": 0.0,
+      "rho": 0.8635808009479706,
+      "runtime": "B"
+    },
+    {
+      "backend": "gpu",
+      "feature": "flops",
+      "method": "Spearman rank correlation",
+      "n": 1172,
+      "p_value": 4.169293828258054e-174,
+      "rho": 0.7011871829834194,
+      "runtime": "B"
+    },
+    {
+      "backend": "gpu",
+      "feature": "total_params",
+      "method": "Spearman rank correlation",
+      "n": 1172,
+      "p_value": 4.461003444483449e-248,
+      "rho": 0.7873963287386384,
+      "runtime": "B"
+    },
+    {
+      "backend": "gpu",
+      "feature": "total_layers",
+      "method": "Spearman rank correlation",
+      "n": 1172,
+      "p_value": 4.7179812598624457e-212,
+      "rho": 0.7497598723035582,
+      "runtime": "B"
+    }
+  ],
+  "cpu_gpu_architecture": [
+    {
+      "flag": "has_attention",
+      "gpu_faster_count": 1,
+      "gpu_faster_rate": 0.5,
+      "label": "Attention",
+      "median_gpu_over_cpu_ratio": 2.3522299511148477,
+      "n": 2,
+      "runtime": "A"
+    },
+    {
+      "flag": "is_transformer_like",
+      "gpu_faster_count": 50,
+      "gpu_faster_rate": 0.6756756756756757,
+      "label": "Transformer-like",
+      "median_gpu_over_cpu_ratio": 0.8144674446253037,
+      "n": 74,
+      "runtime": "A"
+    },
+    {
+      "flag": "has_residual_connections",
+      "gpu_faster_count": 53,
+      "gpu_faster_rate": 0.7361111111111112,
+      "label": "Residual connections",
+      "median_gpu_over_cpu_ratio": 0.670656317911923,
+      "n": 72,
+      "runtime": "A"
+    },
+    {
+      "flag": "is_resnet_like",
+      "gpu_faster_count": 217,
+      "gpu_faster_rate": 0.5592783505154639,
+      "label": "ResNet-like",
+      "median_gpu_over_cpu_ratio": 0.8984186209487244,
+      "n": 388,
+      "runtime": "A"
+    },
+    {
+      "flag": "is_vgg_like",
+      "gpu_faster_count": 6,
+      "gpu_faster_rate": 0.6,
+      "label": "VGG-like",
+      "median_gpu_over_cpu_ratio": 0.47589469943586815,
+      "n": 10,
+      "runtime": "A"
+    },
+    {
+      "flag": "is_mobilenet_like",
+      "gpu_faster_count": 37,
+      "gpu_faster_rate": 0.6166666666666667,
+      "label": "MobileNet-like",
+      "median_gpu_over_cpu_ratio": 0.7882955243299113,
+      "n": 60,
+      "runtime": "A"
+    },
+    {
+      "flag": "has_attention",
+      "gpu_faster_count": 0,
+      "gpu_faster_rate": 0.0,
+      "label": "Attention",
+      "median_gpu_over_cpu_ratio": 13.201815760975368,
+      "n": 2,
+      "runtime": "B"
+    },
+    {
+      "flag": "is_transformer_like",
+      "gpu_faster_count": 4,
+      "gpu_faster_rate": 0.03333333333333333,
+      "label": "Transformer-like",
+      "median_gpu_over_cpu_ratio": 10.196445657830948,
+      "n": 120,
+      "runtime": "B"
+    },
+    {
+      "flag": "has_residual_connections",
+      "gpu_faster_count": 7,
+      "gpu_faster_rate": 0.06862745098039216,
+      "label": "Residual connections",
+      "median_gpu_over_cpu_ratio": 8.696252169581586,
+      "n": 102,
+      "runtime": "B"
+    },
+    {
+      "flag": "is_resnet_like",
+      "gpu_faster_count": 36,
+      "gpu_faster_rate": 0.08823529411764706,
+      "label": "ResNet-like",
+      "median_gpu_over_cpu_ratio": 2.6804310263817954,
+      "n": 408,
+      "runtime": "B"
+    },
+    {
+      "flag": "is_vgg_like",
+      "gpu_faster_count": 0,
+      "gpu_faster_rate": 0.0,
+      "label": "VGG-like",
+      "median_gpu_over_cpu_ratio": 6.0777436598341605,
+      "n": 16,
+      "runtime": "B"
+    },
+    {
+      "flag": "is_mobilenet_like",
+      "gpu_faster_count": 3,
+      "gpu_faster_rate": 0.0410958904109589,
+      "label": "MobileNet-like",
+      "median_gpu_over_cpu_ratio": 13.189394352309268,
+      "n": 73,
+      "runtime": "B"
+    }
+  ],
+  "cpu_gpu_behavior": {
+    "A": {
+      "approximately_unchanged_within_5_percent_count": 62,
+      "cpu_faster_count": 452,
+      "gpu_faster_count": 622,
+      "gpu_over_cpu_ratio": {
+        "iqr": 0.928266422414126,
+        "max": 6.34643077725516,
+        "mean": 0.9988244640678607,
+        "median": 0.8554803099085407,
+        "min": 0.0023483085444209657,
+        "n": 1074,
+        "p25": 0.3377651619389791,
+        "p5": 0.08889486662758536,
+        "p75": 1.2660315843531051,
+        "p95": 2.99417364379065,
+        "std": 0.8788462967747109
+      },
+      "n": 1074
+    },
+    "B": {
+      "approximately_unchanged_within_5_percent_count": 12,
+      "cpu_faster_count": 1096,
+      "gpu_faster_count": 85,
+      "gpu_over_cpu_ratio": {
+        "iqr": 13.153142134155729,
+        "max": 71.70913142161204,
+        "mean": 9.943195957629456,
+        "median": 3.5754778381024424,
+        "min": 0.051934084017160494,
+        "n": 1181,
+        "p25": 2.628533516920158,
+        "p5": 0.7531684968003785,
+        "p75": 15.781675651075886,
+        "p95": 33.29216788013083,
+        "std": 11.061835179515542
+      },
+      "n": 1181
+    }
+  },
+  "cpu_gpu_complexity_correlations": [
+    {
+      "feature": "flops",
+      "method": "Spearman rank correlation",
+      "n": 1068,
+      "p_value": 2.6152500637383154e-06,
+      "rho_gpu_over_cpu": -0.143210949941411,
+      "runtime": "A"
+    },
+    {
+      "feature": "total_params",
+      "method": "Spearman rank correlation",
+      "n": 1068,
+      "p_value": 0.0027250144475077626,
+      "rho_gpu_over_cpu": -0.09162614029528929,
+      "runtime": "A"
+    },
+    {
+      "feature": "total_layers",
+      "method": "Spearman rank correlation",
+      "n": 1068,
+      "p_value": 0.08322831185986157,
+      "rho_gpu_over_cpu": -0.05303091879643946,
+      "runtime": "A"
+    },
+    {
+      "feature": "flops",
+      "method": "Spearman rank correlation",
+      "n": 1172,
+      "p_value": 2.4077712331145413e-110,
+      "rho_gpu_over_cpu": -0.5889352319006335,
+      "runtime": "B"
+    },
+    {
+      "feature": "total_params",
+      "method": "Spearman rank correlation",
+      "n": 1172,
+      "p_value": 9.882805828675462e-131,
+      "rho_gpu_over_cpu": -0.6301894622299775,
+      "runtime": "B"
+    },
+    {
+      "feature": "total_layers",
+      "method": "Spearman rank correlation",
+      "n": 1172,
+      "p_value": 4.616407134238334e-128,
+      "rho_gpu_over_cpu": -0.6251235804191135,
+      "runtime": "B"
+    }
+  ],
+  "environment": {
+    "A": {
+      "completion_operations": {
+        "Tensor.ToReadOnlyArray()": 12836
+      },
+      "environment_mismatch_valid_records": [],
+      "expected": {
+        "backend_cpu": "CSharpBurst",
+        "backend_gpu": "ComputePrecompiled",
+        "gpu_api": "Vulkan",
+        "timing_protocol": "completion_aware_v1",
+        "unity_version": "2022.3.62f3"
+      },
+      "iteration_counts": {
+        "20": 12836
+      },
+      "observed": {
+        "backend_cpu": {
+          "CSharpBurst": 6418
+        },
+        "backend_gpu": {
+          "ComputePrecompiled": 6418
+        },
+        "gpu_api": {
+          "Vulkan": 6418
+        },
+        "gpu_name": {
+          "NVIDIA GeForce RTX 4090": 6418
+        },
+        "timing_protocol": {
+          "completion_aware_v1": 6418
+        },
+        "unity_version": {
+          "2022.3.62f3": 6418
+        }
+      },
+      "record_environment_expectations": {
+        "barracuda_version_expected": {
+          "3.0.2": 10572
+        },
+        "cpu_backend_expected": {
+          "CSharpBurst": 10572
+        },
+        "gpu_backend_expected": {
+          "ComputePrecompiled": 10572
+        },
+        "unity_version_expected": {
+          "2022.3.62f3": 10572
+        }
+      },
+      "warmup_counts": {
+        "5": 12836
+      }
+    },
+    "B": {
+      "completion_operations": {
+        "Tensor<float>.DownloadToArray()": 14164
+      },
+      "environment_mismatch_valid_records": [],
+      "expected": {
+        "backend_cpu": "CPU",
+        "backend_gpu": "GPUCompute",
+        "gpu_api": "Vulkan",
+        "inference_engine_package": "com.unity.ai.inference@2.6.1",
+        "runtime": "Unity Inference Engine",
+        "timing_protocol": "completion_aware_inference_engine_v1",
+        "unity_version": "6000.6.5f1"
+      },
+      "iteration_counts": {
+        "20": 14164
+      },
+      "observed": {
+        "backend_cpu": {
+          "CPU": 7082
+        },
+        "backend_gpu": {
+          "GPUCompute": 7082
+        },
+        "gpu_api": {
+          "Vulkan": 7082
+        },
+        "gpu_name": {
+          "NVIDIA GeForce RTX 4090": 7082
+        },
+        "inference_engine_package": {
+          "com.unity.ai.inference@2.6.1": 7082
+        },
+        "runtime": {
+          "Unity Inference Engine": 7082
+        },
+        "timing_protocol": {
+          "completion_aware_inference_engine_v1": 7082
+        },
+        "unity_version": {
+          "6000.6.5f1": 7082
+        }
+      },
+      "record_environment_expectations": {
+        "cpu_backend_expected": {
+          "CPU": 10572
+        },
+        "gpu_backend_expected": {
+          "GPUCompute": 10572
+        },
+        "inference_engine_package_expected": {
+          "com.unity.ai.inference@2.6.1": 10572
+        },
+        "runtime_expected": {
+          "Unity Inference Engine": 10572
+        },
+        "unity_version_expected": {
+          "6000.6.5f1": 10572
+        }
+      },
+      "warmup_counts": {
+        "5": 14164
+      }
+    }
+  },
+  "export_contract": {
+    "byte_identical_artifacts_available": false,
+    "campaign_audit_file": "export_contract_audit.csv",
+    "required": "torch.onnx.export(dynamo=False), main opset 12, IR 7",
+    "statement": "Experiment A low-storage cleanup removed transient ONNX artifacts. B re-exported deterministically under the same recorded contract; byte identity cannot be verified."
+  },
+  "failure_categories": [
+    {
+      "category": "ONNX export",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 1
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 1
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 106,
+      "runtime": "A",
+      "version": 1
+    },
+    {
+      "category": "Timeout",
+      "record_failures": 11,
+      "runtime": "A",
+      "version": 1
+    },
+    {
+      "category": "ONNX export",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 2
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 2
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 106,
+      "runtime": "A",
+      "version": 2
+    },
+    {
+      "category": "Timeout",
+      "record_failures": 14,
+      "runtime": "A",
+      "version": 2
+    },
+    {
+      "category": "ONNX export",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 3
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 3
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 106,
+      "runtime": "A",
+      "version": 3
+    },
+    {
+      "category": "Timeout",
+      "record_failures": 15,
+      "runtime": "A",
+      "version": 3
+    },
+    {
+      "category": "ONNX export",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 4
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 4
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 106,
+      "runtime": "A",
+      "version": 4
+    },
+    {
+      "category": "Timeout",
+      "record_failures": 17,
+      "runtime": "A",
+      "version": 4
+    },
+    {
+      "category": "ONNX export",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 5
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 5
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 105,
+      "runtime": "A",
+      "version": 5
+    },
+    {
+      "category": "Timeout",
+      "record_failures": 18,
+      "runtime": "A",
+      "version": 5
+    },
+    {
+      "category": "ONNX export",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 6
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 6
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 105,
+      "runtime": "A",
+      "version": 6
+    },
+    {
+      "category": "Timeout",
+      "record_failures": 19,
+      "runtime": "A",
+      "version": 6
+    },
+    {
+      "category": "ONNX export",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 1
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 1
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 6,
+      "runtime": "B",
+      "version": 1
+    },
+    {
+      "category": "ONNX export",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 2
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 2
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 7,
+      "runtime": "B",
+      "version": 2
+    },
+    {
+      "category": "ONNX export",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 3
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 3
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 5,
+      "runtime": "B",
+      "version": 3
+    },
+    {
+      "category": "ONNX export",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 4
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 4
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 6,
+      "runtime": "B",
+      "version": 4
+    },
+    {
+      "category": "ONNX export",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 5
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 5
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 5,
+      "runtime": "B",
+      "version": 5
+    },
+    {
+      "category": "ONNX export",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 6
+    },
+    {
+      "category": "ONNX validation",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 6
+    },
+    {
+      "category": "Runtime load/execution",
+      "record_failures": 5,
+      "runtime": "B",
+      "version": 6
+    }
+  ],
+  "failure_messages": [
+    {
+      "observed_error_label": "ArgumentException",
+      "record_failures": 2,
+      "runtime": "A",
+      "version": 1
+    },
+    {
+      "observed_error_label": "AssertionException",
+      "record_failures": 14,
+      "runtime": "A",
+      "version": 1
+    },
+    {
+      "observed_error_label": "Benchmark timeout",
+      "record_failures": 11,
+      "runtime": "A",
+      "version": 1
+    },
+    {
+      "observed_error_label": "No imported NNModel asset",
+      "record_failures": 82,
+      "runtime": "A",
+      "version": 1
+    },
+    {
+      "observed_error_label": "NotImplementedException",
+      "record_failures": 8,
+      "runtime": "A",
+      "version": 1
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 1
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 1
+    },
+    {
+      "observed_error_label": "ArgumentException",
+      "record_failures": 2,
+      "runtime": "A",
+      "version": 2
+    },
+    {
+      "observed_error_label": "AssertionException",
+      "record_failures": 14,
+      "runtime": "A",
+      "version": 2
+    },
+    {
+      "observed_error_label": "Benchmark timeout",
+      "record_failures": 14,
+      "runtime": "A",
+      "version": 2
+    },
+    {
+      "observed_error_label": "No imported NNModel asset",
+      "record_failures": 82,
+      "runtime": "A",
+      "version": 2
+    },
+    {
+      "observed_error_label": "NotImplementedException",
+      "record_failures": 8,
+      "runtime": "A",
+      "version": 2
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 2
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 2
+    },
+    {
+      "observed_error_label": "ArgumentException",
+      "record_failures": 2,
+      "runtime": "A",
+      "version": 3
+    },
+    {
+      "observed_error_label": "AssertionException",
+      "record_failures": 14,
+      "runtime": "A",
+      "version": 3
+    },
+    {
+      "observed_error_label": "Benchmark timeout",
+      "record_failures": 15,
+      "runtime": "A",
+      "version": 3
+    },
+    {
+      "observed_error_label": "No imported NNModel asset",
+      "record_failures": 82,
+      "runtime": "A",
+      "version": 3
+    },
+    {
+      "observed_error_label": "NotImplementedException",
+      "record_failures": 8,
+      "runtime": "A",
+      "version": 3
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 3
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 3
+    },
+    {
+      "observed_error_label": "ArgumentException",
+      "record_failures": 2,
+      "runtime": "A",
+      "version": 4
+    },
+    {
+      "observed_error_label": "AssertionException",
+      "record_failures": 14,
+      "runtime": "A",
+      "version": 4
+    },
+    {
+      "observed_error_label": "Benchmark timeout",
+      "record_failures": 17,
+      "runtime": "A",
+      "version": 4
+    },
+    {
+      "observed_error_label": "No imported NNModel asset",
+      "record_failures": 82,
+      "runtime": "A",
+      "version": 4
+    },
+    {
+      "observed_error_label": "NotImplementedException",
+      "record_failures": 8,
+      "runtime": "A",
+      "version": 4
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 4
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 4
+    },
+    {
+      "observed_error_label": "ArgumentException",
+      "record_failures": 2,
+      "runtime": "A",
+      "version": 5
+    },
+    {
+      "observed_error_label": "AssertionException",
+      "record_failures": 14,
+      "runtime": "A",
+      "version": 5
+    },
+    {
+      "observed_error_label": "Benchmark timeout",
+      "record_failures": 18,
+      "runtime": "A",
+      "version": 5
+    },
+    {
+      "observed_error_label": "No imported NNModel asset",
+      "record_failures": 82,
+      "runtime": "A",
+      "version": 5
+    },
+    {
+      "observed_error_label": "NotImplementedException",
+      "record_failures": 7,
+      "runtime": "A",
+      "version": 5
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 5
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 5
+    },
+    {
+      "observed_error_label": "ArgumentException",
+      "record_failures": 2,
+      "runtime": "A",
+      "version": 6
+    },
+    {
+      "observed_error_label": "AssertionException",
+      "record_failures": 14,
+      "runtime": "A",
+      "version": 6
+    },
+    {
+      "observed_error_label": "Benchmark timeout",
+      "record_failures": 19,
+      "runtime": "A",
+      "version": 6
+    },
+    {
+      "observed_error_label": "No imported NNModel asset",
+      "record_failures": 82,
+      "runtime": "A",
+      "version": 6
+    },
+    {
+      "observed_error_label": "NotImplementedException",
+      "record_failures": 7,
+      "runtime": "A",
+      "version": 6
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 567,
+      "runtime": "A",
+      "version": 6
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "A",
+      "version": 6
+    },
+    {
+      "observed_error_label": "No imported ModelAsset",
+      "record_failures": 5,
+      "runtime": "B",
+      "version": 1
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 1
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 1
+    },
+    {
+      "observed_error_label": "Unity 6 process exit code 1",
+      "record_failures": 1,
+      "runtime": "B",
+      "version": 1
+    },
+    {
+      "observed_error_label": "No imported ModelAsset",
+      "record_failures": 5,
+      "runtime": "B",
+      "version": 2
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 2
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 2
+    },
+    {
+      "observed_error_label": "Unity 6 process exit code 1",
+      "record_failures": 2,
+      "runtime": "B",
+      "version": 2
+    },
+    {
+      "observed_error_label": "No imported ModelAsset",
+      "record_failures": 5,
+      "runtime": "B",
+      "version": 3
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 3
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 3
+    },
+    {
+      "observed_error_label": "No imported ModelAsset",
+      "record_failures": 5,
+      "runtime": "B",
+      "version": 4
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 4
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 4
+    },
+    {
+      "observed_error_label": "Unity 6 process exit code 1",
+      "record_failures": 1,
+      "runtime": "B",
+      "version": 4
+    },
+    {
+      "observed_error_label": "No imported ModelAsset",
+      "record_failures": 5,
+      "runtime": "B",
+      "version": 5
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 5
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 5
+    },
+    {
+      "observed_error_label": "No imported ModelAsset",
+      "record_failures": 5,
+      "runtime": "B",
+      "version": 6
+    },
+    {
+      "observed_error_label": "ONNX export failure",
+      "record_failures": 572,
+      "runtime": "B",
+      "version": 6
+    },
+    {
+      "observed_error_label": "ONNX validation failure",
+      "record_failures": 4,
+      "runtime": "B",
+      "version": 6
+    }
+  ],
+  "manifest_population_identical": true,
+  "numerical_correctness": {
+    "statement": "The raw records contain ONNX accuracy validation but no Unity-output numerical parity test against PyTorch, ONNX Runtime, or another trusted reference.",
+    "unity_parity_test_found": false
+  },
+  "paired_latency": {
+    "cpu": {
+      "a_distribution_ms": {
+        "iqr": 8.726764758427937,
+        "max": 1056.42431640625,
+        "mean": 16.05273139470222,
+        "median": 5.470723191897075,
+        "min": 0.619134803613027,
+        "n": 1061,
+        "p25": 2.6112705071767173,
+        "p5": 0.749628742535909,
+        "p75": 11.338035265604654,
+        "p95": 26.98089536031087,
+        "std": 64.9678228286825
+      },
+      "b_distribution_ms": {
+        "iqr": 3.1009400000000005,
+        "max": 112.7447425,
+        "mean": 2.589979089695256,
+        "median": 0.4780383333333334,
+        "min": 0.04408583333333334,
+        "n": 1061,
+        "p25": 0.12925333333333333,
+        "p5": 0.07277166666666667,
+        "p75": 3.2301933333333337,
+        "p95": 5.443405833333333,
+        "std": 7.872148906254969
+      },
+      "difference_b_minus_a_ms": {
+        "iqr": 5.455837582473755,
+        "max": -0.2386406180381775,
+        "mean": -13.462752305006964,
+        "median": -4.832524188550313,
+        "min": -947.4184396484375,
+        "n": 1061,
+        "p25": -7.724878494466147,
+        "p5": -25.316213768463136,
+        "p75": -2.269040911992391,
+        "p95": -0.6439626873588562,
+        "std": 58.94006738240419
+      },
+      "faster_b_count": 1061,
+      "faster_b_fraction": 1.0,
+      "ratio_b_over_a": {
+        "iqr": 0.37797768602324816,
+        "max": 0.963411049625586,
+        "mean": 0.1923595950315961,
+        "median": 0.07823162800035334,
+        "min": 0.0004837696976071071,
+        "n": 1061,
+        "p25": 0.043607846470538,
+        "p5": 0.02453443725012397,
+        "p75": 0.42158553249378616,
+        "p95": 0.5087245920539394,
+        "std": 0.1920679709285688
+      },
+      "slower_b_count": 0,
+      "test": {
+        "median_difference_b_minus_a_ms": -4.832524188550313,
+        "method": "Wilcoxon signed-rank, two-sided, zero differences omitted",
+        "n": 1061,
+        "p_value": 3.754886588745924e-175,
+        "rank_biserial_b_minus_a": -1.0,
+        "statistic": 0.0
+      },
+      "unchanged_within_5_percent_count": 2
+    },
+    "gpu": {
+      "a_distribution_ms": {
+        "iqr": 4.43328857421875,
+        "max": 19.49126084645589,
+        "mean": 5.122803716704675,
+        "median": 2.9732850790023804,
+        "min": 0.10077357292175293,
+        "n": 1061,
+        "p25": 2.3658148447672525,
+        "p5": 0.709139327208201,
+        "p75": 6.799103418986003,
+        "p95": 13.09876569112142,
+        "std": 4.072213816978444
+      },
+      "b_distribution_ms": {
+        "iqr": 4.42132,
+        "max": 25.394084166666666,
+        "mean": 5.007895255262332,
+        "median": 2.8315083333333333,
+        "min": 0.07499583333333334,
+        "n": 1061,
+        "p25": 2.1459825,
+        "p5": 0.24369500000000002,
+        "p75": 6.5673025,
+        "p95": 13.097036666666666,
+        "std": 4.402298662688182
+      },
+      "difference_b_minus_a_ms": {
+        "iqr": 1.127963772417703,
+        "max": 9.057176313095093,
+        "mean": -0.11490846144234403,
+        "median": -0.09440464787801117,
+        "min": -11.645480423583983,
+        "n": 1061,
+        "p25": -0.859701104367574,
+        "p5": -3.1906335802968346,
+        "p75": 0.268262668050129,
+        "p95": 3.9124525563748676,
+        "std": 2.1097604233566116
+      },
+      "faster_b_count": 604,
+      "faster_b_fraction": 0.5692742695570217,
+      "ratio_b_over_a": {
+        "iqr": 0.3313771401109109,
+        "max": 40.011002386482915,
+        "mean": 1.4023218240022004,
+        "median": 0.9823430670797145,
+        "min": 0.02808775956322584,
+        "n": 1061,
+        "p25": 0.7451381579199492,
+        "p5": 0.09528507384513708,
+        "p75": 1.07651529803086,
+        "p95": 3.5700744614709548,
+        "std": 2.6655426044728556
+      },
+      "slower_b_count": 457,
+      "test": {
+        "median_difference_b_minus_a_ms": -0.09440464787801117,
+        "method": "Wilcoxon signed-rank, two-sided, zero differences omitted",
+        "n": 1061,
+        "p_value": 4.486913347549354e-06,
+        "rank_biserial_b_minus_a": -0.16258513181786716,
+        "statistic": 235896.0
+      },
+      "unchanged_within_5_percent_count": 327
+    },
+    "shared_success_n": 1061
+  },
+  "population": 1762,
+  "post_export_runtime_transitions": {
+    "a_strict_export_eligible": 1191,
+    "b_strict_export_eligible": 1186,
+    "counts": {
+      "FAIL -> FAIL": 6,
+      "FAIL -> PASS": 116,
+      "PASS -> FAIL": 3,
+      "PASS -> PASS": 1061
+    },
+    "criterion": "all-six export and ONNX validation success in both runtimes; then all-six completed Unity benchmark pass",
+    "mcnemar": {
+      "chi_square_continuity_corrected": 105.41176470588235,
+      "discordant_pairs": 119,
+      "fail_to_pass": 116,
+      "method": "exact binomial McNemar",
+      "p_value": 8.454832455859965e-31,
+      "pass_to_fail": 3
+    },
+    "net_gain": 113,
+    "shared_strict_export_eligible": 1186
+  },
+  "record_audit": {
+    "A": {
+      "cleanup_success": 10572,
+      "corrupt_files": 0,
+      "duplicate_results": 0,
+      "records": 10572,
+      "valid_records": 6418,
+      "valid_timing_invariant_violations": 0
+    },
+    "B": {
+      "cleanup_success": 10572,
+      "corrupt_files": 0,
+      "duplicate_results": 0,
+      "records": 10572,
+      "valid_records": 7082,
+      "valid_timing_invariant_violations": 0
+    }
+  },
+  "reproducibility": {
+    "A": {
+      "cpu_cv": {
+        "iqr": 0.3632028198605233,
+        "max": 1.2790265135045138,
+        "mean": 0.24679209794022788,
+        "median": 0.12578321433007325,
+        "min": 0.0012938798513681066,
+        "n": 1071,
+        "p25": 0.02286586455962171,
+        "p5": 0.008777409972879622,
+        "p75": 0.38606868442014497,
+        "p95": 0.880788986461612,
+        "std": 0.2871377289626053
+      },
+      "gpu_cv": {
+        "iqr": 0.31381252613236044,
+        "max": 1.9616307662597507,
+        "mean": 0.21311843380218587,
+        "median": 0.09793728668002431,
+        "min": 0.00022529412110422955,
+        "n": 1071,
+        "p25": 0.015395534390416188,
+        "p5": 0.0015110708624850233,
+        "p75": 0.3292080605227766,
+        "p95": 0.7750666947928053,
+        "std": 0.2819295507270954
+      },
+      "models_with_identical_cpu_sample_vectors_across_all_valid_runs": 0,
+      "models_with_identical_gpu_sample_vectors_across_all_valid_runs": 0,
+      "success_runs_histogram": {
+        "0": 688,
+        "1": 3,
+        "2": 1,
+        "3": 2,
+        "4": 0,
+        "5": 1,
+        "6": 1067
+      }
+    },
+    "B": {
+      "cpu_cv": {
+        "iqr": 0.02734841977271445,
+        "max": 0.6492108896779916,
+        "mean": 0.06022040323814832,
+        "median": 0.024848542820766747,
+        "min": 0.0023454998080729133,
+        "n": 1181,
+        "p25": 0.016126691820261715,
+        "p5": 0.008681467839379571,
+        "p75": 0.043475111592976165,
+        "p95": 0.29560235170283045,
+        "std": 0.09551922119964322
+      },
+      "gpu_cv": {
+        "iqr": 0.14017873990706212,
+        "max": 1.4494036580277865,
+        "mean": 0.12321626840896618,
+        "median": 0.04404944378492772,
+        "min": 0.00026326563438990285,
+        "n": 1181,
+        "p25": 0.001880057947597013,
+        "p5": 0.0006779126573591051,
+        "p75": 0.14205879785465914,
+        "p95": 0.5414482489920283,
+        "std": 0.21535230753268722
+      },
+      "models_with_identical_cpu_sample_vectors_across_all_valid_runs": 0,
+      "models_with_identical_gpu_sample_vectors_across_all_valid_runs": 0,
+      "success_runs_histogram": {
+        "0": 581,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 4,
+        "6": 1177
+      }
+    }
+  },
+  "source_roots": {
+    "architecture_metadata": "nn-vr/nn-dataset/ab/nn/stat/nn",
+    "experiment_a": "nn-vr/out/nn/stat",
+    "experiment_b": "nn-vr-experiment-b/out/nn/stat"
+  },
+  "transitions": {
+    "absolute_change_percentage_points": 6.242905788876277,
+    "counts": {
+      "FAIL -> FAIL": 579,
+      "FAIL -> PASS": 116,
+      "PASS -> FAIL": 6,
+      "PASS -> PASS": 1061
+    },
+    "mcnemar": {
+      "chi_square_continuity_corrected": 97.38524590163935,
+      "discordant_pairs": 122,
+      "fail_to_pass": 116,
+      "method": "exact binomial McNemar",
+      "p_value": 1.6018659814207945e-27,
+      "pass_to_fail": 6
+    },
+    "net_gain": 110,
+    "population": 1762
+  }
+}

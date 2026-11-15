@@ -1,0 +1,165 @@
+% Locally owned figures. Displayed values are transcribed from retained audited artifacts.
+\newcommand{\StudyBoundaryFigure}{%
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[font=\footnotesize,>=Latex,
+  stage/.style={draw,rounded corners=2pt,align=center,minimum height=8.5mm,minimum width=21mm,inner sep=2.5pt},
+  hist/.style={stage,fill=nnorange!14,draw=nnorange},
+  final/.style={stage,fill=nnblue!10,draw=nnblue},
+  modern/.style={stage,fill=nngreen!12,draw=nngreen}]
+  \node[font=\small\bfseries] at (0,1.45) {Historical Barracuda};
+  \node[hist] (h1) at (-2.3,.62) {\texttt{Execute()}};
+  \node[hist] (h2) at (0,.62) {\texttt{PeekOutput()}\\non-blocking};
+  \node[hist] (h3) at (2.3,.62) {timer stop};
+  \draw[->,thick] (h1)--(h2); \draw[->,thick] (h2)--(h3);
+  \node[align=center,text=nnorange!80!black] at (0,-.35) {non-blocking timing window;\\requested output not materialized};
+
+  \node[font=\small\bfseries] at (0,-1.72) {Experiment \A: completion-aware Barracuda};
+  \node[final] (a1) at (-3.55,-2.55) {\texttt{Execute()}};
+  \node[final] (a2) at (-1.18,-2.55) {\texttt{PeekOutput()}};
+  \node[final] (a3) at (1.18,-2.55) {\texttt{ToReadOnlyArray()}};
+  \node[final] (a4) at (3.55,-2.55) {timer stop};
+  \draw[->,thick] (a1)--(a2); \draw[->,thick] (a2)--(a3); \draw[->,thick] (a3)--(a4);
+
+  \node[font=\small\bfseries] at (11.1,1.45) {Experiment \B: completion-aware Sentis 2.6.1};
+  \node[modern] (b1) at (7.55,.62) {\texttt{Schedule()}};
+  \node[modern] (b2) at (9.92,.62) {\texttt{PeekOutput()}};
+  \node[modern] (b3) at (12.28,.62) {\texttt{DownloadToArray()}};
+  \node[modern] (b4) at (14.65,.62) {timer stop};
+  \draw[->,thick] (b1)--(b2); \draw[->,thick] (b2)--(b3); \draw[->,thick] (b3)--(b4);
+  \node[align=center,text=nngreen!60!black] at (11.1,-.35) {requested host output materialized\\before timing ends};
+\end{tikzpicture}
+}
+\caption{Audited timing semantics. The historical timer ended after non-blocking output access, whereas both final experiments materialize requested host output before stopping the timer. The final endpoint is completion-aware runtime observation, not isolated kernel or application-frame latency.}
+\label{fig:boundary}
+\end{figure*}}
+
+\newcommand{\PopulationFigure}{%
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[font=\footnotesize,>=Latex,node distance=7mm,box/.style={draw,rounded corners=2pt,align=center,minimum width=35mm,minimum height=8mm,inner sep=3pt}]
+ \node[box,fill=nnslate!10,draw=nnslate] (p1) {P1: original manifest\\\textbf{$n=1{,}762$}\\full-pipeline compatibility};
+ \node[box,fill=nnblue!10,draw=nnblue,below=of p1] (p2) {P2: common retained post-export eligibility\\\textbf{$n=1{,}186$}\\runtime-specific compatibility};
+ \node[box,fill=nngreen!12,draw=nngreen,below=of p2] (p3) {P3: shared strict successes\\\textbf{$n=1{,}061$}\\paired CPU/GPU timing};
+ \node[box,fill=nnorange!13,draw=nnorange,below=of p3] (p4) {P4: exact PT/A/B matches\\\textbf{$n=1{,}057$}\\secondary contextual analysis};
+ \draw[->] (p1)--(p2); \draw[->] (p2)--(p3); \draw[->,dashed] (p3)--(p4);
+\end{tikzpicture}
+\caption{Analysis populations. Each population answers a different question. P4 is secondary, same-host contextual evidence and is not a primary research-question population.}
+\label{fig:populations}
+\end{figure}}
+
+\newcommand{\TransitionFigure}{%
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[font=\footnotesize,
+  cell/.style={draw,minimum width=25mm,minimum height=10mm,align=center},
+  header/.style={font=\small\bfseries}]
+  \begin{scope}[shift={(0,0)}]
+    \node[header] at (2.75,2.55) {P1: full pipeline ($n=1{,}762$)};
+    \node[header] at (2.05,2.02) {Sentis PASS};
+    \node[header] at (4.75,2.02) {Sentis FAIL};
+    \node[header,anchor=east,align=right] at (.62,1.20) {Barracuda\\PASS};
+    \node[header,anchor=east,align=right] at (.62,-.13) {Barracuda\\FAIL};
+    \node[cell,fill=nngreen!15] at (2.05,1.20) {PASS $\rightarrow$ PASS\\1,061};
+    \node[cell,fill=nnorange!14] at (4.75,1.20) {PASS $\rightarrow$ FAIL\\6};
+    \node[cell,fill=nnblue!12] at (2.05,-.13) {FAIL $\rightarrow$ PASS\\116};
+    \node[cell,fill=nnred!12] at (4.75,-.13) {FAIL $\rightarrow$ FAIL\\579};
+    \node[align=center] at (3.4,-1.32) {60.56\% $\rightarrow$ 66.80\%\\+6.24 pp};
+  \end{scope}
+  \begin{scope}[shift={(8.9,0)}]
+    \node[header] at (2.75,2.55) {P2: common post-export eligibility ($n=1{,}186$)};
+    \node[header] at (2.05,2.02) {Sentis PASS};
+    \node[header] at (4.75,2.02) {Sentis FAIL};
+    \node[header,anchor=east,align=right] at (.62,1.20) {Barracuda\\PASS};
+    \node[header,anchor=east,align=right] at (.62,-.13) {Barracuda\\FAIL};
+    \node[cell,fill=nngreen!15] at (2.05,1.20) {PASS $\rightarrow$ PASS\\1,061};
+    \node[cell,fill=nnorange!14] at (4.75,1.20) {PASS $\rightarrow$ FAIL\\3};
+    \node[cell,fill=nnblue!12] at (2.05,-.13) {FAIL $\rightarrow$ PASS\\116};
+    \node[cell,fill=nnred!12] at (4.75,-.13) {FAIL $\rightarrow$ FAIL\\6};
+    \node[align=center] at (3.4,-1.32) {89.71\% $\rightarrow$ 99.24\%\\+9.53 pp};
+  \end{scope}
+\end{tikzpicture}
+}
+\caption{Paired repeat-stable compatibility transitions. Rows are Barracuda outcomes and columns are Sentis outcomes. P1 includes the recorded full workflow; P2 conditions on common retained export/validation eligibility. The display reports paired outcomes and does not assign a causal mechanism.}
+\label{fig:transitions}
+\end{figure*}}
+
+\newcommand{\ArchitectureFigure}{%
+\begin{figure}[t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[width=.98\columnwidth,height=6.1cm,xmin=45,xmax=102,ymin=.5,ymax=4.5,
+ xlabel={Strict runtime success (\%)},
+ ytick={1,2,3,4},
+ yticklabels={MobileNet-like ($n=73$),Residual connections ($n=103$),Transformer-like ($n=122$),ResNet-like ($n=409$)},
+ yticklabel style={font=\tiny,align=right},
+ legend style={font=\scriptsize,at={(.5,-.24)},anchor=north,legend columns=2},
+ grid=major,grid style={draw=nnslate!18}]
+ % Retained Wilson endpoints: each whisker is drawn directly at [low, high].
+ \draw[nnorange,thick] (axis cs:70.34,1.16)--(axis cs:88.22,1.16);
+ \draw[nnorange,thick] (axis cs:70.34,1.07)--(axis cs:70.34,1.25);
+ \draw[nnorange,thick] (axis cs:88.22,1.07)--(axis cs:88.22,1.25);
+ \fill[nnorange] (axis cs:80.82,1.16) circle (1.25pt);
+ \draw[nngreen,thick] (axis cs:95.00,.84)--(axis cs:100.00,.84);
+ \draw[nngreen,thick] (axis cs:95.00,.75)--(axis cs:95.00,.93);
+ \draw[nngreen,thick] (axis cs:100.00,.75)--(axis cs:100.00,.93);
+ \fill[nngreen] (axis cs:100.00,.84) circle (1.25pt);
+ \draw[nnorange,thick] (axis cs:60.46,2.16)--(axis cs:77.91,2.16);
+ \draw[nnorange,thick] (axis cs:60.46,2.07)--(axis cs:60.46,2.25);
+ \draw[nnorange,thick] (axis cs:77.91,2.07)--(axis cs:77.91,2.25);
+ \fill[nnorange] (axis cs:69.90,2.16) circle (1.25pt);
+ \draw[nngreen,thick] (axis cs:94.70,1.84)--(axis cs:99.83,1.84);
+ \draw[nngreen,thick] (axis cs:94.70,1.75)--(axis cs:94.70,1.93);
+ \draw[nngreen,thick] (axis cs:99.83,1.75)--(axis cs:99.83,1.93);
+ \fill[nngreen] (axis cs:99.03,1.84) circle (1.25pt);
+ \draw[nnorange,thick] (axis cs:50.97,3.16)--(axis cs:68.11,3.16);
+ \draw[nnorange,thick] (axis cs:50.97,3.07)--(axis cs:50.97,3.25);
+ \draw[nnorange,thick] (axis cs:68.11,3.07)--(axis cs:68.11,3.25);
+ \fill[nnorange] (axis cs:59.84,3.16) circle (1.25pt);
+ \draw[nngreen,thick] (axis cs:93.02,2.84)--(axis cs:99.16,2.84);
+ \draw[nngreen,thick] (axis cs:93.02,2.75)--(axis cs:93.02,2.93);
+ \draw[nngreen,thick] (axis cs:99.16,2.75)--(axis cs:99.16,2.93);
+ \fill[nngreen] (axis cs:97.54,2.84) circle (1.25pt);
+ \draw[nnorange,thick] (axis cs:90.85,4.16)--(axis cs:95.63,4.16);
+ \draw[nnorange,thick] (axis cs:90.85,4.07)--(axis cs:90.85,4.25);
+ \draw[nnorange,thick] (axis cs:95.63,4.07)--(axis cs:95.63,4.25);
+ \fill[nnorange] (axis cs:93.64,4.16) circle (1.25pt);
+ \draw[nngreen,thick] (axis cs:98.63,3.84)--(axis cs:99.96,3.84);
+ \draw[nngreen,thick] (axis cs:98.63,3.75)--(axis cs:98.63,3.93);
+ \draw[nngreen,thick] (axis cs:99.96,3.75)--(axis cs:99.96,3.93);
+ \fill[nngreen] (axis cs:99.76,3.84) circle (1.25pt);
+ \addlegendimage{only marks,mark=*,nnorange}\addlegendentry{Barracuda}
+ \addlegendimage{only marks,mark=*,nngreen}\addlegendentry{Sentis 2.6.1}
+\end{axis}
+\end{tikzpicture}
+}
+\caption{Architecture-associated strict runtime success within P2. Dots show retained success percentages and whiskers show the exact retained 95\% Wilson intervals. Flags overlap and are descriptive, not causal. The largest well-powered observed change is Transformer-like: 73/122 (59.84\%) to 119/122 (97.54\%).}
+\label{fig:architecture}
+\end{figure}}
+
+\newcommand{\TimingFigure}{%
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.93\textwidth]{figures/paired_latency_scatter.pdf}
+\caption{Paired completion-aware timing for P3 ($n=1{,}061$). Each point is a model's runtime-campaign-mean timing; both axes are logarithmic and the dashed line marks equality. CPU pairs lie below equality, whereas GPU pairs are closer to and distributed around it. The endpoint includes requested host-output materialization.}
+\label{fig:timing}
+\end{figure*}}
+
+\newcommand{\ReproFigure}{%
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[ybar,bar width=5pt,width=\columnwidth,height=5.3cm,ymin=0,ymax=95,
+ ylabel={Cross-runtime-campaign CV (\%)},symbolic x coords={CPU median,CPU p95,GPU median,GPU p95},xtick=data,
+ x tick label style={rotate=30,anchor=east,font=\scriptsize},legend style={font=\scriptsize,at={(.5,-.31)},anchor=north,legend columns=2},nodes near coords, every node near coord/.append style={font=\tiny}]
+ \addplot[fill=nnorange!75,draw=nnorange] coordinates {(CPU median,12.58) (CPU p95,88.08) (GPU median,9.79) (GPU p95,77.51)};
+ \addplot[fill=nngreen!75,draw=nngreen] coordinates {(CPU median,2.48) (CPU p95,29.56) (GPU median,4.40) (GPU p95,54.14)};
+ \legend{Barracuda,Sentis 2.6.1}
+\end{axis}
+\end{tikzpicture}
+\caption{Cross-runtime-campaign coefficient-of-variation summaries. The shown samples comprise models with the required repeated valid observations (A: $n=1{,}071$; B: $n=1{,}181$). These summaries describe observed stability, not determinism under all system states.}
+\label{fig:repro}
+\end{figure}}

@@ -1,0 +1,459 @@
+{
+  "analysis_version": "1.0",
+  "scope": "derived comparison from retained statistics only; no model, export, Unity, GPU, or dataset run is performed",
+  "selected_pt_source": {
+    "path": "nn-dataset/ab/nn/stat/run/pt/fp32",
+    "record_glob": "img-classification_cifar-10_acc_*/PT_HOST.json",
+    "model_identity_field": "model_name",
+    "timing_unit_in_source": "nanoseconds",
+    "derived_timing_unit": "milliseconds",
+    "selection_reason": "per-model standalone PyTorch CPU/GPU timing with validity, shape, iteration, and device fields"
+  },
+  "pt_catalog": {
+    "all_pt_fp32_records_across_tasks": 31989,
+    "cifar10_records_on_selected_host": 13962,
+    "cifar10_unique_model_names": 13962,
+    "cifar10_valid_records": 13962,
+    "iterations": {
+      "20": 13962
+    },
+    "gpu_units": {
+      "NVIDIA GeForce RTX 4090": 13962
+    },
+    "device_types": {
+      "Micro-Star International Co., Ltd. MS-7E27": 13962
+    },
+    "os_versions": {
+      "Linux-6.8.0-111-generic-x86_64-with-glibc2.35": 13962
+    },
+    "logical_cpu_counts": {
+      "16": 13962
+    },
+    "input_shapes_nhwc": {
+      "1x32x32x3": 2984,
+      "1x64x64x3": 2920,
+      "1x128x128x3": 723,
+      "1x256x256x3": 6700,
+      "1x299x299x3": 387,
+      "1x512x512x3": 247,
+      "1x800x800x3": 1
+    }
+  },
+  "structured_l1_layerwise": {
+    "path": "nn-dataset/ab/nn/stat/run/pt/structured_l1_layrewise/img-classification_cifar-10_ac/all_models.json",
+    "model_count": 589,
+    "overlap_with_original_manifest": 589,
+    "status_counts": {
+      "failed": 9,
+      "success": 580
+    },
+    "selection": "rejected",
+    "reason": "aggregate structured-L1 pruning/accuracy result; no per-device CPU/GPU baseline timing or timing-protocol provenance"
+  },
+  "overlap": {
+    "original_manifest": 1762,
+    "pt_with_original_manifest": 1754,
+    "a_strict_success": 1067,
+    "b_strict_success": 1177,
+    "a_b_shared_strict_success": 1061,
+    "pt_with_a_strict_success": 1063,
+    "pt_with_b_strict_success": 1172,
+    "pt_a_b_identity_matched": 1057,
+    "missing_selected_pt_records": [
+      "BayesianNet-1",
+      "ComplexNet",
+      "rag-05ad13c3d7359155e4b9a2c997a4faa4",
+      "rag-53ed64bafa7f961fe7e7ea5eb323c233",
+      "rag-98654b67580dae3a104433591c5e070e",
+      "rag-9dd995c7e844e94640c9bc8f67664ee1",
+      "rag-b6221072ca7171c401c3cb64c2c53647",
+      "rag-cdcce1da27c1a38e8aefacaccea982a1"
+    ],
+    "normalization_rules": [],
+    "ambiguous_matches": []
+  },
+  "shape_audit": {
+    "source": "selected PT input dimensions compared with retained Experiment A v1 input_shape; B raw campaign artifacts are not present in this checkout",
+    "shape_aligned_count": 227,
+    "shape_mismatch_count": 830,
+    "shape_pairs": [
+      {
+        "pt_input_shape_nhwc": "1x64x64x3",
+        "a_input_shape_nhwc": "1x32x32x3",
+        "count": 799
+      },
+      {
+        "pt_input_shape_nhwc": "1x32x32x3",
+        "a_input_shape_nhwc": "1x32x32x3",
+        "count": 138
+      },
+      {
+        "pt_input_shape_nhwc": "1x64x64x3",
+        "a_input_shape_nhwc": "1x64x64x3",
+        "count": 39
+      },
+      {
+        "pt_input_shape_nhwc": "1x256x256x3",
+        "a_input_shape_nhwc": "1x32x32x3",
+        "count": 32
+      },
+      {
+        "pt_input_shape_nhwc": "1x128x128x3",
+        "a_input_shape_nhwc": "1x128x128x3",
+        "count": 22
+      },
+      {
+        "pt_input_shape_nhwc": "1x256x256x3",
+        "a_input_shape_nhwc": "1x256x256x3",
+        "count": 19
+      },
+      {
+        "pt_input_shape_nhwc": "1x299x299x3",
+        "a_input_shape_nhwc": "1x299x299x3",
+        "count": 9
+      },
+      {
+        "pt_input_shape_nhwc": "1x512x512x3",
+        "a_input_shape_nhwc": "1x512x512x3",
+        "count": 4
+      },
+      {
+        "pt_input_shape_nhwc": "1x128x128x3",
+        "a_input_shape_nhwc": "1x512x512x3",
+        "count": 2
+      },
+      {
+        "pt_input_shape_nhwc": "1x800x800x3",
+        "a_input_shape_nhwc": "1x32x32x3",
+        "count": 1
+      },
+      {
+        "pt_input_shape_nhwc": "1x64x64x3",
+        "a_input_shape_nhwc": "1x299x299x3",
+        "count": 1
+      },
+      {
+        "pt_input_shape_nhwc": "1x128x128x3",
+        "a_input_shape_nhwc": "1x256x256x3",
+        "count": 1
+      },
+      {
+        "pt_input_shape_nhwc": "1x32x32x3",
+        "a_input_shape_nhwc": "1x128x128x3",
+        "count": 1
+      },
+      {
+        "pt_input_shape_nhwc": "1x128x128x3",
+        "a_input_shape_nhwc": "1x64x64x3",
+        "count": 1
+      },
+      {
+        "pt_input_shape_nhwc": "1x256x256x3",
+        "a_input_shape_nhwc": "1x128x128x3",
+        "count": 1
+      }
+    ]
+  },
+  "hardware": {
+    "conclusion": "same physical MS-7E27 / NVIDIA RTX 4090 host; PT source has generic x86_64 CPU metadata while A/B records identify AMD Ryzen 7 7800X3D",
+    "pt_recorded": {
+      "device_type": {
+        "Micro-Star International Co., Ltd. MS-7E27": 13962
+      },
+      "gpu": {
+        "NVIDIA GeForce RTX 4090": 13962
+      },
+      "logical_cpu_count": {
+        "16": 13962
+      },
+      "os": {
+        "Linux-6.8.0-111-generic-x86_64-with-glibc2.35": 13962
+      }
+    },
+    "unity_recorded": {
+      "cpu": "AMD Ryzen 7 7800X3D",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "gpu_api": "Vulkan"
+    }
+  },
+  "timing_comparability": {
+    "level": 3,
+    "label": "Context/rank comparison only",
+    "matched_attributes": [
+      "same physical host",
+      "exact model-name identifiers",
+      "batch size one",
+      "FP32 source designation",
+      "20 timed iterations"
+    ],
+    "material_differences": [
+      "PT CPU measures synchronous forward return without explicit output-array materialization",
+      "PT GPU uses CUDA events and synchronize but excludes host output readback",
+      "A/B include blocking host-output materialization in every warm-up and timed iteration",
+      "PT runner instantiates Net directly and does not load the epoch-50 checkpoint used for A/B export",
+      "only a minority of identity-matched records have equal retained PT/A input shapes",
+      "PT artifacts do not record a PyTorch framework version"
+    ]
+  },
+  "comparison": {
+    "identity_matched": {
+      "cpu": {
+        "a": {
+          "n": 1057,
+          "pt_median_ms": 0.990304,
+          "a_median_ms": 5.470723191897075,
+          "pt_iqr_ms": [
+            0.321837,
+            4.326432
+          ],
+          "a_iqr_ms": [
+            2.620302756627401,
+            11.338035265604654
+          ],
+          "median_a_minus_pt_ms": 2.805833800933838,
+          "median_a_over_pt": 6.242106406335511,
+          "a_over_pt_ratio_quantiles": [
+            1.1194510726727203,
+            1.429680504381326,
+            6.242106406335511,
+            10.493408205661298,
+            24.088184428817275
+          ],
+          "a_faster_than_pt_count": 24,
+          "a_faster_than_pt_percent": 2.270577105014191,
+          "spearman_pt_vs_a_rho": 0.7121326505527923,
+          "spearman_pt_vs_a_p_value": 2.8328973033304292e-164
+        },
+        "b": {
+          "n": 1057,
+          "pt_median_ms": 0.990304,
+          "b_median_ms": 0.48279250000000007,
+          "pt_iqr_ms": [
+            0.321837,
+            4.326432
+          ],
+          "b_iqr_ms": [
+            0.12956333333333334,
+            3.2409333333333334
+          ],
+          "median_b_minus_pt_ms": -0.37724850000000004,
+          "median_b_over_pt": 0.5915668786563516,
+          "b_over_pt_ratio_quantiles": [
+            0.23453677759810324,
+            0.40087006034300954,
+            0.5915668786563516,
+            0.6958153932476374,
+            1.2553699340294189
+          ],
+          "b_faster_than_pt_count": 948,
+          "b_faster_than_pt_percent": 89.68779564806054,
+          "spearman_pt_vs_b_rho": 0.9278397008917546,
+          "spearman_pt_vs_b_p_value": 0.0
+        },
+        "closeness": {
+          "definition": "smaller absolute per-model ratio distance |Unity/PT - 1|",
+          "b_closer_count": 824,
+          "a_closer_count": 233,
+          "tie_count": 0,
+          "median_abs_ratio_distance_a": 5.242106406335511,
+          "median_abs_ratio_distance_b": 0.41916812761050126
+        }
+      },
+      "gpu": {
+        "a": {
+          "n": 1057,
+          "pt_median_ms": 0.374899,
+          "a_median_ms": 2.9992763996124268,
+          "pt_iqr_ms": [
+            0.191131,
+            1.345963
+          ],
+          "a_iqr_ms": [
+            2.366522947947184,
+            6.821192741394043
+          ],
+          "median_a_minus_pt_ms": 2.621106348498026,
+          "median_a_over_pt": 7.451590693615787,
+          "a_over_pt_ratio_quantiles": [
+            2.9198147230961626,
+            5.471618030051896,
+            7.451590693615787,
+            12.71261149735202,
+            21.04604896014304
+          ],
+          "a_faster_than_pt_count": 6,
+          "a_faster_than_pt_percent": 0.5676442762535477,
+          "spearman_pt_vs_a_rho": 0.8239383426195226,
+          "spearman_pt_vs_a_p_value": 1.7585404494827415e-262
+        },
+        "b": {
+          "n": 1057,
+          "pt_median_ms": 0.374899,
+          "b_median_ms": 2.833964166666667,
+          "pt_iqr_ms": [
+            0.191131,
+            1.345963
+          ],
+          "b_iqr_ms": [
+            2.1501625000000004,
+            6.5673025
+          ],
+          "median_b_minus_pt_ms": 2.2316815,
+          "median_b_over_pt": 7.188193858986631,
+          "b_over_pt_ratio_quantiles": [
+            1.0141607830523458,
+            5.037571275626693,
+            7.188193858986631,
+            11.761795621591718,
+            20.994060427770606
+          ],
+          "b_faster_than_pt_count": 53,
+          "b_faster_than_pt_percent": 5.014191106906338,
+          "spearman_pt_vs_b_rho": 0.788683764703709,
+          "spearman_pt_vs_b_p_value": 4.0420391176493984e-225
+        },
+        "closeness": {
+          "definition": "smaller absolute per-model ratio distance |Unity/PT - 1|",
+          "b_closer_count": 600,
+          "a_closer_count": 457,
+          "tie_count": 0,
+          "median_abs_ratio_distance_a": 6.451590693615787,
+          "median_abs_ratio_distance_b": 6.188193858986631
+        }
+      }
+    },
+    "shape_aligned_sensitivity": {
+      "n": 227,
+      "cpu": {
+        "a": {
+          "n": 227,
+          "pt_median_ms": 0.343542,
+          "a_median_ms": 6.095374981562297,
+          "pt_iqr_ms": [
+            0.1764195,
+            1.5280144999999998
+          ],
+          "a_iqr_ms": [
+            2.2194878558317823,
+            17.9447762966156
+          ],
+          "median_a_minus_pt_ms": 4.772988855794271,
+          "median_a_over_pt": 12.714106157183345,
+          "a_over_pt_ratio_quantiles": [
+            2.1612045025455537,
+            7.45645960646033,
+            12.714106157183345,
+            20.10384626511832,
+            42.97849677124916
+          ],
+          "a_faster_than_pt_count": 4,
+          "a_faster_than_pt_percent": 1.7621145374449338,
+          "spearman_pt_vs_a_rho": 0.8450763179438988,
+          "spearman_pt_vs_a_p_value": 4.0980208417729927e-63
+        },
+        "b": {
+          "n": 227,
+          "pt_median_ms": 0.343542,
+          "b_median_ms": 0.19713916666666667,
+          "pt_iqr_ms": [
+            0.1764195,
+            1.5280144999999998
+          ],
+          "b_iqr_ms": [
+            0.11276291666666668,
+            2.0582979166666666
+          ],
+          "median_b_minus_pt_ms": -0.05542616666666668,
+          "median_b_over_pt": 0.7336561820130789,
+          "b_over_pt_ratio_quantiles": [
+            0.3039865524422808,
+            0.5213560513576667,
+            0.7336561820130789,
+            1.164039003003614,
+            1.7190151701412109
+          ],
+          "b_faster_than_pt_count": 150,
+          "b_faster_than_pt_percent": 66.07929515418502,
+          "spearman_pt_vs_b_rho": 0.933220003734337,
+          "spearman_pt_vs_b_p_value": 5.425778007994476e-102
+        },
+        "closeness": {
+          "definition": "smaller absolute per-model ratio distance |Unity/PT - 1|",
+          "b_closer_count": 216,
+          "a_closer_count": 11,
+          "tie_count": 0,
+          "median_abs_ratio_distance_a": 11.714106157183345,
+          "median_abs_ratio_distance_b": 0.399232419838742
+        }
+      },
+      "gpu": {
+        "a": {
+          "n": 227,
+          "pt_median_ms": 0.221811,
+          "a_median_ms": 2.6287853717803955,
+          "pt_iqr_ms": [
+            0.17271550000000002,
+            0.6242555
+          ],
+          "a_iqr_ms": [
+            2.347493290901184,
+            4.188175320625305
+          ],
+          "median_a_minus_pt_ms": 2.337988619974772,
+          "median_a_over_pt": 10.892856500691275,
+          "a_over_pt_ratio_quantiles": [
+            3.4632042530608436,
+            6.808664454646346,
+            10.892856500691275,
+            15.20818291366685,
+            22.19996124485951
+          ],
+          "a_faster_than_pt_count": 1,
+          "a_faster_than_pt_percent": 0.44052863436123346,
+          "spearman_pt_vs_a_rho": 0.6940880523792037,
+          "spearman_pt_vs_a_p_value": 5.84540076707671e-34
+        },
+        "b": {
+          "n": 227,
+          "pt_median_ms": 0.221811,
+          "b_median_ms": 2.3833633333333335,
+          "pt_iqr_ms": [
+            0.17271550000000002,
+            0.6242555
+          ],
+          "b_iqr_ms": [
+            1.9896945833333333,
+            4.101111666666666
+          ],
+          "median_b_minus_pt_ms": 2.1764533333333334,
+          "median_b_over_pt": 7.96202910356202,
+          "b_over_pt_ratio_quantiles": [
+            0.719435029774495,
+            5.149932114699018,
+            7.96202910356202,
+            12.445549398664184,
+            23.961780390306377
+          ],
+          "b_faster_than_pt_count": 18,
+          "b_faster_than_pt_percent": 7.929515418502203,
+          "spearman_pt_vs_b_rho": 0.6159388471568771,
+          "spearman_pt_vs_b_p_value": 4.222789314312804e-25
+        },
+        "closeness": {
+          "definition": "smaller absolute per-model ratio distance |Unity/PT - 1|",
+          "b_closer_count": 144,
+          "a_closer_count": 83,
+          "tie_count": 0,
+          "median_abs_ratio_distance_a": 9.892856500691275,
+          "median_abs_ratio_distance_b": 6.96202910356202
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "model_overlap": "model_overlap.csv",
+    "matched_rows": "matched_pt_a_b.csv",
+    "scatter_pdf": "pt_unity_scatter.pdf",
+    "scatter_png": "pt_unity_scatter.png"
+  }
+}

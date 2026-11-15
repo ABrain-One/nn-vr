@@ -1,0 +1,13 @@
+runtime,backend,feature,method,n,rho,p_value
+A,cpu,flops,Spearman rank correlation,1068,0.6233114716779099,5.437799704846176e-116
+A,cpu,total_params,Spearman rank correlation,1068,0.6427019544156384,1.7279532851385654e-125
+A,cpu,total_layers,Spearman rank correlation,1068,0.6320770146679466,3.3557127801272565e-120
+A,gpu,flops,Spearman rank correlation,1068,0.6752968286945356,4.180356408185585e-143
+A,gpu,total_params,Spearman rank correlation,1068,0.785499009400061,2.149087074651359e-224
+A,gpu,total_layers,Spearman rank correlation,1068,0.8123810177217183,6.046418416175328e-252
+B,cpu,flops,Spearman rank correlation,1172,0.8153874689904852,5.200581764722139e-280
+B,cpu,total_params,Spearman rank correlation,1172,0.9061828858738565,0.0
+B,cpu,total_layers,Spearman rank correlation,1172,0.8635808009479706,0.0
+B,gpu,flops,Spearman rank correlation,1172,0.7011871829834194,4.169293828258054e-174
+B,gpu,total_params,Spearman rank correlation,1172,0.7873963287386384,4.461003444483449e-248
+B,gpu,total_layers,Spearman rank correlation,1172,0.7497598723035582,4.7179812598624457e-212

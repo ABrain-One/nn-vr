@@ -1,0 +1,13 @@
+runtime,version,export_success_records,configuration_contract_match,onnx_metadata_present,onnx_artifact_opset12_ir7_match,configuration_mismatch_or_missing,artifact_metadata_mismatch_or_missing
+A,1,1195,1195,1195,1195,0,0
+A,2,1195,1195,1195,1195,0,0
+A,3,1195,1195,1195,1195,0,0
+A,4,1195,1195,1195,1195,0,0
+A,5,1195,1195,1195,1195,0,0
+A,6,1195,1195,1195,1195,0,0
+B,1,1190,1190,1190,1190,0,0
+B,2,1190,1190,1190,1190,0,0
+B,3,1190,1190,1190,1190,0,0
+B,4,1190,1190,1190,1190,0,0
+B,5,1190,1190,1190,1190,0,0
+B,6,1190,1190,1190,1190,0,0

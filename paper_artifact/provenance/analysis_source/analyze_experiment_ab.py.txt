@@ -1,0 +1,850 @@
+#!/usr/bin/env python3
+"""Post-experiment audit of completion-aware Experiments A and B.
+
+This program deliberately reads per-model campaign records rather than previous
+summaries. It creates reproducible analysis artifacts only; it never modifies
+the manuscript or raw experiment artifacts.
+
+Run from the repository root:
+    .venv/bin/python analysis/experiment_ab/analyze_experiment_ab.py
+
+The sibling Experiment-B worktree is the default data source. Override it with
+EXPERIMENT_B_ROOT when the B artifacts are stored elsewhere.
+"""
+
+from __future__ import annotations
+
+import csv
+import json
+import math
+import os
+import statistics
+from collections import Counter, defaultdict
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Iterable
+
+import numpy as np
+from scipy import stats
+
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = Path(__file__).resolve().parent
+A_ROOT = ROOT / "out" / "nn" / "stat"
+B_ROOT = Path(os.environ.get("EXPERIMENT_B_ROOT", str(ROOT.parent / "nn-vr-experiment-b" / "out" / "nn" / "stat")))
+META_ROOT = ROOT / "nn-dataset" / "ab" / "nn" / "stat" / "nn"
+VERSIONS = tuple(range(1, 7))
+A_PREFIX = "barracuda_completion_aware"
+B_PREFIX = "inference_engine_opset12_completion_aware"
+ARCH_FLAGS = (
+    ("has_attention", "Attention"),
+    ("is_transformer_like", "Transformer-like"),
+    ("has_residual_connections", "Residual connections"),
+    ("is_resnet_like", "ResNet-like"),
+    ("is_vgg_like", "VGG-like"),
+    ("is_mobilenet_like", "MobileNet-like"),
+)
+
+
+def safe_number(value: Any) -> float | None:
+    try:
+        result = float(value)
+    except (TypeError, ValueError):
+        return None
+    return result if math.isfinite(result) else None
+
+
+def percentile(values: Iterable[float], q: float) -> float | None:
+    values = sorted(float(value) for value in values if math.isfinite(float(value)))
+    if not values:
+        return None
+    return float(np.percentile(values, q))
+
+
+def summary_distribution(values: Iterable[float]) -> dict[str, Any]:
+    observed = [float(value) for value in values if math.isfinite(float(value))]
+    if not observed:
+        return {"n": 0}
+    return {
+        "n": len(observed), "mean": float(statistics.mean(observed)),
+        "median": float(statistics.median(observed)), "std": float(statistics.stdev(observed)) if len(observed) > 1 else 0.0,
+        "min": min(observed), "p5": percentile(observed, 5), "p25": percentile(observed, 25),
+        "p75": percentile(observed, 75), "p95": percentile(observed, 95), "max": max(observed),
+        "iqr": float(percentile(observed, 75) - percentile(observed, 25)),
+    }
+
+
+def wilson(successes: int, total: int, z: float = 1.959963984540054) -> tuple[float | None, float | None]:
+    if total == 0:
+        return None, None
+    p = successes / total
+    denominator = 1 + (z * z / total)
+    center = (p + z * z / (2 * total)) / denominator
+    radius = z * math.sqrt(p * (1 - p) / total + z * z / (4 * total * total)) / denominator
+    return center - radius, center + radius
+
+
+def ratio_summary(numerators: Iterable[float], denominators: Iterable[float]) -> list[float]:
+    return [a / b for a, b in zip(numerators, denominators) if b > 0 and math.isfinite(a) and math.isfinite(b)]
+
+
+def json_dump(path: Path, payload: Any) -> None:
+    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
+    fields: list[str] = []
+    for row in rows:
+        for key in row:
+            if key not in fields:
+                fields.append(key)
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def failure_category(record: dict[str, Any]) -> str:
+    raw = str(record.get("failure_type") or "").lower()
+    error = str(record.get("error") or "").lower()
+    if "export" in raw:
+        return "ONNX export"
+    if "validation" in raw:
+        return "ONNX validation"
+    if "timeout" in raw:
+        return "Timeout"
+    if "not_run_after" in raw:
+        return "Not run after timeout"
+    if "material" in raw or "readback" in raw:
+        return "Output materialization"
+    if "cpu_execution" in raw:
+        return "CPU execution"
+    if "gpu_execution" in raw:
+        return "GPU execution"
+    if "infrastructure" in raw or "llvmpipe" in error or "requires vulkan" in error:
+        return "Infrastructure/environment"
+    if "load_or_execution" in raw or "modelasset" in error or "unsupported" in error:
+        return "Runtime load/execution"
+    return "Unknown/other"
+
+
+def observed_failure_detail(record: dict[str, Any]) -> str:
+    """Conservative label for text actually present in a failed record."""
+    error = str(record.get("error") or "")
+    raw = str(record.get("failure_type") or "").lower()
+    if "export" in raw:
+        return "ONNX export failure"
+    if "validation" in raw:
+        return "ONNX validation failure"
+    if "timed out" in error.lower() or "timeout" in raw:
+        return "Benchmark timeout"
+    if "No NNModel assets found" in error:
+        return "No imported NNModel asset"
+    if "No ModelAsset assets found" in error:
+        return "No imported ModelAsset"
+    if "Unity 6 exited with code 1" in error:
+        return "Unity 6 process exit code 1"
+    if "NotImplementedException" in error:
+        return "NotImplementedException"
+    if "AssertionException" in error:
+        return "AssertionException"
+    if "ArgumentException" in error:
+        return "ArgumentException"
+    return failure_category(record)
+
+
+def stage_success_all(entry: dict[str, Any], stage: str) -> bool:
+    return all(
+        entry["records"].get(version)
+        and entry["records"][version].get("stages", {}).get(stage) == "success"
+        for version in VERSIONS
+    )
+
+
+def strict_runtime_eligible(entry: dict[str, Any]) -> bool:
+    """All six runs exported and passed ONNX validation before Unity was invoked."""
+    return stage_success_all(entry, "export") and stage_success_all(entry, "validation")
+
+
+@dataclass
+class Campaign:
+    runtime: str
+    version: int
+    directory: Path
+    manifest: dict[str, Any]
+    records: dict[str, dict[str, Any]]
+    duplicates: dict[str, list[Path]]
+    corrupt_files: list[str]
+
+
+def load_campaign(runtime: str, root: Path, prefix: str, version: int) -> Campaign:
+    directory = root / f"{prefix}_v{version}"
+    manifest_path = directory / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else {}
+    records: dict[str, dict[str, Any]] = {}
+    duplicates: dict[str, list[Path]] = defaultdict(list)
+    corrupt_files: list[str] = []
+    for path in sorted((directory / "onnx" / "fp32").glob("**/linux_*.json")):
+        try:
+            record = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            corrupt_files.append(f"{path}: {exc}")
+            continue
+        model = record.get("model_name")
+        if not isinstance(model, str) or not model:
+            corrupt_files.append(f"{path}: missing model_name")
+            continue
+        if model in records:
+            duplicates[model].append(path)
+        else:
+            records[model] = record
+    return Campaign(runtime, version, directory, manifest, records, dict(duplicates), corrupt_files)
+
+
+def load_metadata() -> tuple[dict[str, dict[str, Any]], list[str]]:
+    metadata: dict[str, dict[str, Any]] = {}
+    errors: list[str] = []
+    for path in META_ROOT.glob("*.json"):
+        try:
+            metadata[path.stem] = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            errors.append(f"{path}: {exc}")
+    return metadata, errors
+
+
+def is_valid(record: dict[str, Any] | None) -> bool:
+    return bool(record and record.get("valid") is True and record.get("stages", {}).get("unity") == "success")
+
+
+def record_latency(record: dict[str, Any] | None, backend: str) -> float | None:
+    if not is_valid(record):
+        return None
+    return safe_number((record.get("unity") or {}).get(backend, {}).get("avg_ms"))
+
+
+def environment_audit(campaigns: list[Campaign], runtime: str) -> dict[str, Any]:
+    fields = ("unity_version", "gpu_api", "gpu_name", "backend_cpu", "backend_gpu", "timing_protocol")
+    if runtime == "B":
+        fields += ("runtime", "inference_engine_package")
+    observed: dict[str, Counter[str]] = {field: Counter() for field in fields}
+    record_environment_expectations: dict[str, Counter[str]] = defaultdict(Counter)
+    warmups, iterations, completion = Counter(), Counter(), Counter()
+    bad_valid_records: list[str] = []
+    expected = {
+        "A": {"unity_version": "2022.3.62f3", "gpu_api": "Vulkan", "backend_cpu": "CSharpBurst", "backend_gpu": "ComputePrecompiled", "timing_protocol": "completion_aware_v1"},
+        "B": {"unity_version": "6000.6.5f1", "gpu_api": "Vulkan", "backend_cpu": "CPU", "backend_gpu": "GPUCompute", "timing_protocol": "completion_aware_inference_engine_v1", "runtime": "Unity Inference Engine", "inference_engine_package": "com.unity.ai.inference@2.6.1"},
+    }[runtime]
+    for campaign in campaigns:
+        for model, record in campaign.records.items():
+            for field, value in (record.get("environment") or {}).items():
+                record_environment_expectations[field][str(value)] += 1
+            if not is_valid(record):
+                continue
+            unity = record.get("unity") or {}
+            for field in fields:
+                observed[field][str(unity.get(field))] += 1
+            for backend in ("cpu", "gpu"):
+                item = unity.get(backend) or {}
+                warmups[str(item.get("warmup_iterations"))] += 1
+                iterations[str(item.get("measured_iterations"))] += 1
+                completion[str(item.get("completion_operation"))] += 1
+            if any(unity.get(field) != value for field, value in expected.items()):
+                bad_valid_records.append(f"v{campaign.version}:{model}")
+            name = str(unity.get("gpu_name", "")).lower()
+            if "rtx 4090" not in name or "nvidia" not in name or "llvmpipe" in name:
+                bad_valid_records.append(f"v{campaign.version}:{model}:gpu")
+    return {
+        "expected": expected, "observed": {key: dict(value) for key, value in observed.items()},
+        "record_environment_expectations": {key: dict(value) for key, value in record_environment_expectations.items()},
+        "warmup_counts": dict(warmups), "iteration_counts": dict(iterations),
+        "completion_operations": dict(completion), "environment_mismatch_valid_records": sorted(set(bad_valid_records)),
+    }
+
+
+def campaign_audit(campaigns: list[Campaign]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for campaign in campaigns:
+        requested = set(campaign.manifest.get("models_requested") or [])
+        records = campaign.records
+        stages = Counter()
+        categories = Counter()
+        for record in records.values():
+            for stage, status in (record.get("stages") or {}).items():
+                stages[f"{stage}:{status}"] += 1
+            if not is_valid(record):
+                categories[failure_category(record)] += 1
+        valid_completed = sum(is_valid(record) for record in records.values())
+        row = {
+            "runtime": campaign.runtime, "campaign": campaign.directory.name, "version": campaign.version,
+            "intended_population": len(requested), "records": len(records), "attempted": sum((record.get("stages") or {}).get("acquisition") == "success" for record in records.values()),
+            "valid_completed_benchmarks": valid_completed,
+            "valid_completed_benchmark_rate": valid_completed / len(requested) if requested else None,
+            "failed_records": sum(not is_valid(record) for record in records.values()),
+            "export_success": stages["export:success"], "export_failure": stages["export:failed"],
+            "validation_failure": stages["validation:failed"], "unity_success": stages["unity:success"],
+            "unity_failure": stages["unity:failed"], "timeout_or_skipped": sum(value for key, value in categories.items() if key in {"Timeout", "Not run after timeout"}),
+            "missing_results": len(requested - set(records)), "unexpected_results": len(set(records) - requested),
+            "corrupt_or_incomplete_files": len(campaign.corrupt_files), "duplicate_results": sum(len(value) for value in campaign.duplicates.values()),
+            "cleanup_success": stages["cleanup:success"], "cleanup_failure": stages["cleanup:failed"],
+        }
+        for category, count in sorted(categories.items()):
+            row[f"failure_{category.lower().replace('/', '_').replace(' ', '_')}"] = count
+        rows.append(row)
+    return rows
+
+
+def signature(record: dict[str, Any], backend: str) -> str:
+    return json.dumps((((record.get("unity") or {}).get(backend) or {}).get("samples_ms") or []), separators=(",", ":"))
+
+
+def runtime_model_data(campaigns: list[Campaign], all_models: set[str]) -> dict[str, dict[str, Any]]:
+    result: dict[str, dict[str, Any]] = {}
+    for model in sorted(all_models):
+        records = {campaign.version: campaign.records.get(model) for campaign in campaigns}
+        valid_versions = [version for version, record in records.items() if is_valid(record)]
+        cpu = [record_latency(records[version], "cpu") for version in valid_versions]
+        gpu = [record_latency(records[version], "gpu") for version in valid_versions]
+        cpu = [value for value in cpu if value is not None]
+        gpu = [value for value in gpu if value is not None]
+        failures = Counter(failure_category(record) for record in records.values() if record and not is_valid(record))
+        exact_cpu_repeats = len({signature(records[version], "cpu") for version in valid_versions}) if valid_versions else 0
+        exact_gpu_repeats = len({signature(records[version], "gpu") for version in valid_versions}) if valid_versions else 0
+        result[model] = {
+            "records": records, "valid_versions": valid_versions, "valid_runs": len(valid_versions),
+            "stable_success": len(valid_versions) == len(VERSIONS), "any_success": bool(valid_versions),
+            "cpu_campaign_means": cpu, "gpu_campaign_means": gpu,
+            "cpu_mean_ms": float(statistics.mean(cpu)) if cpu else None,
+            "gpu_mean_ms": float(statistics.mean(gpu)) if gpu else None,
+            "cpu_cv": float(statistics.stdev(cpu) / statistics.mean(cpu)) if len(cpu) >= 2 and statistics.mean(cpu) > 0 else None,
+            "gpu_cv": float(statistics.stdev(gpu) / statistics.mean(gpu)) if len(gpu) >= 2 and statistics.mean(gpu) > 0 else None,
+            "failure_categories": dict(failures),
+            "exact_cpu_repeat_vectors": exact_cpu_repeats, "exact_gpu_repeat_vectors": exact_gpu_repeats,
+        }
+    return result
+
+
+def mcnemar_exact(fail_to_pass: int, pass_to_fail: int) -> dict[str, Any]:
+    discordant = fail_to_pass + pass_to_fail
+    if discordant == 0:
+        return {"method": "exact binomial McNemar", "discordant_pairs": 0, "p_value": 1.0, "statistic": 0.0}
+    result = stats.binomtest(fail_to_pass, n=discordant, p=0.5, alternative="two-sided")
+    return {
+        "method": "exact binomial McNemar", "discordant_pairs": discordant,
+        "fail_to_pass": fail_to_pass, "pass_to_fail": pass_to_fail,
+        "chi_square_continuity_corrected": (max(abs(fail_to_pass - pass_to_fail) - 1, 0) ** 2) / discordant,
+        "p_value": float(result.pvalue),
+    }
+
+
+def rank_biserial(differences: list[float]) -> float | None:
+    nonzero = [value for value in differences if value != 0]
+    if not nonzero:
+        return 0.0
+    ranks = stats.rankdata([abs(value) for value in nonzero], method="average")
+    positive = float(sum(rank for rank, value in zip(ranks, nonzero) if value > 0))
+    negative = float(sum(rank for rank, value in zip(ranks, nonzero) if value < 0))
+    return (positive - negative) / (len(nonzero) * (len(nonzero) + 1) / 2)
+
+
+def paired_test(values_a: list[float], values_b: list[float]) -> dict[str, Any]:
+    differences = [b - a for a, b in zip(values_a, values_b)]
+    test = stats.wilcoxon(values_b, values_a, alternative="two-sided", method="auto", zero_method="wilcox")
+    return {
+        "method": "Wilcoxon signed-rank, two-sided, zero differences omitted", "n": len(differences),
+        "statistic": float(test.statistic), "p_value": float(test.pvalue),
+        "rank_biserial_b_minus_a": rank_biserial(differences),
+        "median_difference_b_minus_a_ms": float(statistics.median(differences)),
+    }
+
+
+def write_reports(summary: dict[str, Any]) -> None:
+    compatibility = summary["compatibility"]
+    transitions = summary["transitions"]
+    post_export = summary["post_export_runtime_transitions"]
+    paired = summary["paired_latency"]
+    reproducibility = summary["reproducibility"]
+    cpu_gpu = summary["cpu_gpu_behavior"]
+    env = summary["environment"]
+    a, b = compatibility["A"], compatibility["B"]
+    cpu, gpu = paired["cpu"], paired["gpu"]
+    failure_totals: dict[str, Counter[str]] = {"A": Counter(), "B": Counter()}
+    for row in summary["failure_categories"]:
+        failure_totals[row["runtime"]][row["category"]] += row["record_failures"]
+    def format_failure_totals(runtime: str) -> str:
+        return ", ".join(f"{label}={count}" for label, count in sorted(failure_totals[runtime].items()))
+    lines = [
+        "# Experiment A/B comparison report", "",
+        "Generated from raw per-model completion-aware campaign records by `analyze_experiment_ab.py`. This report does not modify or supersede manuscript text.", "",
+        "## Audit scope and canonical rule", "",
+        "- Population: 1,762 models listed in each runtime's campaign manifests.",
+        "- Canonical compatibility rule: a model is a **PASS** only if it has a valid completed benchmark in all six campaigns. This strict rule isolates repeat-stable execution; per-campaign and partial-success results are retained in the CSV artifacts.",
+        "- Direct latency population: the shared set that passes all six campaigns in both runtimes.",
+        "- A and B retain the recorded exporter contract: `torch.onnx.export(dynamo=False)`, ONNX main opset 12, IR 7. A's transient ONNX files were deleted in low-storage mode, so B is a deterministic re-export comparison rather than a byte-identical artifact comparison.", "",
+        "## Environment and timing boundary", "",
+        f"- A valid records use Unity {', '.join(env['A']['observed']['unity_version'])}, CSharpBurst CPU, ComputePrecompiled GPU, NVIDIA RTX 4090/Vulkan; raw records expect Barracuda 3.0.2.",
+        f"- B valid records use Unity {', '.join(env['B']['observed']['unity_version'])}, Unity Inference Engine {', '.join(env['B']['observed']['inference_engine_package'])}, CPU/GPUCompute, NVIDIA RTX 4090/Vulkan.",
+        f"- A timing completion: {', '.join(env['A']['completion_operations'])}; B timing completion: {', '.join(env['B']['completion_operations'])}. All valid records contain 5 warm-ups and 20 measured samples; timing invariant violations A={summary['record_audit']['A']['valid_timing_invariant_violations']}, B={summary['record_audit']['B']['valid_timing_invariant_violations']}.", "",
+        "## Validity", "",
+        f"- A: {a['campaigns_complete']}/6 campaigns structurally complete; {a['stable_success']}/{a['population']} repeat-stable successes ({a['stable_rate']:.2%}).",
+        f"- B: {b['campaigns_complete']}/6 campaigns structurally complete; {b['stable_success']}/{b['population']} repeat-stable successes ({b['stable_rate']:.2%}).",
+        f"- Valid-record environment mismatches: A={len(env['A']['environment_mismatch_valid_records'])}, B={len(env['B']['environment_mismatch_valid_records'])}.",
+        "- Every record in both runs is independently represented in the campaign audit. Corrupt/missing/duplicate counts are in `campaign_audit.csv`.", "",
+        "## Raw campaign audit", "",
+        "| Runtime | Campaign | Records | Valid (%) | Export success/failure | Unity success/failure | Timeout/skipped | Missing/corrupt/duplicates | Cleanup failures |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
+    ]
+    for row in summary["campaign_audit"]:
+        lines.append(
+            f"| {row['runtime']} | v{row['version']} | {row['records']}/{row['intended_population']} | {row['valid_completed_benchmarks']} ({row['valid_completed_benchmark_rate']:.2%}) | {row['export_success']}/{row['export_failure']} | {row['unity_success']}/{row['unity_failure']} | {row['timeout_or_skipped']} | {row['missing_results']}/{row['corrupt_or_incomplete_files']}/{row['duplicate_results']} | {row['cleanup_failure']} |"
+        )
+    lines.extend([
+        "",
+        "The raw runner records one combined Unity-stage result after both CPU and GPU work. It does not support exhaustive CPU-versus-GPU attribution for a failed Unity stage; this report uses only explicit error text in `failure_message_summary.csv`.", "",
+        "## Canonical six-campaign outcomes", "",
+        f"- A successes by campaign: {a['per_campaign_success']}; union {summary['population'] - reproducibility['A']['success_runs_histogram']['0']}/{summary['population']}; all-six intersection {a['stable_success']}/{summary['population']} ({a['stable_rate']:.2%}).",
+        f"- B successes by campaign: {b['per_campaign_success']}; union {summary['population'] - reproducibility['B']['success_runs_histogram']['0']}/{summary['population']}; all-six intersection {b['stable_success']}/{summary['population']} ({b['stable_rate']:.2%}).",
+        f"- Models with status varying across campaigns: A={summary['population'] - reproducibility['A']['success_runs_histogram']['0'] - a['stable_success']}; B={summary['population'] - reproducibility['B']['success_runs_histogram']['0'] - b['stable_success']}. The full 0/6 through 6/6 distributions are in `reproducibility_summary.csv`; instability is not silently labeled fundamental incompatibility.", "",
+        "## Compatibility transition", "",
+        "| Barracuda -> modern runtime | Models | Percent of population |",
+        "|---|---:|---:|",
+    ])
+    for label in ("PASS -> PASS", "FAIL -> PASS", "PASS -> FAIL", "FAIL -> FAIL"):
+        count = transitions["counts"][label]
+        lines.append(f"| {label} | {count} | {count / transitions['population']:.2%} |")
+    lines.extend([
+        "",
+        f"- Net repeat-stable gain: {transitions['net_gain']} models ({transitions['absolute_change_percentage_points']:.2f} percentage points).",
+        f"- McNemar exact test: {transitions['mcnemar']['discordant_pairs']} discordant pairs; p={transitions['mcnemar']['p_value']:.3g}. The test quantifies the paired status difference, not a causal mechanism.", "",
+        f"- Strict shared post-export population: {post_export['shared_strict_export_eligible']} models with all-six export and ONNX validation success under both experiments. Its PASS->PASS / FAIL->PASS / PASS->FAIL / FAIL->FAIL counts are {post_export['counts'].get('PASS -> PASS', 0)} / {post_export['counts'].get('FAIL -> PASS', 0)} / {post_export['counts'].get('PASS -> FAIL', 0)} / {post_export['counts'].get('FAIL -> FAIL', 0)}; net gain {post_export['net_gain']}; exact McNemar p={post_export['mcnemar']['p_value']:.3g}.",
+        "- Five models reached export+validation in all A runs but not B runs. Thus the full-pipeline transition table and the post-export runtime table are intentionally separate; `post_export_runtime_transition.csv` is the runtime-focused comparator.", "",
+        "## Architecture comparison (post-export common population; flags overlap)", "",
+        "| Category | n | A pass rate | B pass rate | Change (pp) | Recovered | Regressions |",
+        "|---|---:|---:|---:|---:|---:|---:|",
+    ])
+    for row in summary["architecture_comparison"]:
+        lines.append(f"| {row['label']} | {row['population']} | {row['a_success_rate']:.2%} | {row['b_success_rate']:.2%} | {row['absolute_change_percentage_points']:.2f} | {row['recovered_fail_to_pass']} | {row['regressions_pass_to_fail']} |")
+    lines.extend([
+        "",
+        "Wilson 95% intervals and counts are in `architecture_comparison.csv`. The non-exclusive classifications describe associations, not causal operator-level mechanisms.", "",
+        "## Paired completion-aware latency", "",
+        f"- Shared-success population: {paired['shared_success_n']} models.",
+        f"- CPU: A/B paired medians {cpu['a_distribution_ms']['median']:.4f}/{cpu['b_distribution_ms']['median']:.4f} ms; median B-A difference {cpu['test']['median_difference_b_minus_a_ms']:.4f} ms; median B/A ratio {cpu['ratio_b_over_a']['median']:.3f}; B faster for {cpu['faster_b_count']}/{paired['shared_success_n']} ({cpu['faster_b_fraction']:.2%}); Wilcoxon p={cpu['test']['p_value']:.3g}, rank-biserial={cpu['test']['rank_biserial_b_minus_a']:.3f}.",
+        f"- GPU: A/B paired medians {gpu['a_distribution_ms']['median']:.4f}/{gpu['b_distribution_ms']['median']:.4f} ms; median B-A difference {gpu['test']['median_difference_b_minus_a_ms']:.4f} ms; median B/A ratio {gpu['ratio_b_over_a']['median']:.3f}; B faster for {gpu['faster_b_count']}/{paired['shared_success_n']} ({gpu['faster_b_fraction']:.2%}); Wilcoxon p={gpu['test']['p_value']:.3g}, rank-biserial={gpu['test']['rank_biserial_b_minus_a']:.3f}.",
+        "- These are per-model paired comparisons. They must not be read as ratios of unrelated global medians.", "",
+        "## Reproducibility", "",
+        f"- A timing CV (models with >=2 valid campaigns): CPU median {reproducibility['A']['cpu_cv']['median']:.2%}, GPU median {reproducibility['A']['gpu_cv']['median']:.2%}.",
+        f"- B timing CV (models with >=2 valid campaigns): CPU median {reproducibility['B']['cpu_cv']['median']:.2%}, GPU median {reproducibility['B']['gpu_cv']['median']:.2%}.",
+        f"- p95 timing CV: A CPU/GPU {reproducibility['A']['cpu_cv']['p95']:.2%}/{reproducibility['A']['gpu_cv']['p95']:.2%}; B CPU/GPU {reproducibility['B']['cpu_cv']['p95']:.2%}/{reproducibility['B']['gpu_cv']['p95']:.2%}. Compatibility status is reported by 0/6 through 6/6 success-count distributions in `reproducibility_summary.csv` and high-CV cases are retained in `timing_reproducibility_outliers.csv`.",
+        f"- Within-runtime CPU/GPU: A GPU faster {cpu_gpu['A']['gpu_faster_count']}/{cpu_gpu['A']['n']}, CPU faster {cpu_gpu['A']['cpu_faster_count']}/{cpu_gpu['A']['n']}, median GPU/CPU {cpu_gpu['A']['gpu_over_cpu_ratio']['median']:.3f}; B GPU faster {cpu_gpu['B']['gpu_faster_count']}/{cpu_gpu['B']['n']}, CPU faster {cpu_gpu['B']['cpu_faster_count']}/{cpu_gpu['B']['n']}, median GPU/CPU {cpu_gpu['B']['gpu_over_cpu_ratio']['median']:.3f}. Extreme cases are retained in `cpu_gpu_extremes.csv`, not discarded; size/architecture associations are in `cpu_gpu_complexity_correlations.csv` and `cpu_gpu_architecture.csv`.",
+        f"- All models with >=2 valid campaigns had distinct complete 20-sample CPU and GPU vectors across campaigns (A exact repeats CPU/GPU={reproducibility['A']['models_with_identical_cpu_sample_vectors_across_all_valid_runs']}/{reproducibility['A']['models_with_identical_gpu_sample_vectors_across_all_valid_runs']}; B={reproducibility['B']['models_with_identical_cpu_sample_vectors_across_all_valid_runs']}/{reproducibility['B']['models_with_identical_gpu_sample_vectors_across_all_valid_runs']}). This supports, but does not prove, independent executions.", "",
+        "## Important limitations", "",
+        "- Successful Unity execution is not a numerical parity test. The available ONNX accuracy validation is not a Unity-output comparison to PyTorch or ONNX Runtime.",
+        "- Architecture flags are non-exclusive descriptive metadata. Family associations do not demonstrate causal operator-level mechanisms.",
+        "- Failure messages support the recorded taxonomy only; specific mechanisms are not inferred beyond evidence in the raw errors. See `failure_category_summary.csv`, `failure_message_summary.csv`, and `transition_failure_evidence.csv`.",
+        "- Historical asynchronous dispatch-window timings are excluded from all latency calculations here.", "",
+        "## Complexity, failure evidence, and rerun decision", "",
+        "- Completion-aware Spearman relationships with existing FLOPs, parameter counts, and layer counts were recomputed separately by runtime/backend in `complexity_correlations.csv`; they are descriptive correlations, not causal claims.",
+        f"- Across all six campaigns (record-level counts, so repeated failures remain visible): A: {format_failure_totals('A')}. B: {format_failure_totals('B')}.",
+        "- B's recorded runtime-stage failures are primarily missing imported ModelAsset records, plus isolated `Unity 6 exited with code 1` events. A additionally records recurring missing NNModel assets, operation/argument/assertion errors, and timeouts. This is an observed error-message taxonomy, not a diagnosis beyond the logs.",
+        "- No rerun is required for the reported full-pipeline compatibility and completion-aware timing findings: all campaigns are complete, populations match, raw result files are intact, valid timing records satisfy the protocol, and valid records show no environment mismatch. Optional targeted diagnostics could rerun the five B export/validation divergences or capture detailed Unity logs for the isolated process exits.",
+        "- Strongest defensible finding: the successor runtime materially reduces but does not close the measured deployment gap. Strict full-pipeline compatibility rises from 60.56% to 66.80% (+6.24 pp; 116 FAIL->PASS versus 6 PASS->FAIL), yet 579 models remain strict failures and Unity numerical parity is untested.", "",
+        "## Artifact index", "",
+        "- `campaign_audit.csv`, `export_contract_audit.csv`: campaign-level integrity, stage counts, and exporter/ONNX metadata checks.",
+        "- `per_model_comparison.csv`: canonical outcomes and six-campaign availability by model.",
+        "- `compatibility_transition.csv`, `post_export_runtime_transition.csv`, `architecture_comparison.csv`, `paired_latency_comparison.csv`: figure/table data.",
+        "- `runtime_latency_summary.csv`, `cpu_gpu_behavior.csv`, `cpu_gpu_extremes.csv`, `cpu_gpu_complexity_correlations.csv`, `cpu_gpu_architecture.csv`, `reproducibility_summary.csv`, `timing_reproducibility_outliers.csv`, `failure_category_summary.csv`, `failure_message_summary.csv`, `complexity_correlations.csv`: supporting analyses.",
+        "- `summary.json`, `statistical_tests.json`, `EXPERIMENT_AB_CONSISTENCY_REPORT.md`, `FIGURE_TABLE_RECOMMENDATIONS.md`: machine-readable audit, cross-checks, and publication-data guidance.",
+    ])
+    (OUT / "EXPERIMENT_AB_COMPARISON_REPORT.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    figure_notes = [
+        "# Experiment A/B figure and table data recommendations", "",
+        "All proposed numbers are in raw-derived CSV files in this directory. Do not mix the historical asynchronous dispatch timings with these completion-aware data.", "",
+        "## Highest-value publication candidates", "",
+        "1. **Strict compatibility transition matrix** — `compatibility_transition.csv`. This is the clearest direct answer to whether the successor changes the deployment gap.",
+        "2. **Architecture pass-rate comparison** — `architecture_comparison.csv`, with Wilson intervals. Use the post-export common population and disclose that flags overlap.",
+        "3. **Paired CPU and GPU comparison** — `paired_latency_comparison.csv`, preferably paired-difference/ratio distributions rather than global median ratios. CPU and GPU merit separate panels.",
+        "4. **Cross-campaign reproducibility** — `per_model_reproducibility.csv` plus `reproducibility_summary.csv`; communicate the distribution and sample availability, not only a single mean.", "",
+        "## Supporting, likely supplementary", "",
+        "- `failure_category_summary.csv` and `failure_message_summary.csv`: useful evidence for the deployment-failure taxonomy, but avoid causal labels beyond the logged text.",
+        "- `complexity_correlations.csv`: useful as a compact table/appendix; correlations are not central to the runtime-compatibility question.",
+        "- `cpu_gpu_behavior.csv` and `cpu_gpu_extremes.csv`: useful for a methods/supplementary inspection because CPU-faster cases are expected for some small models and are not errors by themselves.", "",
+        "## Redundancy guidance", "",
+        "A pipeline bar chart showing only A vs B strict rates is redundant if the transition matrix is shown, unless space permits a one-line overview. Do not make a figure from historical dispatch-window latency as if it were completion-aware latency.",
+    ]
+    (OUT / "FIGURE_TABLE_RECOMMENDATIONS.md").write_text("\n".join(figure_notes) + "\n", encoding="utf-8")
+
+    consistency = [
+        "# Experiment A/B consistency report", "",
+        "This report traces headline calculations to generated raw-derived files.", "",
+        "| Headline | Value | Denominator/source |",
+        "|---|---:|---|",
+        f"| A repeat-stable compatibility | {a['stable_success']}/{a['population']} ({a['stable_rate']:.2%}) | `per_model_comparison.csv`, six A `valid` indicators |",
+        f"| B repeat-stable compatibility | {b['stable_success']}/{b['population']} ({b['stable_rate']:.2%}) | `per_model_comparison.csv`, six B `valid` indicators |",
+        f"| FAIL -> PASS | {transitions['counts']['FAIL -> PASS']} | `compatibility_transition.csv`, strict all-six status |",
+        f"| PASS -> FAIL | {transitions['counts']['PASS -> FAIL']} | `compatibility_transition.csv`, strict all-six status |",
+        f"| Post-export comparable population | {post_export['shared_strict_export_eligible']} | `post_export_runtime_transition.csv`, all-six export+validation success in both experiments |",
+        f"| Paired latency denominator | {paired['shared_success_n']} | `paired_latency_comparison.csv` |",
+        f"| B valid timing records | {summary['record_audit']['B']['valid_records']} | raw per-model records; `campaign_audit.csv` |",
+        f"| A valid timing records | {summary['record_audit']['A']['valid_records']} | raw per-model records; `campaign_audit.csv` |",
+        "",
+        "## Checks", "",
+        f"- Population manifests identical: {summary['manifest_population_identical']}.",
+        f"- All campaign record counts equal intended population: {summary['all_campaigns_match_population']}.",
+        f"- Corrupt primary result files: A={summary['record_audit']['A']['corrupt_files']}, B={summary['record_audit']['B']['corrupt_files']}.",
+        f"- Duplicate primary result files: A={summary['record_audit']['A']['duplicate_results']}, B={summary['record_audit']['B']['duplicate_results']}.",
+        f"- Valid timing invariant violations: A={summary['record_audit']['A']['valid_timing_invariant_violations']}, B={summary['record_audit']['B']['valid_timing_invariant_violations']}.",
+        f"- Valid-record environment mismatches: A={len(env['A']['environment_mismatch_valid_records'])}, B={len(env['B']['environment_mismatch_valid_records'])}.",
+        f"- Full-pipeline transition counts sum to population: {sum(transitions['counts'].values())}={summary['population']}.",
+        f"- Post-export transition counts sum to eligible population: {sum(post_export['counts'].values())}={post_export['shared_strict_export_eligible']}.",
+        "- One of 1,762 experiment models lacks local architecture metadata; architecture-table denominators therefore state their supported population explicitly.",
+    ]
+    (OUT / "EXPERIMENT_AB_CONSISTENCY_REPORT.md").write_text("\n".join(consistency) + "\n", encoding="utf-8")
+
+
+def main() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    if not A_ROOT.is_dir() or not B_ROOT.is_dir():
+        raise SystemExit(f"Missing data roots: A={A_ROOT}; B={B_ROOT}")
+    a_campaigns = [load_campaign("A", A_ROOT, A_PREFIX, version) for version in VERSIONS]
+    b_campaigns = [load_campaign("B", B_ROOT, B_PREFIX, version) for version in VERSIONS]
+    all_campaigns = a_campaigns + b_campaigns
+    audit_rows = campaign_audit(all_campaigns)
+    write_csv(OUT / "campaign_audit.csv", audit_rows)
+
+    a_requested = [set(campaign.manifest.get("models_requested") or []) for campaign in a_campaigns]
+    b_requested = [set(campaign.manifest.get("models_requested") or []) for campaign in b_campaigns]
+    all_models = set.union(*a_requested, *b_requested)
+    if not all_models:
+        raise SystemExit("No requested models found in campaign manifests")
+    a_data = runtime_model_data(a_campaigns, all_models)
+    b_data = runtime_model_data(b_campaigns, all_models)
+    metadata, metadata_errors = load_metadata()
+
+    model_rows: list[dict[str, Any]] = []
+    transition_rows: list[dict[str, Any]] = []
+    transition_counts: Counter[str] = Counter()
+    post_export_transition_rows: list[dict[str, Any]] = []
+    post_export_transition_counts: Counter[str] = Counter()
+    for model in sorted(all_models):
+        a, b = a_data[model], b_data[model]
+        a_pass, b_pass = a["stable_success"], b["stable_success"]
+        transition = f"{'PASS' if a_pass else 'FAIL'} -> {'PASS' if b_pass else 'FAIL'}"
+        transition_counts[transition] += 1
+        a_runtime_eligible = strict_runtime_eligible(a)
+        b_runtime_eligible = strict_runtime_eligible(b)
+        post_export_transition = None
+        if a_runtime_eligible and b_runtime_eligible:
+            post_export_transition = transition
+            post_export_transition_counts[transition] += 1
+        meta = metadata.get(model, {})
+        row = {
+            "model_name": model, "a_valid_runs": a["valid_runs"], "b_valid_runs": b["valid_runs"],
+            "a_repeat_stable_pass": a_pass, "b_repeat_stable_pass": b_pass, "transition": transition,
+            "a_strict_runtime_eligible": a_runtime_eligible, "b_strict_runtime_eligible": b_runtime_eligible,
+            "post_export_shared_eligible": a_runtime_eligible and b_runtime_eligible,
+            "post_export_transition": post_export_transition,
+            "a_cpu_mean_ms": a["cpu_mean_ms"], "a_gpu_mean_ms": a["gpu_mean_ms"], "b_cpu_mean_ms": b["cpu_mean_ms"], "b_gpu_mean_ms": b["gpu_mean_ms"],
+            "a_cpu_cv": a["cpu_cv"], "a_gpu_cv": a["gpu_cv"], "b_cpu_cv": b["cpu_cv"], "b_gpu_cv": b["gpu_cv"],
+            "architecture_metadata_available": bool(meta),
+            "total_layers": meta.get("total_layers"), "total_params": meta.get("total_params"), "flops": meta.get("flops"),
+        }
+        for flag, _ in ARCH_FLAGS:
+            row[flag] = meta.get(flag)
+        model_rows.append(row)
+        transition_rows.append({"model_name": model, "transition": transition, "a_valid_runs": a["valid_runs"], "b_valid_runs": b["valid_runs"]})
+        if post_export_transition is not None:
+            post_export_transition_rows.append({"model_name": model, "transition": post_export_transition, "a_valid_runs": a["valid_runs"], "b_valid_runs": b["valid_runs"]})
+    write_csv(OUT / "per_model_comparison.csv", model_rows)
+    write_csv(OUT / "compatibility_transition.csv", transition_rows)
+    write_csv(OUT / "post_export_runtime_transition.csv", post_export_transition_rows)
+    transition_evidence_rows: list[dict[str, Any]] = []
+    for row in model_rows:
+        if row["transition"] == "PASS -> PASS":
+            continue
+        model = row["model_name"]
+        def failed_evidence(entry: dict[str, Any]) -> str:
+            return " | ".join(
+                f"v{version}:{observed_failure_detail(record)}"
+                for version, record in entry["records"].items()
+                if record is not None and not is_valid(record)
+            )
+        transition_evidence_rows.append({
+            "model_name": model, "pipeline_transition": row["transition"],
+            "post_export_transition": row["post_export_transition"],
+            "a_failed_run_evidence": failed_evidence(a_data[model]),
+            "b_failed_run_evidence": failed_evidence(b_data[model]),
+        })
+    write_csv(OUT / "transition_failure_evidence.csv", transition_evidence_rows)
+
+    # Architecture descriptions retain the project taxonomy exactly and do not make flags exclusive.
+    arch_rows: list[dict[str, Any]] = []
+    for flag, label in ARCH_FLAGS:
+        members = [row for row in model_rows if row.get("post_export_shared_eligible") and row.get(flag) in (1, True, "1")]
+        a_success = sum(bool(row["a_repeat_stable_pass"]) for row in members)
+        b_success = sum(bool(row["b_repeat_stable_pass"]) for row in members)
+        recovered = sum(row["transition"] == "FAIL -> PASS" for row in members)
+        regressions = sum(row["transition"] == "PASS -> FAIL" for row in members)
+        a_low, a_high = wilson(a_success, len(members)); b_low, b_high = wilson(b_success, len(members))
+        arch_rows.append({
+            "flag": flag, "label": label, "analysis_population": "shared all-six export-and-validation-successful models", "population": len(members),
+            "a_success": a_success, "a_failure": len(members) - a_success, "a_success_rate": a_success / len(members) if members else None,
+            "a_wilson_low": a_low, "a_wilson_high": a_high,
+            "b_success": b_success, "b_failure": len(members) - b_success, "b_success_rate": b_success / len(members) if members else None,
+            "b_wilson_low": b_low, "b_wilson_high": b_high,
+            "absolute_change_percentage_points": 100 * (b_success - a_success) / len(members) if members else None,
+            "recovered_fail_to_pass": recovered, "regressions_pass_to_fail": regressions,
+        })
+    write_csv(OUT / "architecture_comparison.csv", arch_rows)
+
+    # Runtime-specific latency summaries use each model's mean over all valid campaigns;
+    # direct comparison below restricts to the strict shared-success set.
+    latency_rows: list[dict[str, Any]] = []
+    reproducibility_rows: list[dict[str, Any]] = []
+    for runtime, data in (("A", a_data), ("B", b_data)):
+        for backend in ("cpu", "gpu"):
+            means = [entry[f"{backend}_mean_ms"] for entry in data.values() if entry[f"{backend}_mean_ms"] is not None]
+            latency_rows.append({"runtime": runtime, "backend": backend, "population_rule": "at least one valid campaign; model mean over available valid campaigns", **summary_distribution(means)})
+        for model, entry in data.items():
+            reproducibility_rows.append({
+                "runtime": runtime, "model_name": model, "valid_runs": entry["valid_runs"],
+                "repeat_stable_success": entry["stable_success"], "cpu_cv": entry["cpu_cv"], "gpu_cv": entry["gpu_cv"],
+                "distinct_cpu_sample_vectors": entry["exact_cpu_repeat_vectors"], "distinct_gpu_sample_vectors": entry["exact_gpu_repeat_vectors"],
+            })
+    write_csv(OUT / "runtime_latency_summary.csv", latency_rows)
+    write_csv(OUT / "per_model_reproducibility.csv", reproducibility_rows)
+
+    # Within-runtime CPU/GPU comparisons use each model's mean over the campaigns
+    # in which it completed. They are descriptive rather than a hardware benchmark.
+    cpu_gpu_rows: list[dict[str, Any]] = []
+    cpu_gpu_summary: dict[str, Any] = {}
+    cpu_gpu_extremes: list[dict[str, Any]] = []
+    for runtime, data in (("A", a_data), ("B", b_data)):
+        rows = []
+        for model, entry in data.items():
+            cpu_value, gpu_value = entry["cpu_mean_ms"], entry["gpu_mean_ms"]
+            if cpu_value is None or gpu_value is None or cpu_value <= 0:
+                continue
+            ratio = gpu_value / cpu_value
+            row = {
+                "runtime": runtime, "model_name": model, "cpu_ms": cpu_value,
+                "gpu_ms": gpu_value, "gpu_over_cpu_ratio": ratio,
+                "faster_backend": "GPU" if ratio < 1 else "CPU" if ratio > 1 else "tie",
+                "valid_runs": entry["valid_runs"],
+            }
+            rows.append(row)
+        cpu_gpu_rows.extend(rows)
+        ratios = [row["gpu_over_cpu_ratio"] for row in rows]
+        cpu_gpu_summary[runtime] = {
+            "n": len(rows), "gpu_faster_count": sum(row["gpu_over_cpu_ratio"] < 1 for row in rows),
+            "cpu_faster_count": sum(row["gpu_over_cpu_ratio"] > 1 for row in rows),
+            "approximately_unchanged_within_5_percent_count": sum(0.95 <= ratio <= 1.05 for ratio in ratios),
+            "gpu_over_cpu_ratio": summary_distribution(ratios),
+        }
+        for direction, selected in (("GPU much faster (lowest GPU/CPU)", sorted(rows, key=lambda row: row["gpu_over_cpu_ratio"])[:15]),
+                                    ("CPU much faster (highest GPU/CPU)", sorted(rows, key=lambda row: row["gpu_over_cpu_ratio"], reverse=True)[:15])):
+            for rank, row in enumerate(selected, 1):
+                cpu_gpu_extremes.append({"runtime": runtime, "direction": direction, "rank": rank, **row})
+    write_csv(OUT / "cpu_gpu_behavior.csv", cpu_gpu_rows)
+    write_csv(OUT / "cpu_gpu_extremes.csv", cpu_gpu_extremes)
+    cpu_gpu_complexity_rows: list[dict[str, Any]] = []
+    cpu_gpu_architecture_rows: list[dict[str, Any]] = []
+    for runtime in ("A", "B"):
+        rows = [row for row in cpu_gpu_rows if row["runtime"] == runtime]
+        for feature in ("flops", "total_params", "total_layers"):
+            pairs = [(safe_number(metadata.get(row["model_name"], {}).get(feature)), row["gpu_over_cpu_ratio"]) for row in rows]
+            pairs = [(x, y) for x, y in pairs if x is not None]
+            if len(pairs) >= 3:
+                test = stats.spearmanr([x for x, _ in pairs], [y for _, y in pairs])
+                cpu_gpu_complexity_rows.append({"runtime": runtime, "feature": feature, "method": "Spearman rank correlation", "n": len(pairs), "rho_gpu_over_cpu": float(test.statistic), "p_value": float(test.pvalue)})
+        for flag, label in ARCH_FLAGS:
+            members = [row for row in rows if metadata.get(row["model_name"], {}).get(flag) in (1, True, "1")]
+            if members:
+                ratios = [row["gpu_over_cpu_ratio"] for row in members]
+                cpu_gpu_architecture_rows.append({
+                    "runtime": runtime, "flag": flag, "label": label, "n": len(members),
+                    "gpu_faster_count": sum(ratio < 1 for ratio in ratios),
+                    "gpu_faster_rate": sum(ratio < 1 for ratio in ratios) / len(ratios),
+                    "median_gpu_over_cpu_ratio": float(statistics.median(ratios)),
+                })
+    write_csv(OUT / "cpu_gpu_complexity_correlations.csv", cpu_gpu_complexity_rows)
+    write_csv(OUT / "cpu_gpu_architecture.csv", cpu_gpu_architecture_rows)
+
+    shared = sorted(model for model in all_models if a_data[model]["stable_success"] and b_data[model]["stable_success"])
+    paired_rows: list[dict[str, Any]] = []
+    for model in shared:
+        a, b = a_data[model], b_data[model]
+        paired_rows.append({
+            "model_name": model, "a_cpu_ms": a["cpu_mean_ms"], "b_cpu_ms": b["cpu_mean_ms"],
+            "cpu_difference_b_minus_a_ms": b["cpu_mean_ms"] - a["cpu_mean_ms"], "cpu_ratio_b_over_a": b["cpu_mean_ms"] / a["cpu_mean_ms"],
+            "a_gpu_ms": a["gpu_mean_ms"], "b_gpu_ms": b["gpu_mean_ms"],
+            "gpu_difference_b_minus_a_ms": b["gpu_mean_ms"] - a["gpu_mean_ms"], "gpu_ratio_b_over_a": b["gpu_mean_ms"] / a["gpu_mean_ms"],
+        })
+    write_csv(OUT / "paired_latency_comparison.csv", paired_rows)
+
+    paired_latency: dict[str, Any] = {"shared_success_n": len(paired_rows)}
+    for backend in ("cpu", "gpu"):
+        a_values = [float(row[f"a_{backend}_ms"]) for row in paired_rows]
+        b_values = [float(row[f"b_{backend}_ms"]) for row in paired_rows]
+        ratios = ratio_summary(b_values, a_values)
+        differences = [b - a for a, b in zip(a_values, b_values)]
+        paired_latency[backend] = {
+            "a_distribution_ms": summary_distribution(a_values), "b_distribution_ms": summary_distribution(b_values),
+            "difference_b_minus_a_ms": summary_distribution(differences), "ratio_b_over_a": summary_distribution(ratios),
+            "faster_b_count": sum(b < a for a, b in zip(a_values, b_values)),
+            "faster_b_fraction": sum(b < a for a, b in zip(a_values, b_values)) / len(a_values),
+            "slower_b_count": sum(b > a for a, b in zip(a_values, b_values)),
+            "unchanged_within_5_percent_count": sum(0.95 <= ratio <= 1.05 for ratio in ratios),
+            "test": paired_test(a_values, b_values),
+        }
+
+    reproducibility: dict[str, Any] = {}
+    for runtime, data in (("A", a_data), ("B", b_data)):
+        valid_count_histogram = Counter(entry["valid_runs"] for entry in data.values())
+        reproducibility[runtime] = {
+            "success_runs_histogram": {str(k): valid_count_histogram.get(k, 0) for k in range(7)},
+            "cpu_cv": summary_distribution(entry["cpu_cv"] for entry in data.values() if entry["cpu_cv"] is not None),
+            "gpu_cv": summary_distribution(entry["gpu_cv"] for entry in data.values() if entry["gpu_cv"] is not None),
+            "models_with_identical_cpu_sample_vectors_across_all_valid_runs": sum(entry["valid_runs"] > 1 and entry["exact_cpu_repeat_vectors"] == 1 for entry in data.values()),
+            "models_with_identical_gpu_sample_vectors_across_all_valid_runs": sum(entry["valid_runs"] > 1 and entry["exact_gpu_repeat_vectors"] == 1 for entry in data.values()),
+        }
+    repro_summary_rows = []
+    for runtime, values in reproducibility.items():
+        for runs, count in values["success_runs_histogram"].items():
+            repro_summary_rows.append({"runtime": runtime, "metric": "success_runs_histogram", "runs": runs, "count": count})
+        for backend in ("cpu", "gpu"):
+            repro_summary_rows.append({"runtime": runtime, "metric": f"{backend}_cv", **values[f"{backend}_cv"]})
+    write_csv(OUT / "reproducibility_summary.csv", repro_summary_rows)
+
+    timing_outliers: list[dict[str, Any]] = []
+    for runtime, data in (("A", a_data), ("B", b_data)):
+        for backend in ("cpu", "gpu"):
+            rows = [
+                {"runtime": runtime, "backend": backend, "model_name": model, "valid_runs": entry["valid_runs"],
+                 "campaign_mean_cv": entry[f"{backend}_cv"], "campaign_means_ms": json.dumps(entry[f"{backend}_campaign_means"])}
+                for model, entry in data.items()
+                if entry[f"{backend}_cv"] is not None
+            ]
+            for rank, row in enumerate(sorted(rows, key=lambda row: row["campaign_mean_cv"], reverse=True)[:25], 1):
+                timing_outliers.append({"rank_by_cv": rank, **row})
+    write_csv(OUT / "timing_reproducibility_outliers.csv", timing_outliers)
+
+    # Failure counts are record-level so that campaign-to-campaign instability is not hidden.
+    failure_rows: list[dict[str, Any]] = []
+    failure_detail_rows: list[dict[str, Any]] = []
+    for runtime, campaigns in (("A", a_campaigns), ("B", b_campaigns)):
+        for campaign in campaigns:
+            counts = Counter(failure_category(record) for record in campaign.records.values() if not is_valid(record))
+            for category, count in sorted(counts.items()):
+                failure_rows.append({"runtime": runtime, "version": campaign.version, "category": category, "record_failures": count})
+            details = Counter(observed_failure_detail(record) for record in campaign.records.values() if not is_valid(record))
+            for detail, count in sorted(details.items()):
+                failure_detail_rows.append({"runtime": runtime, "version": campaign.version, "observed_error_label": detail, "record_failures": count})
+    write_csv(OUT / "failure_category_summary.csv", failure_rows)
+    write_csv(OUT / "failure_message_summary.csv", failure_detail_rows)
+
+    export_contract_rows: list[dict[str, Any]] = []
+    for runtime, campaigns in (("A", a_campaigns), ("B", b_campaigns)):
+        for campaign in campaigns:
+            exported = [record for record in campaign.records.values() if record.get("stages", {}).get("export") == "success"]
+            metadata_present = [record for record in exported if record.get("onnx_exported")]
+            config_match = [
+                record for record in exported
+                if (record.get("export_configuration") or {}).get("opset_version") == 12
+                and (record.get("export_configuration") or {}).get("onnx_ir_version") == 7
+                and (record.get("export_configuration") or {}).get("exporter") == "torch.onnx.export(dynamo=False)"
+            ]
+            artifact_match = [
+                record for record in exported
+                if (record.get("onnx_exported") or {}).get("main_opsets") == [12]
+                and (record.get("onnx_exported") or {}).get("ir_version") == 7
+            ]
+            export_contract_rows.append({
+                "runtime": runtime, "version": campaign.version, "export_success_records": len(exported),
+                "configuration_contract_match": len(config_match),
+                "onnx_metadata_present": len(metadata_present), "onnx_artifact_opset12_ir7_match": len(artifact_match),
+                "configuration_mismatch_or_missing": len(exported) - len(config_match),
+                "artifact_metadata_mismatch_or_missing": len(exported) - len(artifact_match),
+            })
+    write_csv(OUT / "export_contract_audit.csv", export_contract_rows)
+
+    complexity_rows: list[dict[str, Any]] = []
+    for runtime, data in (("A", a_data), ("B", b_data)):
+        for backend in ("cpu", "gpu"):
+            for feature in ("flops", "total_params", "total_layers"):
+                pairs = [(safe_number(metadata.get(model, {}).get(feature)), entry.get(f"{backend}_mean_ms")) for model, entry in data.items()]
+                pairs = [(x, y) for x, y in pairs if x is not None and y is not None]
+                if len(pairs) >= 3:
+                    result = stats.spearmanr([x for x, _ in pairs], [y for _, y in pairs])
+                    complexity_rows.append({"runtime": runtime, "backend": backend, "feature": feature, "method": "Spearman rank correlation", "n": len(pairs), "rho": float(result.statistic), "p_value": float(result.pvalue)})
+    write_csv(OUT / "complexity_correlations.csv", complexity_rows)
+
+    a_stable = sum(entry["stable_success"] for entry in a_data.values())
+    b_stable = sum(entry["stable_success"] for entry in b_data.values())
+    a_strict_export_eligible = sum(strict_runtime_eligible(entry) for entry in a_data.values())
+    b_strict_export_eligible = sum(strict_runtime_eligible(entry) for entry in b_data.values())
+    shared_strict_export_eligible = sum(
+        strict_runtime_eligible(a_data[model]) and strict_runtime_eligible(b_data[model])
+        for model in all_models
+    )
+    mcnemar = mcnemar_exact(transition_counts["FAIL -> PASS"], transition_counts["PASS -> FAIL"])
+    post_export_mcnemar = mcnemar_exact(
+        post_export_transition_counts["FAIL -> PASS"], post_export_transition_counts["PASS -> FAIL"]
+    )
+    record_audit: dict[str, Any] = {}
+    for runtime, campaigns in (("A", a_campaigns), ("B", b_campaigns)):
+        records = [record for campaign in campaigns for record in campaign.records.values()]
+        timing_bad = 0
+        for record in records:
+            if not is_valid(record):
+                continue
+            for backend in ("cpu", "gpu"):
+                item = (record.get("unity") or {}).get(backend) or {}
+                values = item.get("samples_ms") or []
+                if item.get("warmup_iterations") != 5 or item.get("measured_iterations") != 20 or len(values) != 20 or any(safe_number(value) is None for value in values):
+                    timing_bad += 1
+                    break
+        record_audit[runtime] = {
+            "records": len(records), "valid_records": sum(is_valid(record) for record in records),
+            "cleanup_success": sum((record.get("stages") or {}).get("cleanup") == "success" for record in records),
+            "corrupt_files": sum(len(campaign.corrupt_files) for campaign in campaigns),
+            "duplicate_results": sum(sum(len(paths) for paths in campaign.duplicates.values()) for campaign in campaigns),
+            "valid_timing_invariant_violations": timing_bad,
+        }
+    summary = {
+        "analysis_version": "1.1", "source_roots": {"experiment_a": str(A_ROOT), "experiment_b": str(B_ROOT), "architecture_metadata": str(META_ROOT)},
+        "canonical_criterion": "valid completed benchmark in all six campaigns", "population": len(all_models),
+        "manifest_population_identical": len(set(map(frozenset, a_requested + b_requested))) == 1,
+        "all_campaigns_match_population": all(len(c.records) == len(all_models) for c in all_campaigns),
+        "campaign_audit": audit_rows,
+        "environment": {"A": environment_audit(a_campaigns, "A"), "B": environment_audit(b_campaigns, "B")},
+        "record_audit": record_audit,
+        "compatibility": {
+            "A": {"population": len(all_models), "stable_success": a_stable, "stable_rate": a_stable / len(all_models), "per_campaign_success": [sum(is_valid(c.records.get(model)) for model in all_models) for c in a_campaigns], "campaigns_complete": sum(len(c.records) == len(all_models) for c in a_campaigns)},
+            "B": {"population": len(all_models), "stable_success": b_stable, "stable_rate": b_stable / len(all_models), "per_campaign_success": [sum(is_valid(c.records.get(model)) for model in all_models) for c in b_campaigns], "campaigns_complete": sum(len(c.records) == len(all_models) for c in b_campaigns)},
+        },
+        "transitions": {"population": len(all_models), "counts": dict(transition_counts), "net_gain": transition_counts["FAIL -> PASS"] - transition_counts["PASS -> FAIL"], "absolute_change_percentage_points": 100 * (b_stable - a_stable) / len(all_models), "mcnemar": mcnemar},
+        "post_export_runtime_transitions": {
+            "criterion": "all-six export and ONNX validation success in both runtimes; then all-six completed Unity benchmark pass",
+            "a_strict_export_eligible": a_strict_export_eligible,
+            "b_strict_export_eligible": b_strict_export_eligible,
+            "shared_strict_export_eligible": shared_strict_export_eligible,
+            "counts": dict(post_export_transition_counts),
+            "net_gain": post_export_transition_counts["FAIL -> PASS"] - post_export_transition_counts["PASS -> FAIL"],
+            "mcnemar": post_export_mcnemar,
+        },
+        "paired_latency": paired_latency, "cpu_gpu_behavior": cpu_gpu_summary, "cpu_gpu_complexity_correlations": cpu_gpu_complexity_rows, "cpu_gpu_architecture": cpu_gpu_architecture_rows, "reproducibility": reproducibility,
+        "architecture_comparison": arch_rows, "complexity_correlations": complexity_rows,
+        "failure_categories": failure_rows, "failure_messages": failure_detail_rows,
+        "export_contract": {"required": "torch.onnx.export(dynamo=False), main opset 12, IR 7", "campaign_audit_file": "export_contract_audit.csv", "byte_identical_artifacts_available": False, "statement": "Experiment A low-storage cleanup removed transient ONNX artifacts. B re-exported deterministically under the same recorded contract; byte identity cannot be verified."},
+        "architecture_metadata": {"matched_models": sum(bool(metadata.get(model)) for model in all_models), "missing_models": sorted(model for model in all_models if model not in metadata), "metadata_parse_errors": metadata_errors},
+        "numerical_correctness": {"unity_parity_test_found": False, "statement": "The raw records contain ONNX accuracy validation but no Unity-output numerical parity test against PyTorch, ONNX Runtime, or another trusted reference."},
+    }
+    json_dump(OUT / "summary.json", summary)
+    json_dump(OUT / "statistical_tests.json", {"pipeline_mcnemar": mcnemar, "post_export_runtime_mcnemar": post_export_mcnemar, "paired_cpu_wilcoxon": paired_latency["cpu"]["test"], "paired_gpu_wilcoxon": paired_latency["gpu"]["test"]})
+    write_reports(summary)
+    print(f"Wrote raw-derived analysis artifacts to {OUT}")
+
+
+if __name__ == "__main__":
+    main()

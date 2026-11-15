@@ -1,0 +1,38 @@
+{
+  "export_configuration": {
+    "checkpoint_source": "NN-Dataset/checkpoints-epoch-50",
+    "dataset": "cifar-10",
+    "dynamic_axes": {
+      "input": {
+        "0": "batch_size"
+      },
+      "output": {
+        "0": "batch_size"
+      }
+    },
+    "exporter": "torch.onnx.export(dynamo=False)",
+    "input_shape_source": "existing model-specific infer_in_out_shapes",
+    "onnx_ir_version": 7,
+    "opset_version": 12,
+    "population_configuration_source": "process_models._discover_models_from_arch_hf(dataset='cifar-10')",
+    "precision": "fp32",
+    "target_height": 512
+  },
+  "host": {
+    "logical_cpu_count": 16,
+    "os_version": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "python_version": "3.10.12"
+  },
+  "source": "out/nn/stat/barracuda_completion_aware_v1/onnx/fp32/img-classification_cifar-10_acc_rag-1ae854e87c6ed948e6d4315e8a2b5c6b/UNITY_HOST.json",
+  "source_sha256": "60030dbbd303f49e84a27b54f0ccca19ed7987bbec64a147c1c42fab82c36937",
+  "unity": {
+    "cpu_count": 16,
+    "gpu_api": "Vulkan",
+    "gpu_name": "NVIDIA GeForce RTX 4090",
+    "graphics_device_version": "Vulkan 1.1.0 [0x91104180]",
+    "operating_system": "Linux 6.8 Ubuntu 22.04 64bit",
+    "processor_type": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "system_memory_mb": 31187,
+    "unity_version": "2022.3.62f3"
+  }
+}

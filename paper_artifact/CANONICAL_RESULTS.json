@@ -1,0 +1,5087 @@
+{
+  "checks": [
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C001",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.n",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C002",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.a_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1067
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C003",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.b_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1177
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C004",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.pp",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1061
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C005",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.fp",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 116
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C006",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.pf",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 6
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C007",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.ff",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 579
+    },
+    {
+      "atol": 0.005,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C008",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.a_rate_percent",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 60.56
+    },
+    {
+      "atol": 0.005,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C009",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.b_rate_percent",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 66.8
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C010",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.net_gain",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 110
+    },
+    {
+      "atol": 0.005,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C011",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.change_pp",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 6.24
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C012",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p1.mcnemar_p",
+      "population": 1762,
+      "rtol": 0.005,
+      "sources": [
+        "compatibility/compatibility_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1.6e-27
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C013",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.n",
+      "population": 1186,
+      "rtol": 0,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1186
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C014",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.a_success",
+      "population": 1186,
+      "rtol": 0,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1064
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C015",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.b_success",
+      "population": 1186,
+      "rtol": 0,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1177
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C016",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.pp",
+      "population": 1186,
+      "rtol": 0,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1061
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C017",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.fp",
+      "population": 1186,
+      "rtol": 0,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 116
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C018",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.pf",
+      "population": 1186,
+      "rtol": 0,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 3
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C019",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.ff",
+      "population": 1186,
+      "rtol": 0,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 6
+    },
+    {
+      "atol": 0.005,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C020",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.a_rate_percent",
+      "population": 1186,
+      "rtol": 0,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 89.71
+    },
+    {
+      "atol": 0.005,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C021",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.b_rate_percent",
+      "population": 1186,
+      "rtol": 0,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 99.24
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C022",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.net_gain",
+      "population": 1186,
+      "rtol": 0,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 113
+    },
+    {
+      "atol": 0.005,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C023",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.change_pp",
+      "population": 1186,
+      "rtol": 0,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 9.53
+    },
+    {
+      "atol": 0,
+      "fields": "model_name, transition, *_valid_runs",
+      "id": "C024",
+      "limitations": "Strict all-six completed CPU/GPU outcomes; one host; related model entries. P1 includes upstream stages; P2 is conditioned on common retained export/validation eligibility.",
+      "manuscript_section": "5.1 / 5.2; Appendix A.1",
+      "metric": "p2.mcnemar_p",
+      "population": 1186,
+      "rtol": 0.005,
+      "sources": [
+        "compatibility/post_export_runtime_transition.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 8.45e-31
+    },
+    {
+      "atol": 0,
+      "fields": "*_strict_runtime_eligible",
+      "id": "C025",
+      "limitations": "Retained-stage eligibility, not independent exports.",
+      "manuscript_section": "3.5; 5.2",
+      "metric": "eligibility.a",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1191
+    },
+    {
+      "atol": 0,
+      "fields": "*_strict_runtime_eligible",
+      "id": "C026",
+      "limitations": "Retained-stage eligibility, not independent exports.",
+      "manuscript_section": "3.5; 5.2",
+      "metric": "eligibility.b",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1186
+    },
+    {
+      "atol": 0,
+      "fields": "*_strict_runtime_eligible",
+      "id": "C027",
+      "limitations": "Retained-stage eligibility, not independent exports.",
+      "manuscript_section": "3.5; 5.2",
+      "metric": "eligibility.common",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1186
+    },
+    {
+      "atol": 0,
+      "fields": "*_strict_runtime_eligible",
+      "id": "C028",
+      "limitations": "Retained-stage eligibility, not independent exports.",
+      "manuscript_section": "3.5; 5.2",
+      "metric": "eligibility.a_only",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 5
+    },
+    {
+      "atol": 0,
+      "fields": "*_strict_runtime_eligible",
+      "id": "C029",
+      "limitations": "Retained-stage eligibility, not independent exports.",
+      "manuscript_section": "3.5; 5.2",
+      "metric": "eligibility.b_only",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "*_valid_runs > 0",
+      "id": "C030",
+      "limitations": "Union computed separately from campaign maximum.",
+      "manuscript_section": "4.1; 5.4",
+      "metric": "compatibility.a.union",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1074
+    },
+    {
+      "atol": 0,
+      "fields": "*_valid_runs > 0",
+      "id": "C031",
+      "limitations": "Union computed separately from campaign maximum.",
+      "manuscript_section": "4.1; 5.4",
+      "metric": "compatibility.b.union",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1181
+    },
+    {
+      "atol": 0,
+      "fields": "model_name",
+      "id": "C032",
+      "limitations": "Shared strict successes only.",
+      "manuscript_section": "5.3; Table 2",
+      "metric": "timing.n",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1061
+    },
+    {
+      "atol": 5e-05,
+      "fields": "a_cpu_ms,b_cpu_ms",
+      "id": "C033",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.cpu.a_median_ms",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 5.4707
+    },
+    {
+      "atol": 5e-05,
+      "fields": "a_cpu_ms,b_cpu_ms",
+      "id": "C034",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.cpu.b_median_ms",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0.478
+    },
+    {
+      "atol": 5e-05,
+      "fields": "a_cpu_ms,b_cpu_ms",
+      "id": "C035",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.cpu.difference_ms",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": -4.8325
+    },
+    {
+      "atol": 0.0005,
+      "fields": "a_cpu_ms,b_cpu_ms",
+      "id": "C036",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.cpu.ratio",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0.078
+    },
+    {
+      "atol": 0,
+      "fields": "a_cpu_ms,b_cpu_ms",
+      "id": "C037",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.cpu.b_faster",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1061
+    },
+    {
+      "atol": 1e-10,
+      "fields": "a_cpu_ms,b_cpu_ms",
+      "id": "C038",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.cpu.b_faster_percent",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 100.0
+    },
+    {
+      "atol": 0,
+      "fields": "a_cpu_ms,b_cpu_ms",
+      "id": "C039",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.cpu.wilcoxon_p",
+      "population": 1061,
+      "rtol": 0.005,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 3.75e-175
+    },
+    {
+      "atol": 0.0005,
+      "fields": "a_cpu_ms,b_cpu_ms",
+      "id": "C040",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.cpu.rank_biserial",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": -1.0
+    },
+    {
+      "atol": 5e-05,
+      "fields": "a_gpu_ms,b_gpu_ms",
+      "id": "C041",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.gpu.a_median_ms",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 2.9733
+    },
+    {
+      "atol": 5e-05,
+      "fields": "a_gpu_ms,b_gpu_ms",
+      "id": "C042",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.gpu.b_median_ms",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 2.8315
+    },
+    {
+      "atol": 5e-05,
+      "fields": "a_gpu_ms,b_gpu_ms",
+      "id": "C043",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.gpu.difference_ms",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": -0.0944
+    },
+    {
+      "atol": 0.0005,
+      "fields": "a_gpu_ms,b_gpu_ms",
+      "id": "C044",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.gpu.ratio",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0.982
+    },
+    {
+      "atol": 0,
+      "fields": "a_gpu_ms,b_gpu_ms",
+      "id": "C045",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.gpu.b_faster",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 604
+    },
+    {
+      "atol": 1e-10,
+      "fields": "a_gpu_ms,b_gpu_ms",
+      "id": "C046",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.gpu.b_faster_percent",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 56.92742695570217
+    },
+    {
+      "atol": 0,
+      "fields": "a_gpu_ms,b_gpu_ms",
+      "id": "C047",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.gpu.wilcoxon_p",
+      "population": 1061,
+      "rtol": 0.005,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 4.49e-06
+    },
+    {
+      "atol": 0.0005,
+      "fields": "a_gpu_ms,b_gpu_ms",
+      "id": "C048",
+      "limitations": "Host-output materialization included. Paired ratios are not ratios of medians; GPU result is mixed.",
+      "manuscript_section": "5.3; Table 2; Figure 5",
+      "metric": "timing.gpu.rank_biserial",
+      "population": 1061,
+      "rtol": 0,
+      "sources": [
+        "timing/paired_latency_comparison.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": -0.163
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C049",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.n",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 2
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C050",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.a_success",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 2
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C051",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.b_success",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 2
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C052",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.a_percent",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 100.0
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C053",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.b_percent",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 100.0
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C054",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.a_wilson_low_percent",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 34.2380227506653
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C055",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.a_wilson_high_percent",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 100.0
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C056",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.b_wilson_low_percent",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 34.2380227506653
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C057",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.b_wilson_high_percent",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 100.0
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C058",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.change_pp",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 0.0
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C059",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.recoveries",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C060",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_attention.regressions",
+      "population": 2,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C061",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.n",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 122
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C062",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.a_success",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 73
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C063",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.b_success",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 119
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C064",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.a_percent",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 59.83606557377049
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C065",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.b_percent",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 97.54098360655738
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C066",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.a_wilson_low_percent",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 50.965379378579456
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C067",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.a_wilson_high_percent",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 68.10623678425965
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C068",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.b_wilson_low_percent",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 93.019240156411
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C069",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.b_wilson_high_percent",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 99.16023796397793
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C070",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.change_pp",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 37.704918032786885
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C071",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.recoveries",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 47
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C072",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_transformer_like.regressions",
+      "population": 122,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 1
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C073",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.n",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 103
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C074",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.a_success",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 72
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C075",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.b_success",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 102
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C076",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.a_percent",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 69.90291262135922
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C077",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.b_percent",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 99.02912621359224
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C078",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.a_wilson_low_percent",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 60.46054631486112
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C079",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.a_wilson_high_percent",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 77.91407010516357
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C080",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.b_wilson_low_percent",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 94.70418081674632
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C081",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.b_wilson_high_percent",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 99.82841085209499
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C082",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.change_pp",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 29.12621359223301
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C083",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.recoveries",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 30
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C084",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.has_residual_connections.regressions",
+      "population": 103,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C085",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.n",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 409
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C086",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.a_success",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 383
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C087",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.b_success",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 408
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C088",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.a_percent",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 93.64303178484109
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C089",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.b_percent",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 99.75550122249389
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C090",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.a_wilson_low_percent",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 90.84863122608097
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C091",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.a_wilson_high_percent",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 95.62524206653636
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C092",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.b_wilson_low_percent",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 98.62823311223912
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C093",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.b_wilson_high_percent",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 99.9568269160389
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C094",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.change_pp",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 6.112469437652812
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C095",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.recoveries",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 25
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C096",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_resnet_like.regressions",
+      "population": 409,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C097",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.n",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 16
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C098",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.a_success",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 10
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C099",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.b_success",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 16
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C100",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.a_percent",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 62.5
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C101",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.b_percent",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 100.0
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C102",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.a_wilson_low_percent",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 38.64104054550271
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C103",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.a_wilson_high_percent",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 81.51876744113636
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C104",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.b_wilson_low_percent",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 80.63923194655636
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C105",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.b_wilson_high_percent",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 100.00000000000003
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C106",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.change_pp",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 37.5
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C107",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.recoveries",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 6
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C108",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_vgg_like.regressions",
+      "population": 16,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C109",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.n",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 73
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C110",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.a_success",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 59
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C111",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.b_success",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 73
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C112",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.a_percent",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 80.82191780821918
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C113",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.b_percent",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 100.0
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C114",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.a_wilson_low_percent",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 70.34449738686679
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C115",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.a_wilson_high_percent",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 88.2176391090128
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C116",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.b_wilson_low_percent",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 95.00079920442688
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C117",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.b_wilson_high_percent",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 99.99999999999997
+    },
+    {
+      "atol": 1e-10,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C118",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.change_pp",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 19.17808219178082
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C119",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.recoveries",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 14
+    },
+    {
+      "atol": 0,
+      "fields": "post_export_shared_eligible, architecture flag, *_valid_runs; retained Wilson endpoints",
+      "id": "C120",
+      "limitations": "Overlapping architecture flags, descriptive association only; all retained CI endpoints preserved.",
+      "manuscript_section": "5.2; Figure 4; Appendix A.3",
+      "metric": "architecture.is_mobilenet_like.regressions",
+      "population": 73,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "architecture/architecture_comparison.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C121",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.A.cpu.n",
+      "population": 1071,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 1071
+    },
+    {
+      "atol": 0.005,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C122",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.A.cpu.median_percent",
+      "population": 1071,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 12.58
+    },
+    {
+      "atol": 0.005,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C123",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.A.cpu.p95_percent",
+      "population": 1071,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 88.08
+    },
+    {
+      "atol": 0,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C124",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.A.gpu.n",
+      "population": 1071,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 1071
+    },
+    {
+      "atol": 0.005,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C125",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.A.gpu.median_percent",
+      "population": 1071,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 9.79
+    },
+    {
+      "atol": 0.005,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C126",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.A.gpu.p95_percent",
+      "population": 1071,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 77.51
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C127",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.A.success_runs.0",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 688
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C128",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.A.success_runs.1",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 3
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C129",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.A.success_runs.2",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 1
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C130",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.A.success_runs.3",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 2
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C131",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.A.success_runs.4",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C132",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.A.success_runs.5",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 1
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C133",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.A.success_runs.6",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 1067
+    },
+    {
+      "atol": 0,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C134",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.B.cpu.n",
+      "population": 1181,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 1181
+    },
+    {
+      "atol": 0.005,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C135",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.B.cpu.median_percent",
+      "population": 1181,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 2.48
+    },
+    {
+      "atol": 0.005,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C136",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.B.cpu.p95_percent",
+      "population": 1181,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 29.56
+    },
+    {
+      "atol": 0,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C137",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.B.gpu.n",
+      "population": 1181,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 1181
+    },
+    {
+      "atol": 0.005,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C138",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.B.gpu.median_percent",
+      "population": 1181,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 4.4
+    },
+    {
+      "atol": 0.005,
+      "fields": "cpu_cv,gpu_cv",
+      "id": "C139",
+      "limitations": "At least two valid runtime campaigns. Reaggregates retained model CVs, not original sample vectors.",
+      "manuscript_section": "5.4; Figure 6",
+      "metric": "repro.B.gpu.p95_percent",
+      "population": 1181,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 54.14
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C140",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.B.success_runs.0",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 581
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C141",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.B.success_runs.1",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C142",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.B.success_runs.2",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C143",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.B.success_runs.3",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C144",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.B.success_runs.4",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C145",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.B.success_runs.5",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "valid_runs",
+      "id": "C146",
+      "limitations": "Status histogram is not a maximum-campaign count.",
+      "manuscript_section": "5.4; Appendix A.2",
+      "metric": "repro.B.success_runs.6",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "reproducibility/per_model_reproducibility.csv",
+        "analysis/inputs/per_model_comparison.csv",
+        "reproducibility/reproducibility_summary.csv"
+      ],
+      "value": 1177
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C147",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C148",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1074
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C149",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1195
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C150",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 567
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C151",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C152",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 106
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C153",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 11
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C154",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C155",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C156",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C157",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C158",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C159",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A1.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C160",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C161",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1071
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C162",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1195
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C163",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 567
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C164",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C165",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 106
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C166",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 14
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C167",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C168",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C169",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C170",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C171",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C172",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A2.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C173",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C174",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1070
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C175",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1195
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C176",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 567
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C177",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C178",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 106
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C179",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 15
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C180",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C181",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C182",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C183",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C184",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C185",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A3.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C186",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C187",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1068
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C188",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1195
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C189",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 567
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C190",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C191",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 106
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C192",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 17
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C193",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C194",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C195",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C196",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C197",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C198",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A4.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C199",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C200",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1068
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C201",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1195
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C202",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 567
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C203",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C204",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 105
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C205",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 18
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C206",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C207",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C208",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C209",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C210",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C211",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A5.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C212",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C213",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1067
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C214",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1195
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C215",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 567
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C216",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C217",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 105
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C218",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 19
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C219",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C220",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C221",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C222",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C223",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C224",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.A6.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C225",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C226",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1180
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C227",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1190
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C228",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 572
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C229",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C230",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 6
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C231",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C232",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C233",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C234",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C235",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C236",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C237",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B1.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C238",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C239",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1179
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C240",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1190
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C241",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 572
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C242",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C243",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 7
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C244",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C245",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C246",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C247",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C248",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C249",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C250",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B2.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C251",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C252",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1181
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C253",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1190
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C254",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 572
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C255",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C256",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 5
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C257",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C258",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C259",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C260",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C261",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C262",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C263",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B3.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C264",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C265",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1180
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C266",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1190
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C267",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 572
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C268",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C269",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 6
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C270",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C271",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C272",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C273",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C274",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C275",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C276",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B4.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C277",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C278",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1181
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C279",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1190
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C280",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 572
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C281",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C282",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 5
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C283",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C284",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C285",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C286",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C287",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C288",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C289",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B5.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "records",
+      "id": "C290",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.records",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "valid_completed_benchmarks",
+      "id": "C291",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.valid_completed_benchmarks",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1181
+    },
+    {
+      "atol": 0,
+      "fields": "export_success",
+      "id": "C292",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.export_success",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 1190
+    },
+    {
+      "atol": 0,
+      "fields": "export_failure",
+      "id": "C293",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.export_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 572
+    },
+    {
+      "atol": 0,
+      "fields": "validation_failure",
+      "id": "C294",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.validation_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 4
+    },
+    {
+      "atol": 0,
+      "fields": "failure_runtime_load_execution",
+      "id": "C295",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.failure_runtime_load_execution",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 5
+    },
+    {
+      "atol": 0,
+      "fields": "failure_timeout",
+      "id": "C296",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.failure_timeout",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "missing_results",
+      "id": "C297",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.missing_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "unexpected_results",
+      "id": "C298",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.unexpected_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "corrupt_or_incomplete_files",
+      "id": "C299",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.corrupt_or_incomplete_files",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "duplicate_results",
+      "id": "C300",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.duplicate_results",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "cleanup_failure",
+      "id": "C301",
+      "limitations": "Record accounting; retained-stage outcomes can propagate into six records. B blank failure_timeout is explicitly zero in timeout_or_skipped and has no timeout category.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.cleanup_failure",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "export_success = validation_failure + unity_success + runtime failures + timeout",
+      "id": "C302",
+      "limitations": "Record identity only; no claim of six independent exports.",
+      "manuscript_section": "Appendix A.2; Table 4",
+      "metric": "campaign.B6.accounting_reconciles",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "runtime,category,record_failures; campaign failure fields",
+      "id": "C303",
+      "limitations": "Runtime-campaign record totals, not independent export attempts or unique model counts.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "failures.A.export",
+      "population": 10572,
+      "rtol": 0,
+      "sources": [
+        "failures/failure_category_summary.csv",
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 3402
+    },
+    {
+      "atol": 0,
+      "fields": "runtime,category,record_failures; campaign failure fields",
+      "id": "C304",
+      "limitations": "Runtime-campaign record totals, not independent export attempts or unique model counts.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "failures.A.validation",
+      "population": 10572,
+      "rtol": 0,
+      "sources": [
+        "failures/failure_category_summary.csv",
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 24
+    },
+    {
+      "atol": 0,
+      "fields": "runtime,category,record_failures; campaign failure fields",
+      "id": "C305",
+      "limitations": "Runtime-campaign record totals, not independent export attempts or unique model counts.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "failures.A.runtime",
+      "population": 10572,
+      "rtol": 0,
+      "sources": [
+        "failures/failure_category_summary.csv",
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 634
+    },
+    {
+      "atol": 0,
+      "fields": "runtime,category,record_failures; campaign failure fields",
+      "id": "C306",
+      "limitations": "Runtime-campaign record totals, not independent export attempts or unique model counts.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "failures.A.timeout",
+      "population": 10572,
+      "rtol": 0,
+      "sources": [
+        "failures/failure_category_summary.csv",
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 94
+    },
+    {
+      "atol": 0,
+      "fields": "runtime,category,record_failures; campaign failure fields",
+      "id": "C307",
+      "limitations": "Runtime-campaign record totals, not independent export attempts or unique model counts.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "failures.B.export",
+      "population": 10572,
+      "rtol": 0,
+      "sources": [
+        "failures/failure_category_summary.csv",
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 3432
+    },
+    {
+      "atol": 0,
+      "fields": "runtime,category,record_failures; campaign failure fields",
+      "id": "C308",
+      "limitations": "Runtime-campaign record totals, not independent export attempts or unique model counts.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "failures.B.validation",
+      "population": 10572,
+      "rtol": 0,
+      "sources": [
+        "failures/failure_category_summary.csv",
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 24
+    },
+    {
+      "atol": 0,
+      "fields": "runtime,category,record_failures; campaign failure fields",
+      "id": "C309",
+      "limitations": "Runtime-campaign record totals, not independent export attempts or unique model counts.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "failures.B.runtime",
+      "population": 10572,
+      "rtol": 0,
+      "sources": [
+        "failures/failure_category_summary.csv",
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 34
+    },
+    {
+      "atol": 0,
+      "fields": "runtime,category,record_failures; campaign failure fields",
+      "id": "C310",
+      "limitations": "Runtime-campaign record totals, not independent export attempts or unique model counts.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "failures.B.timeout",
+      "population": 10572,
+      "rtol": 0,
+      "sources": [
+        "failures/failure_category_summary.csv",
+        "campaign_audit/campaign_audit.csv"
+      ],
+      "value": 0
+    },
+    {
+      "atol": 0,
+      "fields": "flops,total_params,total_layers,*_cpu_mean_ms",
+      "id": "C311",
+      "limitations": "Valid timing and complete complexity fields; descriptive only.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.A.n",
+      "population": 1068,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 1068
+    },
+    {
+      "atol": 0,
+      "fields": "flops,total_params,total_layers,*_cpu_mean_ms",
+      "id": "C312",
+      "limitations": "Valid timing and complete complexity fields; descriptive only.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.B.n",
+      "population": 1172,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 1172
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C313",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.A.cpu.flops.rho",
+      "population": 1068,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.6233114716779099
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C314",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.A.cpu.total_params.rho",
+      "population": 1068,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.6427019544156384
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C315",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.A.cpu.total_layers.rho",
+      "population": 1068,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.6320770146679466
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C316",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.A.gpu.flops.rho",
+      "population": 1068,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.6752968286945356
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C317",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.A.gpu.total_params.rho",
+      "population": 1068,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.785499009400061
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C318",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.A.gpu.total_layers.rho",
+      "population": 1068,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.8123810177217183
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C319",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.B.cpu.flops.rho",
+      "population": 1172,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.8153874689904852
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C320",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.B.cpu.total_params.rho",
+      "population": 1172,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.9061828858738565
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C321",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.B.cpu.total_layers.rho",
+      "population": 1172,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.8635808009479706
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C322",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.B.gpu.flops.rho",
+      "population": 1172,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.7011871829834194
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C323",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.B.gpu.total_params.rho",
+      "population": 1172,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.7873963287386384
+    },
+    {
+      "atol": 1e-12,
+      "fields": "feature and *_mean_ms",
+      "id": "C324",
+      "limitations": "Expected value transcribed from retained correlation table; independently regenerated from model rows.",
+      "manuscript_section": "5.4; Appendix A.4",
+      "metric": "complexity.B.gpu.total_layers.rho",
+      "population": 1172,
+      "rtol": 0,
+      "sources": [
+        "analysis/inputs/per_model_comparison.csv",
+        "complexity/complexity_correlations.csv"
+      ],
+      "value": 0.7497598723035582
+    },
+    {
+      "atol": 0,
+      "fields": "model_name,input shapes",
+      "id": "C325",
+      "limitations": "Same physical host; checkpoint, input, warm-up and completion-boundary differences; context only.",
+      "manuscript_section": "4.3; 6.4; Appendix A.5",
+      "metric": "pt.n",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 1057
+    },
+    {
+      "atol": 0,
+      "fields": "model_name,input shapes",
+      "id": "C326",
+      "limitations": "Same physical host; checkpoint, input, warm-up and completion-boundary differences; context only.",
+      "manuscript_section": "4.3; 6.4; Appendix A.5",
+      "metric": "pt.shape_aligned",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 227
+    },
+    {
+      "atol": 0,
+      "fields": "model_name,input shapes",
+      "id": "C327",
+      "limitations": "Same physical host; checkpoint, input, warm-up and completion-boundary differences; context only.",
+      "manuscript_section": "4.3; 6.4; Appendix A.5",
+      "metric": "pt.shape_mismatch",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 830
+    },
+    {
+      "atol": 5e-05,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C328",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.cpu.pt_median_ms",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0.9903
+    },
+    {
+      "atol": 5e-05,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C329",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.cpu.a_median_ms",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 5.4707
+    },
+    {
+      "atol": 5e-05,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C330",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.cpu.b_median_ms",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0.4828
+    },
+    {
+      "atol": 5e-05,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C331",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.cpu.a_ratio",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 6.2421
+    },
+    {
+      "atol": 5e-05,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C332",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.cpu.b_ratio",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0.5916
+    },
+    {
+      "atol": 0.0005,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C333",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.cpu.a_rho",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0.712
+    },
+    {
+      "atol": 0.0005,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C334",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.cpu.b_rho",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0.928
+    },
+    {
+      "atol": 5e-05,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C335",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.gpu.pt_median_ms",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0.3749
+    },
+    {
+      "atol": 5e-05,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C336",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.gpu.a_median_ms",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 2.9993
+    },
+    {
+      "atol": 5e-05,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C337",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.gpu.b_median_ms",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 2.834
+    },
+    {
+      "atol": 5e-05,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C338",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.gpu.a_ratio",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 7.4516
+    },
+    {
+      "atol": 5e-05,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C339",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.gpu.b_ratio",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 7.1882
+    },
+    {
+      "atol": 0.0005,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C340",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.gpu.a_rho",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0.824
+    },
+    {
+      "atol": 0.0005,
+      "fields": "pt_*_ms,a_*_ms,b_*_ms",
+      "id": "C341",
+      "limitations": "Contextual comparison only; not a universal overhead multiplier.",
+      "manuscript_section": "Appendix A.5; Table 6",
+      "metric": "pt.gpu.b_rho",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 0.789
+    },
+    {
+      "atol": 0,
+      "fields": "abs(Unity/PT - 1)",
+      "id": "C342",
+      "limitations": "Descriptive same-host ratio distance; not matched protocol.",
+      "manuscript_section": "6.4 contextual interpretation",
+      "metric": "pt.cpu.b_closer",
+      "population": 1057,
+      "rtol": 0,
+      "sources": [
+        "pt_context/matched_pt_a_b.csv",
+        "pt_context/model_overlap.csv",
+        "analysis/inputs/per_model_comparison.csv"
+      ],
+      "value": 824
+    },
+    {
+      "atol": 0,
+      "fields": "status",
+      "id": "C343",
+      "limitations": "Projected from retained historical aggregate; historical timing was non-blocking and is not final latency evidence.",
+      "manuscript_section": "1; 3.2",
+      "metric": "historical.n",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "provenance/historical_status.csv"
+      ],
+      "value": 1762
+    },
+    {
+      "atol": 0,
+      "fields": "status",
+      "id": "C344",
+      "limitations": "Projected from retained historical aggregate; historical timing was non-blocking and is not final latency evidence.",
+      "manuscript_section": "1; 3.2",
+      "metric": "historical.exports",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "provenance/historical_status.csv"
+      ],
+      "value": 1732
+    },
+    {
+      "atol": 0,
+      "fields": "status",
+      "id": "C345",
+      "limitations": "Projected from retained historical aggregate; historical timing was non-blocking and is not final latency evidence.",
+      "manuscript_section": "1; 3.2",
+      "metric": "historical.execution_completions",
+      "population": 1762,
+      "rtol": 0,
+      "sources": [
+        "provenance/historical_status.csv"
+      ],
+      "value": 814
+    },
+    {
+      "atol": 0,
+      "fields": "blocking output call in audited C# source",
+      "id": "C346",
+      "limitations": "Static source audit, not execution or proof of output parity.",
+      "manuscript_section": "3.3 / 3.4; Figure 1; Listing 1",
+      "metric": "semantics.a_materializes",
+      "population": "warm-up and timed paths",
+      "rtol": 0,
+      "sources": [
+        "provenance/runtime_source/Experiment_A_BenchmarkCLI.cs.txt"
+      ],
+      "value": true
+    },
+    {
+      "atol": 0,
+      "fields": "blocking output call in audited C# source",
+      "id": "C347",
+      "limitations": "Static source audit, not execution or proof of output parity.",
+      "manuscript_section": "3.3 / 3.4; Figure 1; Listing 1",
+      "metric": "semantics.b_materializes",
+      "population": "warm-up and timed paths",
+      "rtol": 0,
+      "sources": [
+        "provenance/runtime_source/Experiment_B_BenchmarkCLI.cs.txt"
+      ],
+      "value": true
+    }
+  ],
+  "policy": "Approved headline values are fixed. Additional detailed reference counts/CIs/rhos are transcribed from retained tables. Reproduction never overwrites this file. Integer equality is exact; decimal tolerances are half the last manuscript decimal; small p values use 0.5 percent relative tolerance for published rounding.",
+  "version": "1.0.0"
+}

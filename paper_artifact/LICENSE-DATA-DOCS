@@ -1,0 +1,22 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The derived numerical CSV/JSON evidence and artifact-authored documentation
+and original explanatory material in this artifact are licensed under the
+Creative Commons Attribution 4.0 International license.
+
+License notice: https://creativecommons.org/licenses/by/4.0/
+Canonical legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Attribution should identify:
+Syed Ali Haider; Dmytro Ignatov; Radu Timofte.
+From Barracuda to Sentis: Completion-Aware Compatibility Across 1,762 Vision
+Models in Unity. Retained-evidence reproducibility artifact, version 1.0.0.
+Source repository: https://github.com/ABrain-One/nn-vr
+
+Retain attribution and the license link, and indicate modifications, as required
+by the license. The linked legal code governs the grant.
+
+This notice does not apply CC BY to artifact code, copied project-source
+snapshots, or third-party license notices. Artifact-authored code is covered
+by LICENSE-CODE; retained project-source snapshots keep their existing MIT
+notices under provenance/licenses/. See LICENSE_NOTES.md for scope.

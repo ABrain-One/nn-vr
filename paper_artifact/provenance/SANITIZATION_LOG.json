@@ -1,0 +1,9 @@
+{
+  "absolute_path_policy": "Replace source machine roots by repository labels, without changing numerical values.",
+  "historical_projection": "Only model_name,status are retained; excluded timings/error_msg were not needed.",
+  "host_filename_policy": "Local host filenames become PT_HOST.json / UNITY_HOST.json. Hardware model MS-7E27 remains public experimental provenance.",
+  "transformed_destinations": [
+    "analysis/inputs/summary.json",
+    "provenance/historical_status.csv"
+  ]
+}

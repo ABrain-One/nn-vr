@@ -1,0 +1,64 @@
+runtime,version,observed_error_label,record_failures
+A,1,ArgumentException,2
+A,1,AssertionException,14
+A,1,Benchmark timeout,11
+A,1,No imported NNModel asset,82
+A,1,NotImplementedException,8
+A,1,ONNX export failure,567
+A,1,ONNX validation failure,4
+A,2,ArgumentException,2
+A,2,AssertionException,14
+A,2,Benchmark timeout,14
+A,2,No imported NNModel asset,82
+A,2,NotImplementedException,8
+A,2,ONNX export failure,567
+A,2,ONNX validation failure,4
+A,3,ArgumentException,2
+A,3,AssertionException,14
+A,3,Benchmark timeout,15
+A,3,No imported NNModel asset,82
+A,3,NotImplementedException,8
+A,3,ONNX export failure,567
+A,3,ONNX validation failure,4
+A,4,ArgumentException,2
+A,4,AssertionException,14
+A,4,Benchmark timeout,17
+A,4,No imported NNModel asset,82
+A,4,NotImplementedException,8
+A,4,ONNX export failure,567
+A,4,ONNX validation failure,4
+A,5,ArgumentException,2
+A,5,AssertionException,14
+A,5,Benchmark timeout,18
+A,5,No imported NNModel asset,82
+A,5,NotImplementedException,7
+A,5,ONNX export failure,567
+A,5,ONNX validation failure,4
+A,6,ArgumentException,2
+A,6,AssertionException,14
+A,6,Benchmark timeout,19
+A,6,No imported NNModel asset,82
+A,6,NotImplementedException,7
+A,6,ONNX export failure,567
+A,6,ONNX validation failure,4
+B,1,No imported ModelAsset,5
+B,1,ONNX export failure,572
+B,1,ONNX validation failure,4
+B,1,Unity 6 process exit code 1,1
+B,2,No imported ModelAsset,5
+B,2,ONNX export failure,572
+B,2,ONNX validation failure,4
+B,2,Unity 6 process exit code 1,2
+B,3,No imported ModelAsset,5
+B,3,ONNX export failure,572
+B,3,ONNX validation failure,4
+B,4,No imported ModelAsset,5
+B,4,ONNX export failure,572
+B,4,ONNX validation failure,4
+B,4,Unity 6 process exit code 1,1
+B,5,No imported ModelAsset,5
+B,5,ONNX export failure,572
+B,5,ONNX validation failure,4
+B,6,No imported ModelAsset,5
+B,6,ONNX export failure,572
+B,6,ONNX validation failure,4

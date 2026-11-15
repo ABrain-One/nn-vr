@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Please cite the associated paper when using this retained-evidence reproducibility artifact."
+type: dataset
+title: "From Barracuda to Sentis: Completion-Aware Compatibility Across 1,762 Vision Models in Unity"
+version: "1.0.0"
+authors:
+  - family-names: Haider
+    given-names: Syed Ali
+  - family-names: Ignatov
+    given-names: Dmytro
+  - family-names: Timofte
+    given-names: Radu
+repository-code: "https://github.com/ABrain-One/nn-vr"
+abstract: "Retained derived evidence and offline reproduction scripts for the completion-aware Barracuda/Sentis comparison across 1,762 vision models in Unity."

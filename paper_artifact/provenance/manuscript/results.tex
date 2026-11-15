@@ -1,0 +1,69 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{RQ1: End-to-end compatibility}
+Across P1, strict full-pipeline completion is 1,067/1,762 (60.56\%) for \A and 1,177/1,762 (66.80\%) for \B, a net gain of 110 models or 6.24 percentage points. The paired transitions are 1,061 PASS$\rightarrow$PASS, 116 FAIL$\rightarrow$PASS, 6 PASS$\rightarrow$FAIL, and 579 FAIL$\rightarrow$FAIL. Exact McNemar testing gives $p=1.60\times10^{-27}$; the transition counts and percentage-point gain describe the effect magnitude directly. The strict criterion includes acquisition and retained export/validation, so it answers whether an entry completed the recorded workflow, not runtime compatibility alone.
+
+The full-pipeline result is deliberately conservative. An entry must satisfy every recorded prerequisite and must provide a valid completed CPU/GPU benchmark in every runtime campaign. Thus, the 579 persistent P1 failures do not all designate a Unity runtime incompatibility: they include entries that did not reach a valid completed benchmark through the retained workflow. The 116 recoveries and six regressions are paired operational outcomes under the two experiment workflows. They should not be read as a list of fixed or newly broken operators.
+
+The runtime-campaign audit gives context for this strict result. A's valid counts range from 1,074 to 1,067 across the six runtime campaigns, while B ranges from 1,179 to 1,181. The strict intersection intentionally lies at or below every runtime-campaign count. Reporting only a maximum or an at-least-one-valid union would answer a different question, namely whether a model ever completed, and would obscure the observed A runtime-campaign variability. The full twelve-runtime-campaign stage accounting is retained in Appendix~\ref{app:evidence}.
+
+\TransitionFigure
+
+\subsection{RQ2: Runtime-specific compatibility and recovery}
+P2 holds common retained export/validation eligibility fixed. Barracuda succeeds for 1,064/1,186 models (89.71\%) and Sentis succeeds for 1,177/1,186 (99.24\%), a 9.53 percentage-point increase. Its transition counts are 1,061 PASS$\rightarrow$PASS, 116 FAIL$\rightarrow$PASS, 3 PASS$\rightarrow$FAIL, and 6 FAIL$\rightarrow$FAIL, with exact McNemar $p=8.45\times10^{-31}$. This comparison most directly shows that Sentis~2.6.1 substantially reduces observed Barracuda-specific runtime failures among models that reach both Unity runtime comparisons. It does not make the five A-only retained-stage eligibility differences into runtime outcomes, and it does not identify a causal operator-level mechanism.
+
+The conditioning step matters because A has 1,191 retained export/validation-eligible models and B has 1,186. The five A-only cases are excluded from P2; B has no B-only cases. Consequently, P2 is not a claim that export behavior was held byte-identical, nor that every upstream failure disappeared. It is an explicit comparison among models that reproducibly reached the recorded Unity stage in both experimental workflows. The remaining nine strict Sentis runtime failures in P2 also show that a newer runtime did not make execution automatic for every eligible entry.
+
+The paired P2 contrast is concentrated in recoveries rather than a symmetric turnover. It contains 116 FAIL$\rightarrow$PASS transitions and three PASS$\rightarrow$FAIL transitions, compared with 1,061 entries that remain PASS and six that remain FAIL. These counts make the practical direction transparent without assigning a mechanism. In particular, ``Barracuda-specific runtime failures'' refers to the observed stage contrast under the recorded contract; it does not label every Barracuda failure as a permanent property of a model.
+
+Architecture flags overlap and are descriptive. The largest well-powered observed change is Transformer-like: 73/122 (59.84\%) Barracuda successes become 119/122 (97.54\%) Sentis successes, with 47 recoveries, one regression, and a +37.70 percentage-point change. Figure~\ref{fig:architecture} shows additional overlapping groups; the complete interval table is in the appendix. These associations support no claim that a particular operator or graph transformation caused recovery.
+
+Other flagged groups reinforce the descriptive pattern without changing its interpretation. Residual-connection models increase from 72/103 to 102/103, MobileNet-like models from 59/73 to 73/73, and ResNet-like models from 383/409 to 408/409. The two-model attention subset is 100\% under both runtimes and is too small for a population-level conclusion. Reporting these groups alongside their denominators and intervals is preferable to treating labels as a post hoc causal taxonomy.
+
+\ArchitectureFigure
+
+\subsection{RQ3: Completion-aware performance}
+P3 contains 1,061 models with valid completed CPU and GPU benchmarks in all six runtime campaigns of both experiments. On CPU, the median per-model campaign mean is 5.4707\ms{} for Barracuda and 0.4780\ms{} for Sentis. The median paired $\B-\A$ difference is $-4.8325\ms$, the median per-model ratio is 0.078, and Sentis is lower for all 1,061 pairs. The paired Wilcoxon result is $p=3.75\times10^{-175}$ with rank-biserial effect $-1.000$. Thus, under this stated completion-aware CPU boundary, B is lower for every paired model; the finding is host-, backend-, and endpoint-specific and is not a universal multiplicative speed claim.
+
+The CPU result is not an argument that output materialization can be ignored. It is precisely a result under an endpoint that includes the requested host array. Nor does its uniform paired direction establish why it occurs: the comparison changes Unity/runtime generation and implementation context together. The shared strict-success intersection prevents a comparison of differently selected successful-model sets, but it necessarily excludes models that did not complete under one runtime.
+
+On GPU, Barracuda and Sentis medians are 2.9733\ms{} and 2.8315\ms. The median paired difference is $-0.0944\ms$, the median ratio is 0.982, and Sentis is lower for 604/1,061 models (56.93\%). The paired test is $p=4.49\times10^{-6}$ with rank-biserial effect $-0.163$. The detectable difference is small and heterogeneous, so it is not a broad GPU-speedup claim (Figure~\ref{fig:timing}).
+
+The contrast between CPU and GPU is an important negative result. It cautions against summarizing runtime evolution with a single latency number or extrapolating a CPU result to the selected GPU path. The timing distributions, backend implementations, synchronization/readback behavior, and model-specific inputs remain part of the measured system. A causal performance decomposition would require interventions and instrumentation not contained in the retained artifacts.
+
+The timing population is also intentionally narrower than compatibility populations. A model can contribute to a compatibility transition without contributing to P3, because P3 requires all CPU and GPU measurements to be valid and completed under both runtimes in every runtime campaign. This selection is necessary for paired timing interpretation. It should not be used to backfill a latency estimate for models that failed or were status-variable under the protocol.
+
+\TimingFigure
+
+\begin{table*}[t]
+\centering
+\caption{Paired completion-aware timing in P3 ($n=1{,}061$). Medians are per-model runtime-campaign-mean summaries; ratios are per-model B/A ratios.}
+\label{tab:timing}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Backend & A median & B median & Median $B-A$ & Median B/A & B lower & Wilcoxon $p$ / $r_{rb}$ \\
+\midrule
+CPU & 5.4707\ms{} & 0.4780\ms{} & $-4.8325\ms{}$ & 0.078 & 1061/1061 & $3.75\times10^{-175}$ / $-1.000$ \\
+GPU & 2.9733\ms{} & 2.8315\ms{} & $-0.0944\ms{}$ & 0.982 & 604/1061 & $4.49\times10^{-6}$ / $-0.163$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\subsection{RQ4: Repeatability and failure localization}
+The A valid-completion counts decline across runtime campaigns as 1,074, 1,071, 1,070, 1,068, 1,068, and 1,067; A timeout counts are 11, 14, 15, 17, 18, and 19. This monotonic pattern is observed, but retained evidence does not establish its cause. The corresponding B valid counts are 1,180, 1,179, 1,181, 1,180, 1,181, and 1,181, with zero timeouts. Separately computed at-least-one-valid unions happen to equal the maximum runtime-campaign counts, 1,074 for A and 1,181 for B; they are not inferred from those maxima.
+
+The observed pattern is reported because it changes how the strict rule should be read. It supports retaining both per-runtime-campaign counts and all-six intersections, rather than choosing a single runtime campaign as a representative success rate. It does not support a claim about cumulative resource pressure, campaign ordering, scheduling, or timeout policy, because the retained evidence does not disambiguate those hypotheses.
+
+For models with repeated valid observations, the A CPU median/p95 CV is 12.58\%/88.08\%, versus 2.48\%/29.56\% for B. The GPU values are 9.79\%/77.51\% for A and 4.40\%/54.14\% for B (Figure~\ref{fig:repro}). These values show lower observed central and upper-tail CV summaries for B, especially on CPU; they do not establish deterministic behavior under all system states.
+
+At the record level across six runtime campaigns, A has 3,402 export failures, 24 ONNX validation failures, 634 runtime load/execution failures, and 94 timeouts. B has 3,432, 24, 34, and 0 respectively. These are runtime-campaign-record totals, not unique-model counts or thousands of independent exports: retained-stage outcomes are propagated into six runtime records. The near-similar retained-stage burden and large runtime-stage contrast locate the largest observed A/B difference at the Unity stage, while the logs do not prove a root cause.
+
+The accounting also avoids a misleading use of the raw Unity-failure field. In A, that field mixes runtime failure and timeout records; using its total would overstate the explicit runtime load/execution category. The reconciled taxonomy keeps 634 A runtime records distinct from 94 timeouts. In B, 34 explicit runtime records and zero timeouts are retained. The difference is large enough to motivate the runtime-specific comparison, but a count category is still not a causal explanation.
+
+Complexity metadata gives a complementary but limited descriptive view. Among records with complete FLOPs, parameter, and layer fields, the retained correlations are positive for timing, with denominators of 1,068 for A and 1,172 for B. The strongest listed association is B CPU timing with parameter count ($\rho=0.906$). These results do not make complexity a portable latency predictor, because they are conditional on this host, runtime, endpoint, and metadata-complete subset.
+
+\ReproFigure
